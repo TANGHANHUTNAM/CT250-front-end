@@ -1,7 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
+@layer base {
+  :root {
+    --color-primary: #ffffff;
+    --color-secondary: #000000;
+    --color-tertiary: #d69c52;
+    --color-bg-primary: #143b36;
+    --color-bg-secondary: #071513;
+    --color-bg-tertiary: #10302c;
+  }
+}
+
+
+/* :root {  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -68,4 +80,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
