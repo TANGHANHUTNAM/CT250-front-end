@@ -1,0 +1,9 @@
+a.active {
+  color: var(--color-tertiary);
+}
+
+@media (min-width: 640px) and (max-width: 1110px) {
+  .nav-link-name {
+    font-size: clamp(0.6rem, 1.2vw, 1.5rem);
+  }
+}
