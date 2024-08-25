@@ -16,7 +16,7 @@ const HeaderNav = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="relative headernav-container flex items-center justify-between py-3 bg-bgPrimary px-2 xl:px-[80px] lg:px-[20px] sm:px-[10px]">
+      <div className="relative max-w-screen-xl mx-auto w-full flex items-center justify-between p-3">
         {/* Logo */}
         <div>
           <NavLink
@@ -119,8 +119,8 @@ const HeaderNav = () => {
           {/* Cart-icons */}
           <Link to="/cart/12" className="relative">
             <BsCart3 className="text-2xl text-primary cursor-pointer" />
-            <p className="absolute flex justify-center items-center rounded-full bg-tertiary text-sm text-primary aspect-square w-[20px] h-[20px] text-[10px] -top-2 -right-2.5">
-              9
+            <p className="absolute flex justify-center items-center rounded-full bg-tertiary text-sm text-primary aspect-square w-[20px] h-[20px] text-[9px] -top-2 -right-2.5">
+              99+
             </p>
           </Link>
           <div className="group relative">
