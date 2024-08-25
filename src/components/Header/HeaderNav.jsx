@@ -203,7 +203,7 @@ const HeaderNav = () => {
 
       {/* Sidebar menu for screen small*/}
       <div
-        className={`absolute z-100 text-primary top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
+        className={`fixed text-primary top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
           visable ? "w-full " : "w-0"
         } `}
       >
