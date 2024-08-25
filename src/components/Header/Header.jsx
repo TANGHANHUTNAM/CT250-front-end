@@ -1,5 +1,11 @@
+import HeaderNav from "./HeaderNav";
+
 const Header = () => {
-  return <>Header</>;
+  return (
+    <div className="header-container">
+      <HeaderNav />
+    </div>
+  );
 };
 
 export default Header;

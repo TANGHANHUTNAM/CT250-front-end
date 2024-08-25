@@ -21,6 +21,7 @@ import PaymentPolicyPage from "../pages/PaymentPolicy";
 import InformationSecurityPage from "../pages/InformationSecurity";
 import NotFoundPage from "../pages/NotFound";
 import PaymentPage from "../pages/Payment";
+import FavoriteDishPage from "../pages/FavoriteDish";
 
 const routes = [
   {
@@ -102,6 +103,10 @@ const routes = [
       {
         path: "information-security",
         element: <InformationSecurityPage />,
+      },
+      {
+        path: "favorite-dish/:id",
+        element: <FavoriteDishPage />,
       },
       {
         path: "*",
