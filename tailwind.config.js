@@ -17,7 +17,7 @@ export default {
         // xanh dam
         bgTertiary: "#10302c",
         // opacity bg sidebar
-        bgOpacity: "rgba(1, 1, 1, 0.4)",
+        bgOpacity: "rgba(1, 1, 1, 0.8)",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

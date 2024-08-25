@@ -142,7 +142,10 @@ const HeaderNav = () => {
                 >
                   Đăng ký
                 </Link>
-                <Link className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500">
+                <Link
+                  to={`/favorite-dish/${12}`}
+                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                >
                   Món ăn yêu thích
                 </Link>
               </div>
