@@ -1,31 +1,35 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./Footer.css";
-
+import Zalo from "../../assets/zalo.svg";
+import Facebook from "../../assets/facebook.svg";
+import Youtube from "../../assets/youtube.svg";
+import Payment1 from "../../assets/payment1.webp";
+import Payment2 from "../../assets/payment2.webp";
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white">
-      <div className="py-10 lg:ml-4">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap">
-            <div className="w-full md:w-full lg:w-3/12 mb-8 lg:mb-0 mr-5">
+    <footer className="bg-bgPrimary text-white">
+      <div className="py-12 xl:mx-[70px]">
+        <div className="mx-[10px]">
+          <div className="flex flex-wrap text-[14px] font-medium">
+            <div className="w-full md:w-full lg:w-4/12 mb-8 lg:mb-0">
               <div className="mb-6">
                 <NavLink
                   to="/"
-                  className="w-[120px] flex items-center justify-between sm:w-[130px] lg:w-[140px]"
+                  className="w-[150px] flex items-center justify-between sm:w-[200px]"
                 >
                   <img src={logo} alt="logo" />
                 </NavLink>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-6 font-medium">
                 Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận
                 tâm phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt vời
                 nhất. Các món ăn với công thức độc quyền sẽ mang lại hương vị
-                mới mẻ cho thực khách. Dola Restaurant xin chân thành cảm ơn.
+                mới mẻ cho thực khách. Hương Vị Việt xin chân thành cảm ơn.
               </div>
               <div>
-                <div className="font-semibold">Cửa hàng chính</div>
+                <div className="text-[16px] font-semibold">Cửa hàng chính</div>
                 <ul className="mt-2 space-y-2">
                   <li>
                     <b>Địa chỉ: </b>
@@ -38,7 +42,7 @@ const Footer = () => {
                     <a
                       title="0292 3831 530"
                       href="tel:0292 3831 530"
-                      className="hover:underline"
+                      className="hover:text-tertiary"
                     >
                       0292 3831 530
                     </a>
@@ -48,124 +52,96 @@ const Footer = () => {
                     <a
                       title="dhct@ctu.edu.vn"
                       href="mailto:dhct@ctu.edu.vn"
-                      className="hover:underline"
+                      className="hover:text-tertiary"
                     >
                       dhct@ctu.edu.vn
                     </a>
                   </li>
                 </ul>
-
-                <button className="mt-4 !bg-yellow-600 p-3 rounded-lg hover:!bg-yellow-700">
-                  Hệ thống cửa hàng
-                </button>
               </div>
             </div>
-            <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0">
-              <h4 className="font-semibold mb-4">
-                Hướng dẫn
-                <span className="block h-1 w-24 bg-white mt-1"></span>
-              </h4>
-              <ul className="space-y-2">
+            <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0 lg:px-10">
+              <h4 className=" mb-4 text-[16px] font-semibold">Hướng dẫn</h4>
+              <ul className="space-y-4">
                 <li>
-                  <a
-                    href="/huong-dan-mua-hang"
-                    title="Hướng dẫn mua hàng"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/buying-guide"
                   >
                     Hướng dẫn mua hàng
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/huong-dan-thanh-toan"
-                    title="Hướng dẫn thanh toán"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/payment-instruction"
                   >
                     Hướng dẫn thanh toán
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/account/register"
-                    title="Đăng ký thành viên"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/register"
                   >
                     Đăng ký thành viên
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/lien-he"
-                    title="Hỗ trợ khách hàng"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/contact"
                   >
                     Hỗ trợ khách hàng
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0">
-              <h4 className="font-semibold mb-4">
-                Chính sách
-                <span className="block h-1 w-24 bg-white mt-1"></span>
-              </h4>
-              <ul className="space-y-2">
+            <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0 lg:px-10">
+              <h4 className=" mb-4 text-[16px] font-semibold">Chính sách</h4>
+              <ul className="space-y-4">
                 <li>
-                  <a
-                    href="/chinh-sach-thanh-vien"
-                    title="Chính sách thành viên"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/membership-policy"
                   >
                     Chính sách thành viên
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/chinh-sach-thanh-toan"
-                    title="Chính sách thanh toán"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/payment-policy"
                   >
                     Chính sách thanh toán
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/huong-dan-mua-hang"
-                    title="Hướng dẫn mua hàng"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/buying-guide"
                   >
                     Hướng dẫn mua hàng
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a
-                    href="/bao-mat-thong-tin-ca-nhan"
-                    title="Bảo mật thông tin cá nhân"
-                    className="hover:underline"
+                  <Link
+                    className="hover:text-tertiary duration-300"
+                    to="/information-security"
                   >
-                    Bảo mật thông tin cá nhân
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="/qua-tang-tri-an"
-                    title="Quà tặng tri ân"
-                    className="hover:underline"
-                  >
-                    Quà tặng tri ân
-                  </a>
+                    Bảo mật thông tin
+                  </Link>
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-4/12 lg:w-2/12">
-              <h4 className="font-semibold mb-4">Mạng xã hội</h4>
+            <div className="w-full md:w-4/12 lg:w-2/12 lg:ps-6">
+              <h4 className=" mb-4 text-[16px] font-semibold">Mạng xã hội</h4>
               <ul className="flex space-x-4 mb-6">
                 <li>
                   <a href="#" title="Zalo">
@@ -173,7 +149,7 @@ const Footer = () => {
                       width="32"
                       height="32"
                       title="Zalo"
-                      src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/zalo.svg?1705898809027"
+                      src={Zalo}
                       alt="Zalo"
                     />
                   </a>
@@ -184,7 +160,7 @@ const Footer = () => {
                       width="32"
                       height="32"
                       title="Facebook"
-                      src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/facebook.svg?1705898809027"
+                      src={Facebook}
                       alt="Facebook"
                     />
                   </a>
@@ -195,60 +171,33 @@ const Footer = () => {
                       width="32"
                       height="32"
                       title="Youtube"
-                      src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/youtube.svg?1705898809027"
+                      src={Youtube}
                       alt="Youtube"
                     />
                   </a>
                 </li>
               </ul>
-              <h4 className="font-semibold mb-4">Hình thức thanh toán</h4>
+              <h4 className=" mb-4 text-[16px] font-semibold">
+                Hình thức thanh toán
+              </h4>
               <ul className="flex space-x-4">
                 <li>
-                  <img
-                    width="57"
-                    height="35"
-                    alt="Payment 1"
-                    src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/payment_1.png?1705898809027"
-                  />
+                  <img width="57" height="35" alt="Payment 1" src={Payment1} />
                 </li>
                 <li>
-                  <img
-                    width="57"
-                    height="35"
-                    alt="Payment 2"
-                    src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/payment_2.png?1705898809027"
-                  />
-                </li>
-                <li>
-                  <img
-                    width="57"
-                    height="35"
-                    alt="Payment 3"
-                    src="//bizweb.dktcdn.net/100/469/097/themes/882205/assets/payment_3.png?1705898809027"
-                  />
+                  <img width="57" height="35" alt="Payment 2" src={Payment2} />
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div id="copyright" className="bg-gray-900 py-4">
+      <div id="copyright" className="bg-bgTertiary py-4">
         <div className="container mx-auto px-4 text-center text-sm">
           <span className="mr-1">
-            Bản quyền thuộc về <b>Dola theme</b>.
+            Bản quyền thuộc về <b>CTU</b>.
           </span>
-          <span>
-            Cung cấp bởi
-            <a
-              href="https://www.sapo.vn/?utm_campaign=cpn:kho_theme-plm:footer&utm_source=Tu_nhien&utm_medium=referral&utm_content=fm:text_link-km:-sz:&utm_term=&campaign=kho_theme-sapo"
-              rel="noopener"
-              title="Sapo"
-              target="_blank"
-              className="text-blue-400 hover:underline ml-1"
-            >
-              Sapo
-            </a>
-          </span>
+          <span>Cung cấp bởi nhóm 4 CT250</span>
         </div>
       </div>
     </footer>
