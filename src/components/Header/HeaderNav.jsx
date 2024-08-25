@@ -21,7 +21,7 @@ const HeaderNav = () => {
         <div>
           <NavLink
             to="/"
-            className="w-[120px] flex items-center justify-between sm:w-[130px] lg:w-[140px]"
+            className="w-[120px] h-[60px] flex items-center justify-between sm:w-[130px] lg:w-[140px]"
           >
             <img src={logo} alt="logo" />
           </NavLink>
