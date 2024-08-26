@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { useDynamicTitle } from "../hooks";
+
 const NotFoundPage = () => {
+  useDynamicTitle("404 Không tìm thấy trang");
+
   return (
     <section className="bg-bgPrimary">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -7,17 +11,17 @@ const NotFoundPage = () => {
           <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary dark:text-primary-500">
             404
           </h1>
-          <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">
+          <p className="mb-4 text-3xl tracking-tight font-bold text-white md:text-4xl dark:text-white">
             Có điều gì đó không ổn!.
           </p>
-          <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">
+          <p className="mb-4 text-lg font-light text-gray-300 dark:text-gray-400">
             Xin lỗi, chúng tôi không thể tìm thấy trang. Bạn sẽ tìm thấy rất
             nhiều điều để khám phá trên
             <span className="font-bold"> Trang Chủ</span>.
           </p>
           <Link
             to="/"
-            className="inline-flex text-white bg-primary-600 hover:bg-bgTertiary font-bold rounded-lg text-2xl px-5 py-2.5 text-center  my-4"
+            className="inline-flex text-white bg-[#152e29] hover:bg-bgTertiary font-bold rounded-lg text-2xl px-5 py-2.5 text-center my-4"
           >
             Trở về trang chủ
           </Link>

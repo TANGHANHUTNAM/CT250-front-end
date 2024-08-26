@@ -1,4 +1,8 @@
+import { useDynamicTitle } from "../hooks";
+
 const NewsPage = () => {
+  useDynamicTitle("Tin tức");
+
   return <>NewsPage</>;
 };
 
