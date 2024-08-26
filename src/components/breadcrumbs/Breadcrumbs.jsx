@@ -18,7 +18,7 @@ const Breadcrumbs = () => {
   return (
     <>
       {crumbs && crumbs.length > 1 && (
-        <div className="bg-black w-full">
+        <div className="bg-bgSecondary w-full">
           <div className="max-w-screen-xl mx-auto px-3 py-[1.125rem]">
             <ul className="text-white text-sm font-medium flex flex-nowrap gap-2.5 items-center">
               {crumbs.map((crumb, index) => (
