@@ -1,4 +1,8 @@
+import { useDynamicTitle } from "../hooks";
+
 const LoginPage = () => {
+  useDynamicTitle("Đăng nhập");
+
   return <>LoginPage</>;
 };
 

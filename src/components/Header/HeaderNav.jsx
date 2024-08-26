@@ -119,7 +119,7 @@ const HeaderNav = () => {
           {/* Cart-icons */}
           <Link to="/cart/12" className="relative">
             <BsCart3 className="text-2xl text-primary cursor-pointer" />
-            <p className="absolute flex justify-center items-center rounded-full bg-tertiary text-sm text-primary aspect-square w-[20px] h-[20px] text-[9px] -top-2 -right-2.5">
+            <p className="absolute flex justify-center items-center rounded-full bg-tertiary text-primary aspect-square w-[20px] h-[20px] text-[10px] -top-2 -right-2.5">
               99+
             </p>
           </Link>
