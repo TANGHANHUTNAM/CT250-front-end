@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useDynamicTitle } from "../hooks";
 import { useTranslation } from "react-i18next";
+
 const NotFoundPage = () => {
-  useDynamicTitle("404 Không tìm thấy trang");
   const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.not_found"));
+
   return (
     <section className="bg-bgPrimary">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

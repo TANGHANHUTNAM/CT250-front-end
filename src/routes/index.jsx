@@ -23,11 +23,15 @@ import NotFoundPage from "../pages/NotFound";
 import PaymentPage from "../pages/Payment";
 import FavoriteDishPage from "../pages/FavoriteDish";
 
+const crumb = (trans, data) => {
+  return { trans, data };
+};
+
 const routes = [
   {
     path: "/",
     element: <MainLayout />,
-    handle: { crumb: () => "Trang chủ" },
+    handle: { crumb: () => crumb("BreadcrumbsAndTitle.home") },
     children: [
       {
         index: true,
@@ -36,109 +40,115 @@ const routes = [
       {
         path: "contact",
         element: <ContactPage />,
-        handle: { crumb: () => "Liên hệ" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.contact") },
       },
       {
         path: "news",
         element: <NewsPage />,
-        handle: { crumb: () => "Tin tức" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
       },
       {
         path: "introduce",
         element: <IntroducePage />,
-        handle: { crumb: () => "Giới thiệu" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.introduction") },
       },
       {
         path: "delicious-dish",
         element: <DeliciousDish />,
-        handle: { crumb: () => "Món ngon mỗi ngày" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.delicious_dishes") },
       },
       {
         path: "best-dish",
         element: <BestDish />,
-        handle: { crumb: () => "Món ăn nổi bật" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.best_dishes") },
       },
       {
         path: "login",
         element: <LoginPage />,
-        handle: { crumb: () => "Đăng nhập" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.login") },
       },
       {
         path: "register",
         element: <RegisterPage />,
-        handle: { crumb: () => "Đăng ký" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.register") },
       },
       {
         path: "cart/:id",
         element: <CartPage />,
-        handle: { crumb: () => "Giỏ hàng" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.cart") },
       },
       {
         path: "booking",
         element: <TableBooking />,
-        handle: { crumb: () => "Đặt bàn" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.booking") },
       },
       {
         path: "dish",
         element: <DishPage />,
-        handle: { crumb: () => "Tất cả món ăn" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.all_dishes") },
       },
       {
         path: "dish-detail/:id",
         element: <DishDetailPage />,
-        handle: { crumb: (data) => data?.crumb || "Chi tiết món ăn" }, // cần phải có loader của react router để lấy dữ liệu
+        handle: {
+          crumb: (data) => crumb(undefined, data?.crumb || "Chi tiết món ăn"),
+        }, // cần phải có loader của react router để lấy dữ liệu
       },
       {
         path: "personal/:id",
         element: <PersonalPage />,
-        handle: { crumb: () => "Trang cá nhân" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.my_account") },
       },
       {
         path: "search/:id",
         element: <SearchPage />,
-        handle: { crumb: () => "Tìm kiếm" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.search") },
       },
       {
         path: "payment-instruction",
         element: <PaymentInstructionPage />,
-        handle: { crumb: () => "Hướng dẫn thanh toán" },
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.payment_instruction"),
+        },
       },
       {
         path: "buying-guide",
         element: <BuyingGuidePage />,
-        handle: { crumb: () => "Hướng dẫn mua hàng" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.buying_guide") },
       },
       {
         path: "membership-policy",
         element: <MembershipPolicyPage />,
-        handle: { crumb: () => "Chính sách thành viên" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.membership_policy") },
       },
       {
         path: "payment-policy",
         element: <PaymentPolicyPage />,
-        handle: { crumb: () => "Chính sách thanh toán" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment_policy") },
       },
       {
         path: "information-security",
         element: <InformationSecurityPage />,
-        handle: { crumb: () => "Bảo mật thông tin" },
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.information_security"),
+        },
       },
       {
         path: "favorite-dish/:id",
         element: <FavoriteDishPage />,
-        handle: { crumb: () => "Món ăn yêu thích" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.favorite_dishes") },
       },
       {
         path: "*",
         element: <NotFoundPage />,
-        handle: { crumb: () => "404 Không tìm thấy trang" },
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.not_found") },
       },
     ],
   },
   {
     path: "payment/:id",
     element: <PaymentPage />,
-    handle: { crumb: () => "Thanh toán" },
+    handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
   },
 ];
 

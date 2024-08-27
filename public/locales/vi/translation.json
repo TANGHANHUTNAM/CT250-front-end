@@ -48,6 +48,29 @@
     "method_payment": "Hình thức thanh toán",
     "copy_right": "Bản quyền | © 2024 Tonatra CTU Nhóm 4 CT250"
   },
+  "BreadcrumbsAndTitle": {
+    "home": "Trang chủ",
+    "contact": "Liên hệ",
+    "news": "Tin tức",
+    "introduction": "Giới thiệu",
+    "delicious_dishes": "Món ngon mỗi ngày",
+    "best_dishes": "Món ăn nổi bật",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "cart": "Giỏ hàng",
+    "booking": "Đặt bàn",
+    "all_dishes": "Tất cả món ăn",
+    "my_account": "Trang cá nhân",
+    "search": "Tìm kiếm",
+    "payment_instruction": "Hướng dẫn thanh toán",
+    "buying_guide": "Hướng dẫn mua hàng",
+    "membership_policy": "Chính sách thành viên",
+    "payment_policy": "Chính sách thanh toán",
+    "information_security": "Bảo mật thông tin",
+    "favorite_dishes": "Món ăn yêu thích",
+    "not_found": "404 Không tìm thấy trang",
+    "payment": "Thanh toán"
+  },
   "Auth": {
     "login": "Đăng nhập",
     "register": "Đăng ký",
@@ -57,7 +80,7 @@
     "confirm_password": "Xác nhận mật khẩu",
     "forgot_password": "Quên mật khẩu?",
     "login_with": "Hoặc đăng nhập bằng",
-    "required": "{{label}} là bắt buộc",
+    "required": "bắt buộc",
     "invalid": "{{label}} không hợp lệ"
   },
   "BuyingGuide": {

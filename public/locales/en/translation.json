@@ -48,6 +48,29 @@
     "method_payment": "Payment method",
     "copy_right": "Copyright | © 2024 Tonatra CTU Group 4 CT250"
   },
+  "BreadcrumbsAndTitle": {
+    "home": "Home",
+    "contact": "Contact",
+    "news": "News",
+    "introduction": "Introduction",
+    "delicious_dishes": "Delicious dishes",
+    "best_dishes": "Best dishes",
+    "login": "Login",
+    "register": "Register",
+    "cart": "Cart",
+    "booking": "Booking",
+    "all_dishes": "All dishes",
+    "my_account": "My account",
+    "search": "Search",
+    "payment_instruction": "Payment instruction",
+    "buying_guide": "Buying guide",
+    "membership_policy": "Membership policy",
+    "payment_policy": "Payment policy",
+    "information_security": "Information security",
+    "favorite_dishes": "Favorite dishes",
+    "not_found": "404 Page not found",
+    "payment": "Payment"
+  },
   "Auth": {
     "login": "Login",
     "register": "Register",
@@ -57,7 +80,7 @@
     "confirm_password": "Confirm password",
     "forgot_password": "Forgot password?",
     "login_with": "Or login with",
-    "required": "{{label}} is required",
+    "required": "hihi required",
     "invalid": "Invalid {{label}}"
   },
   "BuyingGuide": {
