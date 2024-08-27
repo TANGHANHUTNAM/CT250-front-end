@@ -1,11 +1,16 @@
+import { useTranslation } from "react-i18next";
+
 const Input = ({
   label,
   register = () => {},
   errors,
   errorStyle = {},
   errorClass = "text-xs text-[#ff0000] pt-1.5 block",
+  translation = false,
   ...props
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full">
       <input
@@ -15,7 +20,9 @@ const Input = ({
       />
 
       {errors?.[label] && (
-        <span className={errorClass}>{errors?.[label]?.message}</span>
+        <span className={errorClass}>
+          {translation ? t(errors?.[label]?.message) : errors?.[label]?.message}
+        </span>
       )}
     </div>
   );
