@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const SearchPage = () => {
-  useDynamicTitle("Tìm kiếm");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.search"));
 
   return <>SearchPage</>;
 };

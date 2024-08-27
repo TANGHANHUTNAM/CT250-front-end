@@ -1,9 +1,11 @@
 import { useDynamicTitle } from "../hooks";
 import AuthLayout from "../layouts/AuthLayout";
 import RegisterForm from "../components/auth/RegisterForm";
+import { useTranslation } from "react-i18next";
 
 const RegisterPage = () => {
-  useDynamicTitle("Đăng ký");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.register"));
 
   return (
     <AuthLayout>

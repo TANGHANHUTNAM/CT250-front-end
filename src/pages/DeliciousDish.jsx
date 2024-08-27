@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const DeliciousDish = () => {
-  useDynamicTitle("Món ngon mỗi ngày");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.delicious_dishes"));
 
   return <>DeliciousDish</>;
 };

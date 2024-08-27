@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const IntroducePage = () => {
-  useDynamicTitle("Giới thiệu");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.introduction"));
 
   return <>IntroducePage</>;
 };

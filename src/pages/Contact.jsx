@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const ContactPage = () => {
-  useDynamicTitle("Liên hệ");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.contact"));
 
   return <>ContactPage</>;
 };

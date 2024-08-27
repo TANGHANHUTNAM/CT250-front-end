@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const MembershipPolicyPage = () => {
-  useDynamicTitle("Chính sách thành viên");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.membership_policy"));
 
   return (
     <div className="bg-bgPrimary">

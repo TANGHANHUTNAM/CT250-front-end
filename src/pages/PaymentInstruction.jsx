@@ -1,7 +1,9 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const PaymentInstructionPage = () => {
-  useDynamicTitle("Hướng dẫn thanh toán");
+  const { t } = useTranslation();
+  useDynamicTitle(t("BreadcrumbsAndTitle.payment_instruction"));
 
   return (
     <div className="bg-bgPrimary">
