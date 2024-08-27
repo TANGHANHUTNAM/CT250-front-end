@@ -59,5 +59,62 @@
     "login_with": "Or login with",
     "required": "{{label}} is required",
     "invalid": "Invalid {{label}}"
+  },
+  "BuyingGuide": {
+    "title": "Buying Guide",
+    "content_1": "Step 1: Visit the website and choose the food you want to buy",
+    "content_2": "Step 2: Click on the product you want to buy, the screen will display a pop up with the following options. If you want to continue shopping: Click on continue shopping to choose to add products to the cart. If you want to view the cart to update the product: Click on view cart If you want to order and pay for this product, please click: Order and pay",
+    "content_3": "Step 3: Select payment account information. If you already have an account, please enter your login name, email, and password in the already have an account section on the system. If you do not have an account and want to register an account, please fill in your personal information to continue registering an account. Once you have an account, you will easily track your orders. If you want to purchase without an account, please click on the order without an account section.",
+    "content_4": "Step 4: Fill in your information to receive your order, choose payment and shipping method for your order.",
+    "content_5": "Step 5: Review your order information, fill in notes and submit your order. Once we receive your order, we will contact you by phone to confirm your order and address. Thank you very much."
+  },
+  "InformationSecurity": {
+    "title": "Personal Information Security",
+    "content_1": "Thank you for your interest and visit to our website. We respect and are committed to protecting your privacy.",
+    "content_2": "This privacy policy explains how we receive, use, and (in certain cases) disclose your personal information.",
+    "content_3": "Protecting personal data and building trust with our customers is very important to us. Therefore, we will use your name and other information related to you in accordance with the content of this Privacy Policy. We only collect necessary information related to the purchase transaction.",
+    "content_4": "We will keep your information for the period required by law or for any purpose. You can access the website and browse without providing personal details. At that time, you are anonymous, and we cannot know who you are if you do not log into your account.",
+    "content_5": "1. Collecting personal information",
+    "content_6": "- We collect, store, and process your information for the purchase process and for later notifications related to the order, and to provide services, including some personal information: title, name, gender, date of birth, email, address, delivery address, phone number, fax, payment details, card payment details, or bank account details.",
+    "content_7": "- We will use the information you provided to process your order, provide services and information through the website, and at your request.",
+    "content_8": "- Furthermore, we will use that information to manage your account; verify and carry out online transactions, identify visitors on the web, conduct demographic research, send information including product and service information. If you do not want to receive any marketing information from us, you can refuse at any time.",
+    "content_9": "- We may transfer your name and address to a third party to deliver the goods to you (for example, to a courier or supplier).",
+    "content_10": "- Your order details are kept by us, but for security reasons, we cannot disclose them directly. However, you can access the information by logging into your account on the web. Here, you will see your order details, received products, sent products, and email, bank, and newsletter details that you have subscribed to long-term.",
+    "content_11": "- You are committed to keeping your personal data confidential and not disclosing it to any third party. We are not responsible for any misuse of the password if it is not our fault.",
+    "content_12": "- We may use your personal information for market research. All details will be hidden and only used for statistics. You can refuse to participate at any time.",
+    "content_13": "2. Security",
+    "content_14": "- We have appropriate technical and security measures to prevent unauthorized or unlawful access or loss or destruction or damage to your information.",
+    "content_15": "- We advise you not to disclose payment details to anyone via email, and we are not responsible for any losses you may incur in exchanging your information over the internet or email.",
+    "content_16": "- You absolutely must not use any program, tool, or other form to interfere with the system or change the data structure. It is strictly forbidden to distribute, propagate, or encourage any activity to interfere, destroy, or infiltrate the data of the website system. Any violations will result in the forfeiture of all rights and will be prosecuted before the law if necessary.",
+    "content_17": "- All transaction information will be kept confidential, but in case of legal requirements, we will be forced to provide this information to the legal authorities. The terms, conditions, and content of this website are governed by Vietnamese law, and the Vietnamese courts have jurisdiction to review.",
+    "content_18": "3. Customer rights",
+    "content_19": "- You have the right to request access to your personal data, the right to ask us to correct any errors in your data at no cost. At any time, you also have the right to ask us to stop using your personal data for marketing purposes."
+  },
+  "MembershipPolicy": {
+    "title": "Membership Policy",
+    "content_1": "Membership Policy Conditions",
+    "content_2": "1. Membership Card Conditions for issuing a membership card: When customers make purchases at the Tonatra restaurant system, they will be issued a membership card.",
+    "content_3": "2. VIP Card",
+    "content_4": "Conditions for receiving a VIP card:",
+    "content_5": "+ Total order value greater than 15 million VND/month",
+    "content_6": "+ Purchase with a value of 3 million VND or more",
+    "content_7": "+ Participate in Tonatra's activities and promotions",
+    "content_8": "Note: The limits of 10, 20, 30, 50, 100 million VND are calculated from the time of the first purchase until the card is upgraded. When upgrading to a VIP card and accumulating further to 20 to 100 million VND, this total amount is calculated from the first purchase and accumulated."
+  },
+  "NotFound": {
+    "title": "404",
+    "content_1": "Something went wrong!",
+    "content_2": "Sorry, we couldn't find the page. You will find many things to explore on",
+    "content_3": "Home Page",
+    "content_4": "Back to Home Page"
+  },
+  "PaymentInstruction": {
+    "title": "Payment Instructions",
+    "content_1": "Choose payment account information",
+    "content_2": "If you already have an account, please enter your username, which is your email, and password in the existing account section on the system.",
+    "content_3": "If you do not have an account and want to register, please fill in your personal information to continue registering. Having an account will make it easier for you to track your orders.",
+    "content_4": "If you want to make a purchase without an account, please click on the order without an account section.",
+    "content_5": "+ Fill in your information to receive the order, choose the payment and shipping method for your order.",
+    "content_6": "+ Review the order information, add notes, and submit the order. After receiving your order, we will contact you by phone to confirm the order and your address. Thank you."
   }
 }
