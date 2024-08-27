@@ -2,6 +2,7 @@ import * as yup from "yup";
 import Input from "../inputs/Input";
 import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
+import { useTranslation } from "react-i18next";
 
 const loginFormSchema = yup
   .object({
@@ -21,14 +22,16 @@ const LoginForm = () => {
     formState: { errors },
   } = useAppForm(loginFormSchema);
 
+  const { t } = useTranslation();
+
   const handleLogin = (data) => {
     console.log(data);
   };
 
   return (
     <div className="w-full">
-      <p className="text-center text-primary text-2xl font-semibold mb-6">
-        ĐĂNG NHẬP
+      <p className="text-center text-primary text-2xl font-semibold mb-6 uppercase">
+        {t("Auth.login")}
       </p>
       <form
         id="login"
@@ -37,7 +40,7 @@ const LoginForm = () => {
       >
         <Input
           type="email"
-          placeholder="Email"
+          placeholder={t("Auth.email")}
           autoComplete="email"
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="email"
@@ -46,7 +49,7 @@ const LoginForm = () => {
           errorStyle={{ borderBottomColor: "red" }}
         />
         <PasswordInput
-          placeholder="Password"
+          placeholder={t("Auth.password")}
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="password"
           register={register}
@@ -59,12 +62,12 @@ const LoginForm = () => {
           form="login"
           className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold hover:bg-[#d6861f]"
         >
-          Đăng nhập
+          {t("Auth.login")}
         </button>
       </div>
       <div className="mt-1.5 w-full text-right">
         <span className="text-sm text-gray-200 cursor-pointer hover:text-tertiary">
-          Quên mật khẩu?
+          {t("Auth.forgot_password")}
         </span>
       </div>
     </div>

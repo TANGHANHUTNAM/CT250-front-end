@@ -40,13 +40,11 @@ const InformationSecurityPage = () => {
           tiết tài khoản ngân hàng.
         </p>
         <p>
-          {" "}
           - Chúng tôi sẽ dùng thông tin quý khách đã cung cấp để xử lý đơn đặt
           hàng, cung cấp các dịch vụ và thông tin yêu cầu thông qua website và
           theo yêu cầu của bạn.
         </p>
         <p>
-          {" "}
           - Hơn nữa, chúng tôi sẽ sử dụng các thông tin đó để quản lý tài khoản
           của bạn; xác minh và thực hiện giao dịch trực tuyến, nhận diện khách
           vào web, nghiên cứu nhân khẩu học, gửi thông tin bao gồm thông tin sản
@@ -54,12 +52,10 @@ const InformationSecurityPage = () => {
           thị của chúng tôi thì có thể từ chối bất cứ lúc nào.
         </p>
         <p>
-          {" "}
           - Chúng tôi có thể chuyển tên và địa chỉ cho bên thứ ba để họ giao
           hàng cho bạn (ví dụ cho bên chuyển phát nhanh hoặc nhà cung cấp).
         </p>
         <p>
-          {" "}
           - Chi tiết đơn đặt hàng của bạn được chúng tôi lưu giữ nhưng vì lí do
           bảo mật nên chúng tôi không công khai trực tiếp được. Tuy nhiên, quý
           khách có thể tiếp cận thông tin bằng cách đăng nhập tài khoản trên
@@ -68,32 +64,27 @@ const InformationSecurityPage = () => {
           và bản tin mà bạn đặt theo dõi dài hạn.
         </p>
         <p>
-          {" "}
           - Quý khách cam kết bảo mật dữ liệu cá nhân và không được phép tiết lộ
           cho bên thứ ba. Chúng tôi không chịu bất kỳ trách nhiệm nào cho việc
           dùng sai mật khẩu nếu đây không phải lỗi của chúng tôi.
         </p>
         <p>
-          {" "}
           - Chúng tôi có thể dùng thông tin cá nhân của bạn để nghiên cứu thị
           trường. mọi thông tin chi tiết sẽ được ẩn và chỉ được dùng để thống
           kê. Quý khách có thể từ chối không tham gia bất cứ lúc nào.
         </p>
         <p>
-          {" "}
           2. Bảo mật - Chúng tôi có biện pháp thích hợp về kỹ thuật và an ninh
           để ngăn chặn truy cập trái phép hoặc trái pháp luật hoặc mất mát hoặc
           tiêu hủy hoặc thiệt hại cho thông tin của bạn.
         </p>
         <p>
-          {" "}
           - Chúng tôi khuyên quý khách không nên đưa thông tin chi tiết về việc
           thanh toán với bất kỳ ai bằng e-mail, chúng tôi không chịu trách nhiệm
           về những mất mát quý khách có thể gánh chịu trong việc trao đổi thông
           tin của quý khách qua internet hoặc email.
         </p>
         <p>
-          {" "}
           - Quý khách tuyệt đối không sử dụng bất kỳ chương trình, công cụ hay
           hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi cấu trúc
           dữ liệu. Nghiêm cấm việc phát tán, truyền bá hay cổ vũ cho bất kỳ hoạt
@@ -102,7 +93,6 @@ const InformationSecurityPage = () => {
           truy tố trước pháp luật nếu cần thiết.
         </p>
         <p>
-          {" "}
           - Mọi thông tin giao dịch sẽ được bảo mật nhưng trong trường hợp cơ
           quan pháp luật yêu cầu, chúng tôi sẽ buộc phải cung cấp những thông
           tin này cho các cơ quan pháp luật. Các điều kiện, điều khoản và nội
@@ -110,7 +100,6 @@ const InformationSecurityPage = () => {
           án Việt Nam có thẩm quyền xem xét.
         </p>
         <p>
-          {" "}
           3. Quyền lợi khách hàng - Quý khách có quyền yêu cầu truy cập vào dữ
           liệu cá nhân của mình, có quyền yêu cầu chúng tôi sửa lại những sai
           sót trong dữ liệu của bạn mà không mất phí. Bất cứ lúc nào bạn cũng có

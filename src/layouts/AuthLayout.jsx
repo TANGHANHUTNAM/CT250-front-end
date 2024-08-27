@@ -1,8 +1,11 @@
 import "./Layout.css";
 import { NavLink } from "react-router-dom";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const AuthLayout = ({ children }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="auth w-full bg-bgPrimary">
       <div className="max-w-screen-xl mx-auto px-3">
@@ -12,17 +15,17 @@ const AuthLayout = ({ children }) => {
               <li className="grow font-medium">
                 <NavLink
                   to="/register"
-                  className="flex justify-center items-center w-full py-3 border-b border-solid border-b-primary hover:text-tertiary"
+                  className="flex justify-center items-center w-full py-3 border-b border-solid border-b-primary uppercase hover:text-tertiary"
                 >
-                  ĐĂNG KÝ
+                  {t("Auth.register")}
                 </NavLink>
               </li>
               <li className="grow font-medium">
                 <NavLink
                   to="/login"
-                  className="flex justify-center items-center w-full py-3 border-b border-solid border-b-primary hover:text-tertiary"
+                  className="flex justify-center items-center w-full py-3 border-b border-solid border-b-primary uppercase hover:text-tertiary"
                 >
-                  ĐĂNG NHẬP
+                  {t("Auth.login")}
                 </NavLink>
               </li>
             </ul>
@@ -31,7 +34,7 @@ const AuthLayout = ({ children }) => {
 
             <div className="w-full mt-6">
               <p className="mb-4 text-sm text-center text-gray-200">
-                Hoặc đăng nhập bằng
+                {t("Auth.login_with")}
               </p>
               <div className="w-72 sm:w-2/3 mx-auto flex flex-nowrap gap-2">
                 <button className="w-1/2 flex flex-nowrap items-center rounded-sm text-primary bg-blue-600 hover:bg-blue-700">

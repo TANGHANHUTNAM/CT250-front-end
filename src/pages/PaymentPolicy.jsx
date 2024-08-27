@@ -1,25 +1,21 @@
 import { useDynamicTitle } from "../hooks";
+import { useTranslation, Trans } from "react-i18next";
 
 const PaymentPolicyPage = () => {
   useDynamicTitle("Chính sách thanh toán");
-
+  const { t } = useTranslation();
   return (
     <div className="bg-bgPrimary">
       <div className="max-w-screen-xl mx-auto w-full text-primary px-3 flex flex-col gap-5 font-medium py-10 ">
-        <p className="text-3xl font-semibold">Chính sách thanh toán</p>
-        <p>Khách hàng thanh toán trực tiếp tại cửa hàng</p>
-        <p>+ Nhận quà tặng kèm </p>
-        <p>+ Checkin tại cửa hàng Khách hàng thanh toán online</p>
-        <p>+ Chuyển khoản trước khi nhận hàng </p>
-        <p>
-          + Quà tặng kèm bất kỳ Khách hàng có nhu cầu khiếu nại, đổi trả sản
-          phẩm do lỗi của Tonatra có thể liên hệ qua Hotline 0292 3831 530 để
-          được hỗ trợ sớm nhất.
+        <p className="text-3xl font-semibold">
+          {t("PaymentPolicy.title_page")}
         </p>
-        <p>
-          Tư vấn viên sẽ hướng dẫn khách hàng các bước cần thiết để tiến hành
-          trả thanh toán.
-        </p>
+        <p>{t("PaymentPolicy.content_1")}</p>
+        <p>{t("PaymentPolicy.content_2")}</p>
+        <p>{t("PaymentPolicy.content_3")}</p>
+        <p>{t("PaymentPolicy.content_4")}</p>
+        <p>{t("PaymentPolicy.content_5")}</p>
+        <p>{t("PaymentPolicy.content_6")}</p>
       </div>
     </div>
   );

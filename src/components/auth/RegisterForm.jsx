@@ -3,6 +3,7 @@ import Input from "../inputs/Input";
 import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const registerFormSchema = yup
   .object({
@@ -21,6 +22,8 @@ const registerFormSchema = yup
   .required();
 
 const RegisterForm = () => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -43,8 +46,8 @@ const RegisterForm = () => {
 
   return (
     <div className="w-full">
-      <p className="text-center text-primary text-2xl font-semibold mb-6">
-        ĐĂNG KÝ
+      <p className="text-center text-primary text-2xl font-semibold uppercase mb-6">
+        {t("Auth.register")}
       </p>
       <form
         id="register"
@@ -53,7 +56,7 @@ const RegisterForm = () => {
       >
         <Input
           type="text"
-          placeholder="Username"
+          placeholder={t("Auth.username")}
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="username"
           register={register}
@@ -62,7 +65,7 @@ const RegisterForm = () => {
         />
         <Input
           type="email"
-          placeholder="Email"
+          placeholder={t("Auth.email")}
           autoComplete="email"
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="email"
@@ -71,7 +74,7 @@ const RegisterForm = () => {
           errorStyle={{ borderBottomColor: "red" }}
         />
         <PasswordInput
-          placeholder="Password"
+          placeholder={t("Auth.password")}
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="password"
           register={register}
@@ -79,7 +82,7 @@ const RegisterForm = () => {
           errorStyle={{ borderBottomColor: "red" }}
         />
         <PasswordInput
-          placeholder="Confirm password"
+          placeholder={t("Auth.confirm_password")}
           className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
           label="confirmPassword"
           register={register}
@@ -92,7 +95,7 @@ const RegisterForm = () => {
           form="register"
           className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold hover:bg-[#d6861f]"
         >
-          Đăng ký
+          {t("Auth.register")}
         </button>
       </div>
     </div>
