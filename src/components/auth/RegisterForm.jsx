@@ -5,19 +5,23 @@ import { useAppForm } from "../../hooks";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
+// Error message là các key để translate đa ngôn ngữ và ở các component Input phải có props translation = true
 const registerFormSchema = yup
   .object({
-    username: yup.string().required("Username is required"),
-    email: yup.string().email("Invalid email").required("Email is required"),
+    username: yup.string().required("Auth.required_username"),
+    email: yup
+      .string()
+      .email("Auth.invalid_email")
+      .required("Auth.required_email"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
-      .max(25, "Password must be at most 25 characters")
-      .required("Password is required."),
+      .min(6, "Auth.password_min")
+      .max(25, "Auth.password_max")
+      .required("Auth.required_password"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password")], "Confirm password does not match")
-      .required("Confirm password is required"),
+      .oneOf([yup.ref("password")], "Auth.confirm_password_not_match")
+      .required("Auth.required_confirm_password"),
   })
   .required();
 
@@ -62,6 +66,7 @@ const RegisterForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
         <Input
           type="email"
@@ -72,6 +77,7 @@ const RegisterForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
         <PasswordInput
           placeholder={t("Auth.password")}
@@ -80,6 +86,7 @@ const RegisterForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
         <PasswordInput
           placeholder={t("Auth.confirm_password")}
@@ -88,6 +95,7 @@ const RegisterForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
       </form>
       <div className="mt-8 w-full">

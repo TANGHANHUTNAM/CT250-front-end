@@ -4,14 +4,18 @@ import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
 import { useTranslation } from "react-i18next";
 
+// Error message là các key để translate đa ngôn ngữ và ở các component Input phải có props translation = true
 const loginFormSchema = yup
   .object({
-    email: yup.string().email("Invalid email").required("Email is required"),
+    email: yup
+      .string()
+      .email("Auth.invalid_email")
+      .required("Auth.required_email"),
     password: yup
       .string()
-      .min(6, "Password must be at least 6 characters")
-      .max(25, "Password must be at most 25 characters")
-      .required("Password is required."),
+      .min(6, "Auth.password_min")
+      .max(25, "Auth.password_max")
+      .required("Auth.required_password"),
   })
   .required();
 
@@ -47,6 +51,7 @@ const LoginForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
         <PasswordInput
           placeholder={t("Auth.password")}
@@ -55,6 +60,7 @@ const LoginForm = () => {
           register={register}
           errors={errors}
           errorStyle={{ borderBottomColor: "red" }}
+          translation={true}
         />
       </form>
       <div className="mt-8 w-full">
