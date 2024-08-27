@@ -1,11 +1,12 @@
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
-
+import { useTranslation, Trans } from "react-i18next";
 const SideBar = ({ visable, setVisible }) => {
+  const { t } = useTranslation();
   return (
     <>
       <div
-        className={`fixed text-primary top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
+        className={`fixed text-primary uppercase top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
           visable ? "w-full " : "w-0"
         } `}
       >
@@ -17,7 +18,7 @@ const SideBar = ({ visable, setVisible }) => {
         >
           <div className="flex item-center gap-1 p-3 hover:text-tertiary">
             <RxDoubleArrowRight className="text-center text-[24px]" />
-            ĐÓNG
+            {t("Header.Navbar.close")}
           </div>
         </div>
 
@@ -28,7 +29,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2 border "
         >
-          <p>TRANG CHỦ</p>
+          {t("Header.Navbar.home")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -37,7 +38,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/introduce"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>GIỚI THIỆU</p>
+          {t("Header.Navbar.introduce")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -46,7 +47,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/dish"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>MENU</p>
+          {t("Header.Navbar.menu")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -55,7 +56,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/best-dish"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>MÓN NỔI BẬT</p>
+          {t("Header.Navbar.bestDish")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -64,7 +65,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/delicious-dish"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>MÓN NGON MỖI NGÀY</p>
+          {t("Header.Navbar.deliciousDish")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -73,7 +74,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/news"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>TIN TỨC</p>
+          {t("Header.Navbar.news")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -82,7 +83,7 @@ const SideBar = ({ visable, setVisible }) => {
           to="/contact"
           className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
         >
-          <p>LIÊN HỆ</p>
+          {t("Header.Navbar.contact")}
         </NavLink>
         <NavLink
           onClick={() => {
@@ -91,8 +92,8 @@ const SideBar = ({ visable, setVisible }) => {
           className="flex flex-col items-center gap-1 px-4"
           to="/booking"
         >
-          <button className="bg-tertiary text-primary text-lg rounded-md hover:bg-yellow-600 duration-500 w-full h-10">
-            Đặt bàn
+          <button className="bg-tertiary uppercase text-primary text-lg rounded-md hover:bg-yellow-600 duration-500 w-full h-10">
+            {t("Header.Navbar.booking")}
           </button>
         </NavLink>
       </div>

@@ -1,7 +1,6 @@
 import { GrLanguage } from "react-icons/gr";
 import vietnam from "../../assets/vietname.png";
 import english from "../../assets/english.png";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 const Language = () => {
   const { t, i18n } = useTranslation();
