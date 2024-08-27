@@ -4,6 +4,10 @@ import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { register as registerService } from "../../services/authService";
+import StatusCodes from "../../utils/StatusCodes";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // Error message là các key để translate đa ngôn ngữ và ở các component Input phải có props translation = true
 const registerFormSchema = yup
@@ -27,6 +31,7 @@ const registerFormSchema = yup
 
 const RegisterForm = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -44,8 +49,17 @@ const RegisterForm = () => {
     }
   }, [password, trigger]);
 
-  const handleRegister = (data) => {
-    console.log(data);
+  const handleRegister = async (data) => {
+    const res = await registerService(data);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      toast.success(res.EM);
+      navigate("/login");
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -101,7 +115,7 @@ const RegisterForm = () => {
       <div className="mt-8 w-full">
         <button
           form="register"
-          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold hover:bg-[#d6861f]"
+          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold text-base hover:bg-[#d6861f]"
         >
           {t("Auth.register")}
         </button>

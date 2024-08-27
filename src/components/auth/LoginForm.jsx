@@ -3,6 +3,12 @@ import Input from "../inputs/Input";
 import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
 import { useTranslation } from "react-i18next";
+import { login } from "../../services/authService";
+import StatusCodes from "../../utils/StatusCodes";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../redux/reducer/userSlice";
 
 // Error message là các key để translate đa ngôn ngữ và ở các component Input phải có props translation = true
 const loginFormSchema = yup
@@ -27,9 +33,21 @@ const LoginForm = () => {
   } = useAppForm(loginFormSchema);
 
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleLogin = (data) => {
-    console.log(data);
+  const handleLogin = async (data) => {
+    const res = await login(data);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      toast.success(res.EM);
+      dispatch(loginSuccess({ ...res.DT, avatar: res.DT?.avatar?.url }));
+      navigate("/");
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -66,7 +84,7 @@ const LoginForm = () => {
       <div className="mt-8 w-full">
         <button
           form="login"
-          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold hover:bg-[#d6861f]"
+          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold text-base hover:bg-[#d6861f]"
         >
           {t("Auth.login")}
         </button>
