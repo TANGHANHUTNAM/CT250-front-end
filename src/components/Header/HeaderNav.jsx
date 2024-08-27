@@ -6,8 +6,10 @@ import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { useState } from "react";
-import { RxDoubleArrowRight } from "react-icons/rx";
+import SideBar from "./SideBar";
+import { useTranslation, Trans } from "react-i18next";
 const HeaderNav = () => {
+  const { t } = useTranslation();
   const [visable, setVisible] = useState(false);
   const [visableSearch, setVisibleSearch] = useState(false);
   const handleCloseSearch = () => {
@@ -32,43 +34,43 @@ const HeaderNav = () => {
             to="/"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Trang chủ</p>
+            {t("Header.Navbar.home")}
           </NavLink>
           <NavLink
             to="/introduce"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Giới thiệu</p>
+            {t("Header.Navbar.introduce")}
           </NavLink>
           <NavLink
             to="/dish"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Menu</p>
+            {t("Header.Navbar.menu")}
           </NavLink>
           <NavLink
             to="/best-dish"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Món nổi bật</p>
+            {t("Header.Navbar.bestDish")}
           </NavLink>
           <NavLink
             to="/delicious-dish"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Món ngon mỗi ngày</p>
+            {t("Header.Navbar.deliciousDish")}
           </NavLink>
           <NavLink
             to="/news"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Tin tức</p>
+            {t("Header.Navbar.news")}
           </NavLink>
           <NavLink
             to="/contact"
             className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
           >
-            <p>Liên hệ</p>
+            {t("Header.Navbar.contact")}
           </NavLink>
         </ul>
         {/* Search Cart User */}
@@ -85,7 +87,7 @@ const HeaderNav = () => {
             <div className="hidden sm:block absolute dropdown-menu right-0 pt-4 transition-all duration-300 will-change-transform scale-90 opacity-0 sm:invisible sm:group-hover:visible sm:group-hover:scale-100 sm:group-hover:opacity-100">
               <div className="flex flex-col gap-3 w-96 p-4 bg-primary rounded-md">
                 <p className="text-md text-secondar font-medium">
-                  TÌM KIẾM MÓN ĂN CỦA BẠN:
+                  {t("Header.Navbar.search")}
                 </p>
                 <hr />
                 <form className="w-full relative">
@@ -93,7 +95,7 @@ const HeaderNav = () => {
                   <div className="relative mb-3">
                     <input
                       type="text"
-                      placeholder="Nhập món ăn bạn muốn tìm..."
+                      placeholder={t("Header.Navbar.inputSearch")}
                       className="w-full border rounded-md border-tertiary placeholder:text-secondary px-2 py-2.5 text-sm outline-none"
                     />
                     <button className="absolute right-1.5 top-1/2 -translate-y-1/2 text-tertiary text-[26px]">
@@ -104,7 +106,7 @@ const HeaderNav = () => {
                   {/* Result search */}
                   <div className="mt-3 p-3 flex flex-col gap-3 w-full bg-zinc-100 rounded-lg">
                     <h2 className="text-md text-secondar font-normal">
-                      KẾT QUẢ TÌM KIẾM:
+                      {t("Header.Navbar.resultSearch")}
                     </h2>
                     <div className="flex flex-col justify-center gap-3">
                       <span>ABC</span>
@@ -134,19 +136,27 @@ const HeaderNav = () => {
                   to="/login"
                   className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
                 >
-                  Đăng nhập
+                  {t("Header.Navbar.login")}
+                  <span hidden>{t("Header.Navbar.logout")}</span>
                 </Link>
                 <Link
                   to="/register"
                   className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
                 >
-                  Đăng ký
+                  {t("Header.Navbar.register")}
                 </Link>
                 <Link
                   to={`/favorite-dish/${12}`}
                   className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
                 >
-                  Món ăn yêu thích
+                  {t("Header.Navbar.favoriteDish")}
+                </Link>
+                <Link
+                  hidden
+                  to="/logout"
+                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                >
+                  {t("Header.Navbar.logout")}
                 </Link>
               </div>
             </div>
@@ -154,7 +164,7 @@ const HeaderNav = () => {
           {/* Booking */}
           <Link className="hidden booking-table md:flex" to="/booking">
             <button className="bg-tertiary text-primary text-sm rounded-md font-bold hover:bg-yellow-600 duration-500 py-2.5 px-2 lg:px-4">
-              Đặt bàn
+              {t("Header.Navbar.booking")}
             </button>
           </Link>
           {/* Menu-icons */}
@@ -177,7 +187,7 @@ const HeaderNav = () => {
             <div className="relative ">
               <input
                 type="text"
-                placeholder="Nhập món ăn bạn muốn tìm..."
+                placeholder={t("Header.Navbar.inputSearch")}
                 className="w-full border rounded-md border-tertiary placeholder:text-secondary p-2 text-sm outline-none "
               />
               <button className="absolute right-1 top-1 text-tertiary text-3xl">
@@ -186,7 +196,7 @@ const HeaderNav = () => {
               {/* Result search */}
               <div className="absolute p-2 flex flex-col gap-3 bg-white rounded w-full">
                 <h2 className="text-md text-secondar font-normal mt-2">
-                  KẾT QUẢ TÌM KIẾM:
+                  {t("Header.Navbar.resultSearch")}
                 </h2>
                 <div className="flex flex-col justify-center gap-3 ">
                   <span>ABC</span>
@@ -202,98 +212,7 @@ const HeaderNav = () => {
       )}
 
       {/* Sidebar menu for screen small*/}
-      <div
-        className={`fixed text-primary top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
-          visable ? "w-full " : "w-0"
-        } `}
-      >
-        <div
-          onClick={() => {
-            setVisible(false);
-          }}
-          className="flex flex-col cursor-pointer py-5 px-1"
-        >
-          <div className="flex item-center gap-1 p-3 hover:text-tertiary">
-            <RxDoubleArrowRight className="text-center text-[24px]" />
-            ĐÓNG
-          </div>
-        </div>
-
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2 border "
-        >
-          <p>TRANG CHỦ</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/introduce"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>GIỚI THIỆU</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>MENU</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/best-dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>MÓN NỔI BẬT</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/delicious-dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>MÓN NGON MỖI NGÀY</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/news"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>TIN TỨC</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/contact"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
-        >
-          <p>LIÊN HỆ</p>
-        </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          className="flex flex-col items-center gap-1 px-4"
-          to="/booking"
-        >
-          <button className="bg-tertiary text-primary text-lg rounded-md hover:bg-yellow-600 duration-500 w-full h-10">
-            Đặt bàn
-          </button>
-        </NavLink>
-      </div>
+      <SideBar visable={visable} setVisible={setVisible} />
     </>
   );
 };
