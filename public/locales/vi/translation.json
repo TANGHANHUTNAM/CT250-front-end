@@ -47,5 +47,17 @@
     "social": "Mạng xã hội",
     "method_payment": "Hình thức thanh toán",
     "copy_right": "Bản quyền | © 2024 Tonatra CTU Nhóm 4 CT250"
+  },
+  "Auth": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "username": "Tên người dùng",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirm_password": "Xác nhận mật khẩu",
+    "forgot_password": "Quên mật khẩu?",
+    "login_with": "Hoặc đăng nhập bằng",
+    "required": "{{label}} là bắt buộc",
+    "invalid": "{{label}} không hợp lệ"
   }
 }

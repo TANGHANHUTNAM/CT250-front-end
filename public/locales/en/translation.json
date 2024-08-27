@@ -47,5 +47,17 @@
     "social": "Social network",
     "method_payment": "Payment method",
     "copy_right": "Copyright | © 2024 Tonatra CTU Group 4 CT250"
+  },
+  "Auth": {
+    "login": "Login",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "forgot_password": "Forgot password?",
+    "login_with": "Or login with",
+    "required": "{{label}} is required",
+    "invalid": "Invalid {{label}}"
   }
 }
