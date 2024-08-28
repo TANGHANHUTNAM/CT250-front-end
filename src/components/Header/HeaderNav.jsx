@@ -18,57 +18,57 @@ const HeaderNav = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="relative max-w-screen-xl mx-auto w-full flex items-center justify-between p-3">
+      <div className="relative mx-auto flex w-full max-w-screen-xl items-center justify-between p-3">
         {/* Logo */}
         <div>
           <NavLink
             to="/"
-            className="w-[120px] h-[60px] flex items-center justify-between sm:w-[130px] lg:w-[140px]"
+            className="flex h-[60px] w-[120px] items-center justify-between sm:w-[130px] lg:w-[140px]"
           >
             <img src={logo} alt="logo" />
           </NavLink>
         </div>
         {/* Menu */}
-        <ul className="hidden md:flex lg:gap-6 font-semibold text-[15px] text-primary gap-2">
+        <ul className="hidden gap-2 text-[15px] font-semibold text-primary md:flex lg:gap-6">
           <NavLink
             to="/"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.home")}
           </NavLink>
           <NavLink
             to="/introduce"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.introduce")}
           </NavLink>
           <NavLink
             to="/dish"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.menu")}
           </NavLink>
           <NavLink
             to="/best-dish"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.bestDish")}
           </NavLink>
           <NavLink
             to="/delicious-dish"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.deliciousDish")}
           </NavLink>
           <NavLink
             to="/news"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.news")}
           </NavLink>
           <NavLink
             to="/contact"
-            className="nav-link-name flex flex-col items-center gap-1 hover:text-tertiary duration-500"
+            className="nav-link-name flex flex-col items-center gap-1 duration-500 hover:text-tertiary"
           >
             {t("Header.Navbar.contact")}
           </NavLink>
@@ -82,29 +82,29 @@ const HeaderNav = () => {
                 handleCloseSearch();
               }}
             >
-              <IoIosSearch className="text-3xl text-primary cursor-pointer hover:text-tertiary duration-500" />
+              <IoIosSearch className="cursor-pointer text-3xl text-primary duration-500 hover:text-tertiary" />
             </span>
-            <div className="hidden sm:block absolute dropdown-menu right-0 pt-4 transition-all duration-300 will-change-transform scale-90 opacity-0 sm:invisible sm:group-hover:visible sm:group-hover:scale-100 sm:group-hover:opacity-100">
-              <div className="flex flex-col gap-3 w-96 p-4 bg-primary rounded-md">
+            <div className="dropdown-menu absolute right-0 hidden scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform sm:invisible sm:block sm:group-hover:visible sm:group-hover:scale-100 sm:group-hover:opacity-100">
+              <div className="flex w-96 flex-col gap-3 rounded-md bg-primary p-4">
                 <p className="text-md text-secondar font-medium">
                   {t("Header.Navbar.search")}
                 </p>
                 <hr />
-                <form className="w-full relative">
+                <form className="relative w-full">
                   {/* Input search */}
                   <div className="relative mb-3">
                     <input
                       type="text"
                       placeholder={t("Header.Navbar.inputSearch")}
-                      className="w-full border rounded-md border-tertiary placeholder:text-secondary px-2 py-2.5 text-sm outline-none"
+                      className="w-full rounded-md border border-tertiary px-2 py-2.5 text-sm outline-none placeholder:text-secondary"
                     />
-                    <button className="absolute right-1.5 top-1/2 -translate-y-1/2 text-tertiary text-[26px]">
+                    <button className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[26px] text-tertiary">
                       <IoIosSearch />
                     </button>
                   </div>
                   <hr />
                   {/* Result search */}
-                  <div className="mt-3 p-3 flex flex-col gap-3 w-full bg-zinc-100 rounded-lg">
+                  <div className="mt-3 flex w-full flex-col gap-3 rounded-lg bg-zinc-100 p-3">
                     <h2 className="text-md text-secondar font-normal">
                       {t("Header.Navbar.resultSearch")}
                     </h2>
@@ -120,41 +120,41 @@ const HeaderNav = () => {
           </div>
           {/* Cart-icons */}
           <Link to="/cart/12" className="relative">
-            <BsCart3 className="text-2xl text-primary cursor-pointer" />
-            <p className="absolute flex justify-center items-center rounded-full bg-tertiary text-primary aspect-square w-[20px] h-[20px] text-[10px] -top-2 -right-2.5">
+            <BsCart3 className="cursor-pointer text-2xl text-primary" />
+            <p className="absolute -right-2.5 -top-2 flex aspect-square h-[20px] w-[20px] items-center justify-center rounded-full bg-tertiary text-[10px] text-primary">
               99+
             </p>
           </Link>
           <div className="group relative">
             {/* User-icons */}
             <span>
-              <FaRegUser className="text-2xl text-primary cursor-pointer hover:text-tertiary duration-500" />
+              <FaRegUser className="cursor-pointer text-2xl text-primary duration-500 hover:text-tertiary" />
             </span>
-            <div className="absolute dropdown-menu right-0 pt-4 cursor-pointer transition-all duration-300 will-change-transform scale-90 opacity-0 invisible group-hover:visible group-hover:scale-100 group-hover:opacity-100">
-              <div className="flex flex-col gap-3 w-60 p-3 bg-primary rounded-md">
+            <div className="dropdown-menu invisible absolute right-0 scale-90 cursor-pointer pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
+              <div className="flex w-60 flex-col gap-3 rounded-md bg-primary p-3">
                 <Link
                   to="/login"
-                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
                   {t("Header.Navbar.login")}
                   <span hidden>{t("Header.Navbar.logout")}</span>
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
                   {t("Header.Navbar.register")}
                 </Link>
                 <Link
                   to={`/favorite-dish/${12}`}
-                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
                 <Link
                   hidden
                   to="/logout"
-                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
                   {t("Header.Navbar.logout")}
                 </Link>
@@ -162,8 +162,8 @@ const HeaderNav = () => {
             </div>
           </div>
           {/* Booking */}
-          <Link className="hidden booking-table md:flex" to="/booking">
-            <button className="bg-tertiary text-primary text-sm rounded-md font-bold hover:bg-yellow-600 duration-500 py-2.5 px-2 lg:px-4">
+          <Link className="booking-table hidden md:flex" to="/booking">
+            <button className="rounded-md bg-tertiary px-2 py-2.5 text-sm font-bold text-primary duration-500 hover:bg-yellow-600 lg:px-4">
               {t("Header.Navbar.booking")}
             </button>
           </Link>
@@ -172,7 +172,7 @@ const HeaderNav = () => {
             onClick={() => {
               setVisible(true);
             }}
-            className="cursor-pointer text-[36px] text-primary md:hidden duration-500 hover:text-tertiary"
+            className="cursor-pointer text-[36px] text-primary duration-500 hover:text-tertiary md:hidden"
           >
             <CgMenuRightAlt />
           </span>
@@ -181,24 +181,24 @@ const HeaderNav = () => {
 
       {/* Search for screen small */}
       {visableSearch ? (
-        <div className="p-2 bg-bgPrimary sm:hidden w-full">
+        <div className="w-full bg-bgPrimary p-2 sm:hidden">
           <form className="">
             {/* Input search */}
-            <div className="relative ">
+            <div className="relative">
               <input
                 type="text"
                 placeholder={t("Header.Navbar.inputSearch")}
-                className="w-full border rounded-md border-tertiary placeholder:text-secondary p-2 text-sm outline-none "
+                className="w-full rounded-md border border-tertiary p-2 text-sm outline-none placeholder:text-secondary"
               />
-              <button className="absolute right-1 top-1 text-tertiary text-3xl">
+              <button className="absolute right-1 top-1 text-3xl text-tertiary">
                 <IoIosSearch />
               </button>
               {/* Result search */}
-              <div className="absolute p-2 flex flex-col gap-3 bg-white rounded w-full">
-                <h2 className="text-md text-secondar font-normal mt-2">
+              <div className="absolute flex w-full flex-col gap-3 rounded bg-white p-2">
+                <h2 className="text-md text-secondar mt-2 font-normal">
                   {t("Header.Navbar.resultSearch")}
                 </h2>
-                <div className="flex flex-col justify-center gap-3 ">
+                <div className="flex flex-col justify-center gap-3">
                   <span>ABC</span>
                   <span>DBD</span>
                   <span>12</span>

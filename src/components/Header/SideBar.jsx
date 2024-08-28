@@ -6,17 +6,17 @@ const SideBar = ({ visable, setVisible }) => {
   return (
     <>
       <div
-        className={`fixed text-primary uppercase top-0 right-0 bottom-0 font-bold overflow-hidden bg-bgOpacity transition-all ease-in-out duration-500 ${
-          visable ? "w-full " : "w-0"
+        className={`fixed bottom-0 right-0 top-0 overflow-hidden bg-bgOpacity font-bold uppercase text-primary transition-all duration-500 ease-in-out ${
+          visable ? "w-full" : "w-0"
         } `}
       >
         <div
           onClick={() => {
             setVisible(false);
           }}
-          className="flex flex-col cursor-pointer py-5 px-1"
+          className="flex cursor-pointer flex-col px-1 py-5"
         >
-          <div className="flex item-center gap-1 p-3 hover:text-tertiary">
+          <div className="item-center flex gap-1 p-3 hover:text-tertiary">
             <RxDoubleArrowRight className="text-center text-[24px]" />
             {t("Header.Navbar.close")}
           </div>
@@ -27,7 +27,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2 border "
+          className="flex flex-col items-center gap-1 border py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.home")}
         </NavLink>
@@ -36,7 +36,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/introduce"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.introduce")}
         </NavLink>
@@ -45,7 +45,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.menu")}
         </NavLink>
@@ -54,7 +54,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/best-dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.bestDish")}
         </NavLink>
@@ -63,7 +63,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/delicious-dish"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.deliciousDish")}
         </NavLink>
@@ -72,7 +72,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/news"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.news")}
         </NavLink>
@@ -81,7 +81,7 @@ const SideBar = ({ visable, setVisible }) => {
             setVisible(false);
           }}
           to="/contact"
-          className="flex flex-col items-center gap-1 hover:text-tertiary duration-500 py-2"
+          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
         >
           {t("Header.Navbar.contact")}
         </NavLink>
@@ -92,7 +92,7 @@ const SideBar = ({ visable, setVisible }) => {
           className="flex flex-col items-center gap-1 px-4"
           to="/booking"
         >
-          <button className="bg-tertiary uppercase text-primary text-lg rounded-md hover:bg-yellow-600 duration-500 w-full h-10">
+          <button className="h-10 w-full rounded-md bg-tertiary text-lg uppercase text-primary duration-500 hover:bg-yellow-600">
             {t("Header.Navbar.booking")}
           </button>
         </NavLink>

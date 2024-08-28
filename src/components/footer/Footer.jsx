@@ -10,14 +10,14 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="bg-bgPrimary text-white border-t border-solid">
-      <div className="py-12 max-w-screen-xl mx-auto w-full">
-        <div className="flex flex-wrap text-[14px] font-medium px-3">
-          <div className="w-full md:w-full lg:w-4/12 mb-8 lg:mb-0">
+    <footer className="border-t border-solid bg-bgPrimary text-white">
+      <div className="mx-auto w-full max-w-screen-xl py-12">
+        <div className="flex flex-wrap px-3 text-[14px] font-medium">
+          <div className="mb-8 w-full md:w-full lg:mb-0 lg:w-4/12">
             <div className="mb-6">
               <NavLink
                 to="/"
-                className="w-[150px] flex items-center justify-between sm:w-[200px]"
+                className="flex w-[150px] items-center justify-between sm:w-[200px]"
               >
                 <img src={logo} alt="logo" />
               </NavLink>
@@ -58,14 +58,14 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0 lg:px-10">
-            <h4 className=" mb-4 text-[16px] font-semibold">
+          <div className="mb-8 w-full md:w-4/12 lg:mb-0 lg:w-3/12 lg:px-10">
+            <h4 className="mb-4 text-[16px] font-semibold">
               {t("Footer.title_instruct")}
             </h4>
             <ul className="space-y-4">
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/buying-guide"
                 >
                   {t("Footer.instruct_1")}
@@ -74,7 +74,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/payment-instruction"
                 >
                   {t("Footer.instruct_2")}
@@ -83,7 +83,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/register"
                 >
                   {t("Footer.instruct_3")}
@@ -92,7 +92,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/contact"
                 >
                   {t("Footer.instruct_4")}
@@ -100,14 +100,14 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-full md:w-4/12 lg:w-3/12 mb-8 lg:mb-0 lg:px-10">
-            <h4 className=" mb-4 text-[16px] font-semibold">
+          <div className="mb-8 w-full md:w-4/12 lg:mb-0 lg:w-3/12 lg:px-10">
+            <h4 className="mb-4 text-[16px] font-semibold">
               {t("Footer.title_policy")}
             </h4>
             <ul className="space-y-4">
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/membership-policy"
                 >
                   {t("Footer.policy_1")}
@@ -116,7 +116,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/payment-policy"
                 >
                   {t("Footer.policy_2")}
@@ -125,7 +125,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/buying-guide"
                 >
                   {t("Footer.policy_3")}
@@ -134,7 +134,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  className="hover:text-tertiary duration-300"
+                  className="duration-300 hover:text-tertiary"
                   to="/information-security"
                 >
                   {t("Footer.policy_4")}
@@ -143,10 +143,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full md:w-4/12 lg:w-2/12 lg:ps-6">
-            <h4 className=" mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold">
               {t("Footer.social")}
             </h4>
-            <ul className="flex space-x-4 mb-6">
+            <ul className="mb-6 flex space-x-4">
               <li>
                 <a href="#" title="Zalo">
                   <img
@@ -181,7 +181,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <h4 className=" mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold">
               {t("Footer.method_payment")}
             </h4>
             <ul className="flex space-x-4">

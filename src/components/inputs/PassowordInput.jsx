@@ -31,7 +31,7 @@ const PasswordInput = ({
 
   return (
     <div className="w-full">
-      <div className="w-full relative">
+      <div className="relative w-full">
         <input
           type={showPassword ? "text" : "password"}
           autoComplete="new-password"

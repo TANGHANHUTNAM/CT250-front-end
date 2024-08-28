@@ -1,31 +1,73 @@
+import * as yup from "yup";
+import { useAppForm } from "../../hooks";
+import Input from "../inputs/Input";
+import Textarea from "../inputs/Textarea";
+import { useTranslation } from "react-i18next";
+import { contact as contactService } from "../../services/contactService.js";
+import { toast } from "react-toastify";
+import StatusCodes from "../../utils/StatusCodes";
 const ContactForm = () => {
+  const { t } = useTranslation();
+  const contactFormSchema = yup
+    .object({
+      fullname: yup.string().required("Contact.invalid_fullName"),
+      email: yup
+        .string()
+        .email("Contact.invalid_email")
+        .required("Contact.required_email"),
+      phone: yup
+        .string()
+        .matches(/^[0-9]{10}$/, "Contact.invalid_phoneNumber")
+        .required("Contact.required_phoneNumber"),
+      content: yup.string().required("Contact.required_content"),
+    })
+    .required();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useAppForm(contactFormSchema);
+
+  const handleContact = async (data) => {
+    const res = await contactService(data);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      toast.success(res.EM);
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
+  };
+
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Introduce */}
-      <div className="form-introduce w-full lg:w-1/2 px-4 text-primary">
-        <div className="title p-3 bg-tertiary rounded-t-xl mb-2">
-          <p className="uppercase font-bold">Nhà hàng Tonatra Restaurant</p>
+      <div className="form-introduce w-full px-4 text-primary lg:w-1/2">
+        <div className="title mb-2 rounded-t-xl bg-tertiary p-3">
+          <p className="font-bold uppercase">{t("Contact.introduce.title")}</p>
         </div>
-        <div className="content flex flex-col justify-between gap-4 p-3 border-solid border border-tertiary rounded-lg">
-          <span className="description text-bs font-normal lg:h-[100px] leading-snug">
-            Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm
-            phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất.
-            Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho
-            thực khách. Tonatra Restaurant xin chân thành cảm ơn.
+        <div className="content flex flex-col justify-between gap-4 rounded-lg border border-solid border-tertiary p-3">
+          <span className="description text-bs font-normal leading-snug lg:h-[100px]">
+            {t("Contact.introduce.des")}
           </span>
-          <ul className="flex flex-col gap-2 mt-2 font-medium text-sm space-y-1">
-            <li className="title text-base font-semibold">Cửa hàng chính</li>
-            <li>
-              <b>Địa chỉ:</b> Khu 2, Đ. 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. CT
+          <ul className="mt-2 flex flex-col gap-2 space-y-1 text-sm font-medium">
+            <li className="title text-base font-semibold">
+              {t("Contact.introduce.branch")}
             </li>
             <li>
-              <b>Điện thoại: </b>
+              <b>{t("Contact.introduce.address")}</b> Khu 2, Đ. 3/2, P. Xuân
+              Khánh, Q. Ninh Kiều, TP. CT
+            </li>
+            <li>
+              <b>{t("Contact.introduce.phoneNumber")}</b>
               <a className="text-tertiary" href="tel:0292 3831 530">
                 0292 3831 530
               </a>
             </li>
             <li>
-              <b>Email: </b>
+              <b>{t("Contact.introduce.email")}</b>
               <a className="text-tertiary" href="mailto:dhct@ctu.edu.vn">
                 dhct@ctu.edu.vn
               </a>
@@ -34,37 +76,65 @@ const ContactForm = () => {
         </div>
       </div>
       {/* Contact */}
-      <div className="form-contact w-full lg:w-1/2 px-4 flex-1 mt-3 lg:mt-0">
-        <div className="title p-3 bg-tertiary rounded-t-xl mb-2">
-          <p className="uppercase font-bold text-primary">
-            Liên hệ với chúng tôi
+      <div className="form-contact mt-3 w-full flex-1 px-4 lg:mt-0 lg:w-1/2">
+        <div className="title mb-2 rounded-t-xl bg-tertiary p-3">
+          <p className="font-bold uppercase text-primary">
+            {t("Contact.title")}
           </p>
         </div>
-        <div className="content p-3 border-solid border border-tertiary rounded-lg">
-          <form>
+        <div className="content rounded-lg border border-solid border-tertiary p-3">
+          <form id="contact" onSubmit={handleSubmit(handleContact)}>
             <div className="flex flex-col gap-2 text-sm font-medium">
-              <input
+              <Input
                 type="text"
-                placeholder="Họ và tên"
-                className="border border-tertiary rounded-md px-4 py-1 outline-none"
+                placeholder={t("Contact.fullName")}
+                label="fullname"
+                autoComplete="fullname"
+                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                register={register}
+                errors={errors}
+                errorStyle={{ borderBottomColor: "red" }}
+                translation={true}
               />
-              <input
+              <Input
                 type="email"
-                placeholder="Email"
-                className="border border-tertiary rounded-md px-4 py-1 outline-none"
+                placeholder={t("Contact.email")}
+                label="email"
+                autoComplete="email"
+                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                register={register}
+                errors={errors}
+                errorStyle={{ borderBottomColor: "red" }}
+                translation={true}
               />
-              <input
+              <Input
                 type="text"
-                placeholder="Điện thoại"
-                className="border border-tertiary rounded-md px-4 py-1 outline-none"
+                placeholder={t("Contact.phoneNumber")}
+                label="phone"
+                autoComplete="phone"
+                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                register={register}
+                errors={errors}
+                errorStyle={{ borderBottomColor: "red" }}
+                translation={true}
               />
-              <textarea
-                placeholder="Nội dung"
+              <Textarea
+                type="text"
                 rows="4"
-                className="border border-tertiary rounded-md px-4 py-1 outline-none"
-              ></textarea>
-              <button className="bg-tertiary text-white py-2 px-5 rounded-md w-fit hover:bg-yellow-600">
-                <span className="">Gửi thông tin</span>
+                placeholder={t("Contact.content")}
+                label="content"
+                autoComplete="content"
+                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                register={register}
+                errors={errors}
+                errorStyle={{ borderBottomColor: "red" }}
+                translation={true}
+              />
+              <button
+                form="contact"
+                className="w-fit rounded-md bg-tertiary px-5 py-2 text-white hover:bg-yellow-600"
+              >
+                <span className="">{t("Contact.button")}</span>
               </button>
             </div>
           </form>
