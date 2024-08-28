@@ -5,7 +5,7 @@ const Textarea = ({
   register = () => {},
   errors,
   errorStyle = {},
-  errorClass = "text-xs text-[#ff0000] pt-1.5 block",
+  errorClass = "text-xs text-[#ff0000] pt-1",
   translation = false,
   ...props
 }) => {

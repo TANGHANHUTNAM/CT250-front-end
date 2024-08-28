@@ -1,6 +1,6 @@
 import { useDynamicTitle } from "../hooks";
 import { useTranslation } from "react-i18next";
-import ContactForm from "../components/contact/contactForm";
+import ContactForm from "../components/contact/ContactForm";
 import Map from "../components/contact/Map";
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -8,7 +8,7 @@ const ContactPage = () => {
 
   return (
     <div className="Contact-page bg-bgPrimary">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col py-10">
+      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-6 py-10">
         <ContactForm />
         <Map />
       </div>

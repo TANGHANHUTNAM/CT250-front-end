@@ -51,10 +51,10 @@ const ContactForm = () => {
           <p className="font-bold uppercase">{t("Contact.introduce.title")}</p>
         </div>
         <div className="content flex flex-col justify-between gap-4 rounded-lg border border-solid border-tertiary p-3">
-          <span className="description text-bs font-normal leading-snug lg:h-[100px]">
+          <span className="description text-justify text-base font-normal lg:h-[168px]">
             {t("Contact.introduce.des")}
           </span>
-          <ul className="mt-2 flex flex-col gap-2 space-y-1 text-sm font-medium">
+          <ul className="mt-2.5 flex flex-col gap-2 space-y-1 text-sm font-medium">
             <li className="title text-base font-semibold">
               {t("Contact.introduce.branch")}
             </li>
@@ -84,15 +84,15 @@ const ContactForm = () => {
             {t("Contact.title")}
           </p>
         </div>
-        <div className="content rounded-lg border border-solid border-tertiary p-3">
+        <div className="content rounded-lg border border-solid border-tertiary p-3 lg:h-[340.8px] lg:overflow-y-auto">
           <form id="contact" onSubmit={handleSubmit(handleContact)}>
-            <div className="flex flex-col gap-2 text-sm font-medium">
+            <div className="space-y-4 text-sm font-medium">
               <Input
                 type="text"
                 placeholder={t("Contact.fullName")}
                 label="fullname"
                 autoComplete="fullname"
-                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                className="w-full rounded-md border border-tertiary px-4 py-2 outline-none"
                 register={register}
                 errors={errors}
                 errorStyle={{ borderBottomColor: "red" }}
@@ -103,7 +103,7 @@ const ContactForm = () => {
                 placeholder={t("Contact.email")}
                 label="email"
                 autoComplete="email"
-                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                className="w-full rounded-md border border-tertiary px-4 py-2 outline-none"
                 register={register}
                 errors={errors}
                 errorStyle={{ borderBottomColor: "red" }}
@@ -114,7 +114,7 @@ const ContactForm = () => {
                 placeholder={t("Contact.phoneNumber")}
                 label="phone"
                 autoComplete="phone"
-                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                className="w-full rounded-md border border-tertiary px-4 py-2 outline-none"
                 register={register}
                 errors={errors}
                 errorStyle={{ borderBottomColor: "red" }}
@@ -126,7 +126,7 @@ const ContactForm = () => {
                 placeholder={t("Contact.content")}
                 label="content"
                 autoComplete="content"
-                className="w-full rounded-md border border-tertiary px-4 py-1 outline-none"
+                className="w-full rounded-md border border-tertiary px-4 py-2 outline-none"
                 register={register}
                 errors={errors}
                 errorStyle={{ borderBottomColor: "red" }}
