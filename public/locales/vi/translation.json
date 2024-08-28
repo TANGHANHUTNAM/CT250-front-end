@@ -89,6 +89,28 @@
     "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
     "confirm_password_not_match": "Mật khẩu xác nhận không khớp"
   },
+  "Contact": {
+    "title": "Liên hệ với chúng tôi",
+    "fullName": "Họ và tên",
+    "email": "Email",
+    "phoneNumber": "Số điện thoại",
+    "content": "Nội dung",
+    "button": "Gửi thông tin",
+    "invalid_fullName": "Vui lòng nhập họ tên",
+    "invalid_email": "Email không hợp lệ",
+    "required_email": "Vui lòng nhập email",
+    "invalid_phoneNumber": "Số điện thoại không hợp lệ!",
+    "required_phoneNumber": "Vui lòng nhập số điện thoại",
+    "required_content": "Vui lòng nhập nội dung",
+    "introduce": {
+      "title": "nhà hàng tonatra restaurant",
+      "des": "Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất. Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho thực khách. Tonatra Restaurant xin chân thành cảm ơn.",
+      "branch": "Cửa hàng chính",
+      "address": "Địa chỉ: ",
+      "phoneNumber": "Điện thoại: ",
+      "email": "Email: "
+    }
+  },
   "BuyingGuide": {
     "title": "Hướng dẫn mua hàng",
     "content_1": "Bước 1: Truy cập website và lựa chọn món ăn cần mua",

@@ -7,7 +7,7 @@ const MembershipPolicyPage = () => {
 
   return (
     <div className="bg-bgPrimary">
-      <div className="max-w-screen-xl mx-auto w-full text-primary px-3 flex flex-col gap-5 font-medium py-10 ">
+      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-5 px-3 py-10 font-medium text-primary">
         <p className="text-3xl font-semibold">{t("MembershipPolicy.title")}</p>
         <p>{t("MembershipPolicy.content_1")}</p>
         <p>{t("MembershipPolicy.content_2")}</p>

@@ -89,6 +89,28 @@
     "required_confirm_password": "Confirm password is required",
     "confirm_password_not_match": "Confirm password does not match"
   },
+  "Contact": {
+    "title": "Contact Us",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "content": "Content",
+    "button": "Submit",
+    "invalid_fullName": "Please enter your full name",
+    "invalid_email": "Invalid email",
+    "required_email": "Please enter your email",
+    "invalid_phoneNumber": "Invalid phone number!",
+    "required_phoneNumber": "Please enter your phone number",
+    "required_content": "Please enter the content",
+    "introduce": {
+      "title": "Tonatra Restaurant",
+      "des": "Our restaurant always puts customers first, dedicated to serving, bringing customers the best experiences. The dishes with exclusive recipes will bring new flavors to diners. Tonatra Restaurant sincerely thanks you.",
+      "branch": "Main Branch",
+      "address": "Address: ",
+      "phoneNumber": "Phone: ",
+      "email": "Email: "
+    }
+  },
   "BuyingGuide": {
     "title": "Buying Guide",
     "content_1": "Step 1: Visit the website and choose the food you want to buy",
