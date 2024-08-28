@@ -7,7 +7,7 @@ const ContactForm = () => {
           <p className="uppercase font-bold">Nhà hàng Tonatra Restaurant</p>
         </div>
         <div className="content flex flex-col justify-between gap-4 p-3 border-solid border border-tertiary rounded-lg">
-          <span className="description text-sm font-medium lg:h-[100px] ">
+          <span className="description text-bs font-normal lg:h-[100px] leading-snug">
             Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm
             phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất.
             Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho
