@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.png";
 import "./HeaderNav.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
@@ -8,6 +8,12 @@ import { CgMenuRightAlt } from "react-icons/cg";
 import { useState } from "react";
 import SideBar from "./SideBar";
 import { useTranslation, Trans } from "react-i18next";
+import { logout } from "../../services/authService";
+import { useDispatch, useSelector } from "react-redux";
+import StatusCodes from "../../utils/StatusCodes";
+import { logoutSuccess } from "../../redux/reducer/userSlice";
+import { toast } from "react-toastify";
+
 const HeaderNav = () => {
   const { t } = useTranslation();
   const [visable, setVisible] = useState(false);
@@ -15,6 +21,28 @@ const HeaderNav = () => {
   const handleCloseSearch = () => {
     setVisibleSearch((show) => !show);
   };
+
+  const {
+    isAuth,
+    account: { id, email },
+  } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    const res = await logout({ id: id, email: email });
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      toast.success(res.EM);
+      dispatch(logoutSuccess());
+      navigate("/login");
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
+  };
+
   return (
     <>
       {/* Navbar */}
@@ -133,6 +161,7 @@ const HeaderNav = () => {
             <div className="dropdown-menu invisible absolute right-0 scale-90 cursor-pointer pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
               <div className="flex w-60 flex-col gap-3 rounded-md bg-primary p-3">
                 <Link
+                  hidden={isAuth}
                   to="/login"
                   className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
@@ -140,6 +169,7 @@ const HeaderNav = () => {
                   <span hidden>{t("Header.Navbar.logout")}</span>
                 </Link>
                 <Link
+                  hidden={isAuth}
                   to="/register"
                   className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
@@ -151,13 +181,15 @@ const HeaderNav = () => {
                 >
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
-                <Link
-                  hidden
-                  to="/logout"
-                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
+
+                <button
+                  hidden={!isAuth}
+                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  onClick={() => handleLogout()}
+
                 >
                   {t("Header.Navbar.logout")}
-                </Link>
+                </button>
               </div>
             </div>
           </div>

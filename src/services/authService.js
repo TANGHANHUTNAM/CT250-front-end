@@ -8,4 +8,8 @@ const login = (data) => {
   return axios.post("/api/v1/auth/login", data);
 };
 
-export { register, login };
+const logout = (data) => {
+  return axios.post("/api/v1/auth/logout", data);
+};
+
+export { register, login, logout };
