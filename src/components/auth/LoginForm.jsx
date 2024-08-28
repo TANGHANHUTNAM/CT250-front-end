@@ -52,7 +52,7 @@ const LoginForm = () => {
 
   return (
     <div className="w-full">
-      <p className="text-center text-primary text-2xl font-semibold mb-6 uppercase">
+      <p className="mb-6 text-center text-2xl font-semibold uppercase text-primary">
         {t("Auth.login")}
       </p>
       <form
@@ -64,7 +64,7 @@ const LoginForm = () => {
           type="email"
           placeholder={t("Auth.email")}
           autoComplete="email"
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="email"
           register={register}
           errors={errors}
@@ -73,7 +73,7 @@ const LoginForm = () => {
         />
         <PasswordInput
           placeholder={t("Auth.password")}
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="password"
           register={register}
           errors={errors}
@@ -84,13 +84,13 @@ const LoginForm = () => {
       <div className="mt-8 w-full">
         <button
           form="login"
-          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold text-base hover:bg-[#d6861f]"
+          className="w-full rounded-md bg-tertiary px-4 py-2.5 text-base font-semibold hover:bg-[#d6861f]"
         >
           {t("Auth.login")}
         </button>
       </div>
       <div className="mt-1.5 w-full text-right">
-        <span className="text-sm text-gray-200 cursor-pointer hover:text-tertiary">
+        <span className="cursor-pointer text-sm text-gray-200 hover:text-tertiary">
           {t("Auth.forgot_password")}
         </span>
       </div>

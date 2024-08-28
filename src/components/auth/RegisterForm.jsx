@@ -64,7 +64,7 @@ const RegisterForm = () => {
 
   return (
     <div className="w-full">
-      <p className="text-center text-primary text-2xl font-semibold uppercase mb-6">
+      <p className="mb-6 text-center text-2xl font-semibold uppercase text-primary">
         {t("Auth.register")}
       </p>
       <form
@@ -75,7 +75,7 @@ const RegisterForm = () => {
         <Input
           type="text"
           placeholder={t("Auth.username")}
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="username"
           register={register}
           errors={errors}
@@ -86,7 +86,7 @@ const RegisterForm = () => {
           type="email"
           placeholder={t("Auth.email")}
           autoComplete="email"
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="email"
           register={register}
           errors={errors}
@@ -95,7 +95,7 @@ const RegisterForm = () => {
         />
         <PasswordInput
           placeholder={t("Auth.password")}
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="password"
           register={register}
           errors={errors}
@@ -104,7 +104,7 @@ const RegisterForm = () => {
         />
         <PasswordInput
           placeholder={t("Auth.confirm_password")}
-          className="w-full bg-primary px-3 py-2.5 rounded border-b-2 border-tertiary outline-none text-gray-900 text-base"
+          className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2.5 text-base text-gray-900 outline-none"
           label="confirmPassword"
           register={register}
           errors={errors}
@@ -115,7 +115,7 @@ const RegisterForm = () => {
       <div className="mt-8 w-full">
         <button
           form="register"
-          className="w-full bg-tertiary px-4 py-2.5 rounded-md font-semibold text-base hover:bg-[#d6861f]"
+          className="w-full rounded-md bg-tertiary px-4 py-2.5 text-base font-semibold hover:bg-[#d6861f]"
         >
           {t("Auth.register")}
         </button>
