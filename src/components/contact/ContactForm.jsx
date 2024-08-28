@@ -27,6 +27,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useAppForm(contactFormSchema);
 
   const handleContact = async (data) => {
@@ -34,6 +35,7 @@ const ContactForm = () => {
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       toast.success(res.EM);
+      reset();
     }
 
     if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
