@@ -1,5 +1,4 @@
-Reset CSS
-
+/* Reset CSS  */
 html,
 body,
 div,
@@ -124,5 +123,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-
