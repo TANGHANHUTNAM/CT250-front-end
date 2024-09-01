@@ -1,0 +1,9 @@
+.ant-image-img,
+.ant-image {
+  height: 100% !important;
+}
+
+.ant-image-img,
+.ant-image-mask {
+  border-radius: 10%;
+}
