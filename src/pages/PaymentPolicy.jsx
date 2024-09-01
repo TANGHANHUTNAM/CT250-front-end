@@ -1,10 +1,10 @@
-import { useDynamicTitle } from "../hooks";
+import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation, Trans } from "react-i18next";
 
 const PaymentPolicyPage = () => {
   const { t } = useTranslation();
   useDynamicTitle(t("BreadcrumbsAndTitle.payment_policy"));
-
+  useTopPage();
   return (
     <div className="bg-bgPrimary">
       <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-5 px-3 py-10 font-medium text-primary">
