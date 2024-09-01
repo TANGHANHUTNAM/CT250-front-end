@@ -10,12 +10,14 @@ import img07 from "../../assets/gallery/img07.jpg";
 import img08 from "../../assets/gallery/img08.jpg";
 import img09 from "../../assets/gallery/img09.jpg";
 import img10 from "../../assets/gallery/img10.jpg";
+import { useTranslation } from "react-i18next";
 const Gallery = () => {
+  const { t } = useTranslation();
   return (
     <div className="gallery-container text-primary">
       <div className="content-title relative mb-5 text-center">
         <p className="py-4 text-4xl font-medium uppercase">
-          Thư viện ảnh
+          {t("Introduce.title_gallery")}
           <span className="absolute bottom-0 left-0 right-0 mx-auto box-border w-[100px] border-b-[6px] border-double"></span>
         </p>
       </div>
@@ -52,7 +54,7 @@ const Gallery = () => {
         </div>
       </div>
       <p className="mt-5 font-semibold uppercase italic">
-        HÃY ĐẾN TONATRA RESTAURANT ĐỂ THƯỞNG THỨC NGAY BẠN NHÉ!
+        {t("Introduce.content_footer")}
       </p>
     </div>
   );
