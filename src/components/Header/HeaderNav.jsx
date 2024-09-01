@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import StatusCodes from "../../utils/StatusCodes";
 import { logoutSuccess } from "../../redux/reducer/userSlice";
 import { toast } from "react-toastify";
+import Avatar from "../avatar/Avatar";
 
 const HeaderNav = () => {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ const HeaderNav = () => {
 
   const {
     isAuth,
-    account: { id, email },
+    account: { id, email, avatar },
   } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -155,9 +156,13 @@ const HeaderNav = () => {
           </Link>
           <div className="group relative">
             {/* User-icons */}
-            <span>
-              <FaRegUser className="cursor-pointer text-2xl text-primary duration-500 hover:text-tertiary" />
-            </span>
+            {isAuth ? (
+              <Avatar src={avatar || undefined} />
+            ) : (
+              <span>
+                <FaRegUser className="cursor-pointer text-2xl text-primary duration-500 hover:text-tertiary" />
+              </span>
+            )}
             <div className="dropdown-menu invisible absolute right-0 scale-90 cursor-pointer pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
               <div className="flex w-60 flex-col gap-3 rounded-md bg-primary p-3">
                 <Link
@@ -176,17 +181,22 @@ const HeaderNav = () => {
                   {t("Header.Navbar.register")}
                 </Link>
                 <Link
+                  hidden={!isAuth}
+                  to="/personal/12"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
+                >
+                  {t("Header.Navbar.myAccount")}
+                </Link>
+                <Link
                   to={`/favorite-dish/${12}`}
                   className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                 >
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
-
                 <button
                   hidden={!isAuth}
-                  className="bg-tertiary p-2.5 rounded-md text-center text-sm font-medium text-primary hover:bg-yellow-600 duration-500"
+                  className="rounded-md bg-tertiary p-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
                   onClick={() => handleLogout()}
-
                 >
                   {t("Header.Navbar.logout")}
                 </button>
