@@ -25,7 +25,8 @@
       "favoriteDish": "Favorite",
       "search": "SEARCH YOUR DISH:",
       "inputSearch": "Enter the name of the dish...",
-      "resultSearch": "SEARCH RESULT"
+      "resultSearch": "SEARCH RESULT",
+      "myAccount": "My Account"
     }
   },
   "Footer": {
