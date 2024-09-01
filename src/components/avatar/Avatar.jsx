@@ -11,7 +11,7 @@ const Avatar = ({ size = 32, src, ...props }) => {
         cursor: "pointer",
       }}
       icon={<UserOutlined />}
-      src={src}
+      src={src || undefined}
       {...props}
     />
   );

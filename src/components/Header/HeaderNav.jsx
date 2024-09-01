@@ -157,7 +157,7 @@ const HeaderNav = () => {
           <div className="group relative">
             {/* User-icons */}
             {isAuth ? (
-              <Avatar src={avatar || undefined} />
+              <Avatar src={avatar} />
             ) : (
               <span>
                 <FaRegUser className="cursor-pointer text-2xl text-primary duration-500 hover:text-tertiary" />
