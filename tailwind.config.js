@@ -23,6 +23,9 @@ export default {
         montserrat: ["Montserrat", "sans-serif"],
         dancingscript: ["Dancing Script", "cursive"],
       },
+      backgroundImage: {
+        booking: "url('/src/assets/booking.jpg')",
+      },
     },
   },
   plugins: [],
