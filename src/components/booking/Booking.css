@@ -1,0 +1,5 @@
+.bg-image-main {
+  background-position: center;
+  background-size: cover; /* Hoặc 'contain' tùy thuộc vào yêu cầu của bạn */
+  background-repeat: no-repeat;
+}

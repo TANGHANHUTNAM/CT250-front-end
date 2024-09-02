@@ -5,19 +5,9 @@ import { useTranslation } from "react-i18next";
 
 const Carousel = () => {
   const { t } = useTranslation();
-  const carouselRef = useRef(null);
-
-  useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }, []);
 
   return (
-    <div ref={carouselRef} className="carousel-container relative">
+    <div className="carousel-container relative">
       <video className="video w-full" autoPlay muted loop>
         <source src={video} />
       </video>

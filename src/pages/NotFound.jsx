@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useDynamicTitle } from "../hooks";
+import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation } from "react-i18next";
 
 const NotFoundPage = () => {
   const { t } = useTranslation();
   useDynamicTitle(t("BreadcrumbsAndTitle.not_found"));
-
+  useTopPage();
   return (
     <section className="bg-bgPrimary">
       <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
