@@ -21,21 +21,20 @@ const InputDate = ({
       <Controller
         name={label}
         control={control}
-        rules={{ required: "This field is required" }}
         render={({ field }) => (
           <DatePicker
             {...field}
             format="DD/MM/YYYY"
             value={field.value ? dayjs(field.value, "DD/MM/YYYY") : null} // Sử dụng dayjs để khởi tạo giá trị ngày
             onChange={(date, dateString) => field.onChange(dateString)}
-            className={`mt-2 w-full rounded-md border border-tertiary px-4 py-[10px] text-2xl text-secondary outline-none ${errors?.[label] ? errorClass : ""}`}
             placeholder="dd/mm/yyyy"
+            style={errors?.[label] ? errorStyle : {}}
             {...props}
           />
         )}
       />
       {errors?.[label] && (
-        <span className={errorClass} style={errors?.[label] ? errorStyle : {}}>
+        <span className={errorClass}>
           {translation ? t(errors?.[label]?.message) : errors?.[label]?.message}
         </span>
       )}
