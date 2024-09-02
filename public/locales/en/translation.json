@@ -178,5 +178,30 @@
   "Carousel": {
     "des": "Diverse dishes",
     "button": "Booking now!"
+  },
+  "Booking": {
+    "required_fullName": "Full name is required",
+    "required_email": "Email is required",
+    "invalid_email": "Invalid email",
+    "required_phoneNumber": "Phone number is required",
+    "invalid_phoneNumber": "Invalid phone number",
+    "required_arrivalDate": "Arrival date is required",
+    "required_arrivalTime": "Arrival time is required",
+    "required_numberOfPeople": "Number of people is required",
+    "invalidMinNumber": "Number of people must be at least 1",
+    "invalidMaxNumber": "Number of people must be at most 10",
+    "title": "Contact for Booking",
+    "label_fullName": "Full Name",
+    "input_fullName": "Enter full name...",
+    "label_email": "Email",
+    "input_email": "Enter email...",
+    "label_phoneNumber": "Phone Number",
+    "input_phoneNumber": "Enter phone number...",
+    "label_number": "Number of People",
+    "input_number": "Enter number of people...",
+    "label_arrivalDate": "Arrival Date",
+    "label_arrivalTime": "Arrival Time",
+    "content_1": "Or contact directly via: ",
+    "button": "Book Now"
   }
 }

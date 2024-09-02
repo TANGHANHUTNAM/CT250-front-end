@@ -178,5 +178,30 @@
   "Carousel": {
     "des": "Món ăn đa dạng",
     "button": "Đặt bàn ngay!"
+  },
+  "Booking": {
+    "required_fullName": "Họ và tên không được để trống",
+    "required_email": "Email không được để trống",
+    "invalid_email": "Email không hợp lệ",
+    "required_phoneNumber": "Số điện thoại không được để trống",
+    "invalid_phoneNumber": "Số điện thoại không hợp lệ",
+    "required_arrivalDate": "Ngày đến nhận bàn không được để trống",
+    "required_arrivalTime": "Thời gian đến nhận bàn không được để trống",
+    "required_numberOfPeople": "Số lượng người không được để trống",
+    "invalidMinNumber": "Số lượng người phải lớn hơn tối thiểu là 1",
+    "invalidMaxNumber": "Số lượng người phải nhỏ hơn tối đa là 10",
+    "title": "Liên hệ đặt bàn",
+    "label_fullName": "Họ và tên",
+    "input_fullName": "Nhập họ và tên...",
+    "label_email": "Email",
+    "input_email": "Nhập email...",
+    "label_phoneNumber": "Số điện thoại",
+    "input_phoneNumber": "Nhập số điện thoại...",
+    "label_number": "Số lượng người",
+    "input_number": "Nhập số lượng người...",
+    "label_arrivalDate": "Ngày đến nhận bàn",
+    "label_arrivalTime": "Thời gian đến nhận bàn",
+    "content_1": "Hoặc liên hệ trực tiếp qua: ",
+    "button": "Đặt bàn ngay"
   }
 }
