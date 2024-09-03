@@ -12,4 +12,8 @@ const logout = (data) => {
   return axios.post("/api/v1/auth/logout", data);
 };
 
-export { register, login, logout };
+const socialAuth = (data) => {
+  return axios.post("/api/v1/auth/social-auth", data);
+};
+
+export { register, login, logout, socialAuth };
