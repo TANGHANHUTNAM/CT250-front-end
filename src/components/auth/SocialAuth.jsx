@@ -7,13 +7,19 @@ import StatusCodes from "../../utils/StatusCodes";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/reducer/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SocialAuth = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [isLogingIn, setIsLogingIn] = useState(false);
+
   const handleSocialAuth = async (provider) => {
+    if (isLogingIn) return;
+    setIsLogingIn(true);
+
     try {
       const res = await signIn(auth, new provider());
 
@@ -21,7 +27,7 @@ const SocialAuth = () => {
       const apiRes = await socialAuth({ email, name: displayName });
 
       if (apiRes && apiRes.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success(res.EM);
+        toast.success(apiRes.EM);
         dispatch(
           loginSuccess({ ...apiRes.DT, avatar: apiRes.DT?.avatar?.url }),
         );
@@ -29,12 +35,14 @@ const SocialAuth = () => {
       }
 
       if (apiRes && apiRes.EC === StatusCodes.ERROR_DEFAULT) {
-        toast.error(res.EM);
+        toast.error(apiRes.EM);
         await signOut(auth);
       }
     } catch (error) {
       console.log(error);
       toast.error("Login failed. Please try again.");
+    } finally {
+      setIsLogingIn(false);
     }
   };
 
@@ -45,8 +53,9 @@ const SocialAuth = () => {
       </p>
       <div className="mx-auto flex w-72 flex-nowrap gap-2 sm:w-2/3">
         <button
-          className="flex w-1/2 flex-nowrap items-center rounded-sm bg-blue-600 text-primary hover:bg-blue-700"
+          className={`flex w-1/2 flex-nowrap items-center rounded-sm bg-blue-600 text-primary ${isLogingIn ? "opacity-50" : "hover:bg-blue-700"}`}
           onClick={() => handleSocialAuth(facebook)}
+          disabled={isLogingIn}
         >
           <span className="border-r border-solid border-gray-400 p-3">
             <FaFacebookF />
@@ -56,8 +65,9 @@ const SocialAuth = () => {
           </span>
         </button>
         <button
-          className="flex w-1/2 flex-nowrap items-center rounded-sm bg-red-600 text-primary hover:bg-red-700"
+          className={`flex w-1/2 flex-nowrap items-center rounded-sm bg-red-600 text-primary ${isLogingIn ? "opacity-50" : "hover:bg-red-700"}`}
           onClick={() => handleSocialAuth(google)}
+          disabled={isLogingIn}
         >
           <span className="border-r border-solid border-gray-400 p-3">
             <FaGoogle />
