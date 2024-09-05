@@ -214,6 +214,11 @@
       "content_4": "6:00 AM - 11:30 PM",
       "content_5": "Online ordering on the Website is available 24/7",
       "content_6": "Call now! "
+    },
+    "About": {
+      "title": "About Us",
+      "des": "Our restaurant always puts customers first, dedicated to serving, bringing customers the best experiences. The dishes with exclusive recipes will bring new flavors to diners. Tonatra Restaurant sincerely thanks you.",
+      "viewMore": "View More"
     }
   }
 }

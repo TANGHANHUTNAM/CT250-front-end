@@ -17,7 +17,7 @@ const OpeningHours = () => {
           </video>
 
           <div className="bottom-40 rounded-b-xl bg-bgTertiary text-primary lg:absolute lg:right-0 lg:mr-3 lg:h-auto lg:w-1/2 lg:rounded-2xl lg:p-10 xl:p-14">
-            <h2 className="px-10 py-12 text-center text-4xl font-semibold uppercase text-tertiary lg:px-0 lg:pb-5 lg:pt-0 lg:text-5xl">
+            <h2 className="px-10 py-12 text-center text-4xl font-semibold uppercase text-tertiary lg:px-0 lg:pb-5 lg:pt-0 lg:text-4xl">
               {t("Home.OpeningHours.title")}
             </h2>
             <div className="flex h-auto flex-col gap-5 px-7 pb-7 font-medium lg:pb-0">
