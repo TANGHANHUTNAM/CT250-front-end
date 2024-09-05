@@ -70,7 +70,8 @@
     "information_security": "Information security",
     "favorite_dishes": "Favorite dishes",
     "not_found": "404 Page not found",
-    "payment": "Payment"
+    "payment": "Payment",
+    "reset_password": "Reset Password"
   },
   "Auth": {
     "login": "Login",

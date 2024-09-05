@@ -70,7 +70,8 @@
     "information_security": "Bảo mật thông tin",
     "favorite_dishes": "Món ăn yêu thích",
     "not_found": "404 Không tìm thấy trang",
-    "payment": "Thanh toán"
+    "payment": "Thanh toán",
+    "reset_password": "Lấy lại mật khẩu"
   },
   "Auth": {
     "login": "Đăng nhập",

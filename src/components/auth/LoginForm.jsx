@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { login } from "../../services/authService";
 import StatusCodes from "../../utils/StatusCodes";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/reducer/userSlice";
 
@@ -90,9 +90,11 @@ const LoginForm = () => {
         </button>
       </div>
       <div className="mt-1.5 w-full text-right">
-        <span className="cursor-pointer text-sm text-gray-200 hover:text-tertiary">
-          {t("Auth.forgot_password")}
-        </span>
+        <Link to="/reset-password">
+          <span className="cursor-pointer text-sm text-gray-200 hover:text-tertiary">
+            {t("Auth.forgot_password")}
+          </span>
+        </Link>
       </div>
     </div>
   );
