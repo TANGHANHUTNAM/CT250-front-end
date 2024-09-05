@@ -14,6 +14,7 @@ import StatusCodes from "../../utils/StatusCodes";
 import { logoutSuccess } from "../../redux/reducer/userSlice";
 import { toast } from "react-toastify";
 import Avatar from "../avatar/Avatar";
+import { auth, signOut } from "../../utils/firebase";
 
 const HeaderNav = () => {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ const HeaderNav = () => {
     const res = await logout({ id: id, email: email });
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      await signOut(auth);
       toast.success(res.EM);
       dispatch(logoutSuccess());
       navigate("/login");
