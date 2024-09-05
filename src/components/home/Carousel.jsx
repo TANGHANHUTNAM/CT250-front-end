@@ -7,7 +7,7 @@ const Carousel = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="carousel-container relative">
+    <div className="carousel-container relative border-b border-solid border-b-primary">
       <video className="video w-full" autoPlay muted loop>
         <source src={video} />
       </video>

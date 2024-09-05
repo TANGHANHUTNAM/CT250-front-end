@@ -219,6 +219,16 @@
       "title": "About Us",
       "des": "Our restaurant always puts customers first, dedicated to serving, bringing customers the best experiences. The dishes with exclusive recipes will bring new flavors to diners. Tonatra Restaurant sincerely thanks you.",
       "viewMore": "View More"
+    },
+    "Quality": {
+      "title-1": "Master Chefs",
+      "title-2": "Quality Food",
+      "title-3": "Online Ordering",
+      "title-4": "24/7 Service",
+      "content-1": "Our chefs are experienced and highly skilled.",
+      "content-2": "We always ensure the best food quality for our customers.",
+      "content-3": "We provide online ordering service for customer convenience.",
+      "content-4": "We offer 24/7 service for customers anytime, anywhere."
     }
   }
 }
