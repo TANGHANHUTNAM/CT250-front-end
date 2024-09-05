@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const About = () => {
   const { t } = useTranslation();
   return (
-    <div className="border-t border-solid border-t-primary bg-bgPrimary pt-14">
+    <div className="bg-bgTertiary py-14">
       <div className="mx-auto max-w-screen-xl px-3">
         <div className="flex flex-col gap-5 lg:flex-row">
           <div className="content flex flex-col gap-5 px-5 text-primary lg:w-1/2">
