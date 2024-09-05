@@ -203,5 +203,22 @@
     "label_arrivalTime": "Thời gian đến nhận bàn",
     "content_1": "Hoặc liên hệ trực tiếp qua: ",
     "button": "Đặt bàn ngay"
+  },
+  "Home": {
+    "OpeningHours": {
+      "title": "Giờ mở cửa",
+      "des": "Nhà hàng Tonatra luôn chào mừng quý khách đến ăn với các khung giờ hoạt động:",
+      "content_1": "Thứ 2 đến Thứ 6:",
+      "content_2": "7:00 sáng - 10:00 tối",
+      "content_3": "Thứ 7 đến Chủ Nhật:",
+      "content_4": "6:00 sáng - 11:30 tối",
+      "content_5": "Riêng việc đặt hàng trên Website luôn hoạt động 24/7",
+      "content_6": "Gọi ngay! "
+    },
+    "About": {
+      "title": "Về chúng tôi",
+      "des": "  Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất. Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho thực khách. Tonatra Restaurant xin chân thành cảm ơn.",
+      "viewMore": "Xem thêm"
+    }
   }
 }
