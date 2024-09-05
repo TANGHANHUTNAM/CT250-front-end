@@ -12,7 +12,7 @@
     "Navbar": {
       "close": "Close",
       "home": "Home",
-      "introduce": "Introduce",
+      "introduce": "About us",
       "menu": "Menu",
       "bestDish": "Best Dish",
       "deliciousDish": "Delicious Dish",
@@ -53,7 +53,7 @@
     "home": "Home",
     "contact": "Contact",
     "news": "News",
-    "introduction": "Introduction",
+    "introduction": "About us",
     "delicious_dishes": "Delicious dishes",
     "best_dishes": "Best dishes",
     "login": "Login",
@@ -203,5 +203,17 @@
     "label_arrivalTime": "Arrival Time",
     "content_1": "Or contact directly via: ",
     "button": "Book Now"
+  },
+  "Home": {
+    "OpeningHours": {
+      "title": "Opening Hours",
+      "des": "Tonatra Restaurant always welcomes you to dine with the following operating hours:",
+      "content_1": "Monday to Friday:",
+      "content_2": "7:00 AM - 10:00 PM",
+      "content_3": "Saturday to Sunday:",
+      "content_4": "6:00 AM - 11:30 PM",
+      "content_5": "Online ordering on the Website is available 24/7",
+      "content_6": "Call now! "
+    }
   }
 }
