@@ -1,10 +1,14 @@
 import videoOpening from "../../assets/OpeningVideo.mp4";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import thongke1 from "../../assets/statistic/thong_ke1.webp";
+import thongke2 from "../../assets/statistic/thong_ke2.webp";
+import thongke3 from "../../assets/statistic/thong_ke3.webp";
+import thongke4 from "../../assets/statistic/thong_ke4.webp";
 const OpeningHours = () => {
   const { t } = useTranslation();
   return (
-    <div className="bg-bgPrimary py-10 lg:py-32">
+    <div className="bg-bgPrimary py-10 lg:pt-32">
       <div className="mx-auto max-w-screen-xl">
         <div className="relative flex flex-col px-3 lg:flex-row lg:py-10">
           <video
@@ -51,6 +55,37 @@ const OpeningHours = () => {
                 </p>
               </span>
             </div>
+          </div>
+        </div>
+        {/* Thong ke */}
+        <div className="statistic flex flex-row flex-wrap pb-10 pt-10 text-primary">
+          <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-r border-solid px-3 md:w-1/4">
+            <img src={thongke1} alt="" />
+            <span className="num text-3xl font-semibold md:text-5xl">2+</span>
+            <span className="title sm:tex-3xl text-center text-2xl font-medium">
+              Cửa hàng
+            </span>
+          </div>
+          <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-solid px-3 sm:border-r md:w-1/4">
+            <img src={thongke2} alt="" />
+            <span className="num text-3xl font-semibold md:text-5xl">20+</span>
+            <span className="title sm:tex-3xl text-center text-2xl font-medium">
+              Nhân viên
+            </span>
+          </div>
+          <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-r border-solid px-3 md:w-1/4">
+            <img src={thongke3} alt="" />
+            <span className="num text-3xl font-semibold md:text-5xl">200+</span>
+            <span className="title sm:tex-3xl text-center text-2xl font-medium">
+              Khách hàng
+            </span>
+          </div>
+          <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 px-3 md:w-1/4">
+            <img src={thongke4} alt="" />
+            <span className="num text-3xl font-semibold md:text-5xl">50+</span>
+            <span className="title sm:tex-3xl text-center text-2xl font-medium">
+              Món ăn
+            </span>
           </div>
         </div>
       </div>
