@@ -20,14 +20,33 @@ const MainLayout = () => {
       setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // For Mobile or negative scrolling
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const mediaQuery = window.matchMedia("(min-width: 640px)"); // sm: 640px
+
+    const handleMediaQueryChange = (e) => {
+      if (e.matches) {
+        window.addEventListener("scroll", handleScroll);
+      } else {
+        window.removeEventListener("scroll", handleScroll);
+        setShowHeader(true); // Reset header visibility when screen size is less than sm
+      }
+    };
+
+    // Initial check
+    if (mediaQuery.matches) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    // Listen for media query changes
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, [lastScrollTop]);
   return (
     <div className="main-layout min-h-screen">
-      <div className={`top-0 z-50 duration-300 ${showHeader ? "sticky" : ""}`}>
+      <div className={`top-0 z-50 ${showHeader ? "sticky" : ""}`}>
         <Header />
         <Breadcrumbs />
       </div>

@@ -47,7 +47,7 @@ const HeaderNav = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="relative mx-auto flex w-full max-w-screen-xl items-center justify-between p-3">
+      <div className="relative z-50 mx-auto flex w-full max-w-screen-xl items-center justify-between p-3">
         {/* Logo */}
         <div>
           <NavLink
