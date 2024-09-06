@@ -244,5 +244,19 @@
       "des4": "Các món cá được chế biến tinh tế với hương vị đặc biệt nhất",
       "des5": "Các món được chế biến tinh tế với hương vị đặc biệt nhất"
     }
+  },
+  "ResetPassword": {
+    "verify_email": "Xác minh email",
+    "verification_code": "Mã xác minh",
+    "new_password": "Mật khẩu mới",
+    "next": "Tiếp tục",
+    "back": "Trở về",
+    "done": "Hoàn thành",
+    "required_email": "Email thì bắt buộc",
+    "invalid_email": "Email không hợp lệ",
+    "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+    "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+    "required_password": "Mật khẩu thì bắt buộc",
+    "required_verification_code": "Mã xác minh thì bắt buộc"
   }
 }

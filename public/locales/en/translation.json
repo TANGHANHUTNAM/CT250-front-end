@@ -244,5 +244,19 @@
       "des4": "Fish dishes are delicately prepared with the most special flavors",
       "des5": "Dishes are delicately prepared with the most special flavors"
     }
+  },
+  "ResetPassword": {
+    "verify_email": "Verify email",
+    "verification_code": "Verification code",
+    "new_password": "New password",
+    "next": "Next",
+    "back": "Back",
+    "done": "Done",
+    "required_email": "Email is required",
+    "invalid_email": "Invalid email",
+    "password_min": "Password must be at least 6 characters",
+    "password_max": "Password must be at most 25 characters",
+    "required_password": "Password is required",
+    "required_verification_code": "Verification code is required"
   }
 }

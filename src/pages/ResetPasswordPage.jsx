@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useDynamicTitle } from "../hooks";
-import ResetPassword from "../components/auth/ResetPassword";
+import ResetPassword from "../components/resetPassword/ResetPassword";
 
 const ResetPasswordPage = () => {
   const { t } = useTranslation();
