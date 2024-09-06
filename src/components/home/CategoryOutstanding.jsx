@@ -3,13 +3,15 @@ import img1 from "../../assets/category/cate_1.webp";
 import img2 from "../../assets/category/cate_2.webp";
 import img3 from "../../assets/category/cate_3.webp";
 import img4 from "../../assets/category/cate_4.webp";
+import img5 from "../../assets/category/cate_5.webp";
 import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
 import { useRef, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 const CategoryOutstanding = () => {
+  const { t } = useTranslation();
   const scrollContainerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -70,7 +72,7 @@ const CategoryOutstanding = () => {
             <GiKnifeFork />
           </span>
           <p className="px-5 font-dancingscript text-3xl font-semibold md:text-5xl">
-            Danh mục nổi bật
+            {t("Home.CategoryOutstanding.title")}
           </p>
           <span className="hidden h-14 w-14 items-center justify-center rounded-full border-2 border-solid border-tertiary text-3xl text-tertiary sm:flex">
             <GiKnifeFork />
@@ -102,9 +104,12 @@ const CategoryOutstanding = () => {
               </div>
               {/* des */}
               <div className="des text-center">
-                <p className="py-4 text-2xl font-semibold">Món gà</p>
+                <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
+                  {" "}
+                  {t("Home.CategoryOutstanding.content-1")}
+                </p>
                 <p className="text-base font-medium">
-                  Các món gà được chế biến tinh tế với hương vị đặc biệt nhất
+                  {t("Home.CategoryOutstanding.des1")}
                 </p>
               </div>
             </div>
@@ -119,9 +124,12 @@ const CategoryOutstanding = () => {
               </div>
               {/* des */}
               <div className="des text-center">
-                <p className="py-4 text-2xl font-semibold">Món heo</p>
+                <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
+                  {" "}
+                  {t("Home.CategoryOutstanding.content-2")}
+                </p>
                 <p className="text-base font-medium">
-                  Các món heo được chế biến tinh tế với hương vị đặc biệt nhất
+                  {t("Home.CategoryOutstanding.des2")}
                 </p>
               </div>
             </div>
@@ -136,9 +144,12 @@ const CategoryOutstanding = () => {
               </div>
               {/* des */}
               <div className="des text-center">
-                <p className="py-4 text-2xl font-semibold">Món bò</p>
+                <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
+                  {" "}
+                  {t("Home.CategoryOutstanding.content-3")}
+                </p>
                 <p className="text-base font-medium">
-                  Các món bò được chế biến tinh tế với hương vị đặc biệt nhất
+                  {t("Home.CategoryOutstanding.des3")}
                 </p>
               </div>
             </div>
@@ -153,9 +164,32 @@ const CategoryOutstanding = () => {
               </div>
               {/* des */}
               <div className="des text-center">
-                <p className="py-4 text-2xl font-semibold">Món cá</p>
+                <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
+                  {" "}
+                  {t("Home.CategoryOutstanding.content-4")}
+                </p>
                 <p className="text-base font-medium">
-                  Các món cá được chế biến tinh tế với hương vị đặc biệt nhất
+                  {t("Home.CategoryOutstanding.des4")}
+                </p>
+              </div>
+            </div>
+            <div className="item group min-w-fit flex-1 border border-solid p-7 hover:border-tertiary hover:duration-300 sm:min-w-[380px]">
+              {/* img */}
+              <div className="img flex justify-center overflow-hidden">
+                <img
+                  className="duration-300 group-hover:scale-105"
+                  src={img5}
+                  alt=""
+                />
+              </div>
+              {/* des */}
+              <div className="des text-center">
+                <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
+                  {" "}
+                  {t("Home.CategoryOutstanding.content-5")}
+                </p>
+                <p className="text-base font-medium">
+                  {t("Home.CategoryOutstanding.des5")}
                 </p>
               </div>
             </div>
