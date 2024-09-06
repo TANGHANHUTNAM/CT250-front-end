@@ -20,6 +20,8 @@ export default {
         bgOpacity: "rgba(1, 1, 1, 0.8)",
         // Quality
         quality: "rgb(26, 71, 65)",
+        // bg-new
+        bgNew: "#7a4f4f",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

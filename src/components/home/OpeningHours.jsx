@@ -61,30 +61,30 @@ const OpeningHours = () => {
         <div className="statistic flex flex-row flex-wrap pb-10 pt-10 text-primary">
           <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-r border-solid px-3 md:w-1/4">
             <img src={thongke1} alt="" />
-            <span className="num text-3xl font-semibold md:text-5xl">2+</span>
+            <span className="num text-3xl font-semibold md:text-5xl">2</span>
             <span className="title sm:tex-3xl text-center text-2xl font-medium">
-              Cửa hàng
+              {t("Home.OpeningHours.content_7")}
             </span>
           </div>
           <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-solid px-3 sm:border-r md:w-1/4">
             <img src={thongke2} alt="" />
             <span className="num text-3xl font-semibold md:text-5xl">20+</span>
             <span className="title sm:tex-3xl text-center text-2xl font-medium">
-              Nhân viên
+              {t("Home.OpeningHours.content_8")}
             </span>
           </div>
           <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 border-r border-solid px-3 md:w-1/4">
             <img src={thongke3} alt="" />
             <span className="num text-3xl font-semibold md:text-5xl">200+</span>
             <span className="title sm:tex-3xl text-center text-2xl font-medium">
-              Khách hàng
+              {t("Home.OpeningHours.content_9")}
             </span>
           </div>
           <div className="mb-2 flex w-1/2 flex-col items-center justify-center gap-2 px-3 md:w-1/4">
             <img src={thongke4} alt="" />
             <span className="num text-3xl font-semibold md:text-5xl">50+</span>
             <span className="title sm:tex-3xl text-center text-2xl font-medium">
-              Món ăn
+              {t("Home.OpeningHours.content_10")}
             </span>
           </div>
         </div>

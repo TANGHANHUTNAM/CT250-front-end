@@ -214,7 +214,11 @@
       "content_3": "Saturday to Sunday:",
       "content_4": "6:00 AM - 11:30 PM",
       "content_5": "Online ordering on the Website is available 24/7",
-      "content_6": "Call now! "
+      "content_6": "Call now! ",
+      "content_7": "Store",
+      "content_8": "Staff",
+      "content_9": "Customers",
+      "content_10": "Dishes"
     },
     "About": {
       "title": "About Us",
@@ -259,6 +263,11 @@
       "des4": "Refreshing broths with clear broth - Smooth, creamy soups",
       "des5": "End your meal with sweet desserts like flan, chewy taro pudding, or coconut ice cream, bringing satisfaction to your taste buds",
       "des6": "Enjoy refreshing drinks such as fruit smoothies, herbal teas, or creative cocktails, suitable for all preferences."
+    },
+    "News": {
+      "title": "News",
+      "author": "Posted by: ",
+      "viewmore": "View more"
     }
   },
   "ResetPassword": {

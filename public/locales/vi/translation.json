@@ -214,7 +214,11 @@
       "content_3": "Thứ 7 đến Chủ Nhật:",
       "content_4": "6:00 sáng - 11:30 tối",
       "content_5": "Riêng việc đặt hàng trên Website luôn hoạt động 24/7",
-      "content_6": "Gọi ngay! "
+      "content_6": "Gọi ngay! ",
+      "content_7": "Cửa hàng",
+      "content_8": "Nhân viên",
+      "content_9": "Khách hàng",
+      "content_10": "Món ăn"
     },
     "About": {
       "title": "Về chúng tôi",
@@ -259,6 +263,11 @@
       "des4": "Canh thanh mát với nước dùng trong - Súp mịn màng, béo ngậy",
       "des5": "Kết thúc bữa ăn với các món tráng miệng ngọt ngào như bánh flan, chè khoai dẻo hay kem dừa, mang lại sự thỏa mãn cho vị giác",
       "des6": "Thưởng thức các loại đồ uống tươi mát như sinh tố trái cây, trà thảo mộc hay cocktail sáng tạo, phù hợp với mọi sở thích."
+    },
+    "News": {
+      "title": "Tin tức",
+      "author": "Đăng bởi: ",
+      "viewmore": "Xem thêm"
     }
   },
   "ResetPassword": {
