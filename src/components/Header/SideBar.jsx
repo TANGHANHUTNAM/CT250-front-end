@@ -6,7 +6,7 @@ const SideBar = ({ visable, setVisible }) => {
   return (
     <>
       <div
-        className={`fixed bottom-0 right-0 top-0 overflow-hidden bg-bgOpacity font-bold uppercase text-primary transition-all duration-500 ease-in-out ${
+        className={`fixed bottom-0 right-0 top-0 z-50 overflow-hidden bg-bgOpacity font-bold uppercase text-primary transition-all duration-500 ease-in-out ${
           visable ? "w-full" : "w-0"
         } `}
       >
