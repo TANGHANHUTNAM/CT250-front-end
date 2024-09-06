@@ -25,7 +25,7 @@ const Footer = () => {
 
             <div className="mb-6 font-medium">{t("Footer.introduce")}</div>
             <div>
-              <div className="text-[16px] font-semibold">
+              <div className="text-[16px] font-semibold text-tertiary">
                 {t("Footer.branch")}
               </div>
               <ul className="mt-2 space-y-2">
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="mb-8 w-full md:w-4/12 lg:mb-0 lg:w-3/12 lg:px-10">
-            <h4 className="mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold text-tertiary">
               {t("Footer.title_instruct")}
             </h4>
             <ul className="space-y-4">
@@ -101,7 +101,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="mb-8 w-full md:w-4/12 lg:mb-0 lg:w-3/12 lg:px-10">
-            <h4 className="mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold text-tertiary">
               {t("Footer.title_policy")}
             </h4>
             <ul className="space-y-4">
@@ -143,7 +143,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full md:w-4/12 lg:w-2/12 lg:ps-6">
-            <h4 className="mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold text-tertiary">
               {t("Footer.social")}
             </h4>
             <ul className="mb-6 flex space-x-4">
@@ -181,7 +181,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <h4 className="mb-4 text-[16px] font-semibold">
+            <h4 className="mb-4 text-[16px] font-semibold text-tertiary">
               {t("Footer.method_payment")}
             </h4>
             <ul className="flex space-x-4">
