@@ -22,6 +22,7 @@ import InformationSecurityPage from "../pages/InformationSecurity";
 import NotFoundPage from "../pages/NotFound";
 import PaymentPage from "../pages/Payment";
 import FavoriteDishPage from "../pages/FavoriteDish";
+import ResetPasswordPage from "../pages/ResetPasswordPage";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -137,6 +138,11 @@ const routes = [
         path: "favorite-dish/:id",
         element: <FavoriteDishPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.favorite_dishes") },
+      },
+      {
+        path: "reset-password",
+        element: <ResetPasswordPage />,
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.reset_password") },
       },
       {
         path: "*",

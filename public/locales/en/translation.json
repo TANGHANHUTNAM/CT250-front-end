@@ -70,7 +70,8 @@
     "information_security": "Information security",
     "favorite_dishes": "Favorite dishes",
     "not_found": "404 Page not found",
-    "payment": "Payment"
+    "payment": "Payment",
+    "reset_password": "Reset Password"
   },
   "Auth": {
     "login": "Login",
@@ -259,5 +260,19 @@
       "des5": "End your meal with sweet desserts like flan, chewy taro pudding, or coconut ice cream, bringing satisfaction to your taste buds",
       "des6": "Enjoy refreshing drinks such as fruit smoothies, herbal teas, or creative cocktails, suitable for all preferences."
     }
+  },
+  "ResetPassword": {
+    "verify_email": "Verify email",
+    "verification_code": "Verification code",
+    "new_password": "New password",
+    "next": "Next",
+    "back": "Back",
+    "done": "Done",
+    "required_email": "Email is required",
+    "invalid_email": "Invalid email",
+    "password_min": "Password must be at least 6 characters",
+    "password_max": "Password must be at most 25 characters",
+    "required_password": "Password is required",
+    "required_verification_code": "Verification code is required"
   }
 }

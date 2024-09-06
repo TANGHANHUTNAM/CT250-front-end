@@ -70,7 +70,8 @@
     "information_security": "Bảo mật thông tin",
     "favorite_dishes": "Món ăn yêu thích",
     "not_found": "404 Không tìm thấy trang",
-    "payment": "Thanh toán"
+    "payment": "Thanh toán",
+    "reset_password": "Lấy lại mật khẩu"
   },
   "Auth": {
     "login": "Đăng nhập",
@@ -259,5 +260,19 @@
       "des5": "Kết thúc bữa ăn với các món tráng miệng ngọt ngào như bánh flan, chè khoai dẻo hay kem dừa, mang lại sự thỏa mãn cho vị giác",
       "des6": "Thưởng thức các loại đồ uống tươi mát như sinh tố trái cây, trà thảo mộc hay cocktail sáng tạo, phù hợp với mọi sở thích."
     }
+  },
+  "ResetPassword": {
+    "verify_email": "Xác minh email",
+    "verification_code": "Mã xác minh",
+    "new_password": "Mật khẩu mới",
+    "next": "Tiếp tục",
+    "back": "Trở về",
+    "done": "Hoàn thành",
+    "required_email": "Email thì bắt buộc",
+    "invalid_email": "Email không hợp lệ",
+    "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+    "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+    "required_password": "Mật khẩu thì bắt buộc",
+    "required_verification_code": "Mã xác minh thì bắt buộc"
   }
 }
