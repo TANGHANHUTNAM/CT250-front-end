@@ -1,14 +1,14 @@
 import { Image } from "antd";
 import "./Gallery.css";
-import img01 from "../../assets/gallery/img01.jpg";
-import img02 from "../../assets/gallery/img02.jpg";
-import img03 from "../../assets/gallery/img03.jpg";
-import img04 from "../../assets/gallery/img04.jpg";
-import img05 from "../../assets/gallery/img05.jpg";
-import img06 from "../../assets/gallery/img06.jpg";
-import img07 from "../../assets/gallery/img07.jpg";
-import img08 from "../../assets/gallery/img08.jpg";
-import img09 from "../../assets/gallery/img09.jpg";
+import img01 from "../../assets/gallery/img1.jpg";
+import img02 from "../../assets/gallery/img2.jpg";
+import img03 from "../../assets/gallery/img3.jpg";
+import img04 from "../../assets/gallery/img4.jpg";
+import img05 from "../../assets/gallery/img5.jpg";
+import img06 from "../../assets/gallery/img6.jpg";
+import img07 from "../../assets/gallery/img7.jpg";
+import img08 from "../../assets/gallery/img8.jpg";
+import img09 from "../../assets/gallery/img9.jpg";
 import img10 from "../../assets/gallery/img10.jpg";
 import { useTranslation } from "react-i18next";
 const Gallery = () => {
