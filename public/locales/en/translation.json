@@ -229,6 +229,19 @@
       "content-2": "We always ensure the best food quality for our customers.",
       "content-3": "We provide online ordering service for customer convenience.",
       "content-4": "We offer 24/7 service for customers anytime, anywhere."
+    },
+    "CategoryOutstanding": {
+      "title": "Outstanding Categories",
+      "content-1": "Chicken Dishes",
+      "content-2": "Pork Dishes",
+      "content-3": "Beef Dishes",
+      "content-4": "Fish Dishes",
+      "content-5": "Other Dishes",
+      "des1": "Chicken dishes are delicately prepared with the most special flavors",
+      "des2": "Pork dishes are delicately prepared with the most special flavors",
+      "des3": "Beef dishes are delicately prepared with the most special flavors",
+      "des4": "Fish dishes are delicately prepared with the most special flavors",
+      "des5": "Dishes are delicately prepared with the most special flavors"
     }
   }
 }
