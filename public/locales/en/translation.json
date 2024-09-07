@@ -23,10 +23,14 @@
       "register": "Register",
       "logout": "Logout",
       "favoriteDish": "Favorite",
-      "search": "SEARCH YOUR DISH:",
       "inputSearch": "Enter the name of the dish...",
-      "resultSearch": "SEARCH RESULT",
       "myAccount": "My Account"
+    },
+    "Search": {
+      "search": "SEARCH YOUR DISH",
+      "resultSearch": "SEARCH RESULT",
+      "seeAll": "See all",
+      "noData": "No any search results"
     }
   },
   "Footer": {

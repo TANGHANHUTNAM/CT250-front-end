@@ -23,10 +23,14 @@
       "register": "Đăng ký",
       "logout": "Đăng xuất",
       "favoriteDish": "Món ăn yêu thích",
-      "search": "TÌM KIẾM MÓN ĂN CỦA BẠN:",
       "inputSearch": "Nhập tên món ăn...",
-      "resultSearch": "KẾT QUẢ TÌM KIẾM",
       "myAccount": "Trang cá nhân"
+    },
+    "Search": {
+      "search": "TÌM KIẾM MÓN ĂN CỦA BẠN",
+      "resultSearch": "KẾT QUẢ TÌM KIẾM",
+      "seeAll": "Xem tất cả",
+      "noData": "Không tìm thấy bất kỳ kết quả nào"
     }
   },
   "Footer": {
