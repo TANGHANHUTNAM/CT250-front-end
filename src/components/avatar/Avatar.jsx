@@ -6,11 +6,11 @@ const Avatar = ({ size = 32, src, ...props }) => {
     <Avt
       size={size}
       style={{
-        backgroundColor: "#ffe5d1d4",
-        color: "#ff882c",
+        backgroundColor: "#fff9",
+        color: "black",
         cursor: "pointer",
       }}
-      icon={<UserOutlined />}
+      icon={<UserOutlined className="text-lg" />}
       src={src || undefined}
       {...props}
     />
