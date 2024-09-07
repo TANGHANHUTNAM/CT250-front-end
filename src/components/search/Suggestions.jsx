@@ -60,7 +60,9 @@ const Suggestion = ({ suggestions }) => {
       {suggestions && suggestions.length <= 0 && (
         <Empty
           imageStyle={{ height: "4rem" }}
-          description={t("Header.Search.noData")}
+          description={
+            <span className="font-montserrat">{t("Header.Search.noData")}</span>
+          }
         />
       )}
     </>

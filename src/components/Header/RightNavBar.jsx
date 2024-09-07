@@ -53,6 +53,7 @@ const RightNavBar = ({ handleCloseSearch, setVisible }) => {
           <Search />
         </div>
       </div>
+
       {/* Cart-icons */}
       <Link to="/cart/12" className="relative">
         <BsCart3 className="cursor-pointer text-2xl text-primary" />
@@ -60,6 +61,8 @@ const RightNavBar = ({ handleCloseSearch, setVisible }) => {
           99+
         </p>
       </Link>
+
+      {/* User-icons */}
       <div className="group relative">
         {/* User-icons */}
         {isAuth ? (
@@ -109,12 +112,14 @@ const RightNavBar = ({ handleCloseSearch, setVisible }) => {
           </div>
         </div>
       </div>
+
       {/* Booking */}
       <Link className="booking-table hidden md:flex" to="/booking">
         <button className="rounded-md bg-tertiary px-2 py-2.5 text-sm font-bold text-primary duration-500 hover:bg-yellow-600 lg:px-4">
           {t("Header.Navbar.booking")}
         </button>
       </Link>
+
       {/* Menu-icons */}
       <span
         onClick={() => {

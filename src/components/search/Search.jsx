@@ -1,8 +1,7 @@
-import "./Search.css";
 import { useTranslation } from "react-i18next";
 import { IoIosSearch } from "react-icons/io";
 import Suggestions from "./Suggestions";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDebounce } from "../../hooks";
 
 const data = [
@@ -39,6 +38,27 @@ const Search = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const inputRef = useRef();
+  const suggestionsRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+      if (
+        inputRef.current &&
+        suggestionsRef.current &&
+        !inputRef.current.contains(e.target) &&
+        !suggestionsRef.current.contains(e.target)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
+
   useDebounce(
     () => {
       if (keyword) {
@@ -53,10 +73,6 @@ const Search = () => {
     [keyword],
     200,
   );
-
-  const handleChange = (e) => {
-    setKeyword(e.target.value);
-  };
 
   const handleSearchAll = (e) => {
     e.preventDefault();
@@ -73,11 +89,13 @@ const Search = () => {
         {/* Input search */}
         <div className="relative">
           <input
+            ref={inputRef}
             type="text"
             placeholder={t("Header.Navbar.inputSearch")}
             className="w-full rounded-md border border-tertiary px-2 py-2.5 text-sm outline-none placeholder:text-secondary"
             value={keyword}
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => setKeyword(e.target.value)}
+            onFocus={() => setShowSuggestions(keyword ? true : false)}
           />
           <button className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[26px] text-tertiary">
             <IoIosSearch />
@@ -86,7 +104,10 @@ const Search = () => {
       </form>
       {/* Result search */}
       {showSuggestions && (
-        <div className="suggestions absolute top-[110%] w-full rounded-md bg-primary p-3 sm:static sm:rounded-none sm:border sm:border-solid sm:border-gray-200">
+        <div
+          ref={suggestionsRef}
+          className="absolute top-[110%] w-full rounded-md bg-primary p-3 sm:static sm:rounded-none sm:border sm:border-solid sm:border-gray-200"
+        >
           <div className="text-[15px] font-medium text-secondary sm:font-normal">
             {t("Header.Search.resultSearch")}
           </div>
