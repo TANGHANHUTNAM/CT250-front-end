@@ -44,25 +44,27 @@ const UserMenu = () => {
         </span>
       )}
       <div className="dropdown-menu invisible absolute right-0 scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
-        {isAuth ? (
-          <div className="min-w-56 divide-y divide-solid divide-gray-200 rounded-md bg-primary px-2 text-sm">
-            <div className="space-y-0.5 py-2.5">
-              <p className="font-bold">{username}</p>
-              <p className="text-xs font-medium">{email}</p>
+        {true ? (
+          <div className="min-w-48 divide-y divide-solid divide-gray-300 rounded-md bg-primary text-sm text-black">
+            <div className="space-y-0.5 px-3.5 py-2">
+              <p className="font-bold">{username || "Thien Vu"}</p>
+              <p className="text-xs font-medium">
+                {email || "thienvu@gmail.com"}
+              </p>
             </div>
-            <ul className="space-y-2 py-2.5 text-gray-900">
-              <li className="cursor-pointer border-l-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-200 hover:border-x-4 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
+            <ul className="py-2">
+              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
                 <Link to="/personal/12">{t("Header.Navbar.myAccount")}</Link>
               </li>
-              <li className="cursor-pointer border-l-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-200 hover:border-x-4 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
+              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
                 <Link to={`/favorite-dish/${12}`}>
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
               </li>
             </ul>
-            <div className="py-2.5">
+            <div className="py-2">
               <button
-                className="w-full rounded-md bg-tertiary py-2.5 text-center text-sm font-medium text-primary duration-500 hover:bg-yellow-600"
+                className="w-full px-3.5 py-2 text-left transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary"
                 onClick={() => handleLogout()}
               >
                 {t("Header.Navbar.logout")}
