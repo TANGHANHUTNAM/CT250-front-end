@@ -44,7 +44,7 @@ const UserMenu = () => {
         </span>
       )}
       <div className="dropdown-menu invisible absolute right-0 scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
-        {true ? (
+        {isAuth ? (
           <div className="min-w-48 divide-y divide-solid divide-gray-300 rounded-md bg-primary text-sm text-black">
             <div className="space-y-0.5 px-3.5 py-2">
               <p className="font-bold">{username || "Thien Vu"}</p>
