@@ -1,13 +1,14 @@
 import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation } from "react-i18next";
+import BodyLayout from "../layouts/BodyLayout";
 
 const MembershipPolicyPage = () => {
   const { t } = useTranslation();
   useDynamicTitle(t("BreadcrumbsAndTitle.membership_policy"));
   useTopPage();
   return (
-    <div className="bg-bgPrimary">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-5 px-3 py-10 font-medium text-primary">
+    <BodyLayout>
+      <div className="flex w-full flex-col gap-5 py-10 font-medium text-primary">
         <p className="text-3xl font-semibold">{t("MembershipPolicy.title")}</p>
         <p>{t("MembershipPolicy.content_1")}</p>
         <p>{t("MembershipPolicy.content_2")}</p>
@@ -18,7 +19,7 @@ const MembershipPolicyPage = () => {
         <p>{t("MembershipPolicy.content_7")}</p>
         <p>{t("MembershipPolicy.content_8")}</p>
       </div>
-    </div>
+    </BodyLayout>
   );
 };
 

@@ -2,6 +2,7 @@ import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation } from "react-i18next";
 import ContactForm from "../components/contact/ContactForm";
 import Map from "../components/contact/Map";
+import BodyLayout from "../layouts/BodyLayout";
 const ContactPage = () => {
   const { t } = useTranslation();
   useDynamicTitle(t("BreadcrumbsAndTitle.contact"));

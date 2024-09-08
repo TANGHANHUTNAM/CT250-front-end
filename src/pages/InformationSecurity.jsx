@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation } from "react-i18next";
+import BodyLayout from "../layouts/BodyLayout";
 
 const InformationSecurityPage = () => {
   const { t } = useTranslation();
   useDynamicTitle(t("BreadcrumbsAndTitle.information_security"));
   useTopPage();
   return (
-    <div className="bg-bgPrimary">
-      <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-5 px-3 py-10 font-medium text-primary">
+    <BodyLayout>
+      <div className="flex w-full flex-col gap-5 py-10 font-medium text-primary">
         <p className="text-3xl font-semibold">
           {t("InformationSecurity.title")}
         </p>
@@ -32,7 +33,7 @@ const InformationSecurityPage = () => {
         <p>{t("InformationSecurity.content_18")}</p>
         <p>{t("InformationSecurity.content_19")}</p>
       </div>
-    </div>
+    </BodyLayout>
   );
 };
 
