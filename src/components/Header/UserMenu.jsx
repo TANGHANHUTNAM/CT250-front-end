@@ -51,10 +51,10 @@ const UserMenu = () => {
               <p className="text-xs font-medium">{email}</p>
             </div>
             <ul className="space-y-2 py-2.5 text-gray-900">
-              <li className="border-x-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-500 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
+              <li className="cursor-pointer border-l-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-200 hover:border-x-4 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
                 <Link to="/personal/12">{t("Header.Navbar.myAccount")}</Link>
               </li>
-              <li className="border-x-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-500 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
+              <li className="cursor-pointer border-l-4 border-solid border-tertiary py-2.5 ps-2 transition-all duration-200 hover:border-x-4 hover:border-yellow-700 hover:bg-tertiary hover:text-primary">
                 <Link to={`/favorite-dish/${12}`}>
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
