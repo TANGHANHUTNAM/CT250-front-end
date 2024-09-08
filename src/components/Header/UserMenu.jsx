@@ -47,10 +47,8 @@ const UserMenu = () => {
         {isAuth ? (
           <div className="min-w-48 divide-y divide-solid divide-gray-300 rounded-md bg-primary text-sm text-black">
             <div className="space-y-0.5 px-3.5 py-2">
-              <p className="font-bold">{username || "Thien Vu"}</p>
-              <p className="text-xs font-medium">
-                {email || "thienvu@gmail.com"}
-              </p>
+              <p className="font-bold">{username}</p>
+              <p className="text-xs font-medium">{email}</p>
             </div>
             <ul className="py-2">
               <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
