@@ -10,6 +10,7 @@ import {
 } from "react-icons/md";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 const CategoryOutstanding = () => {
   const { t } = useTranslation();
   const scrollContainerRef = useRef(null);
@@ -39,6 +40,23 @@ const CategoryOutstanding = () => {
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
   const scroll = (direction) => {
     const step = 10;
     const interval = 10;
@@ -63,6 +81,7 @@ const CategoryOutstanding = () => {
 
   const handleLeft = () => scroll(-1);
   const handleRight = () => scroll(1);
+
   return (
     <div className="bg-bgTertiary px-3">
       <div className="mr- mx-auto max-w-screen-xl py-12 text-primary">
@@ -86,6 +105,9 @@ const CategoryOutstanding = () => {
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             style={{
               cursor: isDragging ? "grabbing" : "grab",
               userSelect: "none",
@@ -105,7 +127,6 @@ const CategoryOutstanding = () => {
               {/* des */}
               <div className="des text-center">
                 <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
-                  {" "}
                   {t("Home.CategoryOutstanding.content-1")}
                 </p>
                 <p className="text-base font-medium">
@@ -125,7 +146,6 @@ const CategoryOutstanding = () => {
               {/* des */}
               <div className="des text-center">
                 <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
-                  {" "}
                   {t("Home.CategoryOutstanding.content-2")}
                 </p>
                 <p className="text-base font-medium">
@@ -145,7 +165,6 @@ const CategoryOutstanding = () => {
               {/* des */}
               <div className="des text-center">
                 <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
-                  {" "}
                   {t("Home.CategoryOutstanding.content-3")}
                 </p>
                 <p className="text-base font-medium">
@@ -165,7 +184,6 @@ const CategoryOutstanding = () => {
               {/* des */}
               <div className="des text-center">
                 <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
-                  {" "}
                   {t("Home.CategoryOutstanding.content-4")}
                 </p>
                 <p className="text-base font-medium">
@@ -185,7 +203,6 @@ const CategoryOutstanding = () => {
               {/* des */}
               <div className="des text-center">
                 <p className="py-4 text-2xl font-semibold group-hover:text-tertiary">
-                  {" "}
                   {t("Home.CategoryOutstanding.content-5")}
                 </p>
                 <p className="text-base font-medium">

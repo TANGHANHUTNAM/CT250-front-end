@@ -254,23 +254,15 @@
     },
     "Menu": {
       "title": "Thực đơn của chúng tôi",
-      "des": "Thực đơn nhà hàng chúng tôi kết hợp tinh tế giữa ẩm thực truyền thống và hiện đại, mang đến trải nghiệm đa dạng và độc đáo. Từ khai vị nhẹ nhàng, món chính phong phú đến tráng miệng ngọt ngào, tất cả đều được chế biến từ nguyên liệu tươi ngon, chọn lọc kỹ lưỡng.",
-      "button1": "Món chính",
-      "button2": "Món khai vị",
-      "button3": "Mì - Cơm - Cháo",
-      "button4": "Canh - Súp",
-      "button5": "Tráng miệng",
-      "button6": "Nước uống",
-      "des1": "Trải nghiệm món chính hấp dẫn với các lựa chọn phong phú đa dạng từ nguyên liệu khác nhau, chế biến tỉ mỉ bởi đầu bếp tài ba",
-      "des2": "Khởi đầu bữa ăn với các món khai vị tinh tế như súp bí đỏ thơm ngậy hay gỏi cuốn tươi mát, mang đến hương vị độc đáo và dễ chịu",
-      "des3": "Mì nhà hàng với sợi mì dai ngon - Cơm trắng mềm dẻo - Cháo nấu mềm mịn, hòa quyện cùng các loại nguyên liệu",
-      "des4": "Canh thanh mát với nước dùng trong - Súp mịn màng, béo ngậy",
-      "des5": "Kết thúc bữa ăn với các món tráng miệng ngọt ngào như bánh flan, chè khoai dẻo hay kem dừa, mang lại sự thỏa mãn cho vị giác",
-      "des6": "Thưởng thức các loại đồ uống tươi mát như sinh tố trái cây, trà thảo mộc hay cocktail sáng tạo, phù hợp với mọi sở thích."
+      "des": "Thực đơn nhà hàng chúng tôi kết hợp tinh tế giữa ẩm thực truyền thống và hiện đại, mang đến trải nghiệm đa dạng và độc đáo. Từ khai vị nhẹ nhàng, món chính phong phú đến tráng miệng ngọt ngào, tất cả đều được chế biến từ nguyên liệu tươi ngon, chọn lọc kỹ lưỡng."
     },
     "News": {
       "title": "Tin tức",
       "author": "Đăng bởi: ",
+      "viewmore": "Xem thêm"
+    },
+    "DishOutstanding": {
+      "title": "Món ăn nổi bật",
       "viewmore": "Xem thêm"
     }
   },

@@ -53,7 +53,6 @@ const MainLayout = () => {
       <div className="body">
         <Outlet />
       </div>
-
       <Footer />
     </div>
   );

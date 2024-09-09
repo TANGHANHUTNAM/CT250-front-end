@@ -1,6 +1,7 @@
 import About from "../components/home/About";
 import Carousel from "../components/home/Carousel";
 import CategoryOutstanding from "../components/home/CategoryOutstanding";
+import DishOutstanding from "../components/home/DishOutstanding";
 import Menu from "../components/home/Menu";
 import NewsComponent from "../components/home/NewsComponent";
 import OpeningHours from "../components/home/OpeningHours";
@@ -17,6 +18,7 @@ const HomePage = () => {
       <About />
       <CategoryOutstanding />
       <Menu />
+      <DishOutstanding />
       <OpeningHours />
       <NewsComponent />
     </div>
