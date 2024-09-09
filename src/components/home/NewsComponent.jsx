@@ -27,7 +27,7 @@ const NewsComponent = () => {
         <div className="flex flex-col flex-wrap px-4 sm:flex-row">
           {/* item */}
           <div className="my-3 px-3 sm:w-1/2 lg:w-1/4">
-            <div className="bg-bgNew flex flex-col items-center justify-center gap-2 shadow-2xl">
+            <div className="flex flex-col items-center justify-center gap-2 bg-bgNew shadow-2xl">
               {/* img-item */}
               <div className="relative w-full cursor-pointer">
                 <img className="w-full" src={new1} alt="" />
@@ -56,7 +56,7 @@ const NewsComponent = () => {
             </div>
           </div>
           <div className="my-3 px-3 sm:w-1/2 lg:w-1/4">
-            <div className="bg-bgNew flex flex-col items-center justify-center gap-2 shadow-2xl">
+            <div className="flex flex-col items-center justify-center gap-2 bg-bgNew shadow-2xl">
               {/* img-item */}
               <div className="relative w-full cursor-pointer">
                 <img className="w-full" src={new1} alt="" />
@@ -83,7 +83,7 @@ const NewsComponent = () => {
             </div>
           </div>
           <div className="my-3 px-3 sm:w-1/2 lg:w-1/4">
-            <div className="bg-bgNew flex flex-col items-center justify-center gap-2 shadow-2xl">
+            <div className="flex flex-col items-center justify-center gap-2 bg-bgNew shadow-2xl">
               {/* img-item */}
               <div className="relative w-full cursor-pointer">
                 <img className="w-full" src={new1} alt="" />
@@ -110,7 +110,7 @@ const NewsComponent = () => {
             </div>
           </div>
           <div className="my-3 px-3 sm:w-1/2 lg:w-1/4">
-            <div className="bg-bgNew flex flex-col items-center justify-center gap-2 shadow-2xl">
+            <div className="flex flex-col items-center justify-center gap-2 bg-bgNew shadow-2xl">
               {/* img-item */}
               <div className="relative w-full cursor-pointer">
                 <img className="w-full" src={new1} alt="" />
@@ -141,9 +141,9 @@ const NewsComponent = () => {
         <div className="view-more mt-10 text-center">
           <Link
             to="/news"
-            className="cursor-pointer text-lg font-semibold duration-200 hover:text-tertiary"
+            className="cursor-pointer text-lg font-semibold text-tertiary duration-200 hover:text-yellow-500"
           >
-            {t("Home.News.viewmore")}
+            {t("Home.News.viewmore")}...
           </Link>
         </div>
       </div>

@@ -254,23 +254,15 @@
     },
     "Menu": {
       "title": "Our Menu",
-      "des": "Our restaurant menu delicately combines traditional and modern cuisine, offering a diverse and unique experience. From light appetizers, rich main courses to sweet desserts, all are made from fresh, carefully selected ingredients.",
-      "button1": "Main Courses",
-      "button2": "Appetizers",
-      "button3": "Noodles - Rice - Porridge",
-      "button4": "Soups - Broths",
-      "button5": "Desserts",
-      "button6": "Drinks",
-      "des1": "Experience attractive main courses with a variety of rich options from different ingredients, meticulously prepared by talented chefs",
-      "des2": "Start your meal with delicate appetizers such as creamy pumpkin soup or fresh spring rolls, offering unique and pleasant flavors",
-      "des3": "Restaurant noodles with chewy noodles - Soft white rice - Smoothly cooked porridge, blended with various ingredients",
-      "des4": "Refreshing broths with clear broth - Smooth, creamy soups",
-      "des5": "End your meal with sweet desserts like flan, chewy taro pudding, or coconut ice cream, bringing satisfaction to your taste buds",
-      "des6": "Enjoy refreshing drinks such as fruit smoothies, herbal teas, or creative cocktails, suitable for all preferences."
+      "des": "Our restaurant menu delicately combines traditional and modern cuisine, offering a diverse and unique experience. From light appetizers, rich main courses to sweet desserts, all are made from fresh, carefully selected ingredients."
     },
     "News": {
       "title": "News",
       "author": "Posted by: ",
+      "viewmore": "View more"
+    },
+    "DishOutstanding": {
+      "title": "Outstanding Dishes",
       "viewmore": "View more"
     }
   },

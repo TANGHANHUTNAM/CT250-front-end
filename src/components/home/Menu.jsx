@@ -6,10 +6,11 @@ import trangmieng from "../../assets/menu/trangmieng.jpg";
 import nuoc from "../../assets/menu/nuoc.jpg";
 import { GiKnifeFork } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
+import MenuItem from "./MenuItem";
 const Menu = () => {
   const { t } = useTranslation();
   return (
-    <div className="bg-bgPrimary p-10">
+    <div className="bg-bgPrimary px-2 py-6 sm:p-10">
       <div className="mx-auto max-w-screen-xl px-3 text-primary">
         {/* title */}
         <div className="title mb-7 flex flex-row items-center justify-center">
@@ -27,114 +28,14 @@ const Menu = () => {
         <div className="mb-5 text-center text-sm font-light md:px-20 md:text-base">
           {t("Home.Menu.des")}
         </div>
-        {/* Items */}
-        <div className="flex flex-col md:flex-row">
-          {/* item */}
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={monchinh}
-                alt="monchinh"
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button1")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des1")}
-            </div>
-          </div>
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={khaivi}
-                alt=""
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button2")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des2")}
-            </div>
-          </div>
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={mi}
-                alt=""
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button3")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des3")}
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row">
-          {/* item */}
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={sup}
-                alt=""
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button4")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des4")}
-            </div>
-          </div>
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={trangmieng}
-                alt=""
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button5")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des5")}
-            </div>
-          </div>
-          <div className="group w-full flex-1 p-3 md:w-1/3">
-            <div className="img relative cursor-pointer overflow-hidden">
-              <img
-                className="duration-300 group-hover:scale-105"
-                src={nuoc}
-                alt=""
-              />
-              <div className="absolute bottom-6 mx-auto w-full text-center">
-                <button className="w-fit bg-tertiary px-3 py-2 text-xl font-bold group-hover:bg-yellow-600">
-                  {t("Home.Menu.button6")}
-                </button>
-              </div>
-            </div>
-            <div className="des mt-5 text-center text-sm font-medium">
-              {t("Home.Menu.des6")}
-            </div>
-          </div>
+        {/* List */}
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
+          <MenuItem />
         </div>
       </div>
     </div>
