@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 const NewsComponent = () => {
   const { t } = useTranslation();
   return (
-    <div className="bg-bgTertiary py-14">
+    <div className="bg-bgTertiary pb-10 pt-14">
       <div className="mx-auto max-w-screen-xl text-primary">
         {/* title */}
         <div className="title mb-9 flex flex-row items-center justify-center">
@@ -138,7 +138,7 @@ const NewsComponent = () => {
           </div>
         </div>
         {/* view more */}
-        <div className="view-more mt-10 text-center">
+        <div className="view-more mt-6 text-center">
           <Link
             to="/news"
             className="cursor-pointer text-lg font-semibold text-tertiary duration-200 hover:text-yellow-500"

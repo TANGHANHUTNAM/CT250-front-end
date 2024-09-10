@@ -264,6 +264,9 @@
     "DishOutstanding": {
       "title": "Món ăn nổi bật",
       "viewmore": "Xem thêm"
+    },
+    "Comment": {
+      "title": "Đánh giá khách hàng"
     }
   },
   "ResetPassword": {
