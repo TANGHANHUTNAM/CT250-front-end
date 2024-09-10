@@ -21,7 +21,7 @@ const BackToTop = () => {
     <>
       {showBackTop && (
         <div
-          className="back-top fixed bottom-16 right-10 z-50 flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-tertiary text-xl text-white hover:bg-yellow-600"
+          className="back-top fixed bottom-5 right-5 z-50 flex h-[35px] w-[35px] cursor-pointer items-center justify-center bg-tertiary text-xl text-white hover:bg-yellow-600"
           onClick={() =>
             scroll.scrollToTop({ duration: 400, smooth: "linear" })
           }
