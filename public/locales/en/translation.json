@@ -264,6 +264,9 @@
     "DishOutstanding": {
       "title": "Outstanding Dishes",
       "viewmore": "View more"
+    },
+    "Comment": {
+      "title": "Customer Reviews"
     }
   },
   "ResetPassword": {

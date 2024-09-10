@@ -1,6 +1,7 @@
 import About from "../components/home/About";
 import Carousel from "../components/home/Carousel";
 import CategoryOutstanding from "../components/home/CategoryOutstanding";
+import Comment from "../components/home/Comment";
 import DishOutstanding from "../components/home/DishOutstanding";
 import Menu from "../components/home/Menu";
 import NewsComponent from "../components/home/NewsComponent";
@@ -21,6 +22,7 @@ const HomePage = () => {
       <DishOutstanding />
       <OpeningHours />
       <NewsComponent />
+      <Comment />
     </div>
   );
 };

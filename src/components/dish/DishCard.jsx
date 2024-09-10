@@ -11,12 +11,12 @@ const DishCard = () => {
       <div className="group relative flex cursor-pointer flex-col overflow-hidden border-b-2 border-solid border-neutral-200/40 bg-primary p-2">
         <img src={thucan} alt="thucan" />
         <div className="absolute left-0 top-0 z-10 flex h-full w-0 items-center justify-end bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
-          <div className="mr-2 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-3xl text-tertiary hover:text-yellow-600">
+          <div className="mr-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600">
             <FaEye />
           </div>
         </div>
         <div className="absolute right-0 top-0 flex h-full w-0 items-center justify-start bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
-          <div className="ml-2 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-3xl text-tertiary hover:text-yellow-600">
+          <div className="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600">
             <IoCartSharp />
           </div>
         </div>
