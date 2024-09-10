@@ -19,7 +19,7 @@ const DishOutstanding = () => {
             <GiKnifeFork />
           </span>
         </div>
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           <DishCard />
           <DishCard />
           <DishCard />
