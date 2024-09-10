@@ -9,6 +9,44 @@ import { useTranslation } from "react-i18next";
 import MenuItem from "./MenuItem";
 const Menu = () => {
   const { t } = useTranslation();
+  const List = [
+    {
+      id: 1,
+      name: "Món chính",
+      img: monchinh,
+      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+    {
+      id: 2,
+      name: "Khai vị",
+      img: khaivi,
+      des: "lorem ipsum dolor lorem ipsum dolor sit amet, consectetur adipiscing elit sit amet, consectetur adipiscing elit",
+    },
+    {
+      id: 3,
+      name: "Mì",
+      img: mi,
+      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+    {
+      id: 4,
+      name: "Súp",
+      img: sup,
+      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+    {
+      id: 5,
+      name: "Tráng miệng",
+      img: trangmieng,
+      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+    {
+      id: 6,
+      name: "Nước",
+      img: nuoc,
+      des: "lorem ipsum dolor sit amet, dipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+  ];
   return (
     <div className="bg-bgPrimary px-2 py-6 sm:p-10">
       <div className="mx-auto max-w-screen-xl px-3 text-primary">
@@ -30,12 +68,9 @@ const Menu = () => {
         </div>
         {/* List */}
         <div className="grid grid-cols-1 md:grid-cols-3">
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
-          <MenuItem />
+          {List.map((item) => {
+            return <MenuItem key={item.id} item={item} />;
+          })}
         </div>
       </div>
     </div>
