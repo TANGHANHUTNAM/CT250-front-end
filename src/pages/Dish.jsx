@@ -3,6 +3,10 @@ import { useTranslation } from "react-i18next";
 import BodyLayout from "../layouts/BodyLayout";
 import MenuSideBar from "../components/menu/MenuSideBar";
 import DishListGrid from "../components/dish/DishListGrid";
+import { FaFilter } from "react-icons/fa";
+import { Tooltip } from "antd";
+import { RxDoubleArrowRight } from "react-icons/rx";
+import { useState } from "react";
 
 const DishPage = () => {
   const { t } = useTranslation();
@@ -10,10 +14,12 @@ const DishPage = () => {
   useDynamicTitle(t("BreadcrumbsAndTitle.all_dishes"));
   useTopPage();
 
+  const [visibleFilter, setVisibleFilter] = useState(false);
+
   return (
     <BodyLayout>
-      <div className="flex gap-5 py-8">
-        <div className="w-1/4">
+      <div className="flex gap-5 py-8 md:px-12 min-[950px]:px-0">
+        <div className="hidden w-64 shrink-0 min-[950px]:block">
           <MenuSideBar />
         </div>
         <div className="w-full">
@@ -23,14 +29,47 @@ const DishPage = () => {
               <p className="title font-bold uppercase text-tertiary">
                 Món ngon mỗi ngày
               </p>
-              <div className="w-fit rounded-md bg-tertiary p-2 text-sm font-semibold text-primary">
-                <span className="mr-2">Sắp xếp:</span>
-                <span>Mặc định</span>
+              <div className="flex flex-nowrap items-center gap-6">
+                <div className="hidden w-fit rounded-md bg-tertiary p-2 text-sm font-semibold text-primary sm:block">
+                  <span className="mr-2">Sắp xếp:</span>
+                  <span>Mặc định</span>
+                </div>
+                <Tooltip title="Filter" placement="left">
+                  <span
+                    className="cursor-pointer text-xl text-tertiary hover:text-yellow-600 sm:text-3xl min-[950px]:hidden"
+                    onClick={() => setVisibleFilter(true)}
+                  >
+                    <FaFilter />
+                  </span>
+                </Tooltip>
               </div>
             </div>
           </div>
           {/* grid items */}
-          <DishListGrid />
+          <div className="space-y-4">
+            <div className="px-2 sm:hidden">
+              <div className="w-full rounded-md bg-tertiary p-2 text-sm font-semibold text-primary">
+                <span className="mr-2">Sắp xếp:</span>
+                <span>Mặc định</span>
+              </div>
+            </div>
+            <DishListGrid />
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`fixed bottom-0 right-0 top-0 z-50 overflow-y-auto overflow-x-hidden bg-[#0c2b27e6] transition-all duration-500 ease-in-out sm:flex sm:items-start sm:justify-between sm:bg-bgOpacity ${visibleFilter ? "w-full" : "w-0"}`}
+      >
+        <div
+          className="mb-6 flex cursor-pointer flex-nowrap items-center gap-2 px-4 pt-6 text-primary hover:text-tertiary"
+          onClick={() => setVisibleFilter(false)}
+        >
+          <RxDoubleArrowRight className="text-center text-2xl" />
+          <span className="font-bold uppercase">Close</span>
+        </div>
+        <div className="h-full w-full px-4 pb-6 sm:w-80 sm:bg-bgPrimary sm:py-6">
+          <MenuSideBar />
         </div>
       </div>
     </BodyLayout>
