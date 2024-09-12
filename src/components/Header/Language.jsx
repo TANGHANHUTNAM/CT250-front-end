@@ -9,11 +9,11 @@ const Language = () => {
   };
   return (
     <div className="fixed right-0 top-1/4 z-50">
-      <div className="group relative flex h-[40px] w-[40px] items-center justify-center rounded-sm bg-tertiary">
+      <div className="group relative flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-s-sm bg-tertiary">
         <span>
-          <GrLanguage className="cursor-pointer text-2xl text-primary" />
+          <GrLanguage className="text-2xl text-primary" />
         </span>
-        <div className="dropdown-menu absolute right-0 top-6 block scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:opacity-100 sm:invisible sm:block sm:group-hover:visible sm:group-hover:scale-100">
+        <div className="invisible absolute right-0 top-6 block scale-90 pt-4 opacity-0 transition-all duration-300 will-change-transform group-hover:visible group-hover:scale-100 group-hover:opacity-100">
           <div className="flex w-28 cursor-pointer flex-col gap-2 bg-primary p-2">
             {/* Vietnamese */}
 
