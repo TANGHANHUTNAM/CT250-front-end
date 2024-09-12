@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import BodyLayout from "../layouts/BodyLayout";
 import MenuSideBar from "../components/menu/MenuSideBar";
 import DishListGrid from "../components/dish/DishListGrid";
-import { FaFilter } from "react-icons/fa";
+import { FaFilter } from "react-icons/fa6";
 import { Tooltip } from "antd";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { useState } from "react";
+import SortSelect from "../components/menu/SortSelect";
 
 const DishPage = () => {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ const DishPage = () => {
   useTopPage();
 
   const [visibleFilter, setVisibleFilter] = useState(false);
+  const [selectedSort, setSelectedSort] = useState({});
 
   return (
     <BodyLayout>
@@ -27,20 +29,22 @@ const DishPage = () => {
           <div className="px-2">
             <div className="header-page mb-4 flex items-center justify-between border-b-2 border-solid border-tertiary pb-4 pt-2">
               <p className="title font-bold uppercase text-tertiary">
-                Món ngon mỗi ngày
+                Tất cả món ăn
               </p>
-              <div className="flex flex-nowrap items-center gap-6">
-                <div className="hidden w-fit rounded-md bg-tertiary p-2 text-sm font-semibold text-primary sm:block">
-                  <span className="mr-2">Sắp xếp:</span>
-                  <span>Mặc định</span>
+              <div className="flex flex-nowrap items-center gap-4">
+                <div className="hidden sm:block">
+                  <SortSelect
+                    selectedSort={selectedSort}
+                    setSelectedSort={setSelectedSort}
+                  />
                 </div>
-                <Tooltip title="Filter" placement="left">
-                  <span
-                    className="cursor-pointer text-xl text-tertiary hover:text-yellow-600 sm:text-3xl min-[950px]:hidden"
+                <Tooltip title="Filter">
+                  <button
+                    className="cursor-pointer rounded-md bg-tertiary p-2 text-xl text-primary hover:bg-yellow-600 min-[950px]:hidden"
                     onClick={() => setVisibleFilter(true)}
                   >
                     <FaFilter />
-                  </span>
+                  </button>
                 </Tooltip>
               </div>
             </div>
@@ -48,16 +52,15 @@ const DishPage = () => {
           {/* grid items */}
           <div className="space-y-4">
             <div className="px-2 sm:hidden">
-              <div className="w-full rounded-md bg-tertiary p-2 text-sm font-semibold text-primary">
-                <span className="mr-2">Sắp xếp:</span>
-                <span>Mặc định</span>
-              </div>
+              <SortSelect
+                selectedSort={selectedSort}
+                setSelectedSort={setSelectedSort}
+              />
             </div>
             <DishListGrid />
           </div>
         </div>
       </div>
-
       <div
         className={`fixed bottom-0 right-0 top-0 z-50 overflow-y-auto overflow-x-hidden bg-[#0c2b27e6] transition-all duration-500 ease-in-out sm:flex sm:items-start sm:justify-between sm:bg-bgOpacity ${visibleFilter ? "w-full" : "w-0"}`}
       >
