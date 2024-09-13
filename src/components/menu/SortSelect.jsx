@@ -41,21 +41,21 @@ const sorts = [
   },
 ];
 
-const SortSelect = ({ selectedSort, setSelectedSort }) => {
+const SortSelect = ({ selectedOption = {}, setSelectedOption = () => {} }) => {
   useEffect(() => {
-    setSelectedSort(sorts[0]);
+    setSelectedOption(sorts[0]);
   }, []);
 
   const handleOptionClick = (value) => {
-    setSelectedSort(value);
+    setSelectedOption(value);
   };
 
   return (
     <div className="group relative min-w-40">
       <div className="flex cursor-pointer flex-nowrap items-center justify-between gap-4 rounded-md bg-tertiary p-2 text-primary">
         <div className="flex flex-nowrap items-center gap-2">
-          <span>{selectedSort?.icon ?? <FaSort />}</span>
-          <span className="text-sm font-medium">{selectedSort?.label}</span>
+          <span>{selectedOption?.icon ?? <FaSort />}</span>
+          <span className="text-sm font-medium">{selectedOption?.label}</span>
         </div>
         <span className="transition-transform duration-300 group-hover:rotate-180">
           <MdKeyboardArrowDown />
@@ -68,7 +68,7 @@ const SortSelect = ({ selectedSort, setSelectedSort }) => {
             return (
               <li
                 key={index}
-                className={`cursor-pointer py-2 duration-300 hover:text-tertiary ${selectedSort?.value === sort.value ? "font-medium text-tertiary" : ""}`}
+                className={`cursor-pointer py-2 duration-300 hover:text-tertiary ${selectedOption?.value === sort.value ? "font-medium text-tertiary" : ""}`}
                 onClick={() => handleOptionClick(sort)}
               >
                 {sort.label}

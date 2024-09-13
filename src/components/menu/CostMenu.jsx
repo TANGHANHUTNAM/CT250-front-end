@@ -1,13 +1,41 @@
 import MenuLayout from "./MenuLayout";
 import Checkbox from "../inputs/Checkbox";
 
-const CostMenu = ({ costs = {}, handleSelectCost = () => {} }) => {
+const costs = [
+  {
+    id: 1,
+    label: "Dưới 100.000đ",
+    value: "<100000",
+  },
+  {
+    id: 2,
+    label: "Từ 100.000đ - 200.000đ",
+    value: "100000 - 200000",
+  },
+  {
+    id: 3,
+    label: "Từ 200.000đ - 500.000đ",
+    value: "200000 - 500000",
+  },
+  {
+    id: 4,
+    label: "Từ 500.000đ - 1 triệu",
+    value: "500000 - 1000000",
+  },
+  {
+    id: 5,
+    label: "Trên 1 triệu",
+    value: ">1000000",
+  },
+];
+
+const CostMenu = ({ selectedCosts = {}, handleSelectCost = () => {} }) => {
   return (
     <MenuLayout title="Chọn mức giá">
       <ul className="bg-transparent px-4 py-3 text-primary">
         {costs &&
-          Object.entries(costs).length > 0 &&
-          Object.entries(costs).map(([key, cost], index) => {
+          costs.length > 0 &&
+          costs.map((cost, index) => {
             return (
               <li
                 key={index}
@@ -16,8 +44,8 @@ const CostMenu = ({ costs = {}, handleSelectCost = () => {} }) => {
                 <Checkbox
                   id={`filter-cost-${cost?.value}`}
                   value={cost?.value}
-                  onChange={(e) => handleSelectCost(e.target.checked, cost?.id)}
-                  checked={cost?.checked}
+                  onChange={(e) => handleSelectCost(e.target.checked, cost)}
+                  checked={selectedCosts[cost.id] !== undefined}
                 />
                 <label
                   htmlFor={`filter-cost-${cost?.value}`}
