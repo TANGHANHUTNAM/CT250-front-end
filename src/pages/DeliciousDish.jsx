@@ -1,12 +1,34 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { useDynamicTitle, useTopPage } from "../hooks";
 import { useTranslation } from "react-i18next";
+import DishLayout from "../layouts/DishLayout";
+import DishListGrid from "../components/dish/DishListGrid";
 
 const DeliciousDish = () => {
   const { t } = useTranslation();
+
   useDynamicTitle(t("BreadcrumbsAndTitle.delicious_dishes"));
   useTopPage();
-  return <>DeliciousDish</>;
+
+  const [sortBy, setSortBy] = useState({});
+  const [filterBy, setFilterBy] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState({});
+
+  console.log(sortBy, filterBy, selectedCategory);
+
+  return (
+    <DishLayout
+      title={t("DeliciousDishPage.title")}
+      sort={{ seletedOption: sortBy, setSelectedOption: setSortBy }}
+      filter={{ selectedFilter: filterBy, setSelectedFilter: setFilterBy }}
+      category={{
+        selectedCategory: selectedCategory,
+        setSelectedCategory: setSelectedCategory,
+      }}
+    >
+      <DishListGrid />
+    </DishLayout>
+  );
 };
 
 export default DeliciousDish;
