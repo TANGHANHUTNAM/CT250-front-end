@@ -309,5 +309,8 @@
   },
   "DishPage": {
     "title": "Tất cả món ăn"
+  },
+  "BestDishPage": {
+    "title": "Món ăn nổi bật"
   }
 }

@@ -309,5 +309,8 @@
   },
   "DishPage": {
     "title": "All dishes"
+  },
+  "BestDishPage": {
+    "title": "Best dishes"
   }
 }
