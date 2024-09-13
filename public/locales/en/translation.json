@@ -282,5 +282,32 @@
     "password_max": "Password must be at most 25 characters",
     "required_password": "Password is required",
     "required_verification_code": "Verification code is required"
+  },
+  "DishMenuSidebar": {
+    "filter": "Filter",
+    "close": "Close",
+    "dishCategories": "Dish Categories",
+    "choosePrice": "Choose price level",
+    "youChoose": "You choose",
+    "clearAll": "Clear all",
+    "costs": {
+      "<100000": "Under 100.000 VND",
+      "100000-200000": "From 100.000 - 200.000 VND",
+      "200000-500000": "From 200.000 - 500.000 VND",
+      "500000-1tr": "From 500.000 - 1.000.000 VND",
+      ">1tr": "Over 1.000.000 VND"
+    },
+    "sort": {
+      "default": "Default",
+      "a-z": "Name A - Z",
+      "z-a": "Name Z - A",
+      "ascPrice": "Ascending price",
+      "descPrice": "Descending price",
+      "newestDish": "Newest dish",
+      "oldestDish": "Oldest dish"
+    }
+  },
+  "DishPage": {
+    "title": "All dishes"
   }
 }
