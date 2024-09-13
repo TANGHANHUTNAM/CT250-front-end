@@ -8,6 +8,7 @@ import DishCategories from "../components/menu/DishCategories";
 import YourSelection from "../components/menu/YourSelection";
 import CostMenu from "../components/menu/CostMenu";
 import _ from "lodash";
+import { useTranslation } from "react-i18next";
 
 const DishLayout = ({
   children,
@@ -42,10 +43,12 @@ const DishLayout = ({
     });
   };
 
+  const { t } = useTranslation();
+
   return (
     <BodyLayout>
       <div className="flex gap-5 py-8 md:px-12 min-[950px]:px-0">
-        <div className="hidden w-64 shrink-0 min-[950px]:block">
+        <div className="hidden min-w-64 shrink-0 min-[950px]:block">
           <div className="space-y-6">
             <DishCategories
               selectedCategory={category.selectedCategory}
@@ -76,7 +79,7 @@ const DishLayout = ({
                     setSelectedOption={sort.setSelectedOption}
                   />
                 </div>
-                <Tooltip title="Filter">
+                <Tooltip title={t("DishMenuSidebar.filter")}>
                   <button
                     className="cursor-pointer rounded-md bg-tertiary p-2 text-xl text-primary hover:bg-yellow-600 min-[950px]:hidden"
                     onClick={() => setVisibleFilter(true)}
@@ -107,7 +110,9 @@ const DishLayout = ({
           onClick={() => setVisibleFilter(false)}
         >
           <RxDoubleArrowRight className="text-center text-2xl" />
-          <span className="font-bold uppercase">Close</span>
+          <span className="font-bold uppercase">
+            {t("DishMenuSidebar.close")}
+          </span>
         </div>
         <div className="h-full w-full px-4 pb-6 sm:w-80 sm:bg-bgPrimary sm:py-6">
           <div className="space-y-6">

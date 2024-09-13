@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import MenuLayout from "./MenuLayout";
 import SubMenu from "./SubMenu";
 
@@ -46,8 +47,10 @@ const DishCategories = ({
     setSelectedCategory(category);
   };
 
+  const { t } = useTranslation();
+
   return (
-    <MenuLayout title="Danh mục món ăn">
+    <MenuLayout title={t("DishMenuSidebar.dishCategories")}>
       <div className="bg-transparent px-4 py-3 text-primary">
         {categories &&
           categories.length > 0 &&

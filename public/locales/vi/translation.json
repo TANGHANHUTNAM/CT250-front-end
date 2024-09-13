@@ -282,5 +282,32 @@
     "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
     "required_password": "Mật khẩu thì bắt buộc",
     "required_verification_code": "Mã xác minh thì bắt buộc"
+  },
+  "DishMenuSidebar": {
+    "filter": "Lọc",
+    "close": "Đóng",
+    "dishCategories": "Danh mục món ăn",
+    "choosePrice": "Chọn mức giá",
+    "youChoose": "Bạn chọn",
+    "clearAll": "Bỏ tất cả",
+    "costs": {
+      "<100000": "Dưới 100.000đ",
+      "100000-200000": "Từ 100.000đ - 200.000đ",
+      "200000-500000": "Từ 200.000đ - 500.000đ",
+      "500000-1tr": "Từ 500.000đ - 1 triệu",
+      ">1tr": "Trên 1 triệu"
+    },
+    "sort": {
+      "default": "Mặc định",
+      "a-z": "Tên A - Z",
+      "z-a": "Tên Z - A",
+      "ascPrice": "Giá tăng dần",
+      "descPrice": "Giá giảm dần",
+      "newestDish": "Món ăn mới nhất",
+      "oldestDish": "Món ăn cũ nhất"
+    }
+  },
+  "DishPage": {
+    "title": "Tất cả món ăn"
   }
 }

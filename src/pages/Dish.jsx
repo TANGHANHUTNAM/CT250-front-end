@@ -18,7 +18,7 @@ const DishPage = () => {
 
   return (
     <DishLayout
-      title={"Tất cả món ăn"}
+      title={t("DishPage.title")}
       sort={{ seletedOption: sortBy, setSelectedOption: setSortBy }}
       filter={{ selectedFilter: filterBy, setSelectedFilter: setFilterBy }}
       category={{
