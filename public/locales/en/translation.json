@@ -312,5 +312,8 @@
   },
   "BestDishPage": {
     "title": "Best dishes"
+  },
+  "DeliciousDishPage": {
+    "title": "Delicious dishes"
   }
 }
