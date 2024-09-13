@@ -2,7 +2,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const SubMenu = ({ onClick = () => {}, menuItem = {} }) => {
+const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = (e) => {
@@ -13,7 +13,7 @@ const SubMenu = ({ onClick = () => {}, menuItem = {} }) => {
   return (
     <div className="w-full">
       <div
-        className="flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary"
+        className={`flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary ${selectedItem.id === menuItem.id ? "font-semibold text-tertiary" : ""}`}
         onClick={() => onClick(menuItem)}
       >
         <div className="text-sm">{menuItem?.name}</div>
@@ -53,7 +53,7 @@ const SubMenu = ({ onClick = () => {}, menuItem = {} }) => {
             return (
               <div
                 key={menu?.id}
-                className="cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary"
+                className={`cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary ${selectedItem.id === menu.id ? "font-medium text-tertiary" : ""}`}
                 onClick={() => onClick(menu)}
               >
                 {menu?.name}
