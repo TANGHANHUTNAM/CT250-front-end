@@ -8,7 +8,7 @@ const DishCard = ({ dish }) => {
   return (
     <div className="w-full p-2">
       {/* image */}
-      <div className="group relative flex cursor-pointer flex-col overflow-hidden border-b-2 border-solid border-neutral-200/40 bg-primary p-2">
+      <div className="group relative flex cursor-pointer flex-col overflow-hidden border-r-4 border-solid border-gray-300 border-neutral-200/40 bg-primary p-2">
         <img src={thucan} alt="thucan" />
         <div className="absolute left-0 top-0 z-10 flex h-full w-0 items-center justify-end bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
           <div className="mr-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600">
@@ -33,7 +33,7 @@ const DishCard = ({ dish }) => {
         )}
       </div>
       {/* content */}
-      <div className="flex flex-col gap-1 bg-primary p-2 pt-1 text-left sm:p-3">
+      <div className="flex flex-col gap-1 border-b-4 border-r-4 border-solid border-gray-300 bg-primary p-2 pt-1 text-left sm:p-3">
         <div className="name cursor-pointer truncate text-lg font-bold text-tertiary duration-200 hover:text-yellow-600 sm:text-xl">
           {dish?.name}
         </div>
