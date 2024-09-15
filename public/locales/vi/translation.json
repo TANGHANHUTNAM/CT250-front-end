@@ -315,5 +315,18 @@
   },
   "DeliciousDishPage": {
     "title": "Món ngon mỗi ngày"
+  },
+  "CartPage": {
+    "title": "Giỏ hàng của bạn",
+    "dish": "Món ăn",
+    "price": "Đơn giá",
+    "quantity": "Số lượng",
+    "totalPrice": "Thành tiền",
+    "deleteAll": "Xóa tất cả",
+    "totalPayment": "Tổng thanh toán",
+    "totalDish": "{{total}} món ăn",
+    "order": "Đặt hàng",
+    "emptyCart": "Không có món ăn nào trong giỏ hàng của bạn.",
+    "addToCart": "Thêm món ngay"
   }
 }

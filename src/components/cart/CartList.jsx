@@ -3,6 +3,7 @@ import { formatCurrency } from "../../utils/format";
 import CartItem from "./CartItem";
 import emptyCart from "../../assets/empty_cart.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const carts = [
   {
@@ -48,13 +49,21 @@ const CartList = () => {
     console.log("order");
   };
 
+  const { t } = useTranslation();
+
   return carts && carts.length > 0 ? (
     <div className="space-y-2 sm:space-y-3">
       <div className="hidden grid-cols-12 items-center gap-2 rounded-sm bg-bgTertiary px-6 py-4 text-sm font-semibold text-primary sm:grid">
-        <span className="col-span-5">Món ăn</span>
-        <span className="col-span-3 text-center lg:col-span-2">Giá</span>
-        <span className="col-span-3 text-center lg:col-span-2">Số lượng</span>
-        <span className="col-span-2 hidden text-center lg:block">Tạm tính</span>
+        <span className="col-span-5">{t("CartPage.dish")}</span>
+        <span className="col-span-3 text-center lg:col-span-2">
+          {t("CartPage.price")}
+        </span>
+        <span className="col-span-3 text-center lg:col-span-2">
+          {t("CartPage.quantity")}
+        </span>
+        <span className="col-span-2 hidden text-center lg:block">
+          {t("CartPage.totalPrice")}
+        </span>
         <span className="col-span-1 text-center">#</span>
       </div>
 
@@ -76,12 +85,14 @@ const CartList = () => {
             className="hidden cursor-pointer hover:text-red-500 sm:inline"
             onClick={() => handleDeleteAll()}
           >
-            Xóa tất cả
+            {t("CartPage.deleteAll")}
           </span>
           <div className="space-x-0.5 sm:space-x-2">
             <span>
-              Tổng thanh toán{" "}
-              <span className="hidden sm:inline">({carts.length} món ăn):</span>
+              {t("CartPage.totalPayment")}{" "}
+              <span className="hidden sm:inline">
+                ({t("CartPage.totalDish", { total: carts.length })}):
+              </span>
             </span>
             <span className="text-base font-bold text-yellow-600 md:text-lg">
               {(() => {
@@ -104,13 +115,13 @@ const CartList = () => {
             className="cursor-pointer hover:text-red-500 sm:hidden"
             onClick={() => handleDeleteAll()}
           >
-            Xóa tất cả
+            {t("CartPage.deleteAll")}
           </span>
           <button
             className="rounded-md bg-tertiary px-4 py-2 font-semibold hover:bg-yellow-600 sm:px-10 sm:py-2.5"
             onClick={() => handleOrder()}
           >
-            Đặt hàng
+            {t("CartPage.order")}
           </button>
         </div>
       </div>
@@ -124,14 +135,12 @@ const CartList = () => {
         className="w-36 object-contain sm:w-52"
       />
       <div className="text-primary">
-        <span className="hidden sm:inline">
-          Không có món ăn nào trong giỏ hàng của bạn.{" "}
-        </span>
+        <span className="hidden sm:inline">{t("CartPage.emptyCart")} </span>
         <Link
           to="/dish"
           className="rounded-md bg-tertiary px-3 py-2.5 text-sm font-medium hover:bg-yellow-600 sm:bg-transparent sm:p-0 sm:text-base sm:font-semibold sm:text-tertiary sm:hover:bg-transparent sm:hover:text-yellow-600"
         >
-          Thêm món ngay
+          {t("CartPage.addToCart")}
         </Link>
       </div>
     </div>
