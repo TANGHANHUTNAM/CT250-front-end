@@ -1,12 +1,20 @@
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
 import { useTranslation, Trans } from "react-i18next";
+import { MdOutlineArrowDropDown } from "react-icons/md";
+import MenuItemSmallScreen from "./MenuItemSmallScreen";
+import { MdOutlineArrowDropUp } from "react-icons/md";
+import { useState } from "react";
 const SideBar = ({ visable, setVisible }) => {
   const { t } = useTranslation();
+  const [openMenu, setOpenMenu] = useState(false);
+  const handleClick = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <>
       <div
-        className={`fixed bottom-0 right-0 top-0 z-50 overflow-hidden bg-bgOpacity font-bold uppercase text-primary transition-all duration-500 ease-in-out ${
+        className={`fixed bottom-0 right-0 top-0 z-50 overflow-hidden bg-bgOpacity font-bold uppercase text-primary transition-all duration-500 ease-in-out md:hidden ${
           visable ? "w-full" : "w-0"
         } `}
       >
@@ -40,15 +48,19 @@ const SideBar = ({ visable, setVisible }) => {
         >
           {t("Header.Navbar.introduce")}
         </NavLink>
-        <NavLink
-          onClick={() => {
-            setVisible(false);
-          }}
-          to="/dish"
-          className="flex flex-col items-center gap-1 py-2 duration-500 hover:text-tertiary"
-        >
-          {t("Header.Navbar.menu")}
-        </NavLink>
+        <div className="relative flex cursor-pointer flex-col items-center justify-center overflow-hidden py-2 duration-500">
+          <span
+            onClick={handleClick}
+            className="ml-3 flex flex-row items-center duration-300 hover:text-tertiary"
+          >
+            {t("Header.Navbar.menu")}
+            <span className="text-lg">
+              {openMenu ? <MdOutlineArrowDropUp /> : <MdOutlineArrowDropDown />}
+            </span>
+          </span>
+          {/* MenuItem for Small Screen */}
+          {openMenu && <MenuItemSmallScreen setVisible={setVisible} />}
+        </div>
         <NavLink
           onClick={() => {
             setVisible(false);
