@@ -61,7 +61,7 @@ const SortSelect = ({ selectedOption = {}, setSelectedOption = () => {} }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="group relative min-w-40">
+    <div className="group relative min-w-52">
       <div className="flex cursor-pointer flex-nowrap items-center justify-between gap-4 rounded-md bg-tertiary p-2 text-primary">
         <div className="flex flex-nowrap items-center gap-2">
           <span>{selectedOption?.icon ?? <FaSort />}</span>
