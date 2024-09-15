@@ -13,7 +13,7 @@ const CartPage = () => {
     <BodyLayout>
       <div className="py-6">
         <p className="text-lg font-bold uppercase text-tertiary">
-          Giỏ hàng của bạn
+          {t("CartPage.title")}
         </p>
         <div className="mt-6">
           <CartList />

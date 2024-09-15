@@ -315,5 +315,18 @@
   },
   "DeliciousDishPage": {
     "title": "Delicious dishes"
+  },
+  "CartPage": {
+    "title": "Your cart",
+    "dish": "Dish",
+    "price": "Unit price",
+    "quantity": "Quantity",
+    "totalPrice": "Total price",
+    "deleteAll": "Delete all",
+    "totalPayment": "Total payment",
+    "totalDish": "{{total}} dishes",
+    "order": "Order",
+    "emptyCart": "There are no items in your cart.",
+    "addToCart": "Add now"
   }
 }
