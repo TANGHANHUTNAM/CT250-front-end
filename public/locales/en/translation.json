@@ -65,7 +65,12 @@
     "cart": "Cart",
     "booking": "Booking",
     "all_dishes": "All dishes",
-    "my_account": "My account",
+    "my_account": {
+      "account": "My Account",
+      "edit_profile": "Edit Profile",
+      "change_password": "Change Password",
+      "delete_account": "Delete Account"
+    },
     "search": "Search",
     "payment_instruction": "Payment instruction",
     "buying_guide": "Buying guide",

@@ -65,7 +65,12 @@
     "cart": "Giỏ hàng",
     "booking": "Đặt bàn",
     "all_dishes": "Tất cả món ăn",
-    "my_account": "Trang cá nhân",
+    "my_account": {
+      "account": "Trang cá nhân",
+      "edit_profile": "Sửa hồ sơ",
+      "change_password": "Đổi mật khẩu",
+      "delete_account": "Xóa tài khoản"
+    },
     "search": "Tìm kiếm",
     "payment_instruction": "Hướng dẫn thanh toán",
     "buying_guide": "Hướng dẫn mua hàng",
