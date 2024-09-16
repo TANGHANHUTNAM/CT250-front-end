@@ -23,6 +23,10 @@ import NotFoundPage from "../pages/NotFound";
 import PaymentPage from "../pages/Payment";
 import FavoriteDishPage from "../pages/FavoriteDish";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
+import AccountLayout from "../layouts/AccountLayout";
+import ChangePasswordPage from "../pages/ChangePasswordPage";
+import EditProfilePage from "../pages/EditProfilePage";
+import DeleteAccountPage from "../pages/DeleteAccountPage";
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -96,9 +100,40 @@ const routes = [
         }, // cần phải có loader của react router để lấy dữ liệu
       },
       {
-        path: "personal/:id",
-        element: <PersonalPage />,
-        handle: { crumb: () => crumb("BreadcrumbsAndTitle.my_account") },
+        path: "account",
+        element: <AccountLayout />,
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.my_account.account"),
+        },
+        children: [
+          {
+            index: true,
+            element: <PersonalPage />,
+          },
+          {
+            path: "change-password",
+            element: <ChangePasswordPage />,
+            handle: {
+              crumb: () =>
+                crumb("BreadcrumbsAndTitle.my_account.change_password"),
+            },
+          },
+          {
+            path: "edit-profile",
+            element: <EditProfilePage />,
+            handle: {
+              crumb: () => crumb("BreadcrumbsAndTitle.my_account.edit_profile"),
+            },
+          },
+          {
+            path: "delete",
+            element: <DeleteAccountPage />,
+            handle: {
+              crumb: () =>
+                crumb("BreadcrumbsAndTitle.my_account.delete_account"),
+            },
+          },
+        ],
       },
       {
         path: "search/:id",
