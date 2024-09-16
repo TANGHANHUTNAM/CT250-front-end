@@ -6,12 +6,15 @@ import { RiProfileLine } from "react-icons/ri";
 import { FaUserEdit } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
 import { TiUserDelete } from "react-icons/ti";
+import { useTranslation } from "react-i18next";
 
 const AccountLayout = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <BodyLayout>
-      <div className="flex flex-nowrap gap-6 py-6">
-        <div className="w-52 shrink-0">
+      <div className="flex flex-nowrap gap-6 py-2 md:py-6">
+        <div className="hidden w-44 shrink-0 md:block lg:w-52">
           <div className="divide-y divide-solid divide-white/10 text-sm text-primary">
             <div className="flex flex-nowrap items-center gap-4 py-4">
               <Avatar size={50} />
@@ -22,7 +25,7 @@ const AccountLayout = ({}) => {
                   className="flex flex-nowrap items-center gap-2 font-medium text-gray-200"
                 >
                   <AiFillEdit className="h-4 w-4" />
-                  <span>Sửa hồ sơ</span>
+                  <span>{t("ManageAccount.editProfile")}</span>
                 </NavLink>
               </div>
             </div>
@@ -35,7 +38,7 @@ const AccountLayout = ({}) => {
                 >
                   <RiProfileLine className="h-5 w-5 text-rose-500" />
                   <span className="duration-300 group-hover:text-tertiary">
-                    Hồ sơ
+                    {t("ManageAccount.profile")}
                   </span>
                 </NavLink>
               </li>
@@ -46,7 +49,7 @@ const AccountLayout = ({}) => {
                 >
                   <FaUserEdit className="h-5 w-5 text-orange-400" />
                   <span className="duration-300 group-hover:text-tertiary">
-                    Sửa hồ sơ
+                    {t("ManageAccount.editProfile")}
                   </span>
                 </NavLink>
               </li>
@@ -57,7 +60,7 @@ const AccountLayout = ({}) => {
                 >
                   <MdPassword className="h-5 w-5 text-blue-500" />
                   <span className="duration-300 group-hover:text-tertiary">
-                    Đổi mật khẩu
+                    {t("ManageAccount.changePassword")}
                   </span>
                 </NavLink>
               </li>
@@ -68,14 +71,14 @@ const AccountLayout = ({}) => {
                 >
                   <TiUserDelete className="h-5 w-5 text-red-500" />
                   <span className="duration-300 group-hover:text-tertiary">
-                    Xóa tài khoản
+                    {t("ManageAccount.deleteAccount")}
                   </span>
                 </NavLink>
               </li>
             </ul>
           </div>
         </div>
-        <div className="grow rounded bg-bgTertiary">
+        <div className="grow md:rounded-sm md:bg-bgTertiary">
           <Outlet />
         </div>
       </div>

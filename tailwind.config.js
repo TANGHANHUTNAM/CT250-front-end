@@ -30,6 +30,9 @@ export default {
       backgroundImage: {
         booking: "url('/src/assets/booking.jpg')",
       },
+      screens: {
+        "sm-account": "530px",
+      },
     },
   },
   plugins: [],

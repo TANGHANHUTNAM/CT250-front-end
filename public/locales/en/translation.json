@@ -333,5 +333,23 @@
     "order": "Order",
     "emptyCart": "There are no items in your cart.",
     "addToCart": "Add now"
+  },
+  "ManageAccount": {
+    "profile": "Profile",
+    "editProfile": "Edit profile",
+    "changePassword": "Change password",
+    "deleteAccount": "Delete account",
+    "profilePage": {
+      "title_1": "My Profile",
+      "title_2": "Manage and secure your account",
+      "personalInfor": "Personal Information",
+      "contactInfor": "Contact Information",
+      "username": "Username",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone number",
+      "address": "Address"
+    }
   }
 }

@@ -333,5 +333,23 @@
     "order": "Đặt hàng",
     "emptyCart": "Không có món ăn nào trong giỏ hàng của bạn.",
     "addToCart": "Thêm món ngay"
+  },
+  "ManageAccount": {
+    "profile": "Hồ sơ",
+    "editProfile": "Sửa hồ sơ",
+    "changePassword": "Đổi mật khẩu",
+    "deleteAccount": "Xóa tài khoản",
+    "profilePage": {
+      "title_1": "Hồ sơ của tôi",
+      "title_2": "Quản lý và bảo mật tài khoản của bạn",
+      "personalInfor": "Thông tin cá nhân",
+      "contactInfor": "Thông tin liên lạc",
+      "username": "Tên người dùng",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    }
   }
 }
