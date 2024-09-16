@@ -1,6 +1,6 @@
 import BodyLayout from "./BodyLayout";
 import Avatar from "../components/avatar/Avatar";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { RiProfileLine } from "react-icons/ri";
 import { FaUserEdit } from "react-icons/fa";
@@ -20,13 +20,13 @@ const AccountLayout = ({}) => {
               <Avatar size={50} />
               <div className="space-y-1">
                 <p className="font-semibold">Thiên Vũ</p>
-                <NavLink
+                <Link
                   to="/account/edit-profile"
                   className="flex flex-nowrap items-center gap-2 font-medium text-gray-200"
                 >
                   <AiFillEdit className="h-4 w-4" />
                   <span>{t("ManageAccount.editProfile")}</span>
-                </NavLink>
+                </Link>
               </div>
             </div>
             <ul className="space-y-1 py-4">
