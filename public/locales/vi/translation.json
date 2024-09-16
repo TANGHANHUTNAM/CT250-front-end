@@ -350,6 +350,26 @@
       "gender": "Giới tính",
       "phone": "Điện thoại",
       "address": "Địa chỉ"
+    },
+    "changePasswordPage": {
+      "title": "Đổi mật khẩu",
+      "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+      "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+      "required_password": "Mật khẩu thì bắt buộc",
+      "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
+      "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
+      "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại",
+      "currentPassword": "Mật khẩu hiện tại",
+      "newPassword": "Mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "updatePassword": "Cập nhật mật khẩu",
+      "forgotPassword": "Tôi đã quên mật khẩu"
+    },
+    "deleteAccountPage": {
+      "title": "Xóa tài khoản",
+      "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+      "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+      "required_password": "Mật khẩu thì bắt buộc"
     }
   }
 }

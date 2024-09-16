@@ -350,6 +350,26 @@
       "gender": "Gender",
       "phone": "Phone number",
       "address": "Address"
+    },
+    "changePasswordPage": {
+      "title": "Change password",
+      "password_min": "Password must be at least 6 characters",
+      "password_max": "Password must be at most 25 characters",
+      "required_password": "Password is required",
+      "required_confirm_password": "Confirm password is required",
+      "confirm_password_not_match": "Confirm password does not match",
+      "different_current_password": "New password must be different from current password",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "updatePassword": "Update Password",
+      "forgotPassword": "I forgot my password"
+    },
+    "deleteAccountPage": {
+      "title": "Delete Account",
+      "password_min": "Password must be at least 6 characters",
+      "password_max": "Password must be at most 25 characters",
+      "required_password": "Password is required"
     }
   }
 }
