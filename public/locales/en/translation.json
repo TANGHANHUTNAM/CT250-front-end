@@ -381,6 +381,23 @@
       "continue": "Continue",
       "cancel": "Cancel",
       "finishConfirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?"
+    },
+    "editProfilePage": {
+      "title": "Edit Profile",
+      "username": "Username",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone number",
+      "address": "Address",
+      "required_username": "Username is required",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "upload": "Upload",
+      "noAvt": "Remove",
+      "format": "Format: Accepts all image formats",
+      "save": "Save"
     }
   },
   "Modal": {

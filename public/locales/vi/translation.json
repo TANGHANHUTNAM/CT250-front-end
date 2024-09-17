@@ -381,6 +381,23 @@
       "continue": "Tiếp tục",
       "cancel": "Hủy",
       "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?"
+    },
+    "editProfilePage": {
+      "title": "Sửa hồ sơ",
+      "username": "Tên người dùng",
+      "fullName": "Họ tên",
+      "birthday": "Sinh nhật",
+      "gender": "Giới tính",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ",
+      "required_username": "Tên người dùng thì bắt buộc",
+      "male": "Nam",
+      "female": "Nữ",
+      "other": "Khác",
+      "upload": "Tải lên",
+      "noAvt": "Gỡ ảnh",
+      "format": "Định dạng: Chấp nhận tất cả định dạng của hình ảnh",
+      "save": "Lưu"
     }
   },
   "Modal": {
