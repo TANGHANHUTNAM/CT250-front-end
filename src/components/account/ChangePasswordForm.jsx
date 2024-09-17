@@ -8,17 +8,17 @@ const formSchema = yup
   .object({
     currentPassword: yup
       .string()
-      .min(6, "ManageAccount.changePasswordPage.password_min")
-      .max(25, "ManageAccount.changePasswordPage.password_max")
-      .required("ManageAccount.changePasswordPage.required_password"),
+      .min(6, "ManageAccount.password_min")
+      .max(25, "ManageAccount.password_max")
+      .required("ManageAccount.required_password"),
     newPassword: yup
       .string()
-      .min(6, "ManageAccount.changePasswordPage.password_min")
-      .max(25, "ManageAccount.changePasswordPage.password_max")
-      .required("ManageAccount.changePasswordPage.required_password")
+      .min(6, "ManageAccount.password_min")
+      .max(25, "ManageAccount.password_max")
+      .required("ManageAccount.required_password")
       .test(
         "different_current_password",
-        "ManageAccount.changePasswordPage.different_current_password",
+        "ManageAccount.different_current_password",
         function (value) {
           const { currentPassword } = this.parent;
           return value !== currentPassword;
@@ -28,9 +28,9 @@ const formSchema = yup
       .string()
       .oneOf(
         [yup.ref("newPassword")],
-        "ManageAccount.changePasswordPage.confirm_password_not_match",
+        "ManageAccount.confirm_password_not_match",
       )
-      .required("ManageAccount.changePasswordPage.required_confirm_password"),
+      .required("ManageAccount.required_confirm_password"),
   })
   .required();
 

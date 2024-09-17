@@ -339,6 +339,12 @@
     "editProfile": "Sửa hồ sơ",
     "changePassword": "Đổi mật khẩu",
     "deleteAccount": "Xóa tài khoản",
+    "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
+    "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
+    "required_password": "Mật khẩu thì bắt buộc",
+    "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
+    "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
+    "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại",
     "profilePage": {
       "title_1": "Hồ sơ của tôi",
       "title_2": "Quản lý và bảo mật tài khoản của bạn",
@@ -353,12 +359,6 @@
     },
     "changePasswordPage": {
       "title": "Đổi mật khẩu",
-      "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
-      "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
-      "required_password": "Mật khẩu thì bắt buộc",
-      "required_confirm_password": "Mật khẩu xác nhận thì bắt buộc",
-      "confirm_password_not_match": "Mật khẩu xác nhận không khớp",
-      "different_current_password": "Mật khẩu mới phải khác với mật khẩu hiện tại",
       "currentPassword": "Mật khẩu hiện tại",
       "newPassword": "Mật khẩu mới",
       "confirmPassword": "Xác nhận mật khẩu",
@@ -367,9 +367,25 @@
     },
     "deleteAccountPage": {
       "title": "Xóa tài khoản",
-      "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
-      "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
-      "required_password": "Mật khẩu thì bắt buộc"
+      "confirmation": {
+        "confirm_0": "Bạn đang yêu cầu xóa tài khoản của mình. Vui lòng lưu ý rằng:",
+        "confirm_1": "Tất cả thông tin cá nhân, đơn hàng, và lịch sử giao dịch của bạn sẽ bị xóa vĩnh viễn.",
+        "confirm_2": "Sau khi tài khoản bị xóa, bạn sẽ không thể khôi phục lại bất kỳ dữ liệu nào.",
+        "confirm_3": "Nếu bạn có bất kỳ đơn hàng nào đang chờ xử lý, chúng sẽ bị hủy và không thể hoàn tất.",
+        "confirm_4": "Việc xóa tài khoản không thể hoàn tác.",
+        "isAgreed": "Có, tôi muốn xóa vĩnh viễn tài khoản này và tất cả các dữ liệu của tài khoản.",
+        "delete": "Xóa bỏ"
+      },
+      "verify_identity": "Xác minh danh tính",
+      "password": "Mật khẩu",
+      "continue": "Tiếp tục",
+      "cancel": "Hủy",
+      "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?"
     }
+  },
+  "Modal": {
+    "defaultContent": "Bạn có chăc chắn hay không?",
+    "ok": "Có, tôi chắc chắn",
+    "cancel": "Không, hủy"
   }
 }

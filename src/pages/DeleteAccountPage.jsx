@@ -21,39 +21,37 @@ const DeleteAccountPage = () => {
         </p>
       </div>
       <div className="py-6">
-        <div className="mx-auto sm-account:w-4/5 sm:w-full lg:w-4/5 xl:w-3/5">
-          <motion.div
-            initial={{ height: "auto", opacity: 1, visibility: "visible" }}
-            animate={{
-              height: isConfirmed ? "0px" : "auto",
-              opacity: isConfirmed ? 0 : 1,
-              visibility: isConfirmed ? "hidden" : "visible",
-            }}
-            transition={{
-              height: { duration: 0.5, ease: "easeInOut" },
-              opacity: { duration: 0.3 },
-            }}
-            className="will-change-auto"
-          >
-            <DeleteConfirmation setIsConfirmed={setIsConfirmed} />
-          </motion.div>
+        <motion.div
+          initial={{ height: "auto", opacity: 1, visibility: "visible" }}
+          animate={{
+            height: isConfirmed ? "0px" : "auto",
+            opacity: isConfirmed ? 0 : 1,
+            visibility: isConfirmed ? "hidden" : "visible",
+          }}
+          transition={{
+            height: { duration: 0.5, ease: "easeInOut" },
+            opacity: { duration: 0.3 },
+          }}
+          className="will-change-auto"
+        >
+          <DeleteConfirmation setIsConfirmed={setIsConfirmed} />
+        </motion.div>
 
-          <motion.div
-            initial={{ height: "0px", opacity: 0, visibility: "hidden" }}
-            animate={{
-              height: isConfirmed ? "auto" : "0px",
-              opacity: isConfirmed ? 1 : 0,
-              visibility: isConfirmed ? "visible" : "hidden",
-            }}
-            transition={{
-              height: { duration: 0.5, ease: "easeInOut" },
-              opacity: { duration: 0.3 },
-            }}
-            className="will-change-auto"
-          >
-            <DeleteForm />
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ height: "0px", opacity: 0, visibility: "hidden" }}
+          animate={{
+            height: isConfirmed ? "auto" : "0px",
+            opacity: isConfirmed ? 1 : 0,
+            visibility: isConfirmed ? "visible" : "hidden",
+          }}
+          transition={{
+            height: { duration: 0.5, ease: "easeInOut" },
+            opacity: { duration: 0.3 },
+          }}
+          className="mx-auto will-change-auto sm-account:w-3/4 sm:w-3/5 lg:w-2/5"
+        >
+          <DeleteForm />
+        </motion.div>
       </div>
     </div>
   );
