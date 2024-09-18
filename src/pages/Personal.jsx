@@ -35,47 +35,47 @@ const PersonalPage = () => {
               {t("ManageAccount.profilePage.personalInfor")}
             </p>
             <div className="space-y-4 pl-8 text-sm">
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <FaUser className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.username")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   Thiên Vũ
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <PiUserFill className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.fullName")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   Nguyễn Thiên Vũ
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <FaBirthdayCake className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.birthday")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   27/09/2024
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <BiMaleFemale className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.gender")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   Nam
                 </span>
               </div>
@@ -86,34 +86,34 @@ const PersonalPage = () => {
               {t("ManageAccount.profilePage.contactInfor")}
             </p>
             <div className="space-y-4 pl-8 text-sm">
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <MdAttachEmail className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">Email</span>
+                  <span className="sr-530:inline hidden">Email</span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   thienvu@gmail.com
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <FaPhone className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.phone")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   0123456789
                 </span>
               </div>
-              <div className="flex items-center gap-2.5 sm-account:grid sm-account:grid-cols-12 sm-account:gap-2">
-                <div className="flex items-center gap-2.5 sm-account:col-span-5">
+              <div className="sr-530:grid sr-530:grid-cols-12 sr-530:gap-2 flex items-center gap-2.5">
+                <div className="sr-530:col-span-5 flex items-center gap-2.5">
                   <FaMapMarkerAlt className="h-4 w-4" />
-                  <span className="hidden sm-account:inline">
+                  <span className="sr-530:inline hidden">
                     {t("ManageAccount.profilePage.address")}
                   </span>
                 </div>
-                <span className="sm-account:col-span-7 sm-account:font-medium">
+                <span className="sr-530:col-span-7 sr-530:font-medium">
                   Đường 3/2, Ninh Kiều, Cần Thơ
                 </span>
               </div>
@@ -133,7 +133,7 @@ const PersonalPage = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-3 py-6 sm-account:flex-row md:hidden">
+      <div className="sr-530:flex-row flex flex-col gap-3 py-6 md:hidden">
         <div className="grow rounded-md bg-orange-400 p-2 text-sm font-medium hover:bg-orange-500">
           <NavLink
             to="/account/edit-profile"

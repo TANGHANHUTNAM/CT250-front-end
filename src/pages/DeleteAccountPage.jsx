@@ -48,7 +48,7 @@ const DeleteAccountPage = () => {
             height: { duration: 0.5, ease: "easeInOut" },
             opacity: { duration: 0.3 },
           }}
-          className="mx-auto will-change-auto sm-account:w-3/4 sm:w-3/5 lg:w-2/5"
+          className="sr-530:w-3/4 mx-auto will-change-auto sm:w-3/5 lg:w-2/5"
         >
           <DeleteForm />
         </motion.div>

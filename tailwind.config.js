@@ -31,7 +31,7 @@ export default {
         booking: "url('/src/assets/booking.jpg')",
       },
       screens: {
-        "sm-account": "530px",
+        "sr-530": "530px",
       },
     },
   },
