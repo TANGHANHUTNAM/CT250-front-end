@@ -32,6 +32,7 @@ export default {
       },
       screens: {
         "sr-530": "530px",
+        "sr-950": "950px",
       },
     },
   },
