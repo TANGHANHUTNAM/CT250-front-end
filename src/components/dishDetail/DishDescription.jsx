@@ -1,20 +1,31 @@
+import { useTranslation } from "react-i18next";
+import { IoIosArrowForward } from "react-icons/io";
+
 const DishDescription = ({}) => {
+  const { t } = useTranslation();
+
   return (
     <div className="divide-y divide-solid divide-white/20 rounded-sm bg-bgTertiary">
       <div className="space-y-5 px-4 py-6 lg:px-6">
-        <p className="text-base font-semibold lg:text-lg">Thông tin chi tiết</p>
+        <p className="text-base font-semibold lg:text-lg">
+          {t("DishDetailPage.detailInformation")}
+        </p>
         <div className="space-y-5 text-sm">
           <div className="flex gap-2">
-            <span className="w-1/3 shrink-0 text-gray-200 lg:w-1/4 xl:w-1/5">
-              Danh mục
+            <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
+              {t("DishDetailPage.category")}
             </span>
-            <span className="font-medium text-tertiary">
-              {"Món chính > Salad > Salad rau mùa sốt cam"}
+            <span className="flex flex-wrap items-center gap-1.5 font-medium text-tertiary">
+              <span> Món chính</span>
+              <IoIosArrowForward />
+              <span>Salad</span>
+              <IoIosArrowForward />
+              <span>Salad rau mùa sốt cam</span>
             </span>
           </div>
           <div className="flex gap-2">
-            <span className="w-1/3 shrink-0 text-gray-200 lg:w-1/4 xl:w-1/5">
-              Thành phần
+            <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
+              {t("DishDetailPage.ingredients")}
             </span>
             <span className="font-medium">
               Xà lách carol, xà lách frise, xà lách lô lô tím, xà lách mỡ, xà
@@ -23,21 +34,23 @@ const DishDescription = ({}) => {
             </span>
           </div>
           <div className="flex gap-2">
-            <span className="w-1/3 shrink-0 text-gray-200 lg:w-1/4 xl:w-1/5">
-              Khẩu phần
+            <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
+              {t("DishDetailPage.servingSize")}
             </span>
             <span className="font-medium">1 - 2 người</span>
           </div>
           <div className="flex gap-2">
-            <span className="w-1/3 shrink-0 text-gray-200 lg:w-1/4 xl:w-1/5">
-              Thời gian hoàn tất
+            <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
+              {t("DishDetailPage.completionTime")}
             </span>
             <span className="font-medium">6 - 8 phút</span>
           </div>
         </div>
       </div>
       <div className="space-y-5 px-4 py-6 lg:px-6">
-        <p className="text-base font-semibold lg:text-lg">Mô tả món ăn</p>
+        <p className="text-base font-semibold lg:text-lg">
+          {t("DishDetailPage.dishDescription")}
+        </p>
         <p className="text-sm">
           Salad rau mùa sốt cam là sự lựa chọn tuyệt vời cho các tín đồ yêu eat
           clean. Món ăn có đến 5 loại xà lách (carol, frise, lô lô tím, xà lách
@@ -86,8 +99,12 @@ export default DishDescription;
 //         <div className="space-y-5 text-sm">
 //           <div className="flex gap-2">
 //             <span className="w-1/3 lg:w-1/ xl:w-1/54 shrink-0 text-gray-200">Danh mục</span>
-//             <span className="font-medium text-tertiary">
-//               {"Món chính > Salad > Salad rau mùa sốt cam"}
+//             <span className="inline-flex items-center gap-1.5 font-medium text-tertiary">
+//              <span> Món chính Món chính</span>
+//                 <IoIosArrowForward />
+//                 <span>Salad</span>
+//                 <IoIosArrowForward />
+//                 <span>Salad rau mùa sốt cam</span>
 //             </span>
 //           </div>
 //           <div className="flex gap-2">
