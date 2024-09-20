@@ -404,5 +404,23 @@
     "defaultContent": "Are you sure?",
     "ok": "Yes, I'm sure",
     "cancel": "No, cancel"
+  },
+  "DishDetailPage": {
+    "introduce": "Tonatra introduce",
+    "seeAll": "See all",
+    "sold": "sold",
+    "quantity": "Quantity",
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "detailInformation": "Detail information",
+    "category": "Category",
+    "ingredients": "Ingredients",
+    "servingSize": "Serving size",
+    "completionTime": "Completion time",
+    "dishDescription": "Dish description",
+    "dishReview": "Product reviews",
+    "review": "review",
+    "star": "star",
+    "similarDish": "Similar dish"
   }
 }

@@ -75,9 +75,9 @@ const EditProfileForm = ({}) => {
         onSubmit={handleSubmit(handleSaveProfile)}
       >
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:gap-2 lg:divide-x lg:divide-solid lg:divide-white/10">
-          <div className="space-y-6 sm-account:space-y-8 lg:col-span-8 lg:pr-6">
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium after:ml-0.5 after:text-red-500 after:content-['*'] sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+          <div className="sr-530:space-y-8 space-y-6 lg:col-span-8 lg:pr-6">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium after:ml-0.5 after:text-red-500 after:content-['*'] sm:w-1/3">
                 {t("ManageAccount.editProfilePage.username")}
               </label>
               <Input
@@ -89,8 +89,8 @@ const EditProfileForm = ({}) => {
                 translation={true}
               />
             </div>
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium sm:w-1/3">
                 {t("ManageAccount.editProfilePage.fullName")}
               </label>
               <Input
@@ -99,8 +99,8 @@ const EditProfileForm = ({}) => {
                 className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2 text-sm text-gray-900 outline-none"
               />
             </div>
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium sm:w-1/3">
                 {t("ManageAccount.editProfilePage.phone")}
               </label>
               <Input
@@ -109,8 +109,8 @@ const EditProfileForm = ({}) => {
                 className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2 text-sm text-gray-900 outline-none"
               />
             </div>
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium sm:w-1/3">
                 {t("ManageAccount.editProfilePage.gender")}
               </label>
               <Radio
@@ -133,8 +133,8 @@ const EditProfileForm = ({}) => {
                 translation={true}
               />
             </div>
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium sm:w-1/3">
                 {t("ManageAccount.editProfilePage.birthday")}
               </label>
               <InputDate
@@ -143,8 +143,8 @@ const EditProfileForm = ({}) => {
                 className="w-full rounded-md border-0 !border-b-2 border-tertiary px-3 py-2 text-secondary outline-none hover:border-tertiary"
               />
             </div>
-            <div className="flex flex-col gap-1.5 sm-account:flex-row sm-account:gap-6">
-              <label className="font-medium sm-account:w-2/5 sm-account:text-right sm:w-1/3">
+            <div className="sr-530:flex-row sr-530:gap-6 flex flex-col gap-1.5">
+              <label className="sr-530:w-2/5 sr-530:text-right font-medium sm:w-1/3">
                 {t("ManageAccount.editProfilePage.address")}
               </label>
               <TextArea
@@ -198,10 +198,10 @@ const EditProfileForm = ({}) => {
           </div>
         </div>
       </form>
-      <div className="w-full sm-account:flex sm-account:justify-center">
+      <div className="sr-530:flex sr-530:justify-center w-full">
         <button
           form="edit_profile"
-          className="w-full rounded-md bg-tertiary px-4 py-2 text-sm font-semibold hover:bg-yellow-600 sm-account:w-1/2 lg:w-fit lg:px-8"
+          className="sr-530:w-1/2 w-full rounded-md bg-tertiary px-4 py-2 text-sm font-semibold hover:bg-yellow-600 lg:w-fit lg:px-8"
         >
           {t("ManageAccount.editProfilePage.save")}
         </button>
