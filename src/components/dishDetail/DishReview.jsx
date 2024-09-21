@@ -130,7 +130,7 @@ const DishReview = ({}) => {
                   </div>
                   <span className="text-xs">20/09/2024</span>
                 </div>
-                <div className="text-[13px]">
+                <div className="text-13px">
                   Salad rau mùa sốt cam là sự lựa chọn tuyệt vời cho các tín đồ
                   yêu eat clean. Món ăn có đến 5 loại xà lách.
                 </div>

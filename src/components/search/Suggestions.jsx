@@ -32,7 +32,7 @@ const Suggestion = ({ suggestions }) => {
                     <p className="truncate text-[15px] group-hover/suggestion:text-tertiary">
                       {suggestion?.name}
                     </p>
-                    <p className="text-[13px]">
+                    <p className="text-13px">
                       <span className="text-red-500">
                         {formatCurrency(
                           suggestion.price -
