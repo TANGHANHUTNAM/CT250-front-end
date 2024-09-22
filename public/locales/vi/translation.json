@@ -422,5 +422,8 @@
     "review": "đánh giá",
     "star": "sao",
     "similarDish": "Món ăn cùng loại"
+  },
+  "NewsPage": {
+    "title": "Tin tức"
   }
 }

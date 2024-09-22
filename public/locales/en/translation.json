@@ -422,5 +422,8 @@
     "review": "review",
     "star": "star",
     "similarDish": "Similar dish"
+  },
+  "NewsPage": {
+    "title": "News"
   }
 }
