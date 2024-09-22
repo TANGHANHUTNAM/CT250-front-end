@@ -196,7 +196,8 @@ const routes = [
         path: "payment",
         element: <PaymentPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
-
+      },
+      {
         path: "reservation-orders",
         element: <ReservationOrdersPage />,
         handle: {
