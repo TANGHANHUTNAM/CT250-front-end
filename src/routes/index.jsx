@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
+import NewsDetailPage from "../pages/NewsDetail";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -56,6 +57,11 @@ const routes = [
       {
         path: "news",
         element: <NewsPage />,
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
+      },
+      {
+        path: "news/:id",
+        element: <NewsDetailPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
       },
       {

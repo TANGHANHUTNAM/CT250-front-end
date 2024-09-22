@@ -1,18 +1,11 @@
 import { Image } from "antd";
 import "./Gallery.css";
-import img01 from "../../assets/gallery/img1.jpg";
-import img02 from "../../assets/gallery/img2.jpg";
-import img03 from "../../assets/gallery/img3.jpg";
-import img04 from "../../assets/gallery/img4.jpg";
-import img05 from "../../assets/gallery/img5.jpg";
-import img06 from "../../assets/gallery/img6.jpg";
-import img07 from "../../assets/gallery/img7.jpg";
-import img08 from "../../assets/gallery/img8.jpg";
-import img09 from "../../assets/gallery/img9.jpg";
-import img10 from "../../assets/gallery/img10.jpg";
+import images from "../../assets/gallery";
+
 import { useTranslation } from "react-i18next";
 const Gallery = () => {
   const { t } = useTranslation();
+  console.log(images);
   return (
     <div className="gallery-container text-primary">
       <div className="content-title relative mb-5 text-center">
@@ -22,36 +15,13 @@ const Gallery = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 gap-2 object-cover sm:grid-cols-2 md:grid-cols-5">
-        <div className="h-full w-full">
-          <Image src={img01} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img02} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img03} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img04} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img05} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img06} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img07} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img08} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img09} />
-        </div>
-        <div className="h-full w-full">
-          <Image src={img10} />
-        </div>
+        {images.map((img, index) => {
+          return (
+            <div key={index} className="h-full w-full">
+              <Image src={img} />
+            </div>
+          );
+        })}
       </div>
       <p className="mt-5 font-semibold uppercase italic">
         {t("Introduce.content_footer")}
