@@ -23,7 +23,7 @@ import NotFoundPage from "../pages/NotFound";
 import PaymentPage from "../pages/Payment";
 import FavoriteDishPage from "../pages/FavoriteDish";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
-
+import NewsDetailPage from "../pages/NewsDetail";
 const crumb = (trans, data) => {
   return { trans, data };
 };
@@ -46,6 +46,11 @@ const routes = [
       {
         path: "news",
         element: <NewsPage />,
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
+      },
+      {
+        path: "news/:id",
+        element: <NewsDetailPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
       },
       {
