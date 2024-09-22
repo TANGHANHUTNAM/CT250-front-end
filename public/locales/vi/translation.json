@@ -331,7 +331,7 @@
     "deleteAll": "Xóa tất cả",
     "totalPayment": "Tổng thanh toán",
     "totalDish": "{{total}} món ăn",
-    "order": "Đặt hàng",
+    "order": "Thanh toán",
     "emptyCart": "Không có món ăn nào trong giỏ hàng của bạn.",
     "addToCart": "Thêm món ngay"
   },

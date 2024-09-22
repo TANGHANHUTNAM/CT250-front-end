@@ -331,7 +331,7 @@
     "deleteAll": "Delete all",
     "totalPayment": "Total payment",
     "totalDish": "{{total}} dishes",
-    "order": "Order",
+    "order": "Checkout",
     "emptyCart": "There are no items in your cart.",
     "addToCart": "Add now"
   },
