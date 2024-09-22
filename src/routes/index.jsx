@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
-import NewsDetailPage from "../pages/NewsDetail";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -26,6 +25,7 @@ const PaymentPolicyPage = lazy(() => import("../pages/PaymentPolicy"));
 const InformationSecurityPage = lazy(
   () => import("../pages/InformationSecurity"),
 );
+const NewsDetailPage = lazy(() => import("../pages/NewsDetail"));
 const NotFoundPage = lazy(() => import("../pages/NotFound"));
 const PaymentPage = lazy(() => import("../pages/Payment"));
 const FavoriteDishPage = lazy(() => import("../pages/FavoriteDish"));
@@ -35,6 +35,7 @@ const ChangePasswordPage = lazy(() => import("../pages/ChangePasswordPage"));
 const EditProfilePage = lazy(() => import("../pages/EditProfilePage"));
 const DeleteAccountPage = lazy(() => import("../pages/DeleteAccountPage"));
 const ReservationOrdersPage = lazy(() => import("../pages/ReservationOrders"));
+const MyPurchasePage = lazy(() => import("../pages/MyPurchase"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -198,10 +199,17 @@ const routes = [
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
       },
       {
-        path: "reservation-orders",
+        path: "reservation",
         element: <ReservationOrdersPage />,
         handle: {
           crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
+        },
+      },
+      {
+        path: "purchase",
+        element: <MyPurchasePage />,
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.purchase"),
         },
       },
       {

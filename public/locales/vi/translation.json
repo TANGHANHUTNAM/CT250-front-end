@@ -24,7 +24,9 @@
       "logout": "Đăng xuất",
       "favoriteDish": "Món ăn yêu thích",
       "inputSearch": "Nhập tên món ăn...",
-      "myAccount": "Trang cá nhân"
+      "myAccount": "Trang cá nhân",
+      "myPurchase": "Đơn hàng",
+      "myReservation": "Đơn đặt bàn"
     },
     "Search": {
       "search": "TÌM KIẾM MÓN ĂN CỦA BẠN",
@@ -81,7 +83,8 @@
     "not_found": "404 Không tìm thấy trang",
     "payment": "Thanh toán",
     "reset_password": "Lấy lại mật khẩu",
-    "reservation_orders": "Đơn đặt bàn"
+    "reservation_orders": "Đơn đặt bàn",
+    "purchase": "Đơn hàng"
   },
   "Auth": {
     "login": "Đăng nhập",

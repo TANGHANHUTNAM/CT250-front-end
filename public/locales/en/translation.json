@@ -24,7 +24,9 @@
       "logout": "Logout",
       "favoriteDish": "Favorite",
       "inputSearch": "Enter the name of the dish...",
-      "myAccount": "My Account"
+      "myAccount": "My Account",
+      "myPurchase": "My Purchase",
+      "myReservation": "My Reservation"
     },
     "Search": {
       "search": "SEARCH YOUR DISH",
@@ -81,7 +83,8 @@
     "not_found": "404 Page not found",
     "payment": "Payment",
     "reset_password": "Reset Password",
-    "reservation_orders": "Reservation orders"
+    "reservation_orders": "Reservation orders",
+    "purchase": "My Purchase"
   },
   "Auth": {
     "login": "Login",
