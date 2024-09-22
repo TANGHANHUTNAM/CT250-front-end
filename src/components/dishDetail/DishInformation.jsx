@@ -10,7 +10,7 @@ const DishInformation = ({}) => {
   return (
     <div className="flex w-full flex-col gap-4 rounded-sm bg-bgTertiary px-4 py-5 md:px-8 lg:flex-row lg:gap-10 lg:px-6 lg:py-6">
       <div className="flex w-full justify-center pb-1 lg:w-fit">
-        <div className="h-60 sr-530:h-72 xl:h-80">
+        <div className="h-60 w-60 sr-530:h-72 sr-530:w-72 xl:h-80 xl:w-80">
           <Image
             src="https://bizweb.dktcdn.net/thumb/large/100/469/097/products/untitled1-1.jpg?v=1667882668260"
             loading="lazy"
