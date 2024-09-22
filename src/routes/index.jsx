@@ -34,6 +34,7 @@ const AccountLayout = lazy(() => import("../layouts/AccountLayout"));
 const ChangePasswordPage = lazy(() => import("../pages/ChangePasswordPage"));
 const EditProfilePage = lazy(() => import("../pages/EditProfilePage"));
 const DeleteAccountPage = lazy(() => import("../pages/DeleteAccountPage"));
+const ReservationOrdersPage = lazy(() => import("../pages/ReservationOrders"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -190,6 +191,13 @@ const routes = [
         path: "reset-password",
         element: <ResetPasswordPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.reset_password") },
+      },
+      {
+        path: "reservation-orders",
+        element: <ReservationOrdersPage />,
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
+        },
       },
       {
         path: "*",
