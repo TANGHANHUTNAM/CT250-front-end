@@ -65,7 +65,12 @@
     "cart": "Cart",
     "booking": "Booking",
     "all_dishes": "All dishes",
-    "my_account": "My account",
+    "my_account": {
+      "account": "My Account",
+      "edit_profile": "Edit Profile",
+      "change_password": "Change Password",
+      "delete_account": "Delete Account"
+    },
     "search": "Search",
     "payment_instruction": "Payment instruction",
     "buying_guide": "Buying guide",
@@ -328,5 +333,94 @@
     "order": "Order",
     "emptyCart": "There are no items in your cart.",
     "addToCart": "Add now"
+  },
+  "ManageAccount": {
+    "profile": "Profile",
+    "editProfile": "Edit profile",
+    "changePassword": "Change password",
+    "deleteAccount": "Delete account",
+    "password_min": "Password must be at least 6 characters",
+    "password_max": "Password must be at most 25 characters",
+    "required_password": "Password is required",
+    "required_confirm_password": "Confirm password is required",
+    "confirm_password_not_match": "Confirm password does not match",
+    "different_current_password": "New password must be different from current password",
+    "profilePage": {
+      "title_1": "My Profile",
+      "title_2": "Manage and secure your account",
+      "personalInfor": "Personal Information",
+      "contactInfor": "Contact Information",
+      "username": "Username",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone number",
+      "address": "Address"
+    },
+    "changePasswordPage": {
+      "title": "Change password",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "updatePassword": "Update Password",
+      "forgotPassword": "I forgot my password"
+    },
+    "deleteAccountPage": {
+      "title": "Delete Account",
+      "confirmation": {
+        "confirm_0": "You are requesting deletion of your account. Please note that:",
+        "confirm_1": "All of your personal information, orders, and transaction history will be permanently deleted.",
+        "confirm_2": "Once your account is deleted, you won't be able to restore any data.",
+        "confirm_3": "If you have any pending orders, they will be canceled and cannot be fulfilled.",
+        "confirm_4": "Account deletion cannot be undone.",
+        "isAgreed": "Yes, I want to permanently delete this account and all its data.",
+        "delete": "Delete"
+      },
+      "verify_identity": "Verify identity",
+      "password": "Password",
+      "continue": "Continue",
+      "cancel": "Cancel",
+      "finishConfirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?"
+    },
+    "editProfilePage": {
+      "title": "Edit Profile",
+      "username": "Username",
+      "fullName": "Full Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "phone": "Phone number",
+      "address": "Address",
+      "required_username": "Username is required",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "upload": "Upload",
+      "noAvt": "Remove",
+      "format": "Format: Accepts all image formats",
+      "save": "Save"
+    }
+  },
+  "Modal": {
+    "defaultContent": "Are you sure?",
+    "ok": "Yes, I'm sure",
+    "cancel": "No, cancel"
+  },
+  "DishDetailPage": {
+    "introduce": "Tonatra introduce",
+    "seeAll": "See all",
+    "sold": "sold",
+    "quantity": "Quantity",
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "detailInformation": "Detail information",
+    "category": "Category",
+    "ingredients": "Ingredients",
+    "servingSize": "Serving size",
+    "completionTime": "Completion time",
+    "dishDescription": "Dish description",
+    "dishReview": "Product reviews",
+    "review": "review",
+    "star": "star",
+    "similarDish": "Similar dish"
   }
 }

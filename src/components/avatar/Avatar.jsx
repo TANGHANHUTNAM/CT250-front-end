@@ -10,7 +10,7 @@ const Avatar = ({ size = 32, src, ...props }) => {
         color: "black",
         cursor: "pointer",
       }}
-      icon={<UserOutlined className="text-lg" />}
+      icon={<UserOutlined />}
       src={src || undefined}
       {...props}
     />

@@ -1,29 +1,40 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
-import HomePage from "../pages/Home";
-import ContactPage from "../pages/Contact";
-import NewsPage from "../pages/News";
-import IntroducePage from "../pages/Introduce";
-import DeliciousDish from "../pages/DeliciousDish";
-import BestDish from "../pages/BestDish";
-import LoginPage from "../pages/Login";
-import RegisterPage from "../pages/Register";
-import CartPage from "../pages/Cart";
-import TableBooking from "../pages/TableBooking";
-import DishPage from "../pages/Dish";
-import DishDetailPage from "../pages/DishDetail";
-import PersonalPage from "../pages/Personal";
-import SearchPage from "../pages/Search";
-import PaymentInstructionPage from "../pages/PaymentInstruction";
-import BuyingGuidePage from "../pages/BuyingGuide";
-import MembershipPolicyPage from "../pages/MembershipPolicy";
-import PaymentPolicyPage from "../pages/PaymentPolicy";
-import InformationSecurityPage from "../pages/InformationSecurity";
-import NotFoundPage from "../pages/NotFound";
-import PaymentPage from "../pages/Payment";
-import FavoriteDishPage from "../pages/FavoriteDish";
-import ResetPasswordPage from "../pages/ResetPasswordPage";
 import NewsDetailPage from "../pages/NewsDetail";
+
+const HomePage = lazy(() => import("../pages/Home"));
+const ContactPage = lazy(() => import("../pages/Contact"));
+const NewsPage = lazy(() => import("../pages/News"));
+const IntroducePage = lazy(() => import("../pages/Introduce"));
+const DeliciousDish = lazy(() => import("../pages/DeliciousDish"));
+const BestDish = lazy(() => import("../pages/BestDish"));
+const LoginPage = lazy(() => import("../pages/Login"));
+const RegisterPage = lazy(() => import("../pages/Register"));
+const CartPage = lazy(() => import("../pages/Cart"));
+const TableBooking = lazy(() => import("../pages/TableBooking"));
+const DishPage = lazy(() => import("../pages/Dish"));
+const DishDetailPage = lazy(() => import("../pages/DishDetail"));
+const PersonalPage = lazy(() => import("../pages/Personal"));
+const SearchPage = lazy(() => import("../pages/Search"));
+const PaymentInstructionPage = lazy(
+  () => import("../pages/PaymentInstruction"),
+);
+const BuyingGuidePage = lazy(() => import("../pages/BuyingGuide"));
+const MembershipPolicyPage = lazy(() => import("../pages/MembershipPolicy"));
+const PaymentPolicyPage = lazy(() => import("../pages/PaymentPolicy"));
+const InformationSecurityPage = lazy(
+  () => import("../pages/InformationSecurity"),
+);
+const NotFoundPage = lazy(() => import("../pages/NotFound"));
+const PaymentPage = lazy(() => import("../pages/Payment"));
+const FavoriteDishPage = lazy(() => import("../pages/FavoriteDish"));
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+const AccountLayout = lazy(() => import("../layouts/AccountLayout"));
+const ChangePasswordPage = lazy(() => import("../pages/ChangePasswordPage"));
+const EditProfilePage = lazy(() => import("../pages/EditProfilePage"));
+const DeleteAccountPage = lazy(() => import("../pages/DeleteAccountPage"));
+
 const crumb = (trans, data) => {
   return { trans, data };
 };
@@ -101,9 +112,40 @@ const routes = [
         }, // cần phải có loader của react router để lấy dữ liệu
       },
       {
-        path: "personal/:id",
-        element: <PersonalPage />,
-        handle: { crumb: () => crumb("BreadcrumbsAndTitle.my_account") },
+        path: "account",
+        element: <AccountLayout />,
+        handle: {
+          crumb: () => crumb("BreadcrumbsAndTitle.my_account.account"),
+        },
+        children: [
+          {
+            index: true,
+            element: <PersonalPage />,
+          },
+          {
+            path: "change-password",
+            element: <ChangePasswordPage />,
+            handle: {
+              crumb: () =>
+                crumb("BreadcrumbsAndTitle.my_account.change_password"),
+            },
+          },
+          {
+            path: "edit-profile",
+            element: <EditProfilePage />,
+            handle: {
+              crumb: () => crumb("BreadcrumbsAndTitle.my_account.edit_profile"),
+            },
+          },
+          {
+            path: "delete",
+            element: <DeleteAccountPage />,
+            handle: {
+              crumb: () =>
+                crumb("BreadcrumbsAndTitle.my_account.delete_account"),
+            },
+          },
+        ],
       },
       {
         path: "search/:id",
