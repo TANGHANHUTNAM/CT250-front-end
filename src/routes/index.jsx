@@ -90,7 +90,7 @@ const routes = [
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.register") },
       },
       {
-        path: "cart/:id",
+        path: "cart",
         element: <CartPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.cart") },
       },
@@ -192,16 +192,16 @@ const routes = [
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.reset_password") },
       },
       {
+        path: "payment",
+        element: <PaymentPage />,
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
+      },
+      {
         path: "*",
         element: <NotFoundPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.not_found") },
       },
     ],
-  },
-  {
-    path: "payment/:id",
-    element: <PaymentPage />,
-    handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
   },
 ];
 

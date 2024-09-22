@@ -26,7 +26,7 @@ const RightNavBar = ({ handleCloseSearch, setVisible }) => {
       </div>
 
       {/* Cart-icons */}
-      <Link to="/cart/12" className="relative">
+      <Link to="/cart" className="relative">
         <BsCart3 className="cursor-pointer text-2xl text-primary" />
         <p className="absolute -right-2.5 -top-2 flex aspect-square h-[20px] w-[20px] items-center justify-center rounded-full bg-tertiary text-[10px] text-primary">
           99+
