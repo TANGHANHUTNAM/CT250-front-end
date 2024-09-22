@@ -9,7 +9,7 @@ const CartItem = ({ cartItem = {}, onDelete = (item) => {} }) => {
   };
 
   return (
-    <div className="relative flex flex-nowrap gap-4 rounded-sm bg-bgTertiary p-3.5 text-[13px] font-medium text-primary sm:grid sm:grid-cols-12 sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-sm">
+    <div className="text-13px relative flex flex-nowrap gap-4 rounded-sm bg-bgTertiary p-3.5 font-medium text-primary sm:grid sm:grid-cols-12 sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-sm">
       <div className="sm:col-span-5 sm:flex sm:flex-nowrap sm:items-center sm:gap-4">
         <div className="h-20 w-20 shrink-0 md:h-[5.5rem] md:w-[5.5rem] lg:h-24 lg:w-24">
           <Link>

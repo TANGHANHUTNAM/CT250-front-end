@@ -80,7 +80,8 @@
     "favorite_dishes": "Favorite dishes",
     "not_found": "404 Page not found",
     "payment": "Payment",
-    "reset_password": "Reset Password"
+    "reset_password": "Reset Password",
+    "reservation_orders": "Reservation orders"
   },
   "Auth": {
     "login": "Login",

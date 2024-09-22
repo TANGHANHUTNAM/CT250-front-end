@@ -80,7 +80,8 @@
     "favorite_dishes": "Món ăn yêu thích",
     "not_found": "404 Không tìm thấy trang",
     "payment": "Thanh toán",
-    "reset_password": "Lấy lại mật khẩu"
+    "reset_password": "Lấy lại mật khẩu",
+    "reservation_orders": "Đơn đặt bàn"
   },
   "Auth": {
     "login": "Đăng nhập",
