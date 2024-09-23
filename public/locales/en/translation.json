@@ -84,7 +84,8 @@
     "payment": "Payment",
     "reset_password": "Reset Password",
     "reservation_orders": "Reservation orders",
-    "purchase": "My Purchase"
+    "purchase": "My Purchase",
+    "orderDetail": "Order Detail"
   },
   "Auth": {
     "login": "Login",
@@ -343,6 +344,7 @@
     "editProfile": "Edit profile",
     "changePassword": "Change password",
     "deleteAccount": "Delete account",
+    "myPurchase": "My purchase",
     "password_min": "Password must be at least 6 characters",
     "password_max": "Password must be at most 25 characters",
     "required_password": "Password is required",
@@ -429,5 +431,18 @@
   },
   "NewsPage": {
     "title": "News"
+  },
+  "PurchasesPage": {
+    "all": "All",
+    "toConfirm": "To Confirm",
+    "toShip": "To Ship",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "orderId": "Order ID",
+    "seeMore": "See more products",
+    "dish": "dish",
+    "buyAgain": "Buy Again",
+    "viewRating": "View Rating",
+    "orderTotal": "Order Total"
   }
 }

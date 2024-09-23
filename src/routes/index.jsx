@@ -36,6 +36,7 @@ const EditProfilePage = lazy(() => import("../pages/EditProfilePage"));
 const DeleteAccountPage = lazy(() => import("../pages/DeleteAccountPage"));
 const ReservationOrdersPage = lazy(() => import("../pages/ReservationOrders"));
 const MyPurchasePage = lazy(() => import("../pages/MyPurchase"));
+const OrderDetailPage = lazy(() => import("../pages/OrderDetail"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -147,6 +148,25 @@ const routes = [
                 crumb("BreadcrumbsAndTitle.my_account.delete_account"),
             },
           },
+          {
+            path: "purchase",
+            handle: {
+              crumb: () => crumb("BreadcrumbsAndTitle.purchase"),
+            },
+            children: [
+              {
+                index: true,
+                element: <MyPurchasePage />,
+              },
+              {
+                path: "order/:id",
+                element: <OrderDetailPage />,
+                handle: {
+                  crumb: () => crumb("BreadcrumbsAndTitle.orderDetail"),
+                },
+              },
+            ],
+          },
         ],
       },
       {
@@ -205,13 +225,13 @@ const routes = [
           crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
         },
       },
-      {
-        path: "purchase",
-        element: <MyPurchasePage />,
-        handle: {
-          crumb: () => crumb("BreadcrumbsAndTitle.purchase"),
-        },
-      },
+      // {
+      //   path: "purchase",
+      //   element: <MyPurchasePage />,
+      //   handle: {
+      //     crumb: () => crumb("BreadcrumbsAndTitle.purchase"),
+      //   },
+      // },
       {
         path: "*",
         element: <NotFoundPage />,

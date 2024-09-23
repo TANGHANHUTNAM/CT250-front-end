@@ -84,7 +84,8 @@
     "payment": "Thanh toán",
     "reset_password": "Lấy lại mật khẩu",
     "reservation_orders": "Đơn đặt bàn",
-    "purchase": "Đơn hàng"
+    "purchase": "Đơn hàng",
+    "orderDetail": "Chi tiết đơn hàng"
   },
   "Auth": {
     "login": "Đăng nhập",
@@ -343,6 +344,7 @@
     "editProfile": "Sửa hồ sơ",
     "changePassword": "Đổi mật khẩu",
     "deleteAccount": "Xóa tài khoản",
+    "myPurchase": "Đơn hàng",
     "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
     "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
     "required_password": "Mật khẩu thì bắt buộc",
@@ -429,5 +431,18 @@
   },
   "NewsPage": {
     "title": "Tin tức"
+  },
+  "PurchasesPage": {
+    "all": "Tất cả",
+    "toConfirm": "Chờ xác nhận",
+    "toShip": "Đang vận chuyển",
+    "completed": "Hoàn thành",
+    "cancelled": "Đã hủy",
+    "orderId": "Mã đơn",
+    "seeMore": "Xem thêm sản phẩm",
+    "dish": "món ăn",
+    "buyAgain": "Mua lại",
+    "viewRating": "Xem đánh giá",
+    "orderTotal": "Thành tiền"
   }
 }

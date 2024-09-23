@@ -6,6 +6,7 @@ import { RiProfileLine } from "react-icons/ri";
 import { FaUserEdit } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
 import { TiUserDelete } from "react-icons/ti";
+import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
 
 const AccountLayout = ({}) => {
@@ -13,8 +14,8 @@ const AccountLayout = ({}) => {
 
   return (
     <BodyLayout>
-      <div className="flex flex-nowrap gap-6 py-2 md:py-6">
-        <div className="hidden w-44 shrink-0 md:block lg:w-52">
+      <div className="py-2 md:flex md:flex-nowrap md:gap-6 md:py-6">
+        <div className="hidden w-44 md:block md:shrink-0 lg:w-52">
           <div className="divide-y divide-solid divide-white/10 text-sm text-primary">
             <div className="flex flex-nowrap items-center gap-4 py-4">
               <Avatar size={50} />
@@ -39,6 +40,18 @@ const AccountLayout = ({}) => {
                   <RiProfileLine className="h-5 w-5 text-rose-500" />
                   <span className="duration-300 group-hover:text-tertiary">
                     {t("ManageAccount.profile")}
+                  </span>
+                </NavLink>
+              </li>
+              <li className="group py-2 font-medium">
+                <NavLink
+                  to="/account/purchase"
+                  end
+                  className="flex flex-nowrap items-center gap-4"
+                >
+                  <LiaFileInvoiceSolid className="h-5 w-5 text-cyan-400" />
+                  <span className="duration-300 group-hover:text-tertiary">
+                    {t("ManageAccount.myPurchase")}
                   </span>
                 </NavLink>
               </li>
@@ -78,7 +91,7 @@ const AccountLayout = ({}) => {
             </ul>
           </div>
         </div>
-        <div className="grow md:rounded-sm md:bg-bgTertiary">
+        <div className="md:grow md:rounded-sm md:bg-bgTertiary">
           <Outlet />
         </div>
       </div>
