@@ -46,7 +46,6 @@ const AccountLayout = ({}) => {
               <li className="group py-2 font-medium">
                 <NavLink
                   to="/account/purchase"
-                  end
                   className="flex flex-nowrap items-center gap-4"
                 >
                   <LiaFileInvoiceSolid className="h-5 w-5 text-cyan-400" />

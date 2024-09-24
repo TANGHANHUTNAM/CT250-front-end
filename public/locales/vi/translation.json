@@ -444,5 +444,24 @@
     "buyAgain": "Mua lại",
     "viewRating": "Xem đánh giá",
     "orderTotal": "Thành tiền"
+  },
+  "OrderDetailsPage": {
+    "back": "Trở về",
+    "orderId": "Mã đơn",
+    "thanks": "Cảm ơn bạn đã mua sắm với Tonatra!",
+    "buyAgain": "Mua lại",
+    "viewRating": "Xem đánh giá",
+    "rating": "Đánh giá",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "notes": "Ghi chú",
+    "paymentMethod": "Phương thức thanh toán",
+    "merchandiseSubtotal": "Tổng tiền hàng",
+    "shippingFee": "Phí vận chuyển",
+    "voucherApplied": "Mã giảm giá từ nhà hàng",
+    "orderTotal": "Thành tiền",
+    "cancelOrder": "Hủy đặt hàng"
+  },
+  "ReviewModal": {
+    "title": "Đánh giá đơn hàng"
   }
 }

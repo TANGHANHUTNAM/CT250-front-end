@@ -444,5 +444,24 @@
     "buyAgain": "Buy Again",
     "viewRating": "View Rating",
     "orderTotal": "Order Total"
+  },
+  "OrderDetailsPage": {
+    "back": "Back",
+    "orderId": "Order ID",
+    "thanks": "Thank you for shopping with Tonatra!",
+    "buyAgain": "Buy Again",
+    "viewRating": "View Rating",
+    "rating": "Rating",
+    "deliveryAddress": "Delivery Address",
+    "notes": "Notes",
+    "paymentMethod": "Payment Method",
+    "merchandiseSubtotal": "Merchandise Subtotal",
+    "shippingFee": "Shipping Fee",
+    "voucherApplied": "Voucher Applied",
+    "orderTotal": "Order Total",
+    "cancelOrder": "Cancel Order"
+  },
+  "ReviewModal": {
+    "title": "Order Review"
   }
 }
