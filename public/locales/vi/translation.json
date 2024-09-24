@@ -24,7 +24,9 @@
       "logout": "Đăng xuất",
       "favoriteDish": "Món ăn yêu thích",
       "inputSearch": "Nhập tên món ăn...",
-      "myAccount": "Trang cá nhân"
+      "myAccount": "Trang cá nhân",
+      "myPurchase": "Đơn hàng",
+      "myReservation": "Đơn đặt bàn"
     },
     "Search": {
       "search": "TÌM KIẾM MÓN ĂN CỦA BẠN",
@@ -81,7 +83,9 @@
     "not_found": "404 Không tìm thấy trang",
     "payment": "Thanh toán",
     "reset_password": "Lấy lại mật khẩu",
-    "reservation_orders": "Đơn đặt bàn"
+    "reservation_orders": "Đơn đặt bàn",
+    "purchase": "Đơn hàng",
+    "orderDetail": "Chi tiết đơn hàng"
   },
   "Auth": {
     "login": "Đăng nhập",
@@ -340,6 +344,7 @@
     "editProfile": "Sửa hồ sơ",
     "changePassword": "Đổi mật khẩu",
     "deleteAccount": "Xóa tài khoản",
+    "myPurchase": "Đơn hàng",
     "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
     "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
     "required_password": "Mật khẩu thì bắt buộc",
@@ -426,5 +431,37 @@
   },
   "NewsPage": {
     "title": "Tin tức"
+  },
+  "PurchasesPage": {
+    "all": "Tất cả",
+    "toConfirm": "Chờ xác nhận",
+    "toShip": "Đang vận chuyển",
+    "completed": "Hoàn thành",
+    "cancelled": "Đã hủy",
+    "orderId": "Mã đơn",
+    "seeMore": "Xem thêm sản phẩm",
+    "dish": "món ăn",
+    "buyAgain": "Mua lại",
+    "viewRating": "Xem đánh giá",
+    "orderTotal": "Thành tiền"
+  },
+  "OrderDetailsPage": {
+    "back": "Trở về",
+    "orderId": "Mã đơn",
+    "thanks": "Cảm ơn bạn đã mua sắm với Tonatra!",
+    "buyAgain": "Mua lại",
+    "viewRating": "Xem đánh giá",
+    "rating": "Đánh giá",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "notes": "Ghi chú",
+    "paymentMethod": "Phương thức thanh toán",
+    "merchandiseSubtotal": "Tổng tiền hàng",
+    "shippingFee": "Phí vận chuyển",
+    "voucherApplied": "Mã giảm giá từ nhà hàng",
+    "orderTotal": "Thành tiền",
+    "cancelOrder": "Hủy đặt hàng"
+  },
+  "ReviewModal": {
+    "title": "Đánh giá đơn hàng"
   }
 }

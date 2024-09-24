@@ -26,7 +26,7 @@ const Breadcrumbs = () => {
       {crumbs && crumbs.length > 1 && (
         <div className="w-full bg-bgSecondary">
           <div className="mx-auto max-w-screen-xl px-3 py-[1.125rem]">
-            <ul className="flex flex-nowrap items-center gap-2.5 text-sm font-medium text-white">
+            <ul className="flex flex-wrap items-center gap-2.5 text-13px font-medium text-white sr-530:text-sm">
               {crumbs.map((crumb, index) => {
                 const {
                   payload: { trans, data },

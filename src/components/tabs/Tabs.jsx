@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./Tabs.css";
 
 const Tabs = ({
@@ -6,10 +7,13 @@ const Tabs = ({
   onChange = (key) => {},
   activeTab,
   activeStyle = { borderColor: "rgb(202 138 4)", color: "rgb(202 138 4)" },
+  translation = false,
 }) => {
   const handleChangeTab = (key) => {
     onChange(key);
   };
+
+  const { t } = useTranslation();
 
   return (
     <ul className="tabs flex w-full items-center overflow-x-auto overflow-y-hidden">
@@ -21,7 +25,7 @@ const Tabs = ({
             style={activeTab === tab.key ? activeStyle : {}}
             onClick={() => handleChangeTab(tab.key)}
           >
-            {tab.label}
+            {translation ? t(tab.trans) : tab.label}
           </li>
         );
       })}
