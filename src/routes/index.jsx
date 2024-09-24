@@ -167,6 +167,13 @@ const routes = [
               },
             ],
           },
+          {
+            path: "reservation",
+            element: <ReservationOrdersPage />,
+            handle: {
+              crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
+            },
+          },
         ],
       },
       {
@@ -218,18 +225,11 @@ const routes = [
         element: <PaymentPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
       },
-      {
-        path: "reservation",
-        element: <ReservationOrdersPage />,
-        handle: {
-          crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
-        },
-      },
       // {
-      //   path: "purchase",
-      //   element: <MyPurchasePage />,
+      //   path: "reservation",
+      //   element: <ReservationOrdersPage />,
       //   handle: {
-      //     crumb: () => crumb("BreadcrumbsAndTitle.purchase"),
+      //     crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
       //   },
       // },
       {
