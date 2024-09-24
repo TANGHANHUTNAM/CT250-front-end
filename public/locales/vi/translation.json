@@ -345,6 +345,7 @@
     "changePassword": "Đổi mật khẩu",
     "deleteAccount": "Xóa tài khoản",
     "myPurchase": "Đơn hàng",
+    "myReservation": "Đơn đặt bàn",
     "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
     "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
     "required_password": "Mật khẩu thì bắt buộc",
@@ -463,5 +464,19 @@
   },
   "ReviewModal": {
     "title": "Đánh giá đơn hàng"
+  },
+  "ReservationOrderPage": {
+    "all": "Tất cả",
+    "toConfirm": "Chờ xác nhận",
+    "confirmed": "Đã xác nhận",
+    "cancelled": "Đã hủy",
+    "orderId": "Mã đơn",
+    "customer": "Người đặt",
+    "peopleNumber": "Số người",
+    "checkIn": "Nhận bàn vào",
+    "table": "Bàn",
+    "notes": "Ghi chú",
+    "phone": "Điện thoại",
+    "cancelReservation": "Hủy đặt bàn"
   }
 }

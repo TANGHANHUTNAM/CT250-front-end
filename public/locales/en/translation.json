@@ -83,7 +83,7 @@
     "not_found": "404 Page not found",
     "payment": "Payment",
     "reset_password": "Reset Password",
-    "reservation_orders": "Reservation orders",
+    "reservation_orders": "My Reservation",
     "purchase": "My Purchase",
     "orderDetail": "Order Detail"
   },
@@ -345,6 +345,7 @@
     "changePassword": "Change password",
     "deleteAccount": "Delete account",
     "myPurchase": "My purchase",
+    "myReservation": "My Reservation",
     "password_min": "Password must be at least 6 characters",
     "password_max": "Password must be at most 25 characters",
     "required_password": "Password is required",
@@ -463,5 +464,19 @@
   },
   "ReviewModal": {
     "title": "Order Review"
+  },
+  "ReservationOrderPage": {
+    "all": "All",
+    "toConfirm": "To Confirm",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled",
+    "orderId": "Order ID",
+    "customer": "Customer",
+    "peopleNumber": "Number of people",
+    "checkIn": "Check in at",
+    "table": "Table number",
+    "notes": "Notes",
+    "phone": "Phone Number",
+    "cancelReservation": "Cancel Reservation"
   }
 }

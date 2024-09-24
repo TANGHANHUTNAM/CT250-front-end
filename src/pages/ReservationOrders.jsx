@@ -12,21 +12,25 @@ const tabs = {
     key: "all",
     label: "Tất cả",
     tabContent: <AllReservationOrder />,
+    trans: "ReservationOrderPage.all",
   },
   pending_confirm: {
     key: "pending_confirm",
     label: "Chờ xác nhận",
     tabContent: <ConfirmationPending />,
+    trans: "ReservationOrderPage.toConfirm",
   },
   confirmed: {
     key: "confirmed",
     label: "Đã xác nhận",
     tabContent: <ConfirmedOrder />,
+    trans: "ReservationOrderPage.confirmed",
   },
   canceled: {
     key: "canceled",
     label: "Đã hủy",
     tabContent: <CanceledOrder />,
+    trans: "ReservationOrderPage.cancelled",
   },
 };
 
@@ -40,13 +44,14 @@ const ReservationOrders = ({}) => {
 
   return (
     <div className="w-full bg-bgPrimary">
-      <div className="mx-auto max-w-screen-xl sm:px-3">
-        <div className="space-y-4 py-4">
+      <div className="mx-auto max-w-screen-xl">
+        <div className="space-y-4">
           <div className="rounded-sm bg-bgTertiary text-primary">
             <Tabs
               tabs={Object.values(tabs)}
               activeTab={tabKey}
               onChange={(key) => setTabKey(key)}
+              translation={true}
             />
           </div>
           <div className="space-y-4">{tabs[tabKey].tabContent}</div>

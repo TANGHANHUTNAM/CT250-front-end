@@ -60,7 +60,7 @@ const UserMenu = () => {
                 </Link>
               </li>
               <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
-                <Link to="/reservation">
+                <Link to="/account/reservation">
                   {t("Header.Navbar.myReservation")}
                 </Link>
               </li>

@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { RiProfileLine } from "react-icons/ri";
 import { FaUserEdit } from "react-icons/fa";
-import { MdPassword } from "react-icons/md";
+import { MdPassword, MdOutlineReceipt } from "react-icons/md";
 import { TiUserDelete } from "react-icons/ti";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
@@ -51,6 +51,17 @@ const AccountLayout = ({}) => {
                   <LiaFileInvoiceSolid className="h-5 w-5 text-cyan-400" />
                   <span className="duration-300 group-hover:text-tertiary">
                     {t("ManageAccount.myPurchase")}
+                  </span>
+                </NavLink>
+              </li>
+              <li className="group py-2 font-medium">
+                <NavLink
+                  to="/account/reservation"
+                  className="flex flex-nowrap items-center gap-4"
+                >
+                  <MdOutlineReceipt className="h-5 w-5 text-purple-400" />
+                  <span className="duration-300 group-hover:text-tertiary">
+                    {t("ManageAccount.myReservation")}
                   </span>
                 </NavLink>
               </li>
