@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
+import PrivateRoute from "./PrivateRoute";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -116,7 +117,11 @@ const routes = [
       },
       {
         path: "account",
-        element: <AccountLayout />,
+        element: (
+          <PrivateRoute>
+            <AccountLayout />
+          </PrivateRoute>
+        ),
         handle: {
           crumb: () => crumb("BreadcrumbsAndTitle.my_account.account"),
         },
