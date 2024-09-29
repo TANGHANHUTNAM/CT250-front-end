@@ -3,7 +3,8 @@ import { IoIosSearch } from "react-icons/io";
 import Suggestions from "./Suggestions";
 import { useEffect, useRef, useState } from "react";
 import { useDebounce } from "../../hooks";
-
+import { MdKeyboardVoice } from "react-icons/md";
+import { BiSolidUserVoice } from "react-icons/bi";
 const data = [
   {
     img: "https://bizweb.dktcdn.net/thumb/compact/100/469/097/products/165aab637a80546a7925ad3c1d059f.jpg?v=1667882344460",
@@ -76,7 +77,40 @@ const Search = () => {
 
   const handleSearchAll = (e) => {
     e.preventDefault();
-    console.log(keyword);
+  };
+  // Voice search
+  const [isListening, setIsListening] = useState(false);
+  const handleVoiceClick = () => {
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("Your browser does not support voice recognition.");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "vi-VN";
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onresult = (event) => {
+      const speechResult = event.results[0][0].transcript;
+      setKeyword(speechResult);
+      setIsListening(false);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error", event);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.start();
   };
 
   return (
@@ -99,6 +133,13 @@ const Search = () => {
           />
           <button className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[26px] text-tertiary">
             <IoIosSearch />
+          </button>
+          <button
+            onClick={handleVoiceClick}
+            disabled={isListening}
+            className="voice absolute right-9 top-1/2 -translate-y-1/2 text-[26px] text-tertiary"
+          >
+            {isListening ? <BiSolidUserVoice /> : <MdKeyboardVoice />}
           </button>
         </div>
       </form>
