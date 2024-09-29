@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { IoIosArrowForward } from "react-icons/io";
 
-const DishDescription = ({}) => {
+const DishDescription = ({ dish }) => {
   const { t } = useTranslation();
 
   return (
@@ -16,34 +16,34 @@ const DishDescription = ({}) => {
               {t("DishDetailPage.category")}
             </span>
             <span className="flex flex-wrap items-center gap-1.5 font-medium text-tertiary">
-              <span> Món chính</span>
-              <IoIosArrowForward />
-              <span>Salad</span>
-              <IoIosArrowForward />
-              <span>Salad rau mùa sốt cam</span>
+              {dish.category && dish.category[1] && (
+                <>
+                  <span>{dish.category[1]?.name}</span>
+                  <IoIosArrowForward />
+                </>
+              )}
+              {dish.category && dish.category[2] && (
+                <span>{dish.category[2]?.name}</span>
+              )}
             </span>
           </div>
           <div className="flex gap-2">
             <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
               {t("DishDetailPage.ingredients")}
             </span>
-            <span className="font-medium">
-              Xà lách carol, xà lách frise, xà lách lô lô tím, xà lách mỡ, xà
-              lách radicchio tím, táo đỏ, táo xanh, cà chua bi, củ cải đường,
-              rau mầm, cà rốt baby, trái olive đen, trái olive xanh.
-            </span>
+            <span className="font-medium">{dish?.ingredients}</span>
           </div>
           <div className="flex gap-2">
             <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
               {t("DishDetailPage.servingSize")}
             </span>
-            <span className="font-medium">1 - 2 người</span>
+            <span className="font-medium">{dish?.servingSize}</span>
           </div>
           <div className="flex gap-2">
             <span className="w-1/3 shrink-0 text-gray-100 lg:w-1/4 xl:w-1/5">
               {t("DishDetailPage.completionTime")}
             </span>
-            <span className="font-medium">6 - 8 phút</span>
+            <span className="font-medium">{dish?.preparationTime}</span>
           </div>
         </div>
       </div>
@@ -51,16 +51,7 @@ const DishDescription = ({}) => {
         <p className="text-base font-semibold lg:text-lg">
           {t("DishDetailPage.dishDescription")}
         </p>
-        <p className="text-sm">
-          Salad rau mùa sốt cam là sự lựa chọn tuyệt vời cho các tín đồ yêu eat
-          clean. Món ăn có đến 5 loại xà lách (carol, frise, lô lô tím, xà lách
-          mỡ và radicchio tím) kết hợp cùng các loại trái cây như táo, cà chua,
-          ô liu... mang lại nguồn vitamin tổng hợp dồi dào, hỗ trợ tăng cường đề
-          kháng cho cơ thể. Điểm nhấn tạo nên nét chấm phá cho món nằm ở nước
-          sốt cam độc đáo với vị chua ngọt tự nhiên dịu dàng. Salad rau mùa sốt
-          cam thực sự là một bữa tiệc về màu sắc, xua tan cơn nóng mùa hè, đánh
-          thức tối đa vị giác.
-        </p>
+        <p className="text-sm">{dish?.description}</p>
       </div>
     </div>
   );
