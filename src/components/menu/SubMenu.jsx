@@ -13,16 +13,18 @@ const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
   return (
     <div className="w-full">
       <div
-        className={`flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary ${selectedItem.id === menuItem.id ? "font-semibold text-tertiary" : ""}`}
+        className={`flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary ${selectedItem._id === menuItem._id ? "font-semibold text-tertiary" : ""}`}
         onClick={() => onClick(menuItem)}
       >
         <div className="text-sm">{menuItem?.name}</div>
-        <span
-          className={`cursor-pointer text-xl transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
-          onClick={(e) => toggleMenu(e)}
-        >
-          <MdOutlineKeyboardArrowDown />
-        </span>
+        {menuItem?.subMenu?.length > 0 && (
+          <span
+            className={`cursor-pointer text-xl transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
+            onClick={(e) => toggleMenu(e)}
+          >
+            <MdOutlineKeyboardArrowDown />
+          </span>
+        )}
       </div>
       <motion.div
         initial="hidden"
@@ -52,8 +54,8 @@ const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
           menuItem.subMenu.map((menu) => {
             return (
               <div
-                key={menu?.id}
-                className={`cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary ${selectedItem.id === menu.id ? "font-medium text-tertiary" : ""}`}
+                key={menu?._id}
+                className={`cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary ${selectedItem._id === menu._id ? "font-medium text-tertiary" : ""}`}
                 onClick={() => onClick(menu)}
               >
                 {menu?.name}

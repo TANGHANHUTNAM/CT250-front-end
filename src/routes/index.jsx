@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
+import { DishDetailLoader } from "./loader";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -111,6 +112,7 @@ const routes = [
       {
         path: "dish-detail/:id",
         element: <DishDetailPage />,
+        loader: DishDetailLoader,
         handle: {
           crumb: (data) => crumb(undefined, data?.crumb || "Chi tiết món ăn"),
         }, // cần phải có loader của react router để lấy dữ liệu

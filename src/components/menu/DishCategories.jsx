@@ -1,6 +1,9 @@
 import { useTranslation } from "react-i18next";
 import MenuLayout from "./MenuLayout";
 import SubMenu from "./SubMenu";
+import { useEffect, useState } from "react";
+import { getCategories } from "../../services/categoryService";
+import StatusCodes from "../../utils/StatusCodes";
 
 const categories = [
   {
@@ -43,11 +46,25 @@ const DishCategories = ({
   selectedCategory = {},
   setSelectedCategory = () => {},
 }) => {
+  const { t } = useTranslation();
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const res = await getCategories();
+
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        setCategories(res.DT);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const handleSelectCategory = (category) => {
     setSelectedCategory(category);
   };
-
-  const { t } = useTranslation();
 
   return (
     <MenuLayout title={t("DishMenuSidebar.dishCategories")}>
@@ -55,9 +72,13 @@ const DishCategories = ({
         {categories &&
           categories.length > 0 &&
           categories.map((category) => {
+            const { subCategories } = category;
+            delete categories.subCategories;
+            category.subMenu = subCategories;
+
             return (
               <SubMenu
-                key={category?.id}
+                key={category?._id}
                 menuItem={category}
                 onClick={handleSelectCategory}
                 selectedItem={selectedCategory}

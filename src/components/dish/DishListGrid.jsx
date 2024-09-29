@@ -1,6 +1,7 @@
 import DishCard from "./DishCard";
 import thucan from "../../assets/thucan.webp";
-const DishListGrid = ({ dishes }) => {
+
+const DishListGrid = ({ dishes = [] }) => {
   const List = [
     {
       id: 1,
@@ -55,9 +56,11 @@ const DishListGrid = ({ dishes }) => {
   ];
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-      {List.map((dish) => {
-        return <DishCard key={dish.id} dish={dish} />;
-      })}
+      {dishes &&
+        dishes.length > 0 &&
+        dishes.map((dish) => {
+          return <DishCard key={dish._id} dish={dish} />;
+        })}
     </div>
   );
 };
