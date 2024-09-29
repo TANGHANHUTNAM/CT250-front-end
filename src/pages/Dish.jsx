@@ -48,14 +48,22 @@ const DishPage = () => {
         setSelectedCategory: setSelectedCategory,
       }}
     >
-      <div className="space-y-12">
-        <DishListGrid dishes={dishes?.data} />
-        <Pagination
-          totalPages={dishes?.totalPages}
-          currentPage={currentPage}
-          onChangePage={handleChangePage}
-        />
-      </div>
+      {dishes.data && dishes.data.length > 0 ? (
+        <div className="space-y-12">
+          <DishListGrid dishes={dishes?.data} />
+          <Pagination
+            totalPages={dishes?.totalPages}
+            currentPage={currentPage}
+            onChangePage={handleChangePage}
+          />
+        </div>
+      ) : (
+        <div className="p-2">
+          <div className="rounded-md bg-[#fff3cd] px-4 py-3 text-sm font-medium text-yellow-600">
+            {t("DishPage.noData")}
+          </div>
+        </div>
+      )}
     </DishLayout>
   );
 };

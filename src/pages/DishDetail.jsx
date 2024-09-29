@@ -6,10 +6,12 @@ import SimilarDishes from "../components/dishDetail/SimilarDishes";
 import DishReview from "../components/dishDetail/DishReview";
 import { useLoaderData } from "react-router-dom";
 import _ from "lodash";
+import { useTranslation } from "react-i18next";
 
 const DishDetailPage = () => {
   const dish = useLoaderData();
 
+  const { t } = useTranslation();
   useDynamicTitle(dish?.name || "Tonatra Restaurant");
   useTopPage();
 
@@ -19,7 +21,7 @@ const DishDetailPage = () => {
         {_.isEmpty(dish) ? (
           <div className="py-6">
             <div className="rounded-md bg-[#fff3cd] px-4 py-3 text-sm font-medium text-yellow-600">
-              Không tìm thấy món cần tìm.
+              {t("DishDetailPage.notFound")}
             </div>
           </div>
         ) : (

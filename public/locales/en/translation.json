@@ -318,7 +318,8 @@
     }
   },
   "DishPage": {
-    "title": "All dishes"
+    "title": "All dishes",
+    "noData": "No data."
   },
   "BestDishPage": {
     "title": "Best dishes"
@@ -428,7 +429,8 @@
     "dishReview": "Product reviews",
     "review": "review",
     "star": "star",
-    "similarDish": "Similar dish"
+    "similarDish": "Similar dish",
+    "notFound": "No dish found."
   },
   "NewsPage": {
     "title": "News"

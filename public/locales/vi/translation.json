@@ -318,7 +318,8 @@
     }
   },
   "DishPage": {
-    "title": "Tất cả món ăn"
+    "title": "Tất cả món ăn",
+    "noData": "Không có dữ liệu."
   },
   "BestDishPage": {
     "title": "Món ăn nổi bật"
@@ -428,7 +429,8 @@
     "dishReview": "Đánh giá sản phẩm",
     "review": "đánh giá",
     "star": "sao",
-    "similarDish": "Món ăn cùng loại"
+    "similarDish": "Món ăn cùng loại",
+    "notFound": "Không tìm thấy món ăn."
   },
   "NewsPage": {
     "title": "Tin tức"
