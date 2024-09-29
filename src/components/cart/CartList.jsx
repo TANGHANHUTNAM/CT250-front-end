@@ -4,45 +4,18 @@ import CartItem from "./CartItem";
 import emptyCart from "../../assets/empty_cart.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { removeAll, removeFromCart } from "../../redux/reducer/cartSlice";
 
-const carts = [
-  {
-    name: "Salad rau mùa sốt cam",
-    image: thucan,
-    price: 80000,
-    discount: 5,
-    quantity: 1,
-  },
-  {
-    name: "Salad rau mùa sốt cam",
-    image: thucan,
-    price: 80000,
-    discount: 5,
-    quantity: 5,
-  },
-  {
-    name: "Salad rau mùa sốt cam",
-    image: thucan,
-    price: 80000,
-    discount: 5,
-    quantity: 3,
-  },
-  {
-    name: "Salad rau mùa sốt cam",
-    image: thucan,
-    price: 80000,
-    discount: 5,
-    quantity: 2,
-  },
-];
+const CartList = ({ carts = [] }) => {
+  const dispatch = useDispatch();
 
-const CartList = () => {
   const handleDeleteCartItem = (item) => {
-    console.log(item);
+    dispatch(removeFromCart({ id: item?._id }));
   };
 
   const handleDeleteAll = () => {
-    console.log("delete all cart");
+    dispatch(removeAll());
   };
 
   const handleOrder = () => {
@@ -67,19 +40,17 @@ const CartList = () => {
         <span className="col-span-1 text-center">#</span>
       </div>
 
-      {carts &&
-        carts.length > 0 &&
-        carts.map((cartItem, index) => {
-          return (
-            <CartItem
-              key={index}
-              cartItem={cartItem}
-              onDelete={handleDeleteCartItem}
-            />
-          );
-        })}
+      {carts.map((cartItem, index) => {
+        return (
+          <CartItem
+            key={index}
+            cartItem={cartItem}
+            onDelete={handleDeleteCartItem}
+          />
+        );
+      })}
 
-      <div className="sticky bottom-0 divide-y divide-dashed divide-gray-600 rounded-sm bg-bgTertiary text-sm font-medium text-primary before:absolute before:-top-4 before:left-0 before:h-4 before:w-full before:bg-gradient-to-b before:from-transparent before:to-[#19443e]/80 md:text-base">
+      <div className="sticky bottom-0 divide-y divide-dashed divide-gray-600 rounded-sm bg-bgTertiary text-sm font-medium text-primary before:absolute before:-top-3 before:left-0 before:h-3 before:w-full before:bg-gradient-to-b before:from-transparent before:to-white/5 md:text-base">
         <div className="flex flex-nowrap items-center justify-end p-3.5 sm:justify-between sm:px-6 sm:py-5">
           <span
             className="hidden cursor-pointer hover:text-red-500 sm:inline"
@@ -97,12 +68,7 @@ const CartList = () => {
             <span className="text-base font-bold text-yellow-600 md:text-lg">
               {(() => {
                 const totalPrice = carts.reduce((total, cartItem) => {
-                  return (
-                    total +
-                    (cartItem?.price -
-                      (cartItem?.price * cartItem?.discount) / 100) *
-                      cartItem?.quantity
-                  );
+                  return total + cartItem.totalPrice;
                 }, 0);
 
                 return formatCurrency(totalPrice);

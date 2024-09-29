@@ -12,4 +12,13 @@ const getDish = (id) => {
   return axios.get(`/api/v1/dish/${id}`);
 };
 
-export { getDishes, getDishesWithPagination, getDish };
+// get dishes for cart
+const getMultipleDishes = (ids = []) => {
+  return axios.get(`/api/v1/dish/multiple`, {
+    params: {
+      id: ids,
+    },
+  });
+};
+
+export { getDishes, getDishesWithPagination, getDish, getMultipleDishes };

@@ -5,9 +5,13 @@ import { CgMenuRightAlt } from "react-icons/cg";
 import { useTranslation } from "react-i18next";
 import Search from "../search/Search";
 import UserMenu from "./UserMenu";
+import { useSelector } from "react-redux";
+import { Badge } from "antd";
 
 const RightNavBar = ({ handleCloseSearch, setVisible }) => {
   const { t } = useTranslation();
+
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div className="flex items-center gap-2.5 lg:gap-4">
@@ -27,10 +31,23 @@ const RightNavBar = ({ handleCloseSearch, setVisible }) => {
 
       {/* Cart-icons */}
       <Link to="/cart" className="relative">
-        <BsCart3 className="cursor-pointer text-2xl text-primary" />
-        <p className="absolute -right-2.5 -top-2 flex aspect-square h-[20px] w-[20px] items-center justify-center rounded-full bg-tertiary text-[10px] text-primary">
-          99+
-        </p>
+        <Badge
+          count={cart?.length ?? 0}
+          offset={[-2, 0]}
+          color="#d69c52"
+          overflowCount={9}
+          size="small"
+          styles={{
+            indicator: {
+              boxShadow: "none",
+              fontSize: "10px",
+              minWidth: "15px",
+              height: "15px",
+            },
+          }}
+        >
+          <BsCart3 className="cursor-pointer text-2xl text-primary" />
+        </Badge>
       </Link>
 
       {/* User-icons */}

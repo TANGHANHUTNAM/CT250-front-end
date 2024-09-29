@@ -5,8 +5,18 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { formatCurrency } from "../../utils/format";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducer/cartSlice";
+import { toast } from "react-toastify";
 
 const DishCard = ({ dish }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id: dish?._id, quantity: 1 }));
+    toast.success("Add to cart successfully.");
+  };
+
   return (
     <div className="p-2">
       <div className="w-full shadow-[4px_4px_#acacac]">
@@ -22,7 +32,10 @@ const DishCard = ({ dish }) => {
             </Link>
           </div>
           <div className="absolute right-0 top-0 flex h-full w-0 items-center justify-start bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
-            <div className="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600">
+            <div
+              className="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600"
+              onClick={() => handleAddToCart()}
+            >
               <IoCartSharp />
             </div>
           </div>
