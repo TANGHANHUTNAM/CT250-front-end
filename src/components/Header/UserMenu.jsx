@@ -51,21 +51,35 @@ const UserMenu = () => {
               <p className="text-xs font-medium">{email}</p>
             </div>
             <ul className="py-2">
-              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
-                <Link to="/account">{t("Header.Navbar.myAccount")}</Link>
+              <li>
+                <Link
+                  className="block px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary"
+                  to="/account"
+                >
+                  {t("Header.Navbar.myAccount")}
+                </Link>
               </li>
-              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
-                <Link to="/account/purchase">
+              <li>
+                <Link
+                  className="block px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary"
+                  to="/account/purchase"
+                >
                   {t("Header.Navbar.myPurchase")}
                 </Link>
               </li>
-              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
-                <Link to="/account/reservation">
+              <li>
+                <Link
+                  className="block px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary"
+                  to="/account/reservation"
+                >
                   {t("Header.Navbar.myReservation")}
                 </Link>
               </li>
-              <li className="cursor-pointer px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary">
-                <Link to={`/favorite-dish/${12}`}>
+              <li>
+                <Link
+                  className="block px-3.5 py-2 transition-all duration-300 hover:bg-tertiary hover:ps-5 hover:text-primary"
+                  to={`/favorite-dish/${12}`}
+                >
                   {t("Header.Navbar.favoriteDish")}
                 </Link>
               </li>
