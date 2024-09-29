@@ -44,9 +44,11 @@ const CartItem = ({ cartItem = {}, onDelete = (item) => {} }) => {
         </div>
         <div className="col-span-12 flex flex-row-reverse justify-between sm:grid sm:grid-cols-12 sm:items-center sm:justify-center sm:gap-2">
           <div className="self-end text-left sm:col-span-6 sm:self-center sm:text-center md:space-x-2 lg:col-span-4">
-            <span className="hidden font-normal text-gray-300 line-through md:inline">
-              {formatCurrency(cartItem?.price)}
-            </span>
+            {cartItem?.discount > 0 && cartItem?.discountExpirationDate && (
+              <span className="hidden font-normal text-gray-300 line-through md:inline">
+                {formatCurrency(cartItem?.price)}
+              </span>
+            )}
             <span className="m-0 font-semibold text-tertiary">
               {formatCurrency(cartItem?.discountedPrice)}
             </span>

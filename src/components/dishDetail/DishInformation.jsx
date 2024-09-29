@@ -51,13 +51,15 @@ const DishInformation = ({ dish }) => {
             <span className="text-2xl font-semibold text-tertiary">
               {formatCurrency(dish?.discountedPrice)}
             </span>
-            <span className="text-base text-slate-300 line-through">
-              {formatCurrency(dish?.price)}
-            </span>
-            {dish?.discount > 0 && (
-              <span className="rounded-md bg-red-500 px-1.5 py-1 text-sm font-medium">
-                -{dish?.discount}%
-              </span>
+            {dish?.discount > 0 && dish?.discountExpirationDate && (
+              <>
+                <span className="text-base text-slate-300 line-through">
+                  {formatCurrency(dish?.price)}
+                </span>
+                <span className="rounded-md bg-red-500 px-1.5 py-1 text-sm font-medium">
+                  -{dish?.discount}%
+                </span>
+              </>
             )}
           </div>
         </div>

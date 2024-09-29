@@ -40,7 +40,7 @@ const DishCard = ({ dish }) => {
             </div>
           </div>
           {/* label */}
-          {dish?.discount && (
+          {dish?.discount > 0 && (
             <div className="discount absolute right-2 z-20 w-fit bg-red-500 px-2 py-1 text-center text-xs font-semibold text-primary">
               {dish?.discount}%
             </div>
@@ -63,9 +63,11 @@ const DishCard = ({ dish }) => {
             <span className="final text-sm font-bold text-red-500 sm:text-base">
               {formatCurrency(dish?.discountedPrice)}
             </span>
-            <span className="old truncate text-xs font-medium text-gray-500 line-through">
-              {formatCurrency(dish?.price)}
-            </span>
+            {dish?.discount > 0 && dish?.discountExpirationDate && (
+              <span className="old truncate text-xs font-medium text-gray-500 line-through">
+                {formatCurrency(dish?.price)}
+              </span>
+            )}
           </div>
           <div className="footer mt-1 flex items-center justify-between">
             <div className="flex items-center gap-2">
