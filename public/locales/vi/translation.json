@@ -204,7 +204,7 @@
     "required_arrivalTime": "Thời gian đến nhận bàn không được để trống",
     "required_numberOfPeople": "Số lượng người không được để trống",
     "invalidMinNumber": "Số lượng người phải lớn hơn tối thiểu là 1",
-    "invalidMaxNumber": "Số lượng người phải nhỏ hơn tối đa là 10",
+    "invalidMaxNumber": "Số lượng người phải nhỏ hơn tối đa là 30",
     "title": "Liên hệ đặt bàn",
     "label_fullName": "Họ và tên",
     "input_fullName": "Nhập họ và tên...",
@@ -216,8 +216,14 @@
     "input_number": "Nhập số lượng người...",
     "label_arrivalDate": "Ngày đến nhận bàn",
     "label_arrivalTime": "Thời gian đến nhận bàn",
+    "label_note": "Ghi chú (tùy chọn)",
     "content_1": "Hoặc liên hệ trực tiếp qua: ",
-    "button": "Đặt bàn ngay"
+    "button": "Đặt bàn ngay",
+    "notifications": {
+      "title": "Bạn đã đặt bàn thành công",
+      "notification_1": "Yêu cầu đặt bàn của bàn đã được ghi nhận và đang chờ xử lý. Mọi sự thay đổi liên quan đến đơn đặt bàn này sẽ được thông báo thông qua email mà bạn đã cung cấp khi đặt bàn.",
+      "notification_2": "Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của Nhà hàng Tonatra!"
+    }
   },
   "Home": {
     "OpeningHours": {
@@ -446,7 +452,8 @@
     "dish": "món ăn",
     "buyAgain": "Mua lại",
     "viewRating": "Xem đánh giá",
-    "orderTotal": "Thành tiền"
+    "orderTotal": "Thành tiền",
+    "emptyData": "Chưa có đơn hàng"
   },
   "OrderDetailsPage": {
     "back": "Trở về",
@@ -471,6 +478,7 @@
     "all": "Tất cả",
     "toConfirm": "Chờ xác nhận",
     "confirmed": "Đã xác nhận",
+    "completed": "Hoàn thành",
     "cancelled": "Đã hủy",
     "orderId": "Mã đơn",
     "customer": "Người đặt",
@@ -479,6 +487,7 @@
     "table": "Bàn",
     "notes": "Ghi chú",
     "phone": "Điện thoại",
-    "cancelReservation": "Hủy đặt bàn"
+    "cancelReservation": "Hủy đặt bàn",
+    "emptyData": "Chưa có đơn"
   }
 }

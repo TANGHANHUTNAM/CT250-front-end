@@ -5,7 +5,7 @@ import { getReservationsByStatus } from "../../services/reservationService";
 import StatusCodes from "../../utils/StatusCodes";
 import EmptyReservation from "./EmptyReservation";
 
-const ConfirmedOrder = ({}) => {
+const CompletedOrder = ({}) => {
   const [reservations, setReservations] = useState([]);
 
   const { id } = useSelector((state) => state.user.account);
@@ -13,7 +13,7 @@ const ConfirmedOrder = ({}) => {
   useEffect(() => {
     if (id) {
       const getReservations = async () => {
-        const res = await getReservationsByStatus(id, "confirmed");
+        const res = await getReservationsByStatus(id, "completed");
         if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
           setReservations(res.DT);
         }
@@ -31,4 +31,4 @@ const ConfirmedOrder = ({}) => {
   );
 };
 
-export default ConfirmedOrder;
+export default CompletedOrder;

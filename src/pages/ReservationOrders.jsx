@@ -6,6 +6,7 @@ import AllReservationOrder from "../components/reservationOrder/AllReservationOr
 import ConfirmationPending from "../components/reservationOrder/ConfirmationPending";
 import ConfirmedOrder from "../components/reservationOrder/ConfirmedOrder";
 import CanceledOrder from "../components/reservationOrder/CanceledOrder";
+import CompletedOrder from "../components/reservationOrder/CompletedOrder";
 
 const tabs = {
   all: {
@@ -26,6 +27,12 @@ const tabs = {
     tabContent: <ConfirmedOrder />,
     trans: "ReservationOrderPage.confirmed",
   },
+  completed: {
+    key: "completed",
+    label: "Hoàn thành",
+    tabContent: <CompletedOrder />,
+    trans: "ReservationOrderPage.completed",
+  },
   canceled: {
     key: "canceled",
     label: "Đã hủy",
@@ -43,20 +50,16 @@ const ReservationOrders = ({}) => {
   const [tabKey, setTabKey] = useState("all");
 
   return (
-    <div className="w-full bg-bgPrimary">
-      <div className="mx-auto max-w-screen-xl">
-        <div className="space-y-4">
-          <div className="rounded-sm bg-bgTertiary text-primary">
-            <Tabs
-              tabs={Object.values(tabs)}
-              activeTab={tabKey}
-              onChange={(key) => setTabKey(key)}
-              translation={true}
-            />
-          </div>
-          <div className="space-y-4">{tabs[tabKey].tabContent}</div>
-        </div>
+    <div className="h-full w-full space-y-4 bg-bgPrimary">
+      <div className="rounded-sm bg-bgTertiary text-primary">
+        <Tabs
+          tabs={Object.values(tabs)}
+          activeTab={tabKey}
+          onChange={(key) => setTabKey(key)}
+          translation={true}
+        />
       </div>
+      <div className="space-y-4">{tabs[tabKey].tabContent}</div>
     </div>
   );
 };

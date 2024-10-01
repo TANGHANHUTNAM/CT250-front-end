@@ -1,11 +1,34 @@
+import { useEffect, useState } from "react";
 import ReservationItem from "./ReservationItem";
-
-const data = [1, 2, 3, 4, 5];
+import { useSelector } from "react-redux";
+import { getReservationsByStatus } from "../../services/reservationService";
+import StatusCodes from "../../utils/StatusCodes";
+import EmptyReservation from "./EmptyReservation";
 
 const CanceledOrder = ({}) => {
-  return data.map((item, i) => {
-    return <ReservationItem key={i} />;
-  });
+  const [reservations, setReservations] = useState([]);
+
+  const { id } = useSelector((state) => state.user.account);
+
+  useEffect(() => {
+    if (id) {
+      const getReservations = async () => {
+        const res = await getReservationsByStatus(id, "canceled");
+        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+          setReservations(res.DT);
+        }
+      };
+      getReservations();
+    }
+  }, []);
+
+  return reservations && reservations.length > 0 ? (
+    reservations.map((item, i) => {
+      return <ReservationItem key={i} item={item} />;
+    })
+  ) : (
+    <EmptyReservation />
+  );
 };
 
 export default CanceledOrder;

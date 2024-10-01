@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import emptyOrder from "../../assets/empty_order.png";
 
-const EmptyPurchase = () => {
+const EmptyReservation = () => {
   const { t } = useTranslation();
 
   return (
@@ -12,10 +12,10 @@ const EmptyPurchase = () => {
         className="h-20 w-20 object-contain md:h-28 md:w-28"
       />
       <div className="text-sm font-medium text-primary">
-        {t("PurchasesPage.emptyData")}
+        {t("ReservationOrderPage.emptyData")}
       </div>
     </div>
   );
 };
 
-export default EmptyPurchase;
+export default EmptyReservation;
