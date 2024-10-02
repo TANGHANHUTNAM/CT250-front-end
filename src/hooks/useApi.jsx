@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 
-const useApi = (func) => {
-  const [loading, setLoading] = useState(false);
+const useApi = (func = () => {}, defaultLoading = false) => {
+  const [loading, setLoading] = useState(defaultLoading);
 
   const apiFunction = useCallback(
     async (...args) => {

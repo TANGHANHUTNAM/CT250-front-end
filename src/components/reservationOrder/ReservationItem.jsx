@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { status } from "./constants";
 
-const ReservationItem = ({ item = {} }) => {
+const ReservationItem = ({ item = {}, handleOpenModal = () => {} }) => {
   const { t } = useTranslation();
 
   return (
@@ -96,14 +96,20 @@ const ReservationItem = ({ item = {} }) => {
           </span>
         </div>
         {item?.status === status.pending && (
-          <button className="hidden rounded-md bg-tertiary px-4 py-2 text-13px font-medium hover:bg-yellow-600 sr-530:block">
+          <button
+            className="hidden rounded-md bg-tertiary px-4 py-2 text-13px font-medium hover:bg-yellow-600 sr-530:block"
+            onClick={() => handleOpenModal(item)}
+          >
             {t("ReservationOrderPage.cancelReservation")}
           </button>
         )}
       </div>
       {item?.status === status.pending && (
         <div className="flex justify-end p-4 sr-530:hidden">
-          <button className="rounded-md bg-tertiary px-4 py-2 text-13px font-medium hover:bg-yellow-600">
+          <button
+            className="rounded-md bg-tertiary px-4 py-2 text-13px font-medium hover:bg-yellow-600"
+            onClick={() => handleOpenModal(item)}
+          >
             {t("ReservationOrderPage.cancelReservation")}
           </button>
         </div>
