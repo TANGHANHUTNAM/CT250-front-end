@@ -24,7 +24,7 @@ const LoadingButton = ({
           loadingIcon
         ) : (
           <CgSpinner
-            className={`"-ml-1 mr-3 h-6 w-6 animate-spin text-white ${loadingIconClass}"`}
+            className={`-ml-1 mr-3 h-6 w-6 animate-spin text-white ${loadingIconClass}`}
           />
         ))}
       {loading ? (loadingLabel ? loadingLabel : `${label}...`) : label}

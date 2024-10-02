@@ -488,6 +488,7 @@
     "notes": "Ghi chú",
     "phone": "Điện thoại",
     "cancelReservation": "Hủy đặt bàn",
-    "emptyData": "Chưa có đơn"
+    "emptyData": "Chưa có đơn",
+    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn đặt bàn với mã là {{id}} này không?"
   }
 }
