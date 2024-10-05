@@ -14,7 +14,7 @@ const CartPage = () => {
   useTopPage();
 
   const [cartList, setCartList] = useState([]);
-  const [dishesInfomation, setDishesInfomation] = useState([]);
+  const [dishesInfomation, setDishesInfomation] = useState({});
 
   const carts = useSelector((state) => state.cart);
 
@@ -26,30 +26,25 @@ const CartPage = () => {
         const res = await getMultipleDishes(ids);
 
         if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-          setDishesInfomation(res.DT);
+          const data = {};
+          res?.DT?.forEach((dish) => (data[dish?._id] = dish));
+          setDishesInfomation(data);
         }
       };
 
       getDishesForCart();
     } else {
-      setDishesInfomation([]);
+      setDishesInfomation({});
     }
   }, []);
 
   useEffect(() => {
     if (carts && carts.length > 0) {
-      const cartsObj = {};
-      carts.forEach((cart) => {
-        cartsObj[cart.id] = cart.quantity;
-      });
-
-      const list = dishesInfomation.map((item) => {
-        const quantity = cartsObj[item._id];
-        return {
-          ...item,
-          quantity,
-          totalPrice: +quantity * +item.discountedPrice,
-        };
+      const list = carts.map((cart) => {
+        const information = dishesInfomation?.[cart.id] ?? {};
+        const quantity = cart?.quantity ?? 1;
+        const totalPrice = +quantity * +information?.discountedPrice;
+        return { ...information, quantity, totalPrice };
       });
       setCartList(list);
     } else {
