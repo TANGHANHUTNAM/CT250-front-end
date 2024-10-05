@@ -5,7 +5,6 @@ import images from "../../assets/gallery";
 import { useTranslation } from "react-i18next";
 const Gallery = () => {
   const { t } = useTranslation();
-  console.log(images);
   return (
     <div className="gallery-container text-primary">
       <div className="content-title relative mb-5 text-center">

@@ -3,6 +3,7 @@ import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
 import { DishDetailLoader } from "./loader";
+import LayoutApp from "../layouts/LayoutApp";
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -47,7 +48,11 @@ const crumb = (trans, data) => {
 const routes = [
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <LayoutApp>
+        <MainLayout />
+      </LayoutApp>
+    ),
     handle: { crumb: () => crumb("BreadcrumbsAndTitle.home") },
     children: [
       {

@@ -2,10 +2,17 @@ import { GrLanguage } from "react-icons/gr";
 import vietnam from "../../assets/vietname.png";
 import english from "../../assets/english.png";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { setIsLoadingApp } from "../../redux/reducer/appSlice";
 const Language = () => {
+  const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const handleChangeLanguage = (language) => {
-    i18n.changeLanguage(language);
+    dispatch(setIsLoadingApp(true));
+    setTimeout(() => {
+      i18n.changeLanguage(language);
+      dispatch(setIsLoadingApp(false));
+    }, 2000);
   };
   return (
     <div className="group fixed right-0 top-1/4 z-50">

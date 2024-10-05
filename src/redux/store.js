@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import appReducer from "./reducer/appSlice";
 import userReducer from "./reducer/userSlice";
 import cartReducer from "./reducer/cartSlice";
 
@@ -20,6 +21,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  app: appReducer,
   user: userReducer,
   cart: cartReducer,
 });
