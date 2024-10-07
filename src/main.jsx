@@ -10,7 +10,7 @@ import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />
@@ -30,5 +30,5 @@ createRoot(document.getElementById("root")).render(
       theme="light"
       transition={Bounce}
     />
-  </StrictMode>,
+  </>,
 );

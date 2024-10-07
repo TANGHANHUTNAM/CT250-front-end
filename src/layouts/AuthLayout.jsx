@@ -1,13 +1,21 @@
 import "./Layout.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import SocialAuth from "../components/auth/SocialAuth";
 import BodyLayout from "./BodyLayout";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const AuthLayout = ({ children }) => {
   const { t } = useTranslation();
-
+  const { isAuth } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/");
+    }
+  }, [isAuth, navigate]);
   return (
     <BodyLayout>
       <div className="auth w-full py-8 sm:py-10">

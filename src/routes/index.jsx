@@ -234,7 +234,11 @@ const routes = [
       },
       {
         path: "payment",
-        element: <PaymentPage />,
+        element: (
+          <PrivateRoute>
+            <PaymentPage />
+          </PrivateRoute>
+        ),
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
       },
       // {
