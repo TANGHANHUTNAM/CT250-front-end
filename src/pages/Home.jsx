@@ -4,11 +4,10 @@ import CategoryOutstanding from "../components/home/CategoryOutstanding";
 import Comment from "../components/home/Comment";
 import DishOutstanding from "../components/home/DishOutstanding";
 import Menu from "../components/home/Menu";
-import NewsComponent from "../components/home/NewsComponent";
 import OpeningHours from "../components/home/OpeningHours";
 import Quality from "../components/home/Quality";
 import { useDynamicTitle } from "../hooks";
-import HomeNews from "../components/home/HomeNews"
+import HomeNews from "../components/home/HomeNews";
 
 const HomePage = () => {
   useDynamicTitle("Tonatra Restaurant");
@@ -22,8 +21,7 @@ const HomePage = () => {
       <Menu />
       <DishOutstanding />
       <OpeningHours />
-      <HomeNews/>
-      {/* <NewsComponent /> */}
+      <HomeNews />
       <Comment />
     </div>
   );
