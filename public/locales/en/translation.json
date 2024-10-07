@@ -394,7 +394,15 @@
       "password": "Password",
       "continue": "Continue",
       "cancel": "Cancel",
-      "finishConfirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?"
+      "finishConfirm": "Deleting an account cannot be restored. Are you sure you want to delete your account?",
+      "qualified": {
+        "warning_0": "Warning:",
+        "warning_1": "Your account is having now:",
+        "warning_2": "Please complete all of these forms before deleting your account.",
+        "purchase": "order is being shipped.",
+        "reservation": "reservation has been processed and confirmed.",
+        "thanks": "Tonatra, thank you!"
+      }
     },
     "editProfilePage": {
       "title": "Edit Profile",
