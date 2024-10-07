@@ -2,7 +2,12 @@ import * as yup from "yup";
 import PasswordInput from "../inputs/PassowordInput";
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { changePassword } from "../../services/accountService";
+import { useDispatch, useSelector } from "react-redux";
+import StatusCodes from "../../utils/StatusCodes";
+import { logoutSuccess } from "../../redux/reducer/userSlice";
+import { toast } from "react-toastify";
 
 const formSchema = yup
   .object({
@@ -24,7 +29,7 @@ const formSchema = yup
           return value !== currentPassword;
         },
       ),
-    confirmPassword: yup
+    confirmNewPassword: yup
       .string()
       .oneOf(
         [yup.ref("newPassword")],
@@ -43,8 +48,24 @@ const ChangePasswordForm = () => {
     formState: { errors },
   } = useAppForm(formSchema);
 
-  const handleChangePassword = (data) => {
-    console.log(data);
+  const {
+    account: { id },
+  } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChangePassword = async (data) => {
+    const res = await changePassword(id, data);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      dispatch(logoutSuccess());
+      toast.success(res.EM);
+      navigate("/login");
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -95,7 +116,7 @@ const ChangePasswordForm = () => {
           </label>
           <PasswordInput
             className="w-full rounded border-b-2 border-tertiary bg-primary px-3 py-2 text-sm text-gray-900 outline-none"
-            label="confirmPassword"
+            label="confirmNewPassword"
             register={register}
             errors={errors}
             errorStyle={{ borderBottomColor: "red" }}
@@ -110,6 +131,7 @@ const ChangePasswordForm = () => {
       <div className="mt-8 flex flex-col gap-3 sm:mx-auto sm:w-2/3 sm:flex-row sm:items-center sm:gap-4 md:w-full md:flex-row-reverse md:gap-8">
         <div className="w-full">
           <button
+            type="submit"
             form="change_password"
             className="w-full rounded-md bg-tertiary px-4 py-2 text-sm font-semibold hover:bg-[#d6861f]"
           >

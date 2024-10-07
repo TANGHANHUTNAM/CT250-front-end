@@ -3,8 +3,8 @@ import PasswordInput from "../inputs/PassowordInput";
 import { useAppForm } from "../../hooks";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import ConfirmModal from "../modals/ConfirmModal";
 import { useState } from "react";
+import DeleteModal from "./DeleteModal";
 
 const formSchema = yup
   .object({
@@ -26,9 +26,10 @@ const DeleteForm = () => {
   const { t } = useTranslation();
 
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [data, setData] = useState(null);
 
   const handleDelete = (data) => {
-    console.log(data);
+    setData(data);
     setShowConfirmModal(true);
   };
 
@@ -73,12 +74,13 @@ const DeleteForm = () => {
         </form>
       </div>
 
-      <ConfirmModal
-        show={showConfirmModal}
-        handleOk={() => setShowConfirmModal(false)}
-        handleCancel={() => setShowConfirmModal(false)}
-        content={t("ManageAccount.deleteAccountPage.finishConfirm")}
-      />
+      {data && (
+        <DeleteModal
+          show={showConfirmModal}
+          setShow={setShowConfirmModal}
+          data={data}
+        />
+      )}
     </>
   );
 };

@@ -394,7 +394,15 @@
       "password": "Mật khẩu",
       "continue": "Tiếp tục",
       "cancel": "Hủy",
-      "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?"
+      "finishConfirm": "Việc xóa tài khoản sẽ không thể khôi phục lại. Bạn có chắc chắn muốn xóa tài khoản của mình không?",
+      "qualified": {
+        "warning_0": "Cảnh báo:",
+        "warning_1": "Tài khoản của bạn hiện đang có:",
+        "warning_2": "Vui lòng hoàn thành hết tất cả các đơn này trước khi thực hiện xóa tài khoản.",
+        "purchase": "đơn hàng đang được vận chuyển.",
+        "reservation": "đơn đặt bàn đã được xử lý và xác nhận.",
+        "thanks": "Tonatra cảm ơn!"
+      }
     },
     "editProfilePage": {
       "title": "Sửa hồ sơ",
