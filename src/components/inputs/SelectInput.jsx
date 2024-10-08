@@ -18,6 +18,7 @@ const SelectInput = ({
   options,
   disabled,
   value,
+  defaultValue,
   ...props
 }) => {
   const { t } = useTranslation();
@@ -32,14 +33,6 @@ const SelectInput = ({
             showSearch={true}
             disabled={disabled}
             value={value}
-            placeholder={
-              <div className="text-[15px] font-medium text-black/30">
-                {placeholder}
-              </div>
-            }
-            labelRender={({ label }) => (
-              <div className="text-sm font-medium text-black/60">{label}</div>
-            )}
             size="large"
             dropdownStyle={{
               borderRadius: "0rem",
@@ -49,6 +42,14 @@ const SelectInput = ({
             onSearch={onSearch}
             options={options}
             optionFilterProp={"label"}
+            placeholder={
+              <div className="text-[15px] font-medium text-black/30">
+                {placeholder}
+              </div>
+            }
+            labelRender={({ label }) => (
+              <div className="text-sm font-medium text-black/60">{label}</div>
+            )}
             {...props}
             popupClassName="rounded-md"
             variant="borderless"
@@ -60,7 +61,7 @@ const SelectInput = ({
           />
         )}
       />
-      {errors?.[label] && !value && (
+      {errors?.[label] && (
         <span className={errorClass}>
           {translation ? t(errors?.[label]?.message) : errors?.[label]?.message}
         </span>
