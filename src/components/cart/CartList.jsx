@@ -83,12 +83,13 @@ const CartList = ({ carts = [] }) => {
           >
             {t("CartPage.deleteAll")}
           </span>
-          <button
+          <Link
+            to={"/payment"}
             className="rounded-md bg-tertiary px-4 py-2 font-semibold hover:bg-yellow-600 sm:px-10 sm:py-2.5"
             onClick={() => handleOrder()}
           >
             {t("CartPage.order")}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

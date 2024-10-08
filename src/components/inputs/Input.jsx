@@ -7,6 +7,7 @@ const Input = ({
   errorStyle = {},
   errorClass = "text-xs text-[#ff0000] pt-1.5 block",
   translation = false,
+  defaultValue,
   ...props
 }) => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const Input = ({
       <input
         {...register(label)}
         {...props}
+        defaultValue={defaultValue}
         style={errors?.[label] ? errorStyle : {}}
       />
 

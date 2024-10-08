@@ -1,15 +1,15 @@
-import { useDynamicTitle, useTopPage } from "../hooks";
-import { useTranslation } from "react-i18next";
-import BodyLayout from "../layouts/BodyLayout";
-import CartList from "../components/cart/CartList";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import CartList from "../components/cart/CartList";
+import { useDynamicTitle, useTopPage } from "../hooks";
+import BodyLayout from "../layouts/BodyLayout";
 import { getMultipleDishes } from "../services/dishService";
 import StatusCodes from "../utils/StatusCodes";
 
 const CartPage = () => {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
   useDynamicTitle(t("BreadcrumbsAndTitle.cart"));
   useTopPage();
 
@@ -17,7 +17,6 @@ const CartPage = () => {
   const [dishesInfomation, setDishesInfomation] = useState({});
 
   const carts = useSelector((state) => state.cart);
-
   useEffect(() => {
     if (carts && carts.length > 0) {
       const getDishesForCart = async () => {
