@@ -22,6 +22,7 @@ import {
   setReceiverAddress,
   setReceiverName,
   setReceiverPhone,
+  setResetOrder,
   setShippingFee,
   setTotalPrice,
   setTotalQuantity,
@@ -32,6 +33,7 @@ import Input from "../inputs/Input";
 import SelectInput from "../inputs/SelectInput";
 import Textarea from "../inputs/Textarea";
 import { toast } from "react-toastify";
+import { removeAll } from "../../redux/reducer/cartSlice";
 
 const InforPayment = () => {
   const dispatch = useDispatch();
@@ -244,6 +246,8 @@ const InforPayment = () => {
         receiverProvince: nameProvince,
       };
       // call api
+      dispatch(setResetOrder());
+      dispatch(removeAll());
       toast.success("Đặt hàng thành công");
       console.log(order);
     } else {
