@@ -1,13 +1,15 @@
 import logo from "../../assets/logo.png";
 import "./HeaderNav.css";
 import { NavLink } from "react-router-dom";
-import { IoIosSearch } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import { useTranslation } from "react-i18next";
 import NavBar from "./NavBar";
 import RightNavBar from "./RightNavBar";
 import Search from "../search/Search";
+import { getCategories } from "../../services/categoryService";
+import StatusCodes from "../../utils/StatusCodes";
+import { set } from "react-hook-form";
 
 const HeaderNav = () => {
   const { t } = useTranslation();
@@ -19,6 +21,19 @@ const HeaderNav = () => {
     setVisibleSearch((show) => !show);
   };
 
+  const [listCategory, setListCategory] = useState([]);
+  const getCategoryLevel1 = async () => {
+    const res = await getCategories();
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      setListCategory(res.DT);
+    }
+    if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+      setListCategory([]);
+    }
+  };
+  useEffect(() => {
+    getCategoryLevel1();
+  }, []);
   return (
     <>
       {/* Navbar */}
@@ -33,7 +48,7 @@ const HeaderNav = () => {
           </NavLink>
         </div>
         {/* Menu */}
-        <NavBar />
+        <NavBar listCategory={listCategory} />
         {/* Search Cart User */}
         <RightNavBar
           handleCloseSearch={handleCloseSearch}
@@ -49,7 +64,11 @@ const HeaderNav = () => {
       )}
 
       {/* Sidebar menu for screen small*/}
-      <SideBar visable={visable} setVisible={setVisible} />
+      <SideBar
+        listCategory={listCategory}
+        visable={visable}
+        setVisible={setVisible}
+      />
     </>
   );
 };

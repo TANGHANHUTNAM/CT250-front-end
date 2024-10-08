@@ -5,7 +5,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import MenuItemSmallScreen from "./MenuItemSmallScreen";
 import { MdOutlineArrowDropUp } from "react-icons/md";
 import { useState } from "react";
-const SideBar = ({ visable, setVisible }) => {
+const SideBar = ({ visable, setVisible, listCategory }) => {
   const { t } = useTranslation();
   const [openMenu, setOpenMenu] = useState(false);
   const handleClick = () => {
@@ -59,7 +59,12 @@ const SideBar = ({ visable, setVisible }) => {
             </span>
           </span>
           {/* MenuItem for Small Screen */}
-          {openMenu && <MenuItemSmallScreen setVisible={setVisible} />}
+          {openMenu && (
+            <MenuItemSmallScreen
+              listCategory={listCategory}
+              setVisible={setVisible}
+            />
+          )}
         </div>
         <NavLink
           onClick={() => {
