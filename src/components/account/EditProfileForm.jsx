@@ -1,5 +1,6 @@
 import * as yup from "yup";
 import { useAppForm } from "../../hooks";
+import dayjs from "dayjs";
 import Avatar from "../avatar/Avatar";
 import Input from "../inputs/Input";
 import Radio from "../inputs/Radio";
@@ -8,6 +9,8 @@ import TextArea from "../inputs/Textarea";
 import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { editProfile } from "../../services/accountService";
 
 const formSchema = yup
   .object({
@@ -17,7 +20,7 @@ const formSchema = yup
     fullname: yup.string(),
     phoneNumber: yup.string(),
     gender: yup.string(),
-    birthday: yup.string(),
+    birthday: yup.string().nullable(),
     address: yup.string(),
   })
   .required();
@@ -37,7 +40,7 @@ const EditProfileForm = ({ profile }) => {
     gender: profile?.gender,
     birthday: profile?.birthday,
     address: profile?.address,
-    avatar: profile?.avatar,
+    avatar: profile.avatar,
   });
 
   const avatar = watch("avatar");
@@ -45,7 +48,9 @@ const EditProfileForm = ({ profile }) => {
 
   useEffect(() => {
     if (avatar) {
-      setAvtPreview(URL.createObjectURL(avatar));
+      setAvtPreview(
+        typeof avatar === "object" ? URL.createObjectURL(avatar) : avatar,
+      );
     }
 
     return () => {
@@ -55,14 +60,22 @@ const EditProfileForm = ({ profile }) => {
     };
   }, [avatar]);
 
-  const handleSaveProfile = (data) => {
-    console.log(data);
+  const { id } = useSelector((state) => state.user.account);
+
+  const handleSaveProfile = async (data) => {
+    const res = await editProfile(id, {
+      ...data,
+      birthday: data.birthday
+        ? dayjs(data.birthday, "DD/MM/YYYY").format("YYYY-MM-DD")
+        : "",
+    });
+    console.log(res);
   };
 
   const handleRemoveAvatar = () => {
     URL.revokeObjectURL(avtPreview);
     setAvtPreview(null);
-    setValue("avatar", null);
+    setValue("avatar", "");
   };
 
   const { t } = useTranslation();
