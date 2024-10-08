@@ -17,8 +17,6 @@ const deleteAccount = (id, data) => {
 };
 
 const editProfile = (id, data) => {
-  console.log(data);
-
   const formData = new FormData();
   formData.append("username", data.username);
   formData.append("fullname", data.fullname);

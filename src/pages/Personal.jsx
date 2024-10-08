@@ -18,6 +18,13 @@ import { useEffect, useState } from "react";
 import { getUserInformation } from "../services/accountService";
 import StatusCodes from "../utils/StatusCodes";
 
+const genders = {
+  default: "",
+  male: "Nam",
+  female: "Nữ",
+  other: "Khác",
+};
+
 const PersonalPage = () => {
   const { t } = useTranslation();
 
@@ -96,7 +103,7 @@ const PersonalPage = () => {
                   </span>
                 </div>
                 <span className="sr-530:col-span-7 sr-530:font-medium">
-                  {information?.gender}
+                  {genders?.[information?.gender]}
                 </span>
               </div>
             </div>

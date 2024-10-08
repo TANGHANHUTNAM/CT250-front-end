@@ -1,16 +1,21 @@
 import * as yup from "yup";
-import { useAppForm } from "../../hooks";
+import { useApi, useAppForm } from "../../hooks";
 import dayjs from "dayjs";
 import Avatar from "../avatar/Avatar";
 import Input from "../inputs/Input";
 import Radio from "../inputs/Radio";
 import InputDate from "../inputs/InputDate";
 import TextArea from "../inputs/Textarea";
+import LoadingButton from "../buttons/LoadingButton";
 import { Controller } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editProfile } from "../../services/accountService";
+import StatusCodes from "../../utils/StatusCodes";
+import { updateInformation } from "../../redux/reducer/userSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const formSchema = yup
   .object({
@@ -60,16 +65,31 @@ const EditProfileForm = ({ profile }) => {
     };
   }, [avatar]);
 
+  const { loading, apiFunction: handleEditProfile } = useApi(
+    async (id, data) => await editProfile(id, data),
+  );
+
   const { id } = useSelector((state) => state.user.account);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSaveProfile = async (data) => {
-    const res = await editProfile(id, {
+    const res = await handleEditProfile(id, {
       ...data,
       birthday: data.birthday
         ? dayjs(data.birthday, "DD/MM/YYYY").format("YYYY-MM-DD")
         : "",
     });
-    console.log(res);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      dispatch(updateInformation({ ...res.DT, avatar: res.DT?.avatar?.url }));
+      toast.success(res.EM);
+      navigate("/account");
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   const handleRemoveAvatar = () => {
@@ -212,12 +232,12 @@ const EditProfileForm = ({ profile }) => {
         </div>
       </form>
       <div className="w-full sr-530:flex sr-530:justify-center">
-        <button
+        <LoadingButton
           form="edit_profile"
-          className="w-full rounded-md bg-tertiary px-4 py-2 text-sm font-semibold hover:bg-yellow-600 sr-530:w-1/2 lg:w-fit lg:px-8"
-        >
-          {t("ManageAccount.editProfilePage.save")}
-        </button>
+          label={t("ManageAccount.editProfilePage.save")}
+          loading={loading}
+          buttonClass="w-full rounded-md bg-tertiary px-4 py-2 text-sm font-semibold hover:bg-yellow-600 disabled:hover:bg-tertiary sr-530:w-1/2 lg:w-fit lg:px-8"
+        />
       </div>
     </div>
   );

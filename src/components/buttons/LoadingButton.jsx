@@ -14,7 +14,7 @@ const LoadingButton = ({
   return (
     <button
       type={type}
-      className={`inline-flex transition duration-150 ease-in-out disabled:cursor-not-allowed disabled:opacity-90 ${buttonClass}`}
+      className={`inline-flex items-center transition duration-150 ease-in-out disabled:cursor-not-allowed disabled:opacity-90 ${buttonClass}`}
       disabled={loading}
       onClick={onClick}
       {...buttonProps}
