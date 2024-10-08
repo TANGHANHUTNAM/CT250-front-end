@@ -64,6 +64,19 @@ export const orderSlice = createSlice({
     setListDishes: (state, action) => {
       state.listDishes = action.payload;
     },
+    setResetOrder: (state) => {
+      state.recevierName = null;
+      state.receiverPhone = null;
+      state.receiverAddress = null;
+      state.note = "";
+      state.totalPrice = 0;
+      state.shippingFee = 0;
+      state.totalDiscount = 0;
+      state.totalQuantity = 0;
+      state.finalPrice = 0;
+      state.listDishes = [];
+      state.paymentMethod = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchFeeShipping.fulfilled, (state, { payload }) => {
@@ -84,6 +97,7 @@ export const {
   setNote,
   setPaymentMethod,
   setListDishes,
+  setResetOrder,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

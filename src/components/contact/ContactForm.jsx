@@ -6,6 +6,9 @@ import { useTranslation } from "react-i18next";
 import { contact as contactService } from "../../services/contactService.js";
 import { toast } from "react-toastify";
 import StatusCodes from "../../utils/StatusCodes";
+import { useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 const ContactForm = () => {
   const { t } = useTranslation();
   const contactFormSchema = yup
@@ -29,20 +32,23 @@ const ContactForm = () => {
     formState: { errors },
     reset,
   } = useAppForm(contactFormSchema);
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleContact = async (data) => {
-    const res = await contactService(data);
+    setIsLoading(true);
+    setTimeout(async () => {
+      const res = await contactService(data);
 
-    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-      toast.success(res.EM);
-      reset();
-    }
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        toast.success(res.EM);
+        reset();
+      }
 
-    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
-      toast.error(res.EM);
-    }
+      if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+        toast.error(res.EM);
+      }
+      setIsLoading(false);
+    }, 3000);
   };
-
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Introduce */}
@@ -133,9 +139,15 @@ const ContactForm = () => {
                 translation={true}
               />
               <button
+                disabled={isLoading}
                 form="contact"
-                className="w-fit rounded-md bg-tertiary px-5 py-2 text-white hover:bg-yellow-600"
+                className={`${isLoading ? "bg-tertiary/50 hover:bg-tertiary/50" : ""} flex w-fit items-center justify-center rounded-md bg-tertiary px-3 py-2 text-white hover:bg-yellow-600`}
               >
+                {isLoading ? (
+                  <span className="mr-2 animate-spin text-lg">
+                    <AiOutlineLoading3Quarters />
+                  </span>
+                ) : null}
                 <span className="">{t("Contact.button")}</span>
               </button>
             </div>
