@@ -1,22 +1,27 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const MenuItemSmallScreen = ({ menuItem, setVisible }) => {
+const MenuItemSmallScreen = ({ listCategory, setVisible }) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 pt-2 text-base">
-      <NavLink
-        className="normal-case hover:text-tertiary"
+    <div className="mt-2 flex w-full flex-col items-center justify-center gap-2 bg-tertiary py-1 text-base font-semibold">
+      <Link
+        className="normal-case"
         onClick={() => setVisible(false)}
         to="/dish"
       >
         Tất cả món ăn
-      </NavLink>
-      <NavLink
-        to="/"
-        className="normal-case hover:text-tertiary"
-        onClick={() => setVisible(false)}
-      >
-        Món ăn chính
-      </NavLink>
+      </Link>
+      {listCategory?.map((item) => {
+        return (
+          <Link
+            to="/dish"
+            className="normal-case"
+            key={item?._id}
+            onClick={() => setVisible(false)}
+          >
+            {item?.name}
+          </Link>
+        );
+      })}
     </div>
   );
 };
