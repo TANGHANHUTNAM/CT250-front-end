@@ -16,9 +16,23 @@ const deleteAccount = (id, data) => {
   return axios.delete(`/api/v1/account/delete/${id}`, { data });
 };
 
+const editProfile = (id, data) => {
+  const formData = new FormData();
+  formData.append("username", data.username);
+  formData.append("fullname", data.fullname);
+  formData.append("phoneNumber", data.phoneNumber);
+  formData.append("gender", data.gender);
+  formData.append("birthday", data.birthday);
+  formData.append("address", data.address);
+  formData.append("avatar", data.avatar);
+
+  return axios.put(`/api/v1/account/update/profile/${id}`, formData);
+};
+
 export {
   getUserInformation,
   changePassword,
   checkConditionsToDelete,
   deleteAccount,
+  editProfile,
 };
