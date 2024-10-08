@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { useAppForm } from "../../hooks";
@@ -16,16 +16,22 @@ import {
 } from "../../redux/reducer/addressSlice";
 import {
   fetchFeeShipping,
+  setFinalPrice,
+  setListDishes,
   setNote,
   setReceiverAddress,
   setReceiverName,
   setReceiverPhone,
   setShippingFee,
+  setTotalPrice,
   setTotalQuantity,
 } from "../../redux/reducer/orderSlice";
+import { getMultipleDishes } from "../../services/dishService";
+import StatusCodes from "../../utils/StatusCodes";
 import Input from "../inputs/Input";
 import SelectInput from "../inputs/SelectInput";
 import Textarea from "../inputs/Textarea";
+import { toast } from "react-toastify";
 
 const InforPayment = () => {
   const dispatch = useDispatch();
@@ -44,14 +50,6 @@ const InforPayment = () => {
       Note: yup.string(),
     })
     .required();
-  // Use the useAppForm hook to handle the form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    control,
-  } = useAppForm(inforDiliveryForm);
 
   // Fetch the provinces
   useEffect(() => {
@@ -71,6 +69,9 @@ const InforPayment = () => {
   );
   // Handle the select province, district, and ward
   const handleSelectProvince = (value, props) => {
+    setValue("receiverProvince", value);
+    setValue("receiverDistrict", null);
+    setValue("receiverWard", null);
     dispatch(setSelectedProvince(value));
     dispatch(setProvinceName(props.label));
     dispatch(fetchDistricsByProvinceId(value));
@@ -82,6 +83,8 @@ const InforPayment = () => {
     dispatch(setShippingFee(0));
   };
   const handleSelectDistrict = (value, props) => {
+    setValue("receiverDistrict", value);
+    setValue("receiverWard", null);
     dispatch(setSelectedDistrict(value));
     dispatch(setDistrictName(props.label));
     dispatch(fetchWardsByDistrictId(value));
@@ -90,6 +93,7 @@ const InforPayment = () => {
     dispatch(setShippingFee(0));
   };
   const handleSelectWard = (value, props) => {
+    setValue("receiverWard", value);
     dispatch(setSelectedWard(value));
     dispatch(setWardName(props.label));
   };
@@ -115,7 +119,8 @@ const InforPayment = () => {
     if (address) {
       handleReceiverAddress(address);
     }
-  }, []);
+  }, [fullname, phoneNumber, address]);
+
   // Caclulate fee shipping
   const { totalQuantity } = useSelector((state) => state.order);
   const carts = useSelector((state) => state.cart);
@@ -141,13 +146,121 @@ const InforPayment = () => {
     }
   }, [selectedWard, selectedDistrict, totalQuantity, dispatch]);
 
+  // Calculate the total fee
+  const [dishesInfomation, setDishesInfomation] = useState({});
+  useEffect(() => {
+    if (carts && carts.length > 0) {
+      const getDishesForCart = async () => {
+        const ids = carts.map((cart) => cart.id);
+
+        const res = await getMultipleDishes(ids);
+
+        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+          const data = {};
+          res?.DT?.forEach((dish) => (data[dish?._id] = dish));
+          setDishesInfomation(data);
+        }
+      };
+      getDishesForCart();
+    }
+  }, [carts, dispatch]);
+  useEffect(() => {
+    if (carts && carts.length > 0) {
+      const list = carts.map((cart) => {
+        const information = dishesInfomation?.[cart.id] ?? {};
+        const quantity = cart?.quantity ?? 1;
+        const totalPrice = +quantity * +information?.discountedPrice;
+        return { ...information, quantity, totalPrice };
+      });
+      dispatch(
+        setTotalPrice(
+          list?.reduce((total, item) => total + item.totalPrice, 0),
+        ),
+      );
+      dispatch(setListDishes(list));
+    }
+  }, [carts, dishesInfomation, dispatch]);
+  // calculate the Final Fee
+  const { totalPrice, shippingFee, totalDiscount } = useSelector(
+    (state) => state.order,
+  );
+  useEffect(() => {
+    if (totalPrice && shippingFee && totalDiscount) {
+      dispatch(setFinalPrice(totalPrice + shippingFee + totalDiscount));
+    }
+    dispatch(setFinalPrice(totalPrice + shippingFee + totalDiscount));
+  }, [dispatch, totalPrice, shippingFee, totalDiscount]);
+
+  // Use the useAppForm hook to handle the form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    control,
+    setValue,
+  } = useAppForm(inforDiliveryForm, {
+    receiverProvince: selectedProvince,
+    receiverDistrict: selectedDistrict,
+    receiverWard: selectedWard,
+  });
+  // Handle the order
+  const {
+    // totalQuantity,
+    // shippingFee,
+    finalPrice,
+    // totalPrice,
+    // totalDiscount,
+    recevierName,
+    receiverPhone,
+    receiverAddress,
+    note,
+    listDishes,
+    paymentMethod,
+  } = useSelector((state) => state.order);
+  const { nameWard, nameDistrict, nameProvince } = useSelector(
+    (state) => state.address,
+  );
+  const handleOrder = (data) => {
+    if (data) {
+      if (paymentMethod === null) {
+        toast.error("Vui lòng chọn phương thức thanh toán");
+        return;
+      }
+      const order = {
+        receiverName: recevierName,
+        receiverPhone: receiverPhone,
+        receiverAddress: receiverAddress ? receiverAddress : "",
+        note: note,
+        paymentMethod: paymentMethod,
+        totalQuantity: totalQuantity,
+        shippingFee: shippingFee,
+        finalPrice: finalPrice,
+        totalPrice: totalPrice,
+        totalDiscount: totalDiscount,
+        listDishes: listDishes,
+        receiverWard: nameWard,
+        receiverDistrict: nameDistrict,
+        receiverProvince: nameProvince,
+      };
+      // call api
+      toast.success("Đặt hàng thành công");
+      console.log(order);
+    } else {
+      toast.error("Vui lòng nhập đầy đủ thông tin");
+    }
+  };
   return (
     <div className="flex w-full flex-col gap-2 md:w-1/2">
       <div className="text-2xl font-semibold uppercase text-tertiary">
         Thông tin nhận hàng
       </div>
-      <div className="form mt-2">
-        <form className="flex flex-col gap-3 font-medium text-black/65">
+      <div className="form mt-2 h-full">
+        <form
+          id="form_order"
+          onSubmit={handleSubmit(handleOrder)}
+          className="flex min-h-full flex-col justify-around gap-3 font-medium text-black/65 md:gap-0"
+        >
           <Input
             type="text"
             onChange={(e) => handleReceiverName(e.target.value)}
@@ -179,7 +292,6 @@ const InforPayment = () => {
             placeholder={"Địa chỉ cụ thể (số nhà, tên đường)"}
             onChange={(e) => handleReceiverAddress(e.target.value)}
             label="receiverAddressOption"
-            defaultValue={address}
             autoComplete="receiverAddressOption"
             className="w-full rounded-sm border px-3 py-2 text-sm outline-none"
             register={register}
@@ -190,9 +302,9 @@ const InforPayment = () => {
           <SelectInput
             className="w-full rounded-sm border bg-white text-sm"
             label="receiverProvince"
-            value={selectedProvince}
             control={control}
             errors={errors}
+            value={selectedProvince}
             onChange={handleSelectProvince}
             placeholder={`Tỉnh/Thành phố*`}
             options={provinces?.map((province) => ({
@@ -203,9 +315,9 @@ const InforPayment = () => {
           <SelectInput
             className="w-full rounded-sm border bg-white text-sm"
             label="receiverDistrict"
-            value={selectedDistrict}
             control={control}
             errors={errors}
+            value={selectedDistrict}
             onChange={handleSelectDistrict}
             placeholder={"Quận/Huyện*"}
             options={districts?.map((district) => ({
@@ -217,8 +329,8 @@ const InforPayment = () => {
             className="w-full rounded-sm border bg-white text-sm"
             label="receiverWard"
             control={control}
-            value={selectedWard}
             errors={errors}
+            value={selectedWard}
             onChange={handleSelectWard}
             placeholder={"Phường/Xã*"}
             options={wards?.map((ward) => ({

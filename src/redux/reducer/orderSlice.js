@@ -23,6 +23,8 @@ export const initialState = {
   totalDiscount: 0,
   totalQuantity: 0,
   finalPrice: 0,
+  listDishes: [],
+  paymentMethod: null,
 };
 
 export const orderSlice = createSlice({
@@ -56,6 +58,12 @@ export const orderSlice = createSlice({
     setNote: (state, action) => {
       state.note = action.payload;
     },
+    setPaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+    },
+    setListDishes: (state, action) => {
+      state.listDishes = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchFeeShipping.fulfilled, (state, { payload }) => {
@@ -74,6 +82,8 @@ export const {
   setReceiverPhone,
   setReceiverAddress,
   setNote,
+  setPaymentMethod,
+  setListDishes,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;
