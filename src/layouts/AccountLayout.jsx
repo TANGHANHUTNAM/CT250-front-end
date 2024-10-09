@@ -8,9 +8,12 @@ import { MdPassword, MdOutlineReceipt } from "react-icons/md";
 import { TiUserDelete } from "react-icons/ti";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
 const AccountLayout = ({}) => {
   const { t } = useTranslation();
+
+  const { avatar } = useSelector((state) => state.user.account);
 
   return (
     <BodyLayout>
@@ -18,7 +21,7 @@ const AccountLayout = ({}) => {
         <div className="hidden w-44 md:block md:shrink-0 lg:w-52">
           <div className="divide-y divide-solid divide-white/10 text-sm text-primary">
             <div className="flex flex-nowrap items-center gap-4 py-4">
-              <Avatar size={50} />
+              <Avatar size={50} src={avatar} />
               <div className="space-y-1">
                 <p className="font-semibold">Thiên Vũ</p>
                 <Link
