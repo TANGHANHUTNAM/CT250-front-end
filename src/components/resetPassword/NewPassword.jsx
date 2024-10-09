@@ -2,6 +2,13 @@ import * as yup from "yup";
 import { useAppForm } from "../../hooks";
 import PasswordInput from "../inputs/PassowordInput";
 import { useTranslation } from "react-i18next";
+import { _ } from "lodash";
+import StatusCodes from "../../utils/StatusCodes";
+import { toast } from "react-toastify";
+import { resetPassword } from "../../services/accountService";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logoutSuccess } from "../../redux/reducer/userSlice";
 
 const schema = yup
   .object({
@@ -13,7 +20,7 @@ const schema = yup
   })
   .required();
 
-const NewPassword = ({ prev, handleNewPassword }) => {
+const NewPassword = ({ user = {} }) => {
   const {
     register,
     handleSubmit,
@@ -21,6 +28,25 @@ const NewPassword = ({ prev, handleNewPassword }) => {
   } = useAppForm(schema);
 
   const { t } = useTranslation();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleNewPassword = async (data) => {
+    if (!_.isEmpty(user)) {
+      const res = await resetPassword({ ...user, ...data });
+
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        dispatch(logoutSuccess());
+        toast.success(res.EM);
+        navigate("/login");
+      }
+
+      if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+        toast.error(res.EM);
+      }
+    }
+  };
 
   return (
     <div className="w-full px-1">
@@ -40,14 +66,7 @@ const NewPassword = ({ prev, handleNewPassword }) => {
             errorClass="text-xs text-[#ff0000] pt-1.5 block font-medium"
             translation={true}
           />
-          <div className="flex justify-between pt-8">
-            <button
-              type="button"
-              className="rounded-md bg-gray-100 px-5 py-2 text-sm font-medium hover:bg-gray-300"
-              onClick={() => prev()}
-            >
-              {t("ResetPassword.back")}
-            </button>
+          <div className="flex justify-end pt-8">
             <button className="rounded-md bg-orange-400 px-5 py-2 text-sm font-medium text-white hover:bg-orange-500">
               {t("ResetPassword.done")}
             </button>

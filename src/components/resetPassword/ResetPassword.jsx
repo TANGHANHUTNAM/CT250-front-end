@@ -16,6 +16,8 @@ const ResetPassword = () => {
   const { t } = useTranslation();
 
   const [current, setCurrent] = useState(0);
+  const [user, setUser] = useState({});
+
   const carouselRef = useRef();
 
   const next = () => {
@@ -31,18 +33,12 @@ const ResetPassword = () => {
     }
   };
 
-  const handleVerifyEmail = (data) => {
-    console.log(data);
-    next();
+  const handleVerifyEmail = (func = (next, setUser) => {}) => {
+    func(next, setUser);
   };
 
-  const handleVerificationCode = (data) => {
-    console.log(data);
-    next();
-  };
-
-  const handleNewPassword = (data) => {
-    console.log(data);
+  const handleVerificationCode = (func = (next) => {}) => {
+    func(next);
   };
 
   return (
@@ -62,10 +58,12 @@ const ResetPassword = () => {
             <VerificationCode
               prev={prev}
               handleVerificationCode={handleVerificationCode}
+              currentStep={current}
+              user={user}
             />
           </div>
           <div>
-            <NewPassword prev={prev} handleNewPassword={handleNewPassword} />
+            <NewPassword user={user} />
           </div>
         </Carousel>
       </div>
