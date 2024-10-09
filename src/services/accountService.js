@@ -29,10 +29,25 @@ const editProfile = (id, data) => {
   return axios.put(`/api/v1/account/update/profile/${id}`, formData);
 };
 
+const verifyEmailWhenForgotPassword = (data) => {
+  return axios.post(`/api/v1/account/forgot-password/send-code`, data);
+};
+
+const checkVerificationCode = (data) => {
+  return axios.post(`/api/v1/account/forgot-password/check-code`, data);
+};
+
+const resetPassword = (data) => {
+  return axios.post(`/api/v1/account/forgot-password/reset-password`, data);
+};
+
 export {
   getUserInformation,
   changePassword,
   checkConditionsToDelete,
   deleteAccount,
   editProfile,
+  verifyEmailWhenForgotPassword,
+  checkVerificationCode,
+  resetPassword,
 };
