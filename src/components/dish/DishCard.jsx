@@ -63,7 +63,7 @@ const DishCard = ({ dish }) => {
             <span className="final text-sm font-bold text-red-500 sm:text-base">
               {formatCurrency(dish?.discountedPrice)}
             </span>
-            {dish?.discount > 0 && dish?.discountExpirationDate && (
+            {dish?.discount > 0 && (
               <span className="old truncate text-xs font-medium text-gray-500 line-through">
                 {formatCurrency(dish?.price)}
               </span>

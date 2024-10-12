@@ -51,7 +51,7 @@ const DishInformation = ({ dish }) => {
             <span className="text-2xl font-semibold text-tertiary">
               {formatCurrency(dish?.discountedPrice)}
             </span>
-            {dish?.discount > 0 && dish?.discountExpirationDate && (
+            {dish?.discount > 0 && (
               <>
                 <span className="text-base text-slate-300 line-through">
                   {formatCurrency(dish?.price)}
