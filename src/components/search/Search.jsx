@@ -1,46 +1,31 @@
 import { useTranslation } from "react-i18next";
 import { IoIosSearch } from "react-icons/io";
 import Suggestions from "./Suggestions";
-import { useEffect, useRef, useState } from "react";
-import { useDebounce } from "../../hooks";
+import { useContext, useEffect, useRef, useState } from "react";
+import { useApi, useDebounce } from "../../hooks";
 import { MdKeyboardVoice } from "react-icons/md";
 import { BiSolidUserVoice } from "react-icons/bi";
-const data = [
-  {
-    img: "https://bizweb.dktcdn.net/thumb/compact/100/469/097/products/165aab637a80546a7925ad3c1d059f.jpg?v=1667882344460",
-    name: "Hủ tiếu áp chảo bò",
-    price: 110000,
-    discount: 10,
-  },
-  {
-    img: "https://bizweb.dktcdn.net/thumb/compact/100/469/097/products/165aab637a80546a7925ad3c1d059f.jpg?v=1667882344460",
-    name: "Sườn chua ngọt",
-    price: 110000,
-    discount: 10,
-  },
-  {
-    img: "https://bizweb.dktcdn.net/thumb/compact/100/469/097/products/165aab637a80546a7925ad3c1d059f.jpg?v=1667882344460",
-    name: "Gà xào xả ớt",
-    price: 110000,
-    discount: 10,
-  },
-  {
-    img: "https://bizweb.dktcdn.net/thumb/compact/100/469/097/products/165aab637a80546a7925ad3c1d059f.jpg?v=1667882344460",
-    name: "Lẩu mắm thập cẩm",
-    price: 110000,
-    discount: 10,
-  },
-];
+import { HeaderContext } from "../Header/Header";
+import { search } from "../../services/dishService";
+import StatusCodes from "../../utils/StatusCodes";
+import { toast } from "react-toastify";
+import _ from "lodash";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const { t } = useTranslation();
 
-  const [keyword, setKeyword] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const inputRef = useRef();
   const suggestionsRef = useRef();
+
+  const { keyword, setKeyword } = useContext(HeaderContext);
+
+  const { apiFunction: handleSearch } = useApi(
+    async (keyword, page, limit) => await search(keyword, page, limit),
+  );
 
   useEffect(() => {
     const handleClickOutSide = (e) => {
@@ -60,23 +45,33 @@ const Search = () => {
     };
   }, []);
 
-  useDebounce(
-    () => {
-      if (keyword) {
-        const suggestions = data.filter((item) => item.name.includes(keyword));
-        setSuggestions(suggestions);
-        setShowSuggestions(true);
-      } else {
-        setSuggestions([]);
-        setShowSuggestions(false);
-      }
-    },
-    [keyword],
-    200,
-  );
+  const handleSearchDishes = _.debounce(async (keyword) => {
+    const res = await handleSearch(keyword, 1, 5);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      setSuggestions(res.DT.data);
+      setShowSuggestions(true);
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
+  }, 300);
+
+  useEffect(() => {
+    if (keyword) {
+      handleSearchDishes(keyword);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [keyword]);
+
+  const navigate = useNavigate();
 
   const handleSearchAll = (e) => {
     e.preventDefault();
+    navigate(`/search?keyword=${keyword}`);
   };
   // Voice search
   const [isListening, setIsListening] = useState(false);

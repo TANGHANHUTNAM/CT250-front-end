@@ -498,5 +498,8 @@
     "cancelReservation": "Cancel Reservation",
     "emptyData": "No reservations yet",
     "deleteConfirm": "Are you sure you want to cancel this reservation with id {{id}}?"
+  },
+  "SearchPage": {
+    "title": "There are {{total}} search results matching the keyword '{{keyword}}'"
   }
 }
