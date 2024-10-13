@@ -130,6 +130,7 @@ const Search = () => {
             <IoIosSearch />
           </button>
           <button
+            type="button"
             onClick={handleVoiceClick}
             disabled={isListening}
             className="voice absolute right-9 top-1/2 -translate-y-1/2 text-[26px] text-tertiary"
