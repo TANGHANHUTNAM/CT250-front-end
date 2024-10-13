@@ -1,0 +1,4 @@
+.dish-menu a.active {
+  color: var(--color-tertiary);
+  font-weight: 600;
+}

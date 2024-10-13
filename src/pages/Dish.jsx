@@ -7,6 +7,7 @@ import Pagination from "../components/pagination/Pagination";
 import { getDishesWithPagination } from "../services/dishService";
 import StatusCodes from "../utils/StatusCodes";
 import { LIMIT_PAGE } from "../constants";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const DishPage = () => {
   const { t } = useTranslation();
@@ -14,13 +15,8 @@ const DishPage = () => {
   useDynamicTitle(t("BreadcrumbsAndTitle.all_dishes"));
   useTopPage();
 
-  const [sortBy, setSortBy] = useState({});
-  const [filterBy, setFilterBy] = useState({});
-  const [selectedCategory, setSelectedCategory] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [dishes, setDishes] = useState([]);
-
-  console.log(sortBy, filterBy, selectedCategory, currentPage);
 
   useEffect(() => {
     const fetchDishes = async () => {
@@ -38,16 +34,13 @@ const DishPage = () => {
     setCurrentPage(page);
   };
 
+  const [queryParams] = useSearchParams();
+  const { categoryId } = useParams();
+
+  console.log(Object.fromEntries([...queryParams]), categoryId);
+
   return (
-    <DishLayout
-      title={t("DishPage.title")}
-      sort={{ seletedOption: sortBy, setSelectedOption: setSortBy }}
-      filter={{ selectedFilter: filterBy, setSelectedFilter: setFilterBy }}
-      category={{
-        selectedCategory: selectedCategory,
-        setSelectedCategory: setSelectedCategory,
-      }}
-    >
+    <DishLayout title={t("DishPage.title")}>
       {dishes.data && dishes.data.length > 0 ? (
         <div className="space-y-12">
           <DishListGrid dishes={dishes?.data} />

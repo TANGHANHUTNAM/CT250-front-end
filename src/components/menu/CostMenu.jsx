@@ -12,19 +12,19 @@ const costs = [
   {
     id: 2,
     label: "Từ 100.000đ - 200.000đ",
-    value: "100000 - 200000",
+    value: "100000-200000",
     trans: "DishMenuSidebar.costs.100000-200000",
   },
   {
     id: 3,
     label: "Từ 200.000đ - 500.000đ",
-    value: "200000 - 500000",
+    value: "200000-500000",
     trans: "DishMenuSidebar.costs.200000-500000",
   },
   {
     id: 4,
     label: "Từ 500.000đ - 1 triệu",
-    value: "500000 - 1000000",
+    value: "500000-1000000",
     trans: "DishMenuSidebar.costs.500000-1tr",
   },
   {
