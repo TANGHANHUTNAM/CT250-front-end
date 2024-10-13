@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 const AccountLayout = ({}) => {
   const { t } = useTranslation();
 
-  const { avatar, fullname } = useSelector((state) => state.user.account);
+  const { avatar, username } = useSelector((state) => state.user.account);
 
   return (
     <BodyLayout>
@@ -23,7 +23,7 @@ const AccountLayout = ({}) => {
             <div className="flex flex-nowrap items-center gap-4 py-4">
               <Avatar size={50} src={avatar} />
               <div className="space-y-1">
-                <p className="font-semibold">{fullname}</p>
+                <p className="font-semibold">{username}</p>
                 <Link
                   to="/account/edit-profile"
                   className="flex flex-nowrap items-center gap-2 font-medium text-gray-200"
