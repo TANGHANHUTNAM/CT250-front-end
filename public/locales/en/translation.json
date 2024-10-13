@@ -500,6 +500,7 @@
     "deleteConfirm": "Are you sure you want to cancel this reservation with id {{id}}?"
   },
   "SearchPage": {
-    "title": "There are {{total}} search results matching the keyword '{{keyword}}'"
+    "title": "There are {{total}} search results matching the keyword '{{keyword}}'",
+    "notFound": "Did not find any results matching the keyword '{{keyword}}'"
   }
 }

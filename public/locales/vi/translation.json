@@ -500,6 +500,7 @@
     "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn đặt bàn với mã là {{id}} này không?"
   },
   "SearchPage": {
-    "title": "Có {{total}} kết quả tìm kiếm phù hợp với từ khóa '{{keyword}}'"
+    "title": "Có {{total}} kết quả tìm kiếm phù hợp với từ khóa '{{keyword}}'",
+    "notFound": "Không tìm thấy bất kỳ kết quả nào phù hợp với từ khóa '{{keyword}}'"
   }
 }

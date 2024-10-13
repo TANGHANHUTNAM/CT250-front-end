@@ -8,8 +8,7 @@ import { toast } from "react-toastify";
 import BodyLayout from "../layouts/BodyLayout";
 import Pagination from "../components/pagination/Pagination";
 import DishCard from "../components/dish/DishCard";
-
-const PAGE_LIMIT = 15;
+import { LIMIT_PAGE } from "../constants";
 
 const SearchPage = () => {
   const { t } = useTranslation();
@@ -45,9 +44,9 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (keyword) {
-      getSearchResults(keyword, currentPage, PAGE_LIMIT);
+      getSearchResults(keyword, currentPage, LIMIT_PAGE);
     }
-  }, [currentPage]);
+  }, [currentPage, keyword]);
 
   const handleChangePage = (page) => {
     setCurrentPage(page);
@@ -56,29 +55,35 @@ const SearchPage = () => {
   return (
     <BodyLayout>
       <div className="py-6">
-        <div className="pb-6 text-base font-bold text-primary sr-530:text-lg sm:text-xl">
-          {t("SearchPage.title", {
-            total: results?.totalData,
-            keyword: keyword,
-          })}
-        </div>
         {results?.data && results?.data.length > 0 ? (
-          <div className="space-y-12">
-            <div className="-mx-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {results?.data &&
-                results?.data.length > 0 &&
-                results?.data.map((dish) => {
-                  return <DishCard key={dish._id} dish={dish} />;
-                })}
+          <>
+            <div className="pb-6 text-base font-bold text-primary sr-530:text-lg sm:text-xl">
+              {t("SearchPage.title", {
+                total: results?.totalData,
+                keyword: keyword,
+              })}
             </div>
-            <Pagination
-              totalPages={results?.totalPages}
-              currentPage={currentPage}
-              onChangePage={handleChangePage}
-            />
-          </div>
+            <div className="space-y-12">
+              <div className="-mx-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                {results?.data &&
+                  results?.data.length > 0 &&
+                  results?.data.map((dish) => {
+                    return <DishCard key={dish._id} dish={dish} />;
+                  })}
+              </div>
+              <Pagination
+                totalPages={results?.totalPages}
+                currentPage={currentPage}
+                onChangePage={handleChangePage}
+              />
+            </div>
+          </>
         ) : (
-          <div></div>
+          <div className="py-2">
+            <div className="rounded-md bg-[#fff3cd] px-4 py-3 text-sm font-medium text-yellow-600">
+              {t("SearchPage.notFound", { keyword: keyword })}
+            </div>
+          </div>
         )}
       </div>
     </BodyLayout>
