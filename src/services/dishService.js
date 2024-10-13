@@ -21,4 +21,16 @@ const getMultipleDishes = (ids = []) => {
   });
 };
 
-export { getDishes, getDishesWithPagination, getDish, getMultipleDishes };
+const search = (keyword, page = 1, limit = 10) => {
+  return axios.get(
+    `/api/v1/dish/search?keyword=${keyword}&page=${page}&limit=${limit}`,
+  );
+};
+
+export {
+  getDishes,
+  getDishesWithPagination,
+  getDish,
+  getMultipleDishes,
+  search,
+};

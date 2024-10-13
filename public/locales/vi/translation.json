@@ -498,5 +498,8 @@
     "cancelReservation": "Hủy đặt bàn",
     "emptyData": "Chưa có đơn",
     "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn đặt bàn với mã là {{id}} này không?"
+  },
+  "SearchPage": {
+    "title": "Có {{total}} kết quả tìm kiếm phù hợp với từ khóa '{{keyword}}'"
   }
 }

@@ -189,7 +189,7 @@ const routes = [
         ],
       },
       {
-        path: "search/:id",
+        path: "search",
         element: <SearchPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.search") },
       },
@@ -241,13 +241,6 @@ const routes = [
         ),
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
       },
-      // {
-      //   path: "reservation",
-      //   element: <ReservationOrdersPage />,
-      //   handle: {
-      //     crumb: () => crumb("BreadcrumbsAndTitle.reservation_orders"),
-      //   },
-      // },
       {
         path: "*",
         element: <NotFoundPage />,

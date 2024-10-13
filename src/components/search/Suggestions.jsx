@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Fragment, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { formatCurrency } from "../../utils/format";
 import { Empty } from "antd";
+import { HeaderContext } from "../Header/Header";
 
 const Suggestion = ({ suggestions }) => {
   const { t } = useTranslation();
 
+  const navigate = useNavigate();
+
   const handleSearch = (data) => {
-    console.log(data);
+    navigate(`/dish-detail/${data._id}`);
   };
+
+  const { keyword } = useContext(HeaderContext);
 
   return (
     <>
@@ -23,7 +28,7 @@ const Suggestion = ({ suggestions }) => {
                   onClick={() => handleSearch(suggestion)}
                 >
                   <img
-                    src={suggestion?.img}
+                    src={suggestion?.image}
                     alt="..."
                     loading="lazy"
                     className="w-16 object-contain"
@@ -49,7 +54,10 @@ const Suggestion = ({ suggestions }) => {
               </Fragment>
             );
           })}
-          <Link to="/search/12" className="group/all w-full text-center">
+          <Link
+            to={`/search?keyword=${keyword}`}
+            className="group/all w-full text-center"
+          >
             <span className="text-sm font-semibold group-hover/all:text-tertiary">
               {t("Header.Search.seeAll")}
             </span>
