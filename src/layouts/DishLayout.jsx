@@ -54,13 +54,19 @@ const DishLayout = ({ children, title }) => {
       queryParams.set("price", values.join(","));
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     } else {
       const queryParams = new URLSearchParams(location.search);
       queryParams.delete("price");
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     }
   }, [selectedFilter]);
 
