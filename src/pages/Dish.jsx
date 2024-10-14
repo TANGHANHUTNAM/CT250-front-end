@@ -8,6 +8,7 @@ import { getDishesWithFilter } from "../services/dishService";
 import StatusCodes from "../utils/StatusCodes";
 import { LIMIT_PAGE } from "../constants";
 import {
+  useLoaderData,
   useLocation,
   useNavigate,
   useParams,
@@ -17,9 +18,11 @@ import { toast } from "react-toastify";
 import { Spin } from "antd";
 
 const DishPage = () => {
+  const category = useLoaderData();
+
   const { t } = useTranslation();
 
-  useDynamicTitle(t("BreadcrumbsAndTitle.all_dishes"));
+  useDynamicTitle(category?.name || t("BreadcrumbsAndTitle.all_dishes"));
   useTopPage();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,13 +41,19 @@ const DishPage = () => {
       queryParams.set("page", currentPage);
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     } else {
       const queryParams = new URLSearchParams(location.search);
       queryParams.delete("page");
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     }
   }, [currentPage]);
 
@@ -56,6 +65,7 @@ const DishPage = () => {
       const res = await getDishesWithFilter({
         category: categoryId,
         ...query,
+        page: query.page ? query.page : 1,
         limit: LIMIT_PAGE,
       });
 
@@ -81,7 +91,7 @@ const DishPage = () => {
   };
 
   return (
-    <DishLayout title={t("DishPage.title")}>
+    <DishLayout title={category?.name || t("BreadcrumbsAndTitle.all_dishes")}>
       {loading ? (
         <div className="flex items-center justify-center py-8 sr-950:py-20">
           <Spin />

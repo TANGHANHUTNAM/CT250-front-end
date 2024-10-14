@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
-import { DishDetailLoader } from "./loader";
+import { DishCategoryLoader, DishDetailLoader } from "./loader";
 import LayoutApp from "../layouts/LayoutApp";
 
 const HomePage = lazy(() => import("../pages/Home"));
@@ -112,7 +112,10 @@ const routes = [
       {
         path: "dish/:categoryId?",
         element: <DishPage />,
-        handle: { crumb: () => crumb("BreadcrumbsAndTitle.all_dishes") },
+        loader: DishCategoryLoader,
+        handle: {
+          crumb: (data) => crumb("BreadcrumbsAndTitle.all_dishes", data?.crumb),
+        },
       },
       {
         path: "dish-detail/:id",

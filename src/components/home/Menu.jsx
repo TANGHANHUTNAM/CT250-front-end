@@ -1,52 +1,31 @@
-import monchinh from "../../assets/menu/monchinh.jpg";
-import khaivi from "../../assets/menu/khaivi.jpg";
-import mi from "../../assets/menu/mi.jpg";
-import sup from "../../assets/menu/sup.jpg";
-import trangmieng from "../../assets/menu/trangmieng.jpg";
-import nuoc from "../../assets/menu/nuoc.jpg";
 import { GiKnifeFork } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
 import MenuItem from "./MenuItem";
+import { useEffect, useState } from "react";
+import { getCategoriesAtOneLevel } from "../../services/categoryService";
+import StatusCodes from "../../utils/StatusCodes";
+
 const Menu = () => {
   const { t } = useTranslation();
-  const List = [
-    {
-      id: 1,
-      name: "Món chính",
-      img: monchinh,
-      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      id: 2,
-      name: "Khai vị",
-      img: khaivi,
-      des: "lorem ipsum dolor lorem ipsum dolor sit amet, consectetur adipiscing elit sit amet, consectetur adipiscing elit",
-    },
-    {
-      id: 3,
-      name: "Mì",
-      img: mi,
-      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      id: 4,
-      name: "Súp",
-      img: sup,
-      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      id: 5,
-      name: "Tráng miệng",
-      img: trangmieng,
-      des: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      id: 6,
-      name: "Nước",
-      img: nuoc,
-      des: "lorem ipsum dolor sit amet, dipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-  ];
+
+  const [menus, setMenus] = useState([]);
+
+  useEffect(() => {
+    const fetchCategoriesAtLevelOne = async () => {
+      const res = await getCategoriesAtOneLevel();
+
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        setMenus(res.DT);
+      }
+
+      if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+        setMenus([]);
+      }
+    };
+
+    fetchCategoriesAtLevelOne();
+  }, []);
+
   return (
     <div className="bg-bgPrimary px-2 py-6 sm:p-10">
       <div className="mx-auto max-w-screen-xl px-3 text-primary">
@@ -68,9 +47,11 @@ const Menu = () => {
         </div>
         {/* List */}
         <div className="grid grid-cols-1 md:grid-cols-3">
-          {List.map((item) => {
-            return <MenuItem key={item.id} item={item} />;
-          })}
+          {menus &&
+            menus.length > 0 &&
+            menus.map((item) => {
+              return <MenuItem key={item._id} item={item} />;
+            })}
         </div>
       </div>
     </div>

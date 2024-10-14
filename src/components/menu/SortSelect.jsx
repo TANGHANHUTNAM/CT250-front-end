@@ -62,13 +62,19 @@ const SortSelect = ({}) => {
       queryParams.delete("sortBy");
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     } else {
       const queryParams = new URLSearchParams(location.search);
       queryParams.set("sortBy", selected?.value);
       queryParams.sort();
 
-      navigate(`${location.pathname}?${queryParams.toString()}`);
+      const path = `${location.pathname}${queryParams.size > 0 ? `?${queryParams.toString()}` : ""}`;
+      if (path !== `${location.pathname}${location.search}`) {
+        navigate(path);
+      }
     }
   }, [selected]);
 
