@@ -33,7 +33,7 @@ const NavBar = ({ listCategory }) => {
           {listCategory?.map((item) => {
             return (
               <Link
-                to="/dish"
+                to={`/dish/${item?._id}`}
                 className="nav-link-name my-4 flex min-w-56 flex-col items-start font-semibold text-white/90 duration-300 hover:pl-3 hover:text-tertiary"
                 key={item?._id}
               >

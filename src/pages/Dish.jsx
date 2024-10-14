@@ -4,10 +4,19 @@ import DishListGrid from "../components/dish/DishListGrid";
 import { useEffect, useState } from "react";
 import DishLayout from "../layouts/DishLayout";
 import Pagination from "../components/pagination/Pagination";
-import { getDishesWithPagination } from "../services/dishService";
+import {
+  getDishesWithFilter,
+  getDishesWithPagination,
+} from "../services/dishService";
 import StatusCodes from "../utils/StatusCodes";
 import { LIMIT_PAGE } from "../constants";
-import { useParams, useSearchParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
+import { toast } from "react-toastify";
 
 const DishPage = () => {
   const { t } = useTranslation();
@@ -18,26 +27,57 @@ const DishPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [dishes, setDishes] = useState([]);
 
+  const location = useLocation();
+  const [queryParams] = useSearchParams();
+  const { categoryId } = useParams();
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const fetchDishes = async () => {
-      const res = await getDishesWithPagination(currentPage, LIMIT_PAGE);
+    if (currentPage > 1) {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.set("page", currentPage);
+      queryParams.sort();
 
-      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        setDishes(res.DT);
-      }
-    };
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    } else {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.delete("page");
+      queryParams.sort();
 
-    fetchDishes();
-  }, []);
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    }
+  }, [currentPage]);
+
+  // useEffect(() => {
+  //   const fetchDishes = async () => {
+  //     const res = await getDishesWithPagination(currentPage, 1);
+
+  //     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+  //       setDishes(res.DT);
+  //     }
+
+  //     if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+  //       setDishes([]);
+  //       toast.error(res.EM);
+  //     }
+  //   };
+
+  //   fetchDishes();
+  // }, []);
+
+  useEffect(() => {
+    // const fetchDishes = async () => {
+    //   const query = Object.fromEntries([...queryParams]);
+    //   const res = await getDishesWithFilter({ category: categoryId, ...query });
+    //   console.log(res);
+    // };
+    // fetchDishes();
+  }, [queryParams, categoryId]);
 
   const handleChangePage = (page) => {
     setCurrentPage(page);
   };
-
-  const [queryParams] = useSearchParams();
-  const { categoryId } = useParams();
-
-  console.log(Object.fromEntries([...queryParams]), categoryId);
 
   return (
     <DishLayout title={t("DishPage.title")}>

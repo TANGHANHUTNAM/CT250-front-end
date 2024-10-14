@@ -27,10 +27,15 @@ const search = (keyword, page = 1, limit = 10) => {
   );
 };
 
+const getDishesWithFilter = (queryParams = {}) => {
+  return axios.get(`/api/v1/dish/get`, { params: queryParams });
+};
+
 export {
   getDishes,
   getDishesWithPagination,
   getDish,
   getMultipleDishes,
   search,
+  getDishesWithFilter,
 };

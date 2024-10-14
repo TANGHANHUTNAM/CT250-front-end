@@ -13,7 +13,7 @@ const MenuItemSmallScreen = ({ listCategory, setVisible }) => {
       {listCategory?.map((item) => {
         return (
           <Link
-            to="/dish"
+            to={`/dish/${item?._id}`}
             className="normal-case"
             key={item?._id}
             onClick={() => setVisible(false)}
