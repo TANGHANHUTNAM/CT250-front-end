@@ -1,20 +1,21 @@
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
+const SubMenu = ({ menuItem = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = (e) => {
-    e.stopPropagation();
+    e.preventDefault();
     setIsOpen((prev) => !prev);
   };
 
   return (
     <div className="w-full">
-      <div
-        className={`flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary ${selectedItem._id === menuItem._id ? "font-semibold text-tertiary" : ""}`}
-        onClick={() => onClick(menuItem)}
+      <NavLink
+        to={`/dish/${menuItem?._id}`}
+        className="flex cursor-pointer flex-nowrap items-center justify-between py-2 font-medium hover:text-tertiary"
       >
         <div className="text-sm">{menuItem?.name}</div>
         {menuItem?.subMenu?.length > 0 && (
@@ -25,7 +26,7 @@ const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
             <MdOutlineKeyboardArrowDown />
           </span>
         )}
-      </div>
+      </NavLink>
       <motion.div
         initial="hidden"
         animate={isOpen ? "visible" : "hidden"}
@@ -53,13 +54,13 @@ const SubMenu = ({ onClick = () => {}, menuItem = {}, selectedItem = {} }) => {
           menuItem.subMenu.length > 0 &&
           menuItem.subMenu.map((menu) => {
             return (
-              <div
+              <NavLink
+                to={`/dish/${menu?._id}`}
                 key={menu?._id}
-                className={`cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary ${selectedItem._id === menu._id ? "font-medium text-tertiary" : ""}`}
-                onClick={() => onClick(menu)}
+                className="block cursor-pointer py-2 text-sm text-primary hover:font-medium hover:text-tertiary"
               >
                 {menu?.name}
-              </div>
+              </NavLink>
             );
           })}
       </motion.div>

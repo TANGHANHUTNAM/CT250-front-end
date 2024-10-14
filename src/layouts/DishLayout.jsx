@@ -3,27 +3,23 @@ import SortSelect from "../components/menu/SortSelect";
 import BodyLayout from "./BodyLayout";
 import { FaFilter } from "react-icons/fa6";
 import { RxDoubleArrowRight } from "react-icons/rx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DishCategories from "../components/menu/DishCategories";
 import YourSelection from "../components/menu/YourSelection";
 import CostMenu from "../components/menu/CostMenu";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const DishLayout = ({
-  children,
-  title,
-  sort = { seletedOption: {}, setSelectedOption: () => {} },
-  category = { selectedCategory: {}, setSelectedCategory: () => {} },
-  filter = { selectedFilter: {}, setSelectedFilter: () => {} },
-}) => {
+const DishLayout = ({ children, title }) => {
   const [visibleFilter, setVisibleFilter] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState({});
 
   const handleSelectCost = (checked = false, value) => {
     if (checked) {
-      filter.setSelectedFilter((prev) => ({ ...prev, [value.id]: value }));
+      setSelectedFilter((prev) => ({ ...prev, [value.id]: value }));
     } else {
-      filter.setSelectedFilter((prev) => {
+      setSelectedFilter((prev) => {
         const cloneFilter = _.cloneDeep(prev);
         delete cloneFilter[value.id];
         return cloneFilter;
@@ -32,11 +28,11 @@ const DishLayout = ({
   };
 
   const handleClearAll = () => {
-    filter.setSelectedFilter({});
+    setSelectedFilter({});
   };
 
   const handleRemoveChoice = (choice) => {
-    filter.setSelectedFilter((prev) => {
+    setSelectedFilter((prev) => {
       const cloneFilter = _.cloneDeep(prev);
       delete cloneFilter[choice.id];
       return cloneFilter;
@@ -45,24 +41,50 @@ const DishLayout = ({
 
   const { t } = useTranslation();
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!_.isEmpty(selectedFilter)) {
+      const values = Object.values(selectedFilter).map(
+        (choice) => choice?.value,
+      );
+
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.set("price", values.join(","));
+      queryParams.sort();
+
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    } else {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.delete("price");
+      queryParams.sort();
+
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    }
+  }, [selectedFilter]);
+
+  useEffect(() => {
+    if (!location.search) {
+      handleClearAll();
+    }
+  }, [location.search]);
+
   return (
     <BodyLayout>
       <div className="flex gap-5 py-8 md:px-12 min-[950px]:px-0">
         <div className="hidden min-w-64 shrink-0 min-[950px]:block">
           <div className="space-y-6">
-            <DishCategories
-              selectedCategory={category.selectedCategory}
-              setSelectedCategory={category.setSelectedCategory}
-            />
-            {_.isEmpty(filter.selectedFilter) === false && (
+            <DishCategories />
+            {_.isEmpty(selectedFilter) === false && (
               <YourSelection
-                choices={filter.selectedFilter}
+                choices={selectedFilter}
                 handleClearAll={handleClearAll}
                 handleRemoveChoice={handleRemoveChoice}
               />
             )}
             <CostMenu
-              selectedCosts={filter.selectedFilter}
+              selectedCosts={selectedFilter}
               handleSelectCost={handleSelectCost}
             />
           </div>
@@ -74,10 +96,7 @@ const DishLayout = ({
               <p className="title font-bold uppercase text-tertiary">{title}</p>
               <div className="flex flex-nowrap items-center gap-4">
                 <div className="hidden sm:block">
-                  <SortSelect
-                    selectedOption={sort.seletedOption}
-                    setSelectedOption={sort.setSelectedOption}
-                  />
+                  <SortSelect />
                 </div>
                 <Tooltip title={t("DishMenuSidebar.filter")}>
                   <button
@@ -93,10 +112,7 @@ const DishLayout = ({
           {/* grid items */}
           <div className="space-y-4">
             <div className="px-2 sm:hidden">
-              <SortSelect
-                selectedOption={sort.seletedOption}
-                setSelectedOption={sort.setSelectedOption}
-              />
+              <SortSelect />
             </div>
             {children}
           </div>
@@ -116,19 +132,16 @@ const DishLayout = ({
         </div>
         <div className="h-full w-full px-4 pb-6 sm:w-80 sm:bg-bgPrimary sm:py-6">
           <div className="space-y-6">
-            <DishCategories
-              selectedCategory={category.selectedCategory}
-              setSelectedCategory={category.setSelectedCategory}
-            />
-            {_.isEmpty(filter.selectedFilter) === false && (
+            <DishCategories />
+            {_.isEmpty(selectedFilter) === false && (
               <YourSelection
-                choices={filter.selectedFilter}
+                choices={selectedFilter}
                 handleClearAll={handleClearAll}
                 handleRemoveChoice={handleRemoveChoice}
               />
             )}
             <CostMenu
-              selectedCosts={filter.selectedFilter}
+              selectedCosts={selectedFilter}
               handleSelectCost={handleSelectCost}
             />
           </div>

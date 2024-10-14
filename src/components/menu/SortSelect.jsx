@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaSort } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiSortDown, BiSortUp, BiSortAZ, BiSortZA } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const sorts = [
   {
@@ -49,13 +50,36 @@ const sorts = [
   },
 ];
 
-const SortSelect = ({ selectedOption = {}, setSelectedOption = () => {} }) => {
+const SortSelect = ({}) => {
+  const [selected, setSelected] = useState(sorts[0]);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    setSelectedOption(sorts[0]);
-  }, []);
+    if (selected.value === sorts[0].value) {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.delete("sortBy");
+      queryParams.sort();
+
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    } else {
+      const queryParams = new URLSearchParams(location.search);
+      queryParams.set("sortBy", selected?.value);
+      queryParams.sort();
+
+      navigate(`${location.pathname}?${queryParams.toString()}`);
+    }
+  }, [selected]);
+
+  useEffect(() => {
+    if (!location.search) {
+      setSelected(sorts[0]);
+    }
+  }, [location.search]);
 
   const handleOptionClick = (value) => {
-    setSelectedOption(value);
+    setSelected(value);
   };
 
   const { t } = useTranslation();
@@ -64,11 +88,11 @@ const SortSelect = ({ selectedOption = {}, setSelectedOption = () => {} }) => {
     <div className="group relative min-w-52">
       <div className="flex cursor-pointer flex-nowrap items-center justify-between gap-4 rounded-md bg-tertiary p-2 text-primary">
         <div className="flex flex-nowrap items-center gap-2">
-          <span>{selectedOption?.icon ?? <FaSort />}</span>
+          <span>{selected?.icon ?? <FaSort />}</span>
           <span className="text-sm font-medium">
-            {t(selectedOption?.trans) === selectedOption.trans
-              ? selectedOption.label
-              : t(selectedOption?.trans)}
+            {t(selected?.trans) === selected.trans
+              ? selected.label
+              : t(selected?.trans)}
           </span>
         </div>
         <span className="transition-transform duration-300 group-hover:rotate-180">
@@ -82,7 +106,7 @@ const SortSelect = ({ selectedOption = {}, setSelectedOption = () => {} }) => {
             return (
               <li
                 key={index}
-                className={`cursor-pointer py-2 duration-300 hover:text-tertiary ${selectedOption?.value === sort.value ? "font-medium text-tertiary" : ""}`}
+                className={`cursor-pointer py-2 duration-300 hover:text-tertiary ${selected?.value === sort.value ? "font-medium text-tertiary" : ""}`}
                 onClick={() => handleOptionClick(sort)}
               >
                 {t(sort?.trans) === sort.trans ? sort.label : t(sort?.trans)}

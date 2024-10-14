@@ -110,7 +110,7 @@ const routes = [
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.booking") },
       },
       {
-        path: "dish",
+        path: "dish/:categoryId?",
         element: <DishPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.all_dishes") },
       },
