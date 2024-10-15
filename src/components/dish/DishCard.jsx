@@ -42,7 +42,7 @@ const DishCard = ({ dish }) => {
           {/* label */}
           {dish?.discount > 0 && (
             <div className="discount absolute right-2 z-20 w-fit bg-red-500 px-2 py-1 text-center text-xs font-semibold text-primary">
-              {dish?.discount}%
+              -{dish?.discount}%
             </div>
           )}
           {dish?.isNewDish && (
