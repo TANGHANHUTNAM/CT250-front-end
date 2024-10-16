@@ -325,10 +325,14 @@
   },
   "DishPage": {
     "title": "All dishes",
-    "noData": "No data.",
+    "noData": "No data."
+  },
+  "DishCard": {
     "outOfDish": "Out of dish",
     "sold": "sold",
-    "new": "New"
+    "new": "New",
+    "addFavorite": "Add favorite",
+    "removeFavorite": "Delete favorite"
   },
   "BestDishPage": {
     "title": "Best dishes"
@@ -506,5 +510,9 @@
   "SearchPage": {
     "title": "There are {{total}} search results matching the keyword '{{keyword}}'",
     "notFound": "Did not find any results matching the keyword '{{keyword}}'"
+  },
+  "FavoriteDishPage": {
+    "title": "Favorite Dish",
+    "noData": "You don't have any favorite dish yet!"
   }
 }
