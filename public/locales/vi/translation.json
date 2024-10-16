@@ -325,10 +325,14 @@
   },
   "DishPage": {
     "title": "Tất cả món ăn",
-    "noData": "Không có dữ liệu.",
+    "noData": "Không có dữ liệu."
+  },
+  "DishCard": {
     "outOfDish": "Hết món",
     "sold": "đã bán",
-    "new": "Mới"
+    "new": "Mới",
+    "addFavorite": "Thêm yêu thích",
+    "removeFavorite": "Bỏ yêu thích"
   },
   "BestDishPage": {
     "title": "Món ăn nổi bật"
@@ -506,5 +510,9 @@
   "SearchPage": {
     "title": "Có {{total}} kết quả tìm kiếm phù hợp với từ khóa '{{keyword}}'",
     "notFound": "Không tìm thấy bất kỳ kết quả nào phù hợp với từ khóa '{{keyword}}'"
+  },
+  "FavoriteDishPage": {
+    "title": "Món ăn yêu thích",
+    "noData": "Bạn chưa có món ăn yêu thích nào!"
   }
 }

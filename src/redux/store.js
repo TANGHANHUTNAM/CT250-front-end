@@ -16,11 +16,13 @@ import cartReducer from "./reducer/cartSlice";
 import paymentReducer from "./reducer/paymentSlice";
 import addressReducer from "./reducer/addressSlice";
 import orderReducer from "./reducer/orderSlice";
+import favouriteDishReducer from "./reducer/favouriteDishSlice";
+
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["user", "cart", "app", "address"],
+  whitelist: ["user", "cart", "app", "address", "favouriteDish"],
 };
 
 const rootReducer = combineReducers({
@@ -30,6 +32,7 @@ const rootReducer = combineReducers({
   payment: paymentReducer,
   address: addressReducer,
   order: orderReducer,
+  favouriteDish: favouriteDishReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

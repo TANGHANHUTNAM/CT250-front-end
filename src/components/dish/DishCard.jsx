@@ -1,3 +1,4 @@
+import { Tooltip } from "antd";
 import { FaEye } from "react-icons/fa";
 import { IoCartSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
@@ -5,12 +6,18 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { formatCurrency } from "../../utils/format";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/reducer/cartSlice";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import {
+  addToFavourite,
+  removeFromFavourite,
+} from "../../redux/reducer/favouriteDishSlice";
 
 const DishCard = ({ dish }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -18,7 +25,17 @@ const DishCard = ({ dish }) => {
     toast.success("Add to cart successfully.");
   };
 
-  const { t } = useTranslation();
+  const favouriteDishes = useSelector((state) => state.favouriteDish);
+
+  const handleAddToFavourite = () => {
+    dispatch(addToFavourite({ id: dish?._id }));
+    toast.success("You have added the dish to your favorites list.");
+  };
+
+  const handleReomveFromFavourite = () => {
+    dispatch(removeFromFavourite({ id: dish?._id }));
+    toast.success("You have removed the dish from your favorites list.");
+  };
 
   return (
     <div className="p-2">
@@ -47,7 +64,7 @@ const DishCard = ({ dish }) => {
             </>
           ) : (
             <div className="absolute bottom-2 left-2 right-2 top-2 flex items-center justify-center bg-black/50 text-sm font-bold text-primary">
-              {t("DishPage.outOfDish")}
+              {t("DishCard.outOfDish")}
             </div>
           )}
           {/* label */}
@@ -58,7 +75,7 @@ const DishCard = ({ dish }) => {
           )}
           {dish?.isNewDish && (
             <div className="discount absolute left-2 z-20 w-fit bg-yellow-500 px-2 py-1 text-center text-xs font-bold text-primary">
-              {t("DishPage.new")}
+              {t("DishCard.new")}
             </div>
           )}
         </div>
@@ -90,16 +107,29 @@ const DishCard = ({ dish }) => {
               </span>
               <span className="sold text-[10px] font-bold text-black sm:text-xs">
                 <span>{dish?.totalSold}</span>
-                <span className="ml-0.5">{t("DishPage.sold")}</span>
+                <span className="ml-0.5">{t("DishCard.sold")}</span>
               </span>
             </div>
-            <div className="favorite flex cursor-pointer text-2xl text-red-500">
-              <span className="">
-                <IoIosHeartEmpty />
-              </span>
-              <span hidden className="">
-                <IoMdHeart />
-              </span>
+            <div className="favorite flex text-2xl text-red-500">
+              {favouriteDishes[dish?._id] ? (
+                <Tooltip title={t("DishCard.removeFavorite")}>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => handleReomveFromFavourite()}
+                  >
+                    <IoMdHeart />
+                  </span>
+                </Tooltip>
+              ) : (
+                <Tooltip title={t("DishCard.addFavorite")}>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => handleAddToFavourite()}
+                  >
+                    <IoIosHeartEmpty />
+                  </span>
+                </Tooltip>
+              )}
             </div>
           </div>
         </div>
