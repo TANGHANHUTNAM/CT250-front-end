@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducer/cartSlice";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const DishCard = ({ dish }) => {
   const dispatch = useDispatch();
@@ -17,28 +18,38 @@ const DishCard = ({ dish }) => {
     toast.success("Add to cart successfully.");
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className="p-2">
       <div className="w-full shadow-[4px_4px_#acacac]">
         {/* image */}
         <div className="group relative flex cursor-pointer flex-col overflow-hidden bg-primary p-2">
           <img src={dish?.image} alt="..." loading="lazy" />
-          <div className="absolute left-0 top-0 z-10 flex h-full w-0 items-center justify-end bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
-            <Link
-              to={`/dish-detail/${dish?._id}`}
-              className="mr-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600"
-            >
-              <FaEye />
-            </Link>
-          </div>
-          <div className="absolute right-0 top-0 flex h-full w-0 items-center justify-start bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
-            <div
-              className="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600"
-              onClick={() => handleAddToCart()}
-            >
-              <IoCartSharp />
+          {dish?.isAvailibility ? (
+            <>
+              <div className="absolute left-0 top-0 z-10 flex h-full w-0 items-center justify-end bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
+                <Link
+                  to={`/dish-detail/${dish?._id}`}
+                  className="mr-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600"
+                >
+                  <FaEye />
+                </Link>
+              </div>
+              <div className="absolute right-0 top-0 flex h-full w-0 items-center justify-start bg-black/30 opacity-0 transition-all duration-300 group-hover:w-1/2 group-hover:opacity-100">
+                <div
+                  className="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-solid border-tertiary bg-primary text-2xl text-tertiary hover:text-yellow-600"
+                  onClick={() => handleAddToCart()}
+                >
+                  <IoCartSharp />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="absolute bottom-2 left-2 right-2 top-2 flex items-center justify-center bg-black/50 text-sm font-bold text-primary">
+              {t("DishPage.outOfDish")}
             </div>
-          </div>
+          )}
           {/* label */}
           {dish?.discount > 0 && (
             <div className="discount absolute right-2 z-20 w-fit bg-red-500 px-2 py-1 text-center text-xs font-semibold text-primary">
@@ -47,7 +58,7 @@ const DishCard = ({ dish }) => {
           )}
           {dish?.isNewDish && (
             <div className="discount absolute left-2 z-20 w-fit bg-yellow-500 px-2 py-1 text-center text-xs font-bold text-primary">
-              New
+              {t("DishPage.new")}
             </div>
           )}
         </div>
@@ -79,7 +90,7 @@ const DishCard = ({ dish }) => {
               </span>
               <span className="sold text-[10px] font-bold text-black sm:text-xs">
                 <span>{dish?.totalSold}</span>
-                <span className="ml-0.5">đã bán</span>
+                <span className="ml-0.5">{t("DishPage.sold")}</span>
               </span>
             </div>
             <div className="favorite flex cursor-pointer text-2xl text-red-500">

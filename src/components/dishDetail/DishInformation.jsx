@@ -64,24 +64,34 @@ const DishInformation = ({ dish }) => {
           </div>
         </div>
         <div className="space-y-8">
-          <div className="flex items-center gap-6">
-            <span className="text-sm">{t("DishDetailPage.quantity")}</span>
-            <QuantityInput
-              value={quantity}
-              onChange={(quantity) => setQuantity(quantity)}
-            />
-          </div>
-          <div className="flex w-full gap-2 sr-530:w-4/5 sr-530:gap-4 sm:w-auto md:w-4/5">
-            <button
-              className="grow rounded-md bg-tertiary px-4 py-2.5 text-sm font-medium hover:bg-yellow-600"
-              onClick={() => handleAddToCart()}
-            >
-              {t("DishDetailPage.addToCart")}
-            </button>
-            <button className="grow rounded-md bg-yellow-600 px-4 py-2.5 text-sm font-medium hover:bg-tertiary">
-              {t("DishDetailPage.buyNow")}
-            </button>
-          </div>
+          {dish?.isAvailibility ? (
+            <>
+              <div className="flex items-center gap-6">
+                <span className="text-sm">{t("DishDetailPage.quantity")}</span>
+                <QuantityInput
+                  value={quantity}
+                  onChange={(quantity) => setQuantity(quantity)}
+                />
+              </div>
+              <div className="flex w-full gap-2 sr-530:w-4/5 sr-530:gap-4 sm:w-auto md:w-4/5">
+                <button
+                  className="grow rounded-md bg-tertiary px-4 py-2.5 text-sm font-medium hover:bg-yellow-600"
+                  onClick={() => handleAddToCart()}
+                >
+                  {t("DishDetailPage.addToCart")}
+                </button>
+                <button className="grow rounded-md bg-yellow-600 px-4 py-2.5 text-sm font-medium hover:bg-tertiary">
+                  {t("DishDetailPage.buyNow")}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="py-2">
+              <div className="rounded-md bg-[#fff3cd] px-4 py-3 text-sm font-medium text-yellow-600">
+                {t("DishDetailPage.outOfDish")}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
