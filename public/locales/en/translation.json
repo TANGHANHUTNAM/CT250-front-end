@@ -325,7 +325,10 @@
   },
   "DishPage": {
     "title": "All dishes",
-    "noData": "No data."
+    "noData": "No data.",
+    "outOfDish": "Out of dish",
+    "sold": "sold",
+    "new": "New"
   },
   "BestDishPage": {
     "title": "Best dishes"
@@ -444,7 +447,8 @@
     "review": "review",
     "star": "star",
     "similarDish": "Similar dish",
-    "notFound": "No dish found."
+    "notFound": "No dish found.",
+    "outOfDish": "This dish is currently out of stock. Please come back later."
   },
   "NewsPage": {
     "title": "News"

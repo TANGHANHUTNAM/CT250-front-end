@@ -325,7 +325,10 @@
   },
   "DishPage": {
     "title": "Tất cả món ăn",
-    "noData": "Không có dữ liệu."
+    "noData": "Không có dữ liệu.",
+    "outOfDish": "Hết món",
+    "sold": "đã bán",
+    "new": "Mới"
   },
   "BestDishPage": {
     "title": "Món ăn nổi bật"
@@ -444,7 +447,8 @@
     "review": "đánh giá",
     "star": "sao",
     "similarDish": "Món ăn cùng loại",
-    "notFound": "Không tìm thấy món ăn."
+    "notFound": "Không tìm thấy món ăn.",
+    "outOfDish": "Món ăn này hiện tại đã hết. Vui lòng quay lại sau."
   },
   "NewsPage": {
     "title": "Tin tức"
