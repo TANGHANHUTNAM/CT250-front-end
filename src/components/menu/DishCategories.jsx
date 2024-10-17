@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getCategories } from "../../services/categoryService";
 import StatusCodes from "../../utils/StatusCodes";
 
-const DishCategories = ({}) => {
+const DishCategories = ({ path = "" }) => {
   const { t } = useTranslation();
 
   const [categories, setCategories] = useState([]);
@@ -33,7 +33,9 @@ const DishCategories = ({}) => {
             delete categories.subCategories;
             category.subMenu = subCategories;
 
-            return <SubMenu key={category?._id} menuItem={category} />;
+            return (
+              <SubMenu key={category?._id} menuItem={category} path={path} />
+            );
           })}
       </div>
     </MenuLayout>

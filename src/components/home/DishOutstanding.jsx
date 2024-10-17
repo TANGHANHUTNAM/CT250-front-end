@@ -2,8 +2,40 @@ import { GiKnifeFork } from "react-icons/gi";
 import DishCard from "../dish/DishCard";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { getDishesWithFilter } from "../../services/dishService";
+import StatusCodes from "../../utils/StatusCodes";
+
 const DishOutstanding = () => {
   const { t } = useTranslation();
+
+  const [dishes, setDishes] = useState([]);
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      const res = await getDishesWithFilter({
+        page: 1,
+        limit: 10,
+        view: "best-dish",
+      });
+
+      if (
+        res &&
+        res.EC === StatusCodes.SUCCESS_DAFAULT &&
+        res.DT &&
+        res.DT.data
+      ) {
+        setDishes(res.DT.data);
+      }
+
+      if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+        setDishes([]);
+      }
+    };
+
+    fetchDishes();
+  }, []);
+
   return (
     <div className="dish-outstanding bg-bgTertiary py-10">
       <div className="mx-auto max-w-screen-xl px-2 sm:px-4">
@@ -20,11 +52,13 @@ const DishOutstanding = () => {
           </span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-          <DishCard />
-          <DishCard />
-          <DishCard />
-          <DishCard />
-          <DishCard />
+          {dishes &&
+            dishes.length > 0 &&
+            dishes.map((dish) => {
+              return (
+                <DishCard key={`home-best-dish-${dish?._id}`} dish={dish} />
+              );
+            })}
         </div>
         <div className="view-more mt-10 text-center text-tertiary">
           <Link

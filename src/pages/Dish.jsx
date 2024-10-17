@@ -91,7 +91,10 @@ const DishPage = () => {
   };
 
   return (
-    <DishLayout title={category?.name || t("BreadcrumbsAndTitle.all_dishes")}>
+    <DishLayout
+      title={category?.name || t("BreadcrumbsAndTitle.all_dishes")}
+      path="/dish"
+    >
       {loading ? (
         <div className="flex items-center justify-center py-8 sr-950:py-20">
           <Spin />

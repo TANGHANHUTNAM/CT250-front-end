@@ -81,13 +81,39 @@ const routes = [
       },
       {
         path: "delicious-dish",
-        element: <DeliciousDish />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.delicious_dishes") },
+        children: [
+          {
+            index: true,
+            element: <DeliciousDish />,
+          },
+          {
+            path: ":categoryId",
+            element: <DeliciousDish />,
+            loader: DishCategoryLoader,
+            handle: {
+              crumb: (data) => crumb(undefined, data?.crumb),
+            },
+          },
+        ],
       },
       {
         path: "best-dish",
-        element: <BestDish />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.best_dishes") },
+        children: [
+          {
+            index: true,
+            element: <BestDish />,
+          },
+          {
+            path: ":categoryId",
+            element: <BestDish />,
+            loader: DishCategoryLoader,
+            handle: {
+              crumb: (data) => crumb(undefined, data?.crumb),
+            },
+          },
+        ],
       },
       {
         path: "login",
@@ -110,12 +136,24 @@ const routes = [
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.booking") },
       },
       {
-        path: "dish/:categoryId?",
-        element: <DishPage />,
-        loader: DishCategoryLoader,
+        path: "dish",
         handle: {
-          crumb: (data) => crumb("BreadcrumbsAndTitle.all_dishes", data?.crumb),
+          crumb: () => crumb("BreadcrumbsAndTitle.all_dishes"),
         },
+        children: [
+          {
+            index: true,
+            element: <DishPage />,
+          },
+          {
+            path: ":categoryId",
+            element: <DishPage />,
+            loader: DishCategoryLoader,
+            handle: {
+              crumb: (data) => crumb(undefined, data?.crumb),
+            },
+          },
+        ],
       },
       {
         path: "dish-detail/:id",

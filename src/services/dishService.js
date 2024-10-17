@@ -34,9 +34,10 @@ const getDishesWithFilter = ({
   search,
   page,
   limit,
+  view,
 }) => {
   return axios.get(`/api/v1/dish/get`, {
-    params: { category, sortBy, price, search, page, limit },
+    params: { category, sortBy, price, search, page, limit, view },
   });
 };
 
