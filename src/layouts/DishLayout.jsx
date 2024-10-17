@@ -11,7 +11,7 @@ import _ from "lodash";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const DishLayout = ({ children, title }) => {
+const DishLayout = ({ children, title, path = "" }) => {
   const [visibleFilter, setVisibleFilter] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState({});
 
@@ -81,7 +81,7 @@ const DishLayout = ({ children, title }) => {
       <div className="flex gap-5 py-8 md:px-12 min-[950px]:px-0">
         <div className="hidden min-w-64 shrink-0 min-[950px]:block">
           <div className="space-y-6">
-            <DishCategories />
+            <DishCategories path={path} />
             {_.isEmpty(selectedFilter) === false && (
               <YourSelection
                 choices={selectedFilter}

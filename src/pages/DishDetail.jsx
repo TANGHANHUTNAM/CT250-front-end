@@ -30,7 +30,7 @@ const DishDetailPage = () => {
               <DishInformation dish={dish} />
               <DishDescription dish={dish} />
               <DishReview />
-              <SimilarDishes />
+              <SimilarDishes category={dish?.category?.[1]} />
             </div>
             <div className="shrink-0">
               <RecommendedDishes />
