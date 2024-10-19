@@ -6,6 +6,7 @@ import BillDetetail from "../components/payment/BillDetail";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Coupon from "../components/payment/Coupon";
 
 const PaymentPage = () => {
   const { t } = useTranslation();
@@ -22,7 +23,8 @@ const PaymentPage = () => {
 
   return (
     <BodyLayout other={""}>
-      <div className="py-10">
+      <div className="flex flex-col gap-5 py-10">
+        <Coupon />
         <div className="flex flex-col justify-between gap-3 rounded-md border-2 border-solid border-tertiary p-5 text-primary md:flex-row md:gap-10">
           <InforPayment />
           <BillDetetail />

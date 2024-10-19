@@ -15,7 +15,7 @@ const Language = () => {
     }, 2000);
   };
   return (
-    <div className="group fixed right-0 top-1/4 z-50">
+    <div className="group fixed right-0 top-3/4 z-50 md:top-1/4">
       <div className="relative flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-s-sm bg-tertiary">
         <span>
           <GrLanguage className="text-2xl text-primary" />

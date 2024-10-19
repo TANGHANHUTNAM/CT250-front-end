@@ -36,6 +36,14 @@ import { toast } from "react-toastify";
 import { removeAll } from "../../redux/reducer/cartSlice";
 
 const InforPayment = () => {
+  const provincesShipping = [
+    "An Giang",
+    "Đồng Tháp",
+    "Vĩnh Long",
+    "Cần Thơ",
+    "Hậu Giang",
+    "Kiên Giang",
+  ];
   const dispatch = useDispatch();
   // Define the validation schema
   const inforDiliveryForm = yup
@@ -69,6 +77,7 @@ const InforPayment = () => {
   const { fullname, phoneNumber, address } = useSelector(
     (state) => state.user.account,
   );
+
   // Handle the select province, district, and ward
   const handleSelectProvince = (value, props) => {
     setValue("receiverProvince", value);
@@ -137,7 +146,7 @@ const InforPayment = () => {
   }, [carts, dispatch]);
   useEffect(() => {
     if (selectedWard && selectedDistrict && totalQuantity > 0) {
-      const weight = totalQuantity * 500;
+      const weight = totalQuantity * 600;
       const data = {
         service_type_id: 2,
         to_district_id: selectedDistrict,
@@ -188,9 +197,9 @@ const InforPayment = () => {
   );
   useEffect(() => {
     if (totalPrice && shippingFee && totalDiscount) {
-      dispatch(setFinalPrice(totalPrice + shippingFee + totalDiscount));
+      dispatch(setFinalPrice(totalPrice + shippingFee - totalDiscount));
     }
-    dispatch(setFinalPrice(totalPrice + shippingFee + totalDiscount));
+    dispatch(setFinalPrice(totalPrice + shippingFee - totalDiscount));
   }, [dispatch, totalPrice, shippingFee, totalDiscount]);
 
   // Use the useAppForm hook to handle the form
@@ -208,11 +217,7 @@ const InforPayment = () => {
   });
   // Handle the order
   const {
-    // totalQuantity,
-    // shippingFee,
     finalPrice,
-    // totalPrice,
-    // totalDiscount,
     recevierName,
     receiverPhone,
     receiverAddress,
@@ -254,6 +259,9 @@ const InforPayment = () => {
       toast.error("Vui lòng nhập đầy đủ thông tin");
     }
   };
+  const filteredProvinces = provinces?.filter((province) =>
+    provincesShipping.includes(province.ProvinceName),
+  );
   return (
     <div className="flex w-full flex-col gap-2 md:w-1/2">
       <div className="text-2xl font-semibold uppercase text-tertiary">
@@ -311,7 +319,7 @@ const InforPayment = () => {
             value={selectedProvince}
             onChange={handleSelectProvince}
             placeholder={`Tỉnh/Thành phố*`}
-            options={provinces?.map((province) => ({
+            options={filteredProvinces?.map((province) => ({
               value: province.ProvinceID,
               label: province.ProvinceName,
             }))}
