@@ -4,10 +4,18 @@ import tienmat from "../../assets/tienmat.png";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/format";
-import { setPaymentMethod } from "../../redux/reducer/orderSlice";
+import {
+  setPaymentMethod,
+  setTotalDiscount,
+} from "../../redux/reducer/orderSlice";
+import { getPriceDiscountByCoupon } from "../../services/couponService";
+import StatusCodes from "../../utils/StatusCodes";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const BillDetetail = () => {
   const dispatch = useDispatch();
+  const [coupon, setCoupon] = useState("");
   const {
     totalQuantity,
     shippingFee,
@@ -16,6 +24,21 @@ const BillDetetail = () => {
     totalDiscount,
     paymentMethod,
   } = useSelector((state) => state.order);
+
+  const handleGetPriceDiscountByCoupon = async (data) => {
+    try {
+      const res = await getPriceDiscountByCoupon(data);
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        toast.success("Áp dụng mã giảm giá thành công");
+        dispatch(setTotalDiscount(res.DT.discountAmount));
+      }
+      if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+        toast.error("Mã giảm giá không hợp lệ hoặc đã hết hạn!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleChoosePaymentMethod = (value) => {
     dispatch(setPaymentMethod(value));
@@ -31,11 +54,24 @@ const BillDetetail = () => {
         {/* Code coupon */}
         <div className="input-discount mt-2 flex">
           <input
+            onChange={(e) => setCoupon(e.target.value)}
             type="text"
             placeholder="Nhập mã giảm giá"
             className="mr-2 w-full rounded-sm p-2 text-xs font-semibold text-black/65 outline-none"
+            value={coupon}
           />
-          <button className="min-w-fit rounded-sm bg-tertiary px-3 py-2 text-xs font-medium hover:bg-yellow-500">
+          <button
+            onClick={() => {
+              if (coupon) {
+                handleGetPriceDiscountByCoupon({
+                  code: coupon,
+                  orderTotal: totalPrice,
+                });
+                setCoupon("");
+              }
+            }}
+            className="min-w-fit rounded-sm bg-tertiary px-3 py-2 text-xs font-medium hover:bg-yellow-500"
+          >
             Áp dụng
           </button>
         </div>
