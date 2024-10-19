@@ -8,22 +8,21 @@ import Voucher from "./Voucher";
 const Coupon = () => {
   const { totalPrice } = useSelector((state) => state.order);
   const [listCoupon, setListCoupon] = useState([]);
-
-  useEffect(() => {
-    const fetchCouponValidForOrder = async () => {
-      try {
-        const res = await getValidCouponByTotalOrder(totalPrice);
-        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-          setListCoupon(res.DT);
-        }
-        if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
-          console.log(res.EM);
-        }
-      } catch (error) {
-        console.log(error);
+  const fetchCouponValidForOrder = async () => {
+    try {
+      const res = await getValidCouponByTotalOrder(totalPrice);
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        setListCoupon(res.DT);
       }
-    };
-    fetchCouponValidForOrder();
+      if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+        console.log(res.EM);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (totalPrice) fetchCouponValidForOrder();
   }, [totalPrice]);
 
   return (
