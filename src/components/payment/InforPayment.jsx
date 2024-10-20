@@ -34,8 +34,10 @@ import SelectInput from "../inputs/SelectInput";
 import Textarea from "../inputs/Textarea";
 import { toast } from "react-toastify";
 import { removeAll } from "../../redux/reducer/cartSlice";
+import ModalConfirmPayment from "./ModalConfirmPayment";
 
 const InforPayment = () => {
+  const [openModalConfirmPayment, setOpenModalConfirmPayment] = useState(false);
   const provincesShipping = [
     "An Giang",
     "Đồng Tháp",
@@ -48,7 +50,7 @@ const InforPayment = () => {
   // Define the validation schema
   const inforDiliveryForm = yup
     .object({
-      receiverName: yup.string().required("Invalid Name"),
+      receiverName: yup.string().required("Tên không được để trống"),
       receiverPhone: yup
         .string()
         .matches(/^[0-9]{10}$/, "Invalid Phone Number")
@@ -251,8 +253,9 @@ const InforPayment = () => {
         receiverProvince: nameProvince,
       };
       // call api
-      dispatch(setResetOrder());
-      dispatch(removeAll());
+      setOpenModalConfirmPayment(true);
+      // dispatch(setResetOrder());
+      // dispatch(removeAll());
       toast.success("Đặt hàng thành công");
       console.log(order);
     } else {
@@ -365,6 +368,10 @@ const InforPayment = () => {
           />
         </form>
       </div>
+      <ModalConfirmPayment
+        openModalConfirmPayment={openModalConfirmPayment}
+        setOpenModalConfirmPayment={setOpenModalConfirmPayment}
+      />
     </div>
   );
 };

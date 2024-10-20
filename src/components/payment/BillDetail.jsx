@@ -10,11 +10,13 @@ import {
 } from "../../redux/reducer/orderSlice";
 import { getPriceDiscountByCoupon } from "../../services/couponService";
 import StatusCodes from "../../utils/StatusCodes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { getMethodsPayment } from "../../services/paymentService";
 
 const BillDetetail = () => {
   const dispatch = useDispatch();
+
   const [coupon, setCoupon] = useState("");
   const {
     totalQuantity,
@@ -39,6 +41,25 @@ const BillDetetail = () => {
       console.log(error);
     }
   };
+
+  const [listPaymentMethod, setListPaymentMethod] = useState([]);
+  useEffect(() => {
+    const fetchPaymentMethod = async () => {
+      try {
+        const res = await getMethodsPayment();
+        console.log(res);
+        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+          setListPaymentMethod(res.DT);
+        }
+        if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+          toast.error(res.EM);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPaymentMethod();
+  }, []);
 
   const handleChoosePaymentMethod = (value) => {
     dispatch(setPaymentMethod(value));
@@ -102,38 +123,44 @@ const BillDetetail = () => {
         <div className="text-lg font-semibold uppercase text-tertiary md:text-xl">
           Phương thức thanh toán
         </div>
-        <div className="mt-2 flex flex-col gap-3 lg:flex-row">
+        <div className="mt-2 flex flex-col gap-3">
           <div
-            onClick={() => handleChoosePaymentMethod(1)}
-            className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200"
+            onClick={() => handleChoosePaymentMethod(listPaymentMethod[1]?._id)}
+            className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200 sm:px-4"
           >
-            <input
-              type="radio"
-              className="h-[32px]"
-              name="paymentMethod"
-              value={1}
-              onChange={(e) => e.stopPropagation()}
-              checked={paymentMethod === 1}
-            />
-            <span className="ml-1 min-w-fit text-xs font-bold text-gray-500">
-              Chuyển khoản
-            </span>
-            <img src={vnpay} alt="vnpay" className="w-16" />
+            <div className="flex items-center justify-center gap-2">
+              <input
+                type="radio"
+                className="h-[32px]"
+                name="paymentMethod"
+                value={listPaymentMethod[1]?._id}
+                onChange={(e) => e.stopPropagation()}
+                checked={paymentMethod === listPaymentMethod[1]?._id}
+              />
+              <span className="ml-1 min-w-fit text-xs font-semibold text-gray-500">
+                {listPaymentMethod[1]?.name}
+              </span>
+            </div>
+            <img src={vnpay} alt="vnpay" className="hidden w-16 sm:block" />
           </div>
           <div
-            onClick={() => handleChoosePaymentMethod(2)}
-            className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200"
+            onClick={() => handleChoosePaymentMethod(listPaymentMethod[0]?._id)}
+            className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200 sm:px-4"
           >
-            <input
-              type="radio"
-              className=""
-              name="paymentMethod"
-              value={2}
-              onChange={(e) => e.stopPropagation()}
-              checked={paymentMethod === 2}
-            />
-            <span className="text-xs font-bold text-gray-500">Tiền mặt</span>
-            <img src={tienmat} alt="tienmat" className="w-8" />
+            <div className="flex items-center justify-center gap-2">
+              <input
+                type="radio"
+                className=""
+                name="paymentMethod"
+                value={listPaymentMethod[0]?._id}
+                onChange={(e) => e.stopPropagation()}
+                checked={paymentMethod === listPaymentMethod[0]?._id}
+              />
+              <span className="py-2 text-xs font-semibold text-gray-500 sm:p-0">
+                {listPaymentMethod[0]?.name}
+              </span>
+            </div>
+            <img src={tienmat} alt="tienmat" className="hidden w-8 sm:block" />
           </div>
         </div>
       </div>
@@ -148,7 +175,7 @@ const BillDetetail = () => {
         </Link>
         <button
           form="form_order"
-          className="cursor-pointer rounded-sm bg-tertiary px-4 py-2 text-sm hover:bg-yellow-500"
+          className="min-w-fit cursor-pointer rounded-sm bg-tertiary px-4 py-2 text-sm hover:bg-yellow-500"
         >
           Đặt hàng
         </button>
