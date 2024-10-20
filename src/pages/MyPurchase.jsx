@@ -7,6 +7,7 @@ import ConfirmationPending from "../components/purchase/ConfirmationPending";
 import Shipping from "../components/purchase/Shipping";
 import Completed from "../components/purchase/Completed";
 import Cancelled from "../components/purchase/Cancelled";
+import Preparing from "../components/purchase/Preparing";
 
 const tabs = {
   all: {
@@ -20,6 +21,12 @@ const tabs = {
     label: "Chờ xác nhận",
     tabContent: <ConfirmationPending />,
     trans: "PurchasesPage.toConfirm",
+  },
+  preparing: {
+    key: "preparing",
+    label: "Đang chuẩn bị",
+    tabContent: <Preparing />,
+    trans: "PurchasesPage.toPrepare",
   },
   shipping: {
     key: "shipping",

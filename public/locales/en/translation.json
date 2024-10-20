@@ -461,6 +461,7 @@
   "PurchasesPage": {
     "all": "All",
     "toConfirm": "To Confirm",
+    "toPrepare": "To Prepare",
     "toShip": "To Ship",
     "completed": "Completed",
     "cancelled": "Cancelled",
@@ -469,6 +470,8 @@
     "dish": "dish",
     "buyAgain": "Buy Again",
     "viewRating": "View Rating",
+    "payment": "Payment",
+    "cancel": "Cancel",
     "orderTotal": "Order Total",
     "emptyData": "No purchases yet"
   },
@@ -478,6 +481,7 @@
     "thanks": "Thank you for shopping with Tonatra!",
     "buyAgain": "Buy Again",
     "viewRating": "View Rating",
+    "payment": "Payment",
     "rating": "Rating",
     "deliveryAddress": "Delivery Address",
     "notes": "Notes",

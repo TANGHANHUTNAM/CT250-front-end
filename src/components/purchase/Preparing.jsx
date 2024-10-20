@@ -9,7 +9,7 @@ import _ from "lodash";
 import Pagination from "../pagination/Pagination";
 import { useEffect, useState } from "react";
 
-const Shipping = ({}) => {
+const Preparing = ({}) => {
   const [purchases, setPurchases] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -28,7 +28,7 @@ const Shipping = ({}) => {
           id,
           currentPage,
           LIMIT_PURCHASES,
-          "shipping",
+          "preparing",
         );
 
         if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
@@ -66,4 +66,4 @@ const Shipping = ({}) => {
   );
 };
 
-export default Shipping;
+export default Preparing;

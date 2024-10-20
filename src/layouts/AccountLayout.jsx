@@ -104,7 +104,7 @@ const AccountLayout = ({}) => {
             </ul>
           </div>
         </div>
-        <div className="md:grow md:rounded-sm md:bg-bgTertiary">
+        <div className="overflow-hidden md:grow md:rounded-sm md:bg-bgTertiary">
           <Outlet />
         </div>
       </div>
