@@ -85,7 +85,8 @@
     "reset_password": "Reset Password",
     "reservation_orders": "My Reservation",
     "purchase": "My Purchase",
-    "orderDetail": "Order Detail"
+    "orderDetail": "Order Detail",
+    "paymentResult": "Payment Result"
   },
   "Auth": {
     "login": "Login",

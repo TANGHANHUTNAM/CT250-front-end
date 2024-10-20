@@ -40,6 +40,7 @@ const DeleteAccountPage = lazy(() => import("../pages/DeleteAccountPage"));
 const ReservationOrdersPage = lazy(() => import("../pages/ReservationOrders"));
 const MyPurchasePage = lazy(() => import("../pages/MyPurchase"));
 const OrderDetailPage = lazy(() => import("../pages/OrderDetail"));
+const PaymentResultPage = lazy(() => import("../pages/PaymentResult"));
 
 const crumb = (trans, data) => {
   return { trans, data };
@@ -281,6 +282,15 @@ const routes = [
           </PrivateRoute>
         ),
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.payment") },
+      },
+      {
+        path: "payment/result",
+        element: (
+          <PrivateRoute>
+            <PaymentResultPage />
+          </PrivateRoute>
+        ),
+        handle: { crumb: () => crumb("BreadcrumbsAndTitle.paymentResult") },
       },
       {
         path: "*",
