@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ReviewModal from "../components/purchase/ReviewModal";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createPaymentURLToPay, getOrderById } from "../services/orderService";
+import { createUrlPayment, getOrderById } from "../services/orderService";
 import StatusCodes from "../utils/StatusCodes";
 import { toast } from "react-toastify";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "../constants";
@@ -57,7 +57,7 @@ const OrderDetail = () => {
   };
 
   const handlePayOrder = async () => {
-    const res = await createPaymentURLToPay(order?._id);
+    const res = await createUrlPayment({ orderId: order?._id });
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       const url = res.DT.vnpUrl;

@@ -4,7 +4,7 @@ import { formatCurrency } from "../../utils/format";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "../../constants";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducer/cartSlice";
-import { createPaymentURLToPay } from "../../services/orderService";
+import { createUrlPayment } from "../../services/orderService";
 import StatusCodes from "../../utils/StatusCodes";
 import { toast } from "react-toastify";
 
@@ -28,7 +28,7 @@ const PurchaseItem = ({ item = {}, handleCancelPurchase = (data) => {} }) => {
   };
 
   const handlePayOrder = async () => {
-    const res = await createPaymentURLToPay(item?._id);
+    const res = await createUrlPayment({ orderId: item?._id });
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       const url = res.DT.vnpUrl;
