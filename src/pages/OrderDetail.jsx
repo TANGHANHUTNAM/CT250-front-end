@@ -5,34 +5,36 @@ import { Link } from "react-router-dom";
 import ReviewModal from "../components/purchase/ReviewModal";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { getOrderById } from "../services/orderService";
+import { createPaymentURLToPay, getOrderById } from "../services/orderService";
 import StatusCodes from "../utils/StatusCodes";
 import { toast } from "react-toastify";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "../constants";
 import { formatCurrency } from "../utils/format";
+import CancelModal from "../components/purchase/CancelModal";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/reducer/cartSlice";
 
 const OrderDetail = () => {
   const { id } = useParams();
 
   const [order, setOrder] = useState();
   const [isVisibleReviewModal, setIsVisibleReviewModal] = useState(false);
+  const [showCancelModal, setShowCancelModal] = useState(false);
 
-  console.log(order);
+  const getOrder = async () => {
+    const res = await getOrderById(id);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      setOrder(res.DT);
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
+  };
 
   useEffect(() => {
     if (id) {
-      const getOrder = async () => {
-        const res = await getOrderById(id);
-
-        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-          setOrder(res.DT);
-        }
-
-        if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
-          toast.error(res.EM);
-        }
-      };
-
       getOrder();
     }
   }, []);
@@ -41,6 +43,32 @@ const OrderDetail = () => {
 
   const back = () => {
     navigate(-1);
+  };
+
+  const dispatch = useDispatch();
+  const handleBuyAgain = async () => {
+    const addCart = async () => {
+      order?.dishes?.forEach((dish) => {
+        dispatch(addToCart({ id: dish?._id, quantity: dish?.quantity }));
+      });
+    };
+    await addCart();
+    navigate("/cart");
+  };
+
+  const handlePayOrder = async () => {
+    const res = await createPaymentURLToPay(order?._id);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      const url = res.DT.vnpUrl;
+      if (url) {
+        window.location.replace(url);
+      }
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   const { t } = useTranslation();
@@ -56,8 +84,8 @@ const OrderDetail = () => {
             <MdArrowBack className="h-5 w-5" />
             <span>{t("OrderDetailsPage.back")}</span>
           </button>
-          <div className="sm:divide-x sm:divide-solid sm:divide-white">
-            <span className="hidden pr-3 sm:inline">
+          <div className="hidden divide-x divide-solid divide-white sr-950:block">
+            <span className="pr-3">
               <span className="uppercase">
                 {t("OrderDetailsPage.orderId")}.
               </span>{" "}
@@ -73,36 +101,55 @@ const OrderDetail = () => {
             </span>
           </div>
         </div>
-        <div className="flex justify-between px-5 py-3 sm:hidden">
+        <div className="flex justify-end px-5 py-3 sm:justify-between md:justify-end sr-950:hidden">
+          <span className="hidden sm:inline md:hidden">
+            <span className="uppercase">{t("OrderDetailsPage.orderId")}.</span>{" "}
+            {order?._id}
+          </span>
+          <div className="divide-x divide-solid divide-white">
+            <span className="px-3 font-medium text-tertiary sr-530:uppercase">
+              {order?.orderStatus}
+            </span>
+            <span className="pl-3 font-medium text-tertiary sr-530:uppercase">
+              {order?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID
+                ? "Chưa thanh toán"
+                : "Đã thanh toán"}
+            </span>
+          </div>
+        </div>
+        <div className="flex justify-between px-5 py-3 sm:hidden md:flex sr-950:hidden">
           <span className="">{t("OrderDetailsPage.orderId")}</span>
           <span>{order?._id}</span>
         </div>
-        <div className="flex items-center justify-end bg-[#0f2c29] px-5 py-4 sr-530:justify-between">
-          <span className="hidden text-xs text-gray-300 sr-530:inline">
-            {t("OrderDetailsPage.thanks")}
-          </span>
-          {(order?.orderStatus === ORDER_STATUS.completed ||
-            order?.orderStatus === ORDER_STATUS.canceled) && (
-            <button className="w-40 rounded bg-tertiary px-8 py-2.5 text-13px font-medium hover:bg-yellow-600 sm:w-52">
-              {t("OrderDetailsPage.buyAgain")}
-            </button>
-          )}
-          {order?.orderStatus === ORDER_STATUS.pending &&
-            order?.paymentMethod === PAYMENT_METHOD.VNPAY &&
-            order?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID && (
-              <button className="w-40 rounded bg-tertiary px-8 py-2.5 text-13px font-medium hover:bg-yellow-600 sm:w-52">
+        {order?.orderStatus === ORDER_STATUS.pending &&
+          order?.paymentMethod === PAYMENT_METHOD.VNPAY &&
+          order?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID && (
+            <div className="flex items-center justify-end bg-[#0f2c29] px-5 py-4">
+              <button
+                className="w-40 rounded bg-tertiary px-8 py-2.5 text-13px font-medium hover:bg-yellow-600 sm:w-52"
+                onClick={() => handlePayOrder()}
+              >
                 {t("OrderDetailsPage.payment")}
               </button>
-            )}
-        </div>
-        {order?.orderStatus === ORDER_STATUS.completed && (
+            </div>
+          )}
+        {(order?.orderStatus === ORDER_STATUS.completed ||
+          order?.orderStatus === ORDER_STATUS.canceled) && (
           <div className="flex items-center justify-end bg-[#0f2c29] p-4 px-5">
             <button
-              className="w-40 rounded bg-primary px-8 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sm:w-52"
-              onClick={() => setIsVisibleReviewModal(true)}
+              className="w-40 rounded bg-tertiary px-8 py-2.5 text-13px font-medium hover:bg-yellow-600 sm:w-52"
+              onClick={() => handleBuyAgain()}
             >
-              {t("OrderDetailsPage.viewRating")}
+              {t("OrderDetailsPage.buyAgain")}
             </button>
+            {order?.orderStatus === ORDER_STATUS.completed && (
+              <button
+                className="w-40 rounded bg-primary px-8 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sm:w-52"
+                onClick={() => setIsVisibleReviewModal(true)}
+              >
+                {t("OrderDetailsPage.viewRating")}
+              </button>
+            )}
           </div>
         )}
         <div className="divide-y divide-solid divide-white/10 px-5">
@@ -253,19 +300,35 @@ const OrderDetail = () => {
             <div className="flex w-3/5 shrink-0 items-center justify-end px-5 py-4 text-right text-gray-300 lg:w-2/3">
               {t("OrderDetailsPage.orderTotal")}
             </div>
-            <div className="flex grow items-center justify-end px-5 py-4 text-right text-lg font-semibold text-tertiary sm:text-2xl">
+            <div className="flex grow items-center justify-end px-5 py-4 text-right text-base font-semibold text-tertiary sm:text-2xl">
               {formatCurrency(order?.orderTotal)}
             </div>
           </div>
         </div>
-        {order?.orderStatus === ORDER_STATUS.pending && (
-          <div className="flex justify-end p-5">
-            <button className="w-40 rounded bg-red-600 px-8 py-2.5 text-13px font-medium text-primary hover:bg-red-700 sm:w-52">
+        <div className="flex items-center justify-end p-5 sr-530:justify-between">
+          <span
+            className={`text-xs text-gray-300 ${order?.orderStatus === ORDER_STATUS.pending ? "hidden sr-530:inline" : ""}`}
+          >
+            {t("OrderDetailsPage.thanks")}
+          </span>
+          {order?.orderStatus === ORDER_STATUS.pending && (
+            <button
+              className="w-40 rounded bg-red-600 px-8 py-2.5 text-13px font-medium text-primary hover:bg-red-700 sm:w-52"
+              onClick={() => setShowCancelModal(true)}
+            >
               {t("OrderDetailsPage.cancelOrder")}
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      {order?.orderStatus === ORDER_STATUS.pending && (
+        <CancelModal
+          show={showCancelModal}
+          setShow={setShowCancelModal}
+          data={order}
+          refetchOrder={getOrder}
+        />
+      )}
       {order?.review && (
         <ReviewModal
           show={isVisibleReviewModal}

@@ -2,13 +2,44 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { formatCurrency } from "../../utils/format";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "../../constants";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducer/cartSlice";
+import { createPaymentURLToPay } from "../../services/orderService";
+import StatusCodes from "../../utils/StatusCodes";
+import { toast } from "react-toastify";
 
-const PurchaseItem = ({ item = {} }) => {
+const PurchaseItem = ({ item = {}, handleCancelPurchase = (data) => {} }) => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
   const goToDetail = () => {
     navigate(`/account/purchase/order/${item?._id}`);
+  };
+
+  const dispatch = useDispatch();
+  const handleBuyAgain = async () => {
+    const addCart = async () => {
+      item?.dishes?.forEach((dish) => {
+        dispatch(addToCart({ id: dish?._id, quantity: dish?.quantity }));
+      });
+    };
+    await addCart();
+    navigate("/cart");
+  };
+
+  const handlePayOrder = async () => {
+    const res = await createPaymentURLToPay(item?._id);
+
+    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+      const url = res.DT.vnpUrl;
+      if (url) {
+        window.location.replace(url);
+      }
+    }
+
+    if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+      toast.error(res.EM);
+    }
   };
 
   return (
@@ -97,24 +128,28 @@ const PurchaseItem = ({ item = {} }) => {
         <div className="flex items-center justify-end gap-3 bg-[#0f2c29] px-4 py-3 sm:px-6">
           {(item?.orderStatus === ORDER_STATUS.completed ||
             item?.orderStatus === ORDER_STATUS.canceled) && (
-            <button className="rounded bg-tertiary px-4 py-2.5 text-13px font-medium hover:bg-yellow-600 sr-530:px-8">
+            <button
+              className="rounded bg-tertiary px-4 py-2.5 text-13px font-medium hover:bg-yellow-600 sr-530:px-8"
+              onClick={() => handleBuyAgain()}
+            >
               {t("PurchasesPage.buyAgain")}
-            </button>
-          )}
-          {item?.orderStatus === ORDER_STATUS.completed && (
-            <button className="hidden rounded bg-primary px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sr-530:block sr-530:px-8">
-              {t("PurchasesPage.viewRating")}
             </button>
           )}
           {item?.orderStatus === ORDER_STATUS.pending &&
             item?.paymentMethod === PAYMENT_METHOD.VNPAY &&
             item?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID && (
-              <button className="rounded bg-primary px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sr-530:px-8">
+              <button
+                className="rounded bg-primary px-4 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sr-530:px-8"
+                onClick={() => handlePayOrder()}
+              >
                 {t("PurchasesPage.payment")}
               </button>
             )}
           {item?.orderStatus === ORDER_STATUS.pending && (
-            <button className="rounded bg-tertiary px-4 py-2.5 text-13px font-medium hover:bg-yellow-600 sr-530:px-8">
+            <button
+              className="rounded bg-tertiary px-4 py-2.5 text-13px font-medium hover:bg-yellow-600 sr-530:px-8"
+              onClick={() => handleCancelPurchase(item)}
+            >
               {t("PurchasesPage.cancel")}
             </button>
           )}

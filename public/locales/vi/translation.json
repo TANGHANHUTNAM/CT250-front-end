@@ -473,7 +473,8 @@
     "payment": "Thanh toán",
     "cancel": "Hủy đơn",
     "orderTotal": "Thành tiền",
-    "emptyData": "Chưa có đơn hàng"
+    "emptyData": "Chưa có đơn hàng",
+    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn hàng với mã là {{id}} này không?"
   },
   "OrderDetailsPage": {
     "back": "Trở về",

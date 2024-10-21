@@ -473,7 +473,8 @@
     "payment": "Payment",
     "cancel": "Cancel",
     "orderTotal": "Order Total",
-    "emptyData": "No purchases yet"
+    "emptyData": "No purchases yet",
+    "deleteConfirm": "Are you sure you want to cancel this order with id {{id}}?"
   },
   "OrderDetailsPage": {
     "back": "Back",
