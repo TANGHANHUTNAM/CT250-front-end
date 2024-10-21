@@ -461,6 +461,7 @@
   "PurchasesPage": {
     "all": "Tất cả",
     "toConfirm": "Chờ xác nhận",
+    "toPrepare": "Đang chuẩn bị",
     "toShip": "Đang vận chuyển",
     "completed": "Hoàn thành",
     "cancelled": "Đã hủy",
@@ -469,8 +470,11 @@
     "dish": "món ăn",
     "buyAgain": "Mua lại",
     "viewRating": "Xem đánh giá",
+    "payment": "Thanh toán",
+    "cancel": "Hủy đơn",
     "orderTotal": "Thành tiền",
-    "emptyData": "Chưa có đơn hàng"
+    "emptyData": "Chưa có đơn hàng",
+    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn hàng với mã là {{id}} này không?"
   },
   "OrderDetailsPage": {
     "back": "Trở về",
@@ -478,6 +482,7 @@
     "thanks": "Cảm ơn bạn đã mua sắm với Tonatra!",
     "buyAgain": "Mua lại",
     "viewRating": "Xem đánh giá",
+    "payment": "Thanh toán",
     "rating": "Đánh giá",
     "deliveryAddress": "Địa chỉ giao hàng",
     "notes": "Ghi chú",

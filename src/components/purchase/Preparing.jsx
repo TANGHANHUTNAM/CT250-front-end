@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import EmptyPurchase from "./EmptyPurchase";
 import PurchaseItem from "./PurchaseItem";
 import { useSelector } from "react-redux";
@@ -8,39 +7,38 @@ import { LIMIT_PURCHASES } from "./constant";
 import StatusCodes from "../../utils/StatusCodes";
 import _ from "lodash";
 import Pagination from "../pagination/Pagination";
-import CancelModal from "./CancelModal";
+import { useEffect, useState } from "react";
 
-const AllPurchases = ({}) => {
+const Preparing = ({}) => {
   const [purchases, setPurchases] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [showCancelModal, setShowCancelModal] = useState(false);
-  const [canceledData, setCanceledData] = useState(null);
 
   const { id } = useSelector((state) => state.user.account);
 
   const { loading, apiFunction: fetchAllOrdersForUser } = useApi(
-    async (id, page, limit) => await getOrdersForUserByStatus(id, page, limit),
+    async (id, page, limit, status) =>
+      await getOrdersForUserByStatus(id, page, limit, status),
     true,
   );
 
-  const getOrders = async () => {
-    const res = await fetchAllOrdersForUser(id, currentPage, LIMIT_PURCHASES);
-
-    if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-      setPurchases(res.DT);
-    }
-  };
-
   useEffect(() => {
     if (id) {
+      const getOrders = async () => {
+        const res = await fetchAllOrdersForUser(
+          id,
+          currentPage,
+          LIMIT_PURCHASES,
+          "preparing",
+        );
+
+        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+          setPurchases(res.DT);
+        }
+      };
+
       getOrders();
     }
   }, [currentPage]);
-
-  const handleCancelPurchase = (data) => {
-    setCanceledData(data);
-    setShowCancelModal(true);
-  };
 
   if (loading) return;
 
@@ -52,9 +50,8 @@ const AllPurchases = ({}) => {
       {purchases.data.map((item, index) => {
         return (
           <PurchaseItem
-            key={`order-${index}-${item?._id}`}
+            key={`order-pending-${index}-${item?._id}`}
             item={item}
-            handleCancelPurchase={handleCancelPurchase}
           />
         );
       })}
@@ -63,17 +60,10 @@ const AllPurchases = ({}) => {
         totalPages={purchases.totalPages}
         onChangePage={(page) => setCurrentPage(page)}
       />
-      <CancelModal
-        show={showCancelModal}
-        setShow={setShowCancelModal}
-        data={canceledData}
-        setData={setCanceledData}
-        refetchOrder={getOrders}
-      />
     </>
   ) : (
     <EmptyPurchase />
   );
 };
 
-export default AllPurchases;
+export default Preparing;
