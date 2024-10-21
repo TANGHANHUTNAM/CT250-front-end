@@ -21,10 +21,14 @@ export const initialState = {
   totalPrice: 0,
   shippingFee: 0,
   totalDiscount: 0,
+  totalDiscountId: null,
   totalQuantity: 0,
   finalPrice: 0,
   listDishes: [],
-  paymentMethod: null,
+  paymentMethod: {
+    value: null,
+    isTransfer: null,
+  },
 };
 
 export const orderSlice = createSlice({
@@ -64,6 +68,9 @@ export const orderSlice = createSlice({
     setListDishes: (state, action) => {
       state.listDishes = action.payload;
     },
+    setTotalDiscountId: (state, action) => {
+      state.totalDiscountId = action.payload;
+    },
     setResetOrder: (state) => {
       state.recevierName = null;
       state.receiverPhone = null;
@@ -72,10 +79,14 @@ export const orderSlice = createSlice({
       state.totalPrice = 0;
       state.shippingFee = 0;
       state.totalDiscount = 0;
+      state.totalDiscountId = null;
       state.totalQuantity = 0;
       state.finalPrice = 0;
       state.listDishes = [];
-      state.paymentMethod = null;
+      state.paymentMethod = {
+        value: null,
+        isTransfer: null,
+      };
     },
   },
   extraReducers: (builder) => {
@@ -98,6 +109,7 @@ export const {
   setPaymentMethod,
   setListDishes,
   setResetOrder,
+  setTotalDiscountId,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

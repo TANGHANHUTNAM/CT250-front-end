@@ -28,15 +28,19 @@ import {
   setTotalQuantity,
 } from "../../redux/reducer/orderSlice";
 import { getMultipleDishes } from "../../services/dishService";
+import { createOrder, createUrlPayment } from "../../services/orderService";
 import StatusCodes from "../../utils/StatusCodes";
 import Input from "../inputs/Input";
 import SelectInput from "../inputs/SelectInput";
 import Textarea from "../inputs/Textarea";
 import { toast } from "react-toastify";
-import { removeAll } from "../../redux/reducer/cartSlice";
-import ModalConfirmPayment from "./ModalConfirmPayment";
 
-const InforPayment = () => {
+import ModalConfirmPayment from "./ModalConfirmPayment";
+import { useNavigate } from "react-router-dom";
+import { removeAll } from "../../redux/reducer/cartSlice";
+
+const InforPayment = ({ setIsLoading }) => {
+  const navigate = useNavigate();
   const [openModalConfirmPayment, setOpenModalConfirmPayment] = useState(false);
   const provincesShipping = [
     "An Giang",
@@ -76,9 +80,6 @@ const InforPayment = () => {
     selectedDistrict,
     selectedWard,
   } = useSelector((state) => state.address);
-  const { fullname, phoneNumber, address } = useSelector(
-    (state) => state.user.account,
-  );
 
   // Handle the select province, district, and ward
   const handleSelectProvince = (value, props) => {
@@ -122,17 +123,6 @@ const InforPayment = () => {
   const handleNote = (value) => {
     dispatch(setNote(value));
   };
-  useEffect(() => {
-    if (fullname) {
-      handleReceiverName(fullname);
-    }
-    if (phoneNumber) {
-      handleReceiverPhone(phoneNumber);
-    }
-    if (address) {
-      handleReceiverAddress(address);
-    }
-  }, [fullname, phoneNumber, address]);
 
   // Caclulate fee shipping
   const { totalQuantity } = useSelector((state) => state.order);
@@ -194,9 +184,8 @@ const InforPayment = () => {
     }
   }, [carts, dishesInfomation, dispatch]);
   // calculate the Final Fee
-  const { totalPrice, shippingFee, totalDiscount } = useSelector(
-    (state) => state.order,
-  );
+  const { totalPrice, shippingFee, totalDiscount, totalDiscountId } =
+    useSelector((state) => state.order);
   useEffect(() => {
     if (totalPrice && shippingFee && totalDiscount) {
       dispatch(setFinalPrice(totalPrice + shippingFee - totalDiscount));
@@ -230,34 +219,90 @@ const InforPayment = () => {
   const { nameWard, nameDistrict, nameProvince } = useSelector(
     (state) => state.address,
   );
-  const handleOrder = (data) => {
+  const { id } = useSelector((state) => state.user.account);
+  const order = {
+    accountId: id,
+    couponId: totalDiscountId,
+    receiverName: recevierName,
+    receiverPhone: receiverPhone,
+    receiverAddress: {
+      province: nameProvince,
+      district: nameDistrict,
+      ward: nameWard,
+      details: receiverAddress,
+    },
+    note: note,
+    paymentMethodId: paymentMethod?.value,
+    shippingFee: shippingFee,
+    orderTotal: finalPrice,
+    dishes: listDishes?.map((dish) => ({
+      id: dish._id,
+      quantity: dish.quantity,
+    })),
+  };
+
+  const [orderCompleted, setOrderCompleted] = useState(false);
+  const [orderSubmitted, setOrderSubmitted] = useState(false);
+  useEffect(() => {
+    if (orderCompleted) {
+      navigate("/account/purchase");
+    }
+  }, [orderCompleted, navigate]);
+  useEffect(() => {
+    if (carts.length === 0 && !orderSubmitted) {
+      navigate("/dish");
+    }
+  }, [carts, navigate, orderSubmitted]);
+
+  const [vnpayUrl, setVnpayUrl] = useState("");
+  const handleCreateOrder = async () => {
+    setIsLoading(true);
+    setOrderSubmitted(true);
+    try {
+      const res = await createOrder(order);
+      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+        const orderResult = res.DT;
+        if (!paymentMethod.isTransfer) {
+          dispatch(removeAll());
+          toast.success("Đặt hàng thành công");
+          setOrderCompleted(true);
+        }
+        if (paymentMethod.isTransfer) {
+          const res = await createUrlPayment({ orderId: orderResult?._id });
+          if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+            setVnpayUrl(res.DT.vnpUrl);
+            setOpenModalConfirmPayment(true);
+          }
+          if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+            toast.error(res.EM);
+            return;
+          }
+        }
+        dispatch(setResetOrder());
+        reset();
+      }
+      if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
+        toast.error(res.EM);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleOrder = async (data) => {
     if (data) {
-      if (paymentMethod === null) {
+      if (paymentMethod.value === null) {
         toast.error("Vui lòng chọn phương thức thanh toán");
         return;
       }
-      const order = {
-        receiverName: recevierName,
-        receiverPhone: receiverPhone,
-        receiverAddress: receiverAddress ? receiverAddress : "",
-        note: note,
-        paymentMethod: paymentMethod,
-        totalQuantity: totalQuantity,
-        shippingFee: shippingFee,
-        finalPrice: finalPrice,
-        totalPrice: totalPrice,
-        totalDiscount: totalDiscount,
-        listDishes: listDishes,
-        receiverWard: nameWard,
-        receiverDistrict: nameDistrict,
-        receiverProvince: nameProvince,
-      };
+      if (totalQuantity === 0) {
+        toast.error("Vui lòng chọn món ăn");
+        return;
+      }
       // call api
-      setOpenModalConfirmPayment(true);
-      // dispatch(setResetOrder());
-      // dispatch(removeAll());
-      toast.success("Đặt hàng thành công");
-      console.log(order);
+      handleCreateOrder();
     } else {
       toast.error("Vui lòng nhập đầy đủ thông tin");
     }
@@ -280,7 +325,6 @@ const InforPayment = () => {
             type="text"
             onChange={(e) => handleReceiverName(e.target.value)}
             placeholder={"Họ và tên*"}
-            defaultValue={fullname}
             label="receiverName"
             autoComplete="receiverName"
             className="w-full rounded-sm border px-3 py-2 text-sm outline-none"
@@ -293,7 +337,6 @@ const InforPayment = () => {
             type="text"
             placeholder={"Số điện thoại*"}
             onChange={(e) => handleReceiverPhone(e.target.value)}
-            defaultValue={phoneNumber}
             label="receiverPhone"
             autoComplete="receiverPhone"
             className="w-full rounded-sm border px-3 py-2 text-sm outline-none"
@@ -369,6 +412,8 @@ const InforPayment = () => {
         </form>
       </div>
       <ModalConfirmPayment
+        vnpayUrl={vnpayUrl}
+        setVnpayUrl={setVnpayUrl}
         openModalConfirmPayment={openModalConfirmPayment}
         setOpenModalConfirmPayment={setOpenModalConfirmPayment}
       />

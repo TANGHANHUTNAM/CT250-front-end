@@ -19,7 +19,7 @@ const CartList = ({ carts = [] }) => {
   };
 
   const handleOrder = () => {
-    console.log("order");
+    // console.log("order");
   };
 
   const { t } = useTranslation();

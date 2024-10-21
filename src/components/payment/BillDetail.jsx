@@ -7,16 +7,17 @@ import { formatCurrency } from "../../utils/format";
 import {
   setPaymentMethod,
   setTotalDiscount,
+  setTotalDiscountId,
 } from "../../redux/reducer/orderSlice";
 import { getPriceDiscountByCoupon } from "../../services/couponService";
 import StatusCodes from "../../utils/StatusCodes";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getMethodsPayment } from "../../services/paymentService";
+import { BiLoaderCircle } from "react-icons/bi";
 
-const BillDetetail = () => {
+const BillDetetail = ({ listCoupon, isLoading }) => {
   const dispatch = useDispatch();
-
   const [coupon, setCoupon] = useState("");
   const {
     totalQuantity,
@@ -24,10 +25,13 @@ const BillDetetail = () => {
     finalPrice,
     totalPrice,
     totalDiscount,
+    totalDiscountId,
     paymentMethod,
   } = useSelector((state) => state.order);
 
   const handleGetPriceDiscountByCoupon = async (data) => {
+    const coupon = listCoupon.find((coupon) => coupon.code === data.code);
+    dispatch(setTotalDiscountId(coupon?._id));
     try {
       const res = await getPriceDiscountByCoupon(data);
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
@@ -47,7 +51,6 @@ const BillDetetail = () => {
     const fetchPaymentMethod = async () => {
       try {
         const res = await getMethodsPayment();
-        console.log(res);
         if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
           setListPaymentMethod(res.DT);
         }
@@ -61,8 +64,8 @@ const BillDetetail = () => {
     fetchPaymentMethod();
   }, []);
 
-  const handleChoosePaymentMethod = (value) => {
-    dispatch(setPaymentMethod(value));
+  const handleChoosePaymentMethod = (value, isTransfer) => {
+    dispatch(setPaymentMethod({ value, isTransfer }));
   };
 
   return (
@@ -125,7 +128,9 @@ const BillDetetail = () => {
         </div>
         <div className="mt-2 flex flex-col gap-3">
           <div
-            onClick={() => handleChoosePaymentMethod(listPaymentMethod[1]?._id)}
+            onClick={() =>
+              handleChoosePaymentMethod(listPaymentMethod[1]?._id, true)
+            }
             className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200 sm:px-4"
           >
             <div className="flex items-center justify-center gap-2">
@@ -135,7 +140,7 @@ const BillDetetail = () => {
                 name="paymentMethod"
                 value={listPaymentMethod[1]?._id}
                 onChange={(e) => e.stopPropagation()}
-                checked={paymentMethod === listPaymentMethod[1]?._id}
+                checked={paymentMethod?.value === listPaymentMethod[1]?._id}
               />
               <span className="ml-1 min-w-fit text-xs font-semibold text-gray-500">
                 {listPaymentMethod[1]?.name}
@@ -144,7 +149,9 @@ const BillDetetail = () => {
             <img src={vnpay} alt="vnpay" className="hidden w-16 sm:block" />
           </div>
           <div
-            onClick={() => handleChoosePaymentMethod(listPaymentMethod[0]?._id)}
+            onClick={() =>
+              handleChoosePaymentMethod(listPaymentMethod[0]?._id, false)
+            }
             className="flex flex-1 cursor-pointer items-center justify-between rounded-sm bg-white p-2 hover:bg-gray-200 sm:px-4"
           >
             <div className="flex items-center justify-center gap-2">
@@ -154,7 +161,7 @@ const BillDetetail = () => {
                 name="paymentMethod"
                 value={listPaymentMethod[0]?._id}
                 onChange={(e) => e.stopPropagation()}
-                checked={paymentMethod === listPaymentMethod[0]?._id}
+                checked={paymentMethod?.value === listPaymentMethod[0]?._id}
               />
               <span className="py-2 text-xs font-semibold text-gray-500 sm:p-0">
                 {listPaymentMethod[0]?.name}
@@ -174,10 +181,16 @@ const BillDetetail = () => {
           <span className="text-sm">Trở lại giỏ hàng</span>
         </Link>
         <button
+          disabled={isLoading}
           form="form_order"
-          className="min-w-fit cursor-pointer rounded-sm bg-tertiary px-4 py-2 text-sm hover:bg-yellow-500"
+          className={`flex min-w-fit cursor-pointer items-center justify-center gap-1.5 rounded-sm bg-tertiary px-2 py-2 text-sm ${isLoading ? "bg-yellow-500" : "hover:bg-yellow-500"} `}
         >
-          Đặt hàng
+          {isLoading && (
+            <span className="text-md animate-spin">
+              <BiLoaderCircle />
+            </span>
+          )}
+          <span>Đặt hàng</span>
         </button>
       </div>
     </div>
