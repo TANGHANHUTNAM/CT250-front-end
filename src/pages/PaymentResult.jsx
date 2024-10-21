@@ -38,7 +38,6 @@ const PaymentResult = () => {
 
   const [error, setError] = useState(0);
   useEffect(() => {
-    console.log(error);
     if (error !== StatusCodes.SUCCESS_DAFAULT) {
       navigate("/");
     }
@@ -47,7 +46,6 @@ const PaymentResult = () => {
   const fetchOrderById = async () => {
     try {
       const res = await getOrderById(orderId);
-      console.log(res);
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
         setOrder(res.DT);
       }
@@ -108,7 +106,7 @@ const PaymentResult = () => {
 
             <div>
               <p className="font-semibold text-gray-800">Địa chỉ nhận hàng</p>
-              <p className="text-gray-600">{`${order?.receiverAddress?.details ? <>{order?.receiverAddress?.details},</> : ""} ${order?.receiverAddress?.ward}, ${order?.receiverAddress?.district}, ${order?.receiverAddress?.province}`}</p>
+              <p className="text-gray-600">{`${order?.receiverAddress?.details ? `${order?.receiverAddress?.details},` : ""} ${order?.receiverAddress?.ward}, ${order?.receiverAddress?.district}, ${order?.receiverAddress?.province}`}</p>
             </div>
 
             <div>
@@ -129,7 +127,9 @@ const PaymentResult = () => {
               <p className="font-semibold text-gray-800">
                 Trạng thái thanh toán
               </p>
-              <p className="text-gray-600">{order?.paymentStatus}</p>
+              <p className="text-gray-600">
+                {order?.paymentStatus ? "Đã thanh toán" : "Chưa thanh toán"}
+              </p>
             </div>
           </div>
 
@@ -138,7 +138,7 @@ const PaymentResult = () => {
               className="mb-2 mr-2 rounded-md bg-red-500 px-3 py-2 text-white hover:bg-red-600"
               onClick={() => navigate("/dish")}
             >
-              Mua món ăn
+              Mua thêm
             </button>
             <button
               className="rounded-md bg-green-500 px-3 py-2 text-white hover:bg-green-600"
