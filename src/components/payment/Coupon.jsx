@@ -1,30 +1,7 @@
 import voucher from "../../assets/voucher.webp";
-import { getValidCouponByTotalOrder } from "../../services/couponService";
-import { useSelector } from "react-redux";
-import StatusCodes from "../../utils/StatusCodes";
-import { useEffect, useState } from "react";
 import Voucher from "./Voucher";
 
-const Coupon = () => {
-  const { totalPrice } = useSelector((state) => state.order);
-  const [listCoupon, setListCoupon] = useState([]);
-  const fetchCouponValidForOrder = async () => {
-    try {
-      const res = await getValidCouponByTotalOrder(totalPrice);
-      if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        setListCoupon(res.DT);
-      }
-      if (res && res.EC !== StatusCodes.SUCCESS_DAFAULT) {
-        console.log(res.EM);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    if (totalPrice) fetchCouponValidForOrder();
-  }, [totalPrice]);
-
+const Coupon = ({ listCoupon }) => {
   return (
     <>
       {listCoupon && listCoupon?.length > 0 ? (
