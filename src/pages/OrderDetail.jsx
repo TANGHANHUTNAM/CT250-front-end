@@ -9,16 +9,18 @@ import { createUrlPayment, getOrderById } from "../services/orderService";
 import StatusCodes from "../utils/StatusCodes";
 import { toast } from "react-toastify";
 import { ORDER_STATUS, PAYMENT_METHOD, PAYMENT_STATUS } from "../constants";
-import { formatCurrency } from "../utils/format";
+import { formatAddress, formatCurrency } from "../utils/format";
 import CancelModal from "../components/purchase/CancelModal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/reducer/cartSlice";
+import RateModal from "../components/purchase/RateModal";
 
 const OrderDetail = () => {
   const { id } = useParams();
 
   const [order, setOrder] = useState();
   const [isVisibleReviewModal, setIsVisibleReviewModal] = useState(false);
+  const [isVisibleRateModal, setIsVisibleRateModal] = useState(false);
   const [showCancelModal, setShowCancelModal] = useState(false);
 
   const getOrder = async () => {
@@ -135,7 +137,7 @@ const OrderDetail = () => {
           )}
         {(order?.orderStatus === ORDER_STATUS.completed ||
           order?.orderStatus === ORDER_STATUS.canceled) && (
-          <div className="flex items-center justify-end bg-[#0f2c29] p-4 px-5">
+          <div className="flex items-center justify-end gap-4 bg-[#0f2c29] p-4 px-5">
             <button
               className="w-40 rounded bg-tertiary px-8 py-2.5 text-13px font-medium hover:bg-yellow-600 sm:w-52"
               onClick={() => handleBuyAgain()}
@@ -143,12 +145,24 @@ const OrderDetail = () => {
               {t("OrderDetailsPage.buyAgain")}
             </button>
             {order?.orderStatus === ORDER_STATUS.completed && (
-              <button
-                className="w-40 rounded bg-primary px-8 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sm:w-52"
-                onClick={() => setIsVisibleReviewModal(true)}
-              >
-                {t("OrderDetailsPage.viewRating")}
-              </button>
+              <>
+                {order?.rated === true && (
+                  <button
+                    className="w-40 rounded bg-primary px-8 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sm:w-52"
+                    onClick={() => setIsVisibleReviewModal(true)}
+                  >
+                    {t("OrderDetailsPage.viewRating")}
+                  </button>
+                )}
+                {order?.rated === false && (
+                  <button
+                    className="w-40 rounded bg-primary px-8 py-2.5 text-13px font-medium text-gray-900 hover:bg-gray-200 sm:w-52"
+                    onClick={() => setIsVisibleRateModal(true)}
+                  >
+                    {t("OrderDetailsPage.rate")}
+                  </button>
+                )}
+              </>
             )}
           </div>
         )}
@@ -188,18 +202,6 @@ const OrderDetail = () => {
                             </span>
                           </span>
                         </div>
-                        {dish?.review && (
-                          <div className="hidden sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-2">
-                            <p>{t("OrderDetailsPage.rating")}</p>
-                            <div className="flex items-center">
-                              <FaStar className="text-yellow-400" />
-                              <FaStar className="text-yellow-400" />
-                              <FaStar className="text-yellow-400" />
-                              <FaStar className="text-yellow-400" />
-                              <FaStar className="text-yellow-400" />
-                            </div>
-                          </div>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -218,7 +220,7 @@ const OrderDetail = () => {
               <p className="text-gray-200">{order?.receiverPhone}</p>
               <p className="text-gray-200">
                 {order?.receiverAddress &&
-                  Object.values(order?.receiverAddress).reverse().join(", ")}
+                  formatAddress(order?.receiverAddress)}
               </p>
               <p className="text-gray-200">
                 {t("OrderDetailsPage.notes")}: {order?.note}
@@ -240,7 +242,7 @@ const OrderDetail = () => {
                   <div className="grow space-y-2 pt-1 text-13px">
                     <p className="pb-1">
                       {" "}
-                      {new Date(order?.deliverDate).toLocaleString("vi-VN")}
+                      {new Date(order?.deliveryDate).toLocaleString("vi-VN")}
                     </p>
                     <p className="text-green-400">Đơn hàng đã được giao</p>
                   </div>
@@ -329,10 +331,20 @@ const OrderDetail = () => {
           refetchOrder={getOrder}
         />
       )}
-      {order?.review && (
+      {order?.rated === true && isVisibleReviewModal && (
         <ReviewModal
           show={isVisibleReviewModal}
           handleClose={() => setIsVisibleReviewModal(false)}
+          orderId={order?._id}
+        />
+      )}
+      {order?.rated === false && isVisibleRateModal && (
+        <RateModal
+          show={isVisibleRateModal}
+          handleClose={() => setIsVisibleRateModal(false)}
+          dishes={order?.dishes}
+          orderId={order?._id}
+          refetchOrder={getOrder}
         />
       )}
     </div>

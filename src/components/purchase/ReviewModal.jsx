@@ -1,9 +1,32 @@
 import { Modal } from "antd";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaStar } from "react-icons/fa";
+import { getReviewsForOrder } from "../../services/reviewService";
+import StatusCodes from "../../utils/StatusCodes";
 
-const ReviewModal = ({ show = false, handleClose = () => {}, review = {} }) => {
+const ReviewModal = ({ show = false, handleClose = () => {}, orderId }) => {
   const { t } = useTranslation();
+
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (orderId) {
+      const getReviews = async () => {
+        const res = await getReviewsForOrder(orderId);
+
+        if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
+          setReviews(res.DT);
+        }
+
+        if (res && res.EC === StatusCodes.ERROR_DEFAULT) {
+          setReviews([]);
+        }
+      };
+
+      getReviews();
+    }
+  }, [orderId]);
 
   return (
     <Modal
@@ -30,70 +53,64 @@ const ReviewModal = ({ show = false, handleClose = () => {}, review = {} }) => {
     >
       <h2 className="pb-4 text-xl font-semibold">{t("ReviewModal.title")}</h2>
       <div className="divide-y divide-solid divide-gray-300">
-        <div className="space-y-4 py-4">
-          <div className="flex items-center gap-6">
-            <div className="h-16 w-16 shrink-0">
-              <img
-                src="https://bizweb.dktcdn.net/thumb/large/100/469/097/products/1240f05c5ee174bcdaf47d5ec33197.jpg?v=1667882506833"
-                loading="lazy"
-                className="object-contain"
-              />
-            </div>
-            <div className="flex grow flex-col text-sm">
-              <span className="font-medium max-sr-530:truncate">
-                Ba rọi nướng riềng mẻ
-              </span>
-              <span>x1</span>
-            </div>
-          </div>
-          <div className="flex gap-5">
-            <div className="space-y-1">
-              <span className="flex items-center">
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-gray-300" />
-              </span>
-              <p className="text-13px text-gray-600">24/09/2024</p>
-            </div>
-            <div className="text-sm text-gray-900">
-              Ngon lắm nha!!! Ngon lắm nha!!! Ngon lắm nha!!! Ngon lắm nha!!!
-            </div>
-          </div>
-        </div>
-        <div className="space-y-4 py-4">
-          <div className="flex items-center gap-6">
-            <div className="h-16 w-16 shrink-0">
-              <img
-                src="https://bizweb.dktcdn.net/thumb/large/100/469/097/products/1240f05c5ee174bcdaf47d5ec33197.jpg?v=1667882506833"
-                loading="lazy"
-                className="object-contain"
-              />
-            </div>
-            <div className="flex grow flex-col text-sm">
-              <span className="font-medium max-sr-530:truncate">
-                Ba rọi nướng riềng mẻ
-              </span>
-              <span>x1</span>
-            </div>
-          </div>
-          <div className="flex gap-5">
-            <div className="space-y-1">
-              <span className="flex items-center">
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-yellow-400" />
-                <FaStar className="text-gray-300" />
-              </span>
-              <p className="text-13px text-gray-600">24/09/2024</p>
-            </div>
-            <div className="text-sm text-gray-900">
-              Ngon lắm nha!!! Ngon lắm nha!!! Ngon lắm nha!!! Ngon lắm nha!!!
-            </div>
-          </div>
-        </div>
+        {reviews.length > 0 &&
+          reviews.map((review, i) => {
+            return (
+              <div
+                key={`review-see-${i}-${review?._id}`}
+                className="space-y-4 py-4"
+              >
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 shrink-0">
+                    <img
+                      src={review?.dishImage}
+                      loading="lazy"
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex grow flex-col text-sm">
+                    <span className="font-medium max-sr-530:truncate">
+                      {review?.dishName}
+                    </span>
+                    <span>x{review?.quantity}</span>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div className="space-y-1">
+                    <span className="flex items-center">
+                      {(() => {
+                        const star = +review?.rating;
+                        let startHtml = [];
+
+                        for (let i = 1; i <= star; i++) {
+                          startHtml.push(
+                            <FaStar
+                              key={`star-${i}-${review?._id}`}
+                              className="text-yellow-400"
+                            />,
+                          );
+                        }
+                        for (let i = star + 1; i <= 5; i++) {
+                          startHtml.push(
+                            <FaStar
+                              key={`star-${i}-${review?._id}`}
+                              className="text-gray-300"
+                            />,
+                          );
+                        }
+
+                        return startHtml;
+                      })()}
+                    </span>
+                    <p className="text-13px text-gray-600">
+                      {review?.rateDate}
+                    </p>
+                  </div>
+                  <div className="text-sm text-gray-900">{review?.review}</div>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </Modal>
   );

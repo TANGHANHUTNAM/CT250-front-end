@@ -482,6 +482,7 @@
     "thanks": "Thank you for shopping with Tonatra!",
     "buyAgain": "Buy Again",
     "viewRating": "View Rating",
+    "rate": "Rate",
     "payment": "Payment",
     "rating": "Rating",
     "deliveryAddress": "Delivery Address",
@@ -494,7 +495,10 @@
     "cancelOrder": "Cancel Order"
   },
   "ReviewModal": {
-    "title": "Order Review"
+    "title": "Order Review",
+    "textareaPlaceholder": "Let us know what you think...",
+    "submitReview": "Submit review",
+    "cancel": "Cancel"
   },
   "ReservationOrderPage": {
     "all": "All",

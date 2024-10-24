@@ -482,6 +482,7 @@
     "thanks": "Cảm ơn bạn đã mua sắm với Tonatra!",
     "buyAgain": "Mua lại",
     "viewRating": "Xem đánh giá",
+    "rate": "Đánh giá",
     "payment": "Thanh toán",
     "rating": "Đánh giá",
     "deliveryAddress": "Địa chỉ giao hàng",
@@ -494,7 +495,10 @@
     "cancelOrder": "Hủy đặt hàng"
   },
   "ReviewModal": {
-    "title": "Đánh giá đơn hàng"
+    "title": "Đánh giá đơn hàng",
+    "textareaPlaceholder": "Hãy cho chúng tôi biết cảm nhận của bạn...",
+    "submitReview": "Gửi đánh giá",
+    "cancel": "Thoát"
   },
   "ReservationOrderPage": {
     "all": "Tất cả",
