@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducer/cartSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const DishInformation = ({ dish }) => {
   const { t } = useTranslation();
@@ -75,14 +76,17 @@ const DishInformation = ({ dish }) => {
               </div>
               <div className="flex w-full gap-2 sr-530:w-4/5 sr-530:gap-4 sm:w-auto md:w-4/5">
                 <button
-                  className="grow rounded-md bg-tertiary px-4 py-2.5 text-sm font-medium hover:bg-yellow-600"
+                  className="grow rounded-md bg-tertiary px-2 py-2.5 text-sm font-medium hover:bg-yellow-600 sr-530:px-4"
                   onClick={() => handleAddToCart()}
                 >
                   {t("DishDetailPage.addToCart")}
                 </button>
-                <button className="grow rounded-md bg-yellow-600 px-4 py-2.5 text-sm font-medium hover:bg-tertiary">
-                  {t("DishDetailPage.buyNow")}
-                </button>
+                <Link
+                  to="/booking"
+                  className="grow rounded-md bg-yellow-600 px-2 py-2.5 text-center text-sm font-medium hover:bg-tertiary sr-530:px-4"
+                >
+                  {t("DishDetailPage.bookNow")}
+                </Link>
               </div>
             </>
           ) : (

@@ -29,7 +29,7 @@ const DishDetailPage = () => {
             <div className="grow space-y-3">
               <DishInformation dish={dish} />
               <DishDescription dish={dish} />
-              <DishReview />
+              <DishReview dish={dish} />
               <SimilarDishes category={dish?.category?.[1]} />
             </div>
             <div className="shrink-0">
