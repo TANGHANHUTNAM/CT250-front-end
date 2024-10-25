@@ -8,4 +8,8 @@ const getReviewsForOrder = (orderId) => {
   return axios.get(`/api/v1/review/order/${orderId}`);
 };
 
-export { addNewReview, getReviewsForOrder };
+const getReviewsForDish = (dishId, page = 1, limit = 10) => {
+  return axios.get(`/api/v1/review/dish/${dishId}?page=${page}&limit=${limit}`);
+};
+
+export { addNewReview, getReviewsForOrder, getReviewsForDish };
