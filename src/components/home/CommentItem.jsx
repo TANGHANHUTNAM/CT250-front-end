@@ -11,12 +11,12 @@ const CommnentItem = ({ item }) => {
         </div>
         {/* des */}
         <div className="mb-5 flex h-full items-center">
-          <p className="text-center font-medium">{item?.des}</p>
+          <p className="text-center font-medium">{item?.review}</p>
         </div>
         {/* avatar */}
         <div className="mb-3">
           <Avatar
-            src={""}
+            src={item?.accountAvatar}
             style={{
               cursor: "default",
               backgroundColor: "white",
@@ -28,7 +28,7 @@ const CommnentItem = ({ item }) => {
         </div>
         {/* username */}
         <div className="username text-lg font-semibold text-tertiary">
-          {item?.username}
+          {item?.accountName}
         </div>
       </div>
     </div>

@@ -12,4 +12,13 @@ const getReviewsForDish = (dishId, page = 1, limit = 10) => {
   return axios.get(`/api/v1/review/dish/${dishId}?page=${page}&limit=${limit}`);
 };
 
-export { addNewReview, getReviewsForOrder, getReviewsForDish };
+const getReviewsForHomePage = () => {
+  return axios.get(`/api/v1/review/home-page`);
+};
+
+export {
+  addNewReview,
+  getReviewsForOrder,
+  getReviewsForDish,
+  getReviewsForHomePage,
+};

@@ -138,7 +138,7 @@ const DishLayout = ({ children, title, path = "" }) => {
         </div>
         <div className="h-full w-full px-4 pb-6 sm:w-80 sm:bg-bgPrimary sm:py-6">
           <div className="space-y-6">
-            <DishCategories />
+            <DishCategories path={path} />
             {_.isEmpty(selectedFilter) === false && (
               <YourSelection
                 choices={selectedFilter}
