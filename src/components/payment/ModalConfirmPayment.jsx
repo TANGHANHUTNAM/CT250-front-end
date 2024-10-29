@@ -4,17 +4,19 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeAll } from "../../redux/reducer/cartSlice";
+import { useTranslation } from "react-i18next";
 const ModalConfirmPayment = ({
   vnpayUrl,
   setVnpayUrl,
   setOpenModalConfirmPayment,
   openModalConfirmPayment,
 }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handlePaymentNow = () => {
     if (!vnpayUrl) {
-      toast.error("Đã có lỗi xảy ra, vui lòng thử lại sau");
+      toast.error(t("ModalConfirmPayment.errorMessage"));
       return;
     }
     setOpenModalConfirmPayment(false);
@@ -24,14 +26,14 @@ const ModalConfirmPayment = ({
 
   const handlePaymentLater = () => {
     if (!vnpayUrl) {
-      toast.error("Đã có lỗi xảy ra, vui lòng thử lại sau");
+      toast.error(t("ModalConfirmPayment.errorMessage"));
       return;
     }
     setOpenModalConfirmPayment(false);
     navigate("/account/purchase");
     setVnpayUrl("");
     dispatch(removeAll());
-    toast.success("Đặt hàng thành công");
+    toast.success(t("ModalConfirmPayment.successMessage"));
   };
   return (
     <>
@@ -51,7 +53,7 @@ const ModalConfirmPayment = ({
           <div className="flex items-center justify-center gap-3">
             <IoMdInformationCircleOutline className="text-2xl text-gray-700 sm:text-4xl" />
             <span className="text-lg font-bold sm:text-2xl">
-              Bạn muốn thanh toán?
+              {t("ModalConfirmPayment.payment")}
             </span>
           </div>
           <div className="flex items-center justify-center gap-4">
@@ -61,7 +63,7 @@ const ModalConfirmPayment = ({
               }}
               className="transform rounded-lg bg-green-500 px-5 py-2 text-sm text-white shadow-lg transition-transform hover:scale-105 hover:bg-green-600 sm:text-lg"
             >
-              Thanh toán ngay
+              {t("ModalConfirmPayment.payNow")}
             </button>
             <button
               onClick={() => {
@@ -69,7 +71,7 @@ const ModalConfirmPayment = ({
               }}
               className="transform rounded-lg bg-yellow-500 px-5 py-2 text-sm text-white shadow-lg transition-transform hover:scale-105 hover:bg-yellow-600 sm:text-lg"
             >
-              Thanh toán sau
+              {t("ModalConfirmPayment.payLater")}
             </button>
           </div>
         </div>

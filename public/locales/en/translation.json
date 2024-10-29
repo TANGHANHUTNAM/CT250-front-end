@@ -524,5 +524,44 @@
   "FavoriteDishPage": {
     "title": "Favorite Dish",
     "noData": "You don't have any favorite dish yet!"
+  },
+  "BillDetail": {
+  "getPriceDiscountByCoupon": {
+    "success": "Coupon applied successfully",
+    "fail": "The coupon is invalid or has expired!"
+  },
+  "paymentDetail": "Payment Details",
+  "inputDiscount": "Enter coupon code",
+  "apply": "Apply",
+  "subtotal": "Total Quantity:",
+  "tempPayment": "Temporary Payment:",
+  "shippingfee": "Shipping Fee:",
+  "discount": "Discount:",
+  "total": "Total Payment:",
+  "paymentMethod": "Payment Method",
+  "backToCart": "Back to Cart",
+  "placeOrder": "Place Order"
+},
+"Coupon": {
+  "valid": "Voucher is valid!!!"
+},
+"InforPayment": {
+    "receiverNameRequire": "Name cannot be empty",
+    "receiverPhoneRequire": "Invalid Phone Number",
+    "receiverAddressOptionRequire": "Invalid Address",
+    "receiverProvinceRequire": "Invalid Province",
+    "receiverDistrictRequire": "Invalid District",
+    "receiverWardRequire": "Invalid Ward",
+    "choosePaymentMethod": "Please select a payment method",
+    "placeOrderSuccess": "Order placed successfully",
+    "enterInfor": "Please fill in all the information",
+    "deliveryInformation": "Delivery Information",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number*",
+    "address": "Detailed Address (house number, street name)",
+    "receiverProvince": "Province/City*",
+    "receiverDistrict": "District*",
+    "receiverWard": "Ward*",
+    "note": "Notes..."
   }
 }

@@ -524,5 +524,51 @@
   "FavoriteDishPage": {
     "title": "Món ăn yêu thích",
     "noData": "Bạn chưa có món ăn yêu thích nào!"
+  },
+  "BillDetail": {
+    "getPriceDiscountByCoupon": {
+      "success":"Áp dụng mã giảm giá thành công",
+      "fail":"Mã giảm giá không hợp lệ hoặc đã hết hạn!"
+    },
+    "paymentDetail": "Chi tiết thanh toán",
+    "inputDiscount": "Nhập mã giảm giá",
+    "apply":"Áp dụng",
+    "subtotal": "Tổng số lượng:",
+    "tempPayment": "Tạm thanh toán:",
+    "shippingfee": "Phí vận chuyển:",
+    "discount": "Giảm giá:",
+    "total": "Tổng thanh toán:",
+    "paymentMethod": "Phương thức thanh toán",
+    "backToCart": "Trở lại giỏ hàng",
+    "placeOrder": "Đặt hàng"
+  },
+  "Coupon": {
+    "valid":"Voucher khả dụng !!!"
+  },
+  "InforPayment": {
+    "receiverNameRequire": "Tên không được để trống",
+    "receiverPhoneRequire": "Số điện thoại không hợp lệ",
+    "receiverAddressOptionRequire": "Địa chỉ không hợp lệ",
+    "receiverProvinceRequire": "Tỉnh/Thành phố không hợp lệ",
+    "receiverDistrictRequire": "Quận/Huyện không hợp lệ",
+    "receiverWardRequire": "Phường/Xã không hợp lệ",
+    "choosePaymentMethod": "Vui lòng chọn phương thức thanh toán",
+    "placeOrderSuccess": "Đặt hàng thành công",
+    "enterInfor": "Vui lòng nhập đầy đủ thông tin",
+    "deliveryInformation": "Thông tin nhận hàng",
+    "fullName": "Họ và tên",
+    "phoneNumber": "Số điện thoại*",
+    "address": "Địa chỉ cụ thể (số nhà, tên đường)",
+    "receiverProvince": "Tỉnh/Thành phố*",
+    "receiverDistrict": "Quận/Huyện*",
+    "receiverWard": "Phường/Xã*",
+    "note": "Ghi chú..."
+  },
+  "ModalConfirmPayment": {
+    "errorMessage": "Đã có lỗi xảy ra, vui lòng thử lại sau",
+    "successMessage": "Đặt hàng thành công",
+    "payment": "Bạn muốn thanh toán?",
+    "payNow": "Thanh toán ngay",
+    "payLater": "Thanh toán sau"
   }
 }
