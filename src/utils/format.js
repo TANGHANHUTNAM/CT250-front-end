@@ -40,3 +40,17 @@ export const formatAddress = ({
   const parts = [details, ward, district, province]; // Tạo mảng chứa các thành phần của địa chỉ
   return parts.filter((part) => part).join(", "); // Lọc ra các phần không rỗng và nối lại thành chuỗi
 };
+
+// Thứ ..., dd/mm/yyyy
+export const formatPublicationDateOfNews = (date) => {
+  if (!date) return "";
+
+  const formatter = new Intl.DateTimeFormat("vi-VN", {
+    weekday: "long",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  return formatter.format(new Date(date));
+};

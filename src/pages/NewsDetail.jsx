@@ -1,36 +1,48 @@
 import { useDynamicTitle, useTopPage } from "../hooks";
+import { FaRegClock, FaUser } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import NewsDetails from "../components/newsDetail/NewsDetail";
 import BodyLayout from "../layouts/BodyLayout";
+import { useLoaderData } from "react-router-dom";
+import { formatPublicationDateOfNews } from "../utils/format";
+import _ from "lodash";
 
 const NewsDetailPage = () => {
+  const news = useLoaderData();
+
   const { t } = useTranslation();
 
-  useDynamicTitle(t("BreadcrumbsAndTitle.all_dishes"));
+  useDynamicTitle(t(news?.title || "BreadcrumbsAndTitle.all_dishes"));
   useTopPage();
 
-  const [sortBy, setSortBy] = useState({});
-  const [filterBy, setFilterBy] = useState({});
-  const [selectedCategory, setSelectedCategory] = useState({});
-  const [currentPage, setCurrentPage] = useState(1);
-
-  console.log(sortBy, filterBy, selectedCategory, currentPage);
-
-  const handleChangePage = (page) => {
-    setCurrentPage(page);
-  };
   return (
-    <BodyLayout
-      title={t("NewsPage.title")}
-      sort={{ seletedOption: sortBy, setSelectedOption: setSortBy }}
-      filter={{ selectedFilter: filterBy, setSelectedFilter: setFilterBy }}
-      category={{
-        selectedCategory: selectedCategory,
-        setSelectedCategory: setSelectedCategory,
-      }}
-    >
-      <NewsDetails />
+    <BodyLayout>
+      {!_.isEmpty(news) ? (
+        <div className="mx-auto p-6 pt-10 !text-white">
+          <h1 className="mb-4 text-3xl font-bold">{news?.title}</h1>
+
+          {/* Post Info */}
+          <div className="mb-6 flex flex-col text-sm text-gray-600 md:flex-row md:space-x-4">
+            <div className="mb-2 flex items-center !text-white md:mb-0">
+              <FaRegClock className="mr-2 h-4 w-4 text-tertiary" />
+              {formatPublicationDateOfNews(news?.publishedAt)}
+            </div>
+            <div className="flex items-center !text-white">
+              <FaUser className="mr-2 h-4 w-4 text-tertiary" />
+              {news?.authorName}
+            </div>
+          </div>
+
+          {/* Sections */}
+          <div
+            className="rte"
+            dangerouslySetInnerHTML={{ __html: news?.content }}
+          ></div>
+        </div>
+      ) : (
+        <div className="mx-auto p-6 !text-white">
+          <h1 className="mb-4 text-3xl font-bold">Bài viết không tồn tại</h1>
+        </div>
+      )}
     </BodyLayout>
   );
 };
