@@ -8,42 +8,42 @@ import ConfirmedOrder from "../components/reservationOrder/ConfirmedOrder";
 import CanceledOrder from "../components/reservationOrder/CanceledOrder";
 import CompletedOrder from "../components/reservationOrder/CompletedOrder";
 
-const tabs = {
-  all: {
-    key: "all",
-    label: t("ReservationOrderPage.all"),
-    tabContent: <AllReservationOrder />,
-    trans: "ReservationOrderPage.all",
-  },
-  pending_confirm: {
-    key: "pending_confirm",
-    label:  t("ReservationOrderPage.toConfirm"),
-    tabContent: <ConfirmationPending />,
-    trans: "ReservationOrderPage.toConfirm",
-  },
-  confirmed: {
-    key: "confirmed",
-    label:  t("ReservationOrderPage.confirmed"),
-    tabContent: <ConfirmedOrder />,
-    trans: "ReservationOrderPage.confirmed",
-  },
-  completed: {
-    key: "completed",
-    label:  t("ReservationOrderPage.completed"),
-    tabContent: <CompletedOrder />,
-    trans: "ReservationOrderPage.completed",
-  },
-  canceled: {
-    key: "canceled",
-    label:  t("ReservationOrderPage.cancelled"),
-    tabContent: <CanceledOrder />,
-    trans: "ReservationOrderPage.cancelled",
-  },
-};
-
 const ReservationOrders = ({}) => {
   const { t } = useTranslation();
-
+  
+  const tabs = {
+    all: {
+      key: "all",
+      label: t("ReservationOrderPage.all"),
+      tabContent: <AllReservationOrder />,
+      trans: "ReservationOrderPage.all",
+    },
+    pending_confirm: {
+      key: "pending_confirm",
+      label:  t("ReservationOrderPage.toConfirm"),
+      tabContent: <ConfirmationPending />,
+      trans: "ReservationOrderPage.toConfirm",
+    },
+    confirmed: {
+      key: "confirmed",
+      label:  t("ReservationOrderPage.confirmed"),
+      tabContent: <ConfirmedOrder />,
+      trans: "ReservationOrderPage.confirmed",
+    },
+    completed: {
+      key: "completed",
+      label:  t("ReservationOrderPage.completed"),
+      tabContent: <CompletedOrder />,
+      trans: "ReservationOrderPage.completed",
+    },
+    canceled: {
+      key: "canceled",
+      label:  t("ReservationOrderPage.cancelled"),
+      tabContent: <CanceledOrder />,
+      trans: "ReservationOrderPage.cancelled",
+    },
+  };
+  
   useDynamicTitle(t("BreadcrumbsAndTitle.reservation_orders"));
   useTopPage();
 
