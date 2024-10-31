@@ -75,7 +75,7 @@ const RateModal = ({
       const res = await addNewReview(orderId, data);
 
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success("You have successfully rated your order.");
+        toast.success(t("ReviewModal.successMessage"));
         handleClose();
         refetchOrder();
       }
@@ -85,7 +85,7 @@ const RateModal = ({
       }
       setLoading(false);
     } else {
-      toast.warning("Invalid ratings or order. Please try again later.");
+      toast.warning(t("ReviewModal.errorMessage"));
     }
   };
 
@@ -147,7 +147,7 @@ const RateModal = ({
                 </div>
                 <div className="flex grow items-start gap-6">
                   <div className="shrink-0 space-y-2 text-center">
-                    <div className="font-semibold">Chất lượng món ăn</div>
+                    <div className="font-semibold">{t("ReviewModal.quality")}</div>
                     <Rate
                       onChange={(value) => handleChangeRate(dish?._id, value)}
                     />

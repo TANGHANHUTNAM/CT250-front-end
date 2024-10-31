@@ -114,8 +114,8 @@ const OrderDetail = () => {
             </span>
             <span className="pl-3 font-medium text-tertiary sr-530:uppercase">
               {order?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID
-                ? "Chưa thanh toán"
-                : "Đã thanh toán"}
+                ? t("OrderDetailsPage.notPaid")
+                : t("OrderDetailsPage.paid")}
             </span>
           </div>
         </div>
@@ -233,7 +233,7 @@ const OrderDetail = () => {
                   <p className="pb-1">
                     {new Date(order?.orderDate).toLocaleString("vi-VN")}
                   </p>
-                  <p className="text-blue-400">Đơn hàng đã được đặt</p>
+                  <p className="text-blue-400">{t("OrderDetailsPage.orderPlaced")}</p>
                 </div>
               </div>
               {order?.deliveryDate && (
@@ -244,7 +244,7 @@ const OrderDetail = () => {
                       {" "}
                       {new Date(order?.deliveryDate).toLocaleString("vi-VN")}
                     </p>
-                    <p className="text-green-400">Đơn hàng đã được giao</p>
+                    <p className="text-green-400">{t("OrderDetailsPage.orderDelivered")}</p>
                   </div>
                 </div>
               )}
@@ -256,7 +256,7 @@ const OrderDetail = () => {
                       {" "}
                       {new Date(order?.updatedAt).toLocaleString("vi-VN")}
                     </p>
-                    <p className="text-red-500">Đơn hàng đã bị hủy</p>
+                    <p className="text-red-500">{t("OrderDetailsPage.orderCanceled")}</p>
                   </div>
                 </div>
               )}

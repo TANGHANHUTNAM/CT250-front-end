@@ -492,14 +492,22 @@
     "shippingFee": "Phí vận chuyển",
     "voucherApplied": "Mã giảm giá từ nhà hàng",
     "orderTotal": "Thành tiền",
-    "cancelOrder": "Hủy đặt hàng"
+    "cancelOrder": "Hủy đặt hàng",
+    "orderPlaced": "Đơn hàng đã được đặt",
+    "orderDelivered": "Đơn hàng đã được giao",
+    "orderCanceled": "Đơn hàng đã bị hủy",
+    "paid": "Đã thanh toán",
+    "notPaid": "Chưa thanh toán"
   },
-  "ReviewModal": {
-    "title": "Đánh giá đơn hàng",
-    "textareaPlaceholder": "Hãy cho chúng tôi biết cảm nhận của bạn...",
-    "submitReview": "Gửi đánh giá",
-    "cancel": "Thoát"
-  },
+    "ReviewModal": {
+      "title": "Đánh giá đơn hàng",
+      "textareaPlaceholder": "Hãy cho chúng tôi biết cảm nhận của bạn...",
+      "submitReview": "Gửi đánh giá",
+      "cancel": "Thoát",
+      "errorMessage": "Đánh giá hoặc đơn hàng không hợp lệ. Vui lòng thử lại sau.",
+      "successMessage": "Bạn đã đánh giá thành công đơn hàng của mình.",
+      "quality": "Chất lượng món ăn" 
+    },
   "ReservationOrderPage": {
     "all": "Tất cả",
     "toConfirm": "Chờ xác nhận",
@@ -553,6 +561,7 @@
     "receiverDistrictRequire": "Quận/Huyện không hợp lệ",
     "receiverWardRequire": "Phường/Xã không hợp lệ",
     "choosePaymentMethod": "Vui lòng chọn phương thức thanh toán",
+    "chooseDish":"Vui lòng chọn món ăn",
     "placeOrderSuccess": "Đặt hàng thành công",
     "enterInfor": "Vui lòng nhập đầy đủ thông tin",
     "deliveryInformation": "Thông tin nhận hàng",
@@ -570,5 +579,33 @@
     "payment": "Bạn muốn thanh toán?",
     "payNow": "Thanh toán ngay",
     "payLater": "Thanh toán sau"
+  },
+  "Voucher": {
+    "title": "Voucher:",
+    "discount": "Giảm: "
+  },
+  "PaymentResult": {
+    "successMessage": "Thanh toán thành công!",
+    "failureMessage": "Thanh toán thất bại!",
+    "successDescription": "Thanh toán đã thực hiện thành công. Tonatra sẽ gửi liên hệ qua mail hoặc số điện thoại để xác nhận đơn hàng.",
+    "failureDescription": "Thanh toán thất bại. Vui lòng vào trang đơn hàng trong tài khoản để thực hiện lại thanh toán. Trong vòng 15 phút nếu đơn hàng không được thanh toán, đơn hàng sẽ bị hủy.",
+    "orderCode": "Mã đơn hàng",
+    "orderStatus": "Trạng thái đơn hàng",
+    "customerName": "Họ tên khách hàng",
+    "phoneNumber": "Số điện thoại",
+    "shippingAddress": "Địa chỉ nhận hàng",
+    "paymentMethod": "Hình thức thanh toán",
+    "orderTotal": "Số tiền",
+    "paymentStatus": "Trạng thái thanh toán",
+    "paid": "Đã thanh toán",
+    "notPaid": "Chưa thanh toán",
+    "buyMore": "Mua thêm",
+    "orderPage": "Trang đơn hàng"
+  },
+  "status": {
+    "pending": "Chờ xác nhận",
+    "confirmed": "Đã xác nhận",
+    "completed": "Hoàn thành",
+    "canceled": "Đã hủy"
   }
 }

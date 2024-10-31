@@ -492,13 +492,21 @@
     "shippingFee": "Shipping Fee",
     "voucherApplied": "Voucher Applied",
     "orderTotal": "Order Total",
-    "cancelOrder": "Cancel Order"
+    "cancelOrder": "Cancel Order",
+    "orderPlaced": "Order placed",
+    "orderDelivered": "Order delivered",
+    "orderCanceled": "Order canceled",
+    "paid": "Paid",
+    "notPaid": "Not paid"
   },
   "ReviewModal": {
     "title": "Order Review",
-    "textareaPlaceholder": "Let us know what you think...",
-    "submitReview": "Submit review",
-    "cancel": "Cancel"
+    "textareaPlaceholder": "Let us know your thoughts...",
+    "submitReview": "Submit Review",
+    "cancel": "Cancel",
+    "errorMessage": "Invalid ratings or order. Please try again later.",
+    "successMessage": "You have successfully rated your order.",
+    "quality": "Food Quality"
   },
   "ReservationOrderPage": {
     "all": "All",
@@ -553,6 +561,7 @@
     "receiverDistrictRequire": "Invalid District",
     "receiverWardRequire": "Invalid Ward",
     "choosePaymentMethod": "Please select a payment method",
+    "chooseDish":"Please select a dish",
     "placeOrderSuccess": "Order placed successfully",
     "enterInfor": "Please fill in all the information",
     "deliveryInformation": "Delivery Information",
@@ -563,5 +572,40 @@
     "receiverDistrict": "District*",
     "receiverWard": "Ward*",
     "note": "Notes..."
+  },
+  "ModalConfirmPayment": {
+  "errorMessage": "An error occurred, please try again later",
+  "successMessage": "Order placed successfully",
+  "payment": "Would you like to make a payment?",
+  "payNow": "Pay now",
+  "payLater": "Pay later"
+  },
+  "Voucher": {
+    "title": "Voucher:",
+    "discount": "Discount: "
+  },
+  "PaymentResult": {
+    "successMessage": "Payment Successful!",
+    "failureMessage": "Payment Failed!",
+    "successDescription": "Your payment was successful. Tonatra will contact you via email or phone to confirm the order.",
+    "failureDescription": "Payment failed. Please go to the order page in your account to retry payment. If the payment is not completed within 15 minutes, the order will be canceled.",
+    "orderCode": "Order ID",
+    "orderStatus": "Order Status",
+    "customerName": "Customer Name",
+    "phoneNumber": "Phone Number",
+    "shippingAddress": "Shipping Address",
+    "paymentMethod": "Payment Method",
+    "orderTotal": "Total Amount",
+    "paymentStatus": "Payment Status",
+    "paid": "Paid",
+    "notPaid": "Not Paid",
+    "buyMore": "Buy More",
+    "orderPage": "Order Page"
+  },
+  "status": {
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "completed": "Completed",
+    "canceled": "Canceled"
   }
 }

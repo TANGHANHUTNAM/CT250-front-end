@@ -11,31 +11,31 @@ import CompletedOrder from "../components/reservationOrder/CompletedOrder";
 const tabs = {
   all: {
     key: "all",
-    label: "Tất cả",
+    label: t("ReservationOrderPage.all"),
     tabContent: <AllReservationOrder />,
     trans: "ReservationOrderPage.all",
   },
   pending_confirm: {
     key: "pending_confirm",
-    label: "Chờ xác nhận",
+    label:  t("ReservationOrderPage.toConfirm"),
     tabContent: <ConfirmationPending />,
     trans: "ReservationOrderPage.toConfirm",
   },
   confirmed: {
     key: "confirmed",
-    label: "Đã xác nhận",
+    label:  t("ReservationOrderPage.confirmed"),
     tabContent: <ConfirmedOrder />,
     trans: "ReservationOrderPage.confirmed",
   },
   completed: {
     key: "completed",
-    label: "Hoàn thành",
+    label:  t("ReservationOrderPage.completed"),
     tabContent: <CompletedOrder />,
     trans: "ReservationOrderPage.completed",
   },
   canceled: {
     key: "canceled",
-    label: "Đã hủy",
+    label:  t("ReservationOrderPage.cancelled"),
     tabContent: <CanceledOrder />,
     trans: "ReservationOrderPage.cancelled",
   },

@@ -64,9 +64,9 @@ const PaymentResult = () => {
           <div className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="text-3xl font-semibold">
               {code === "00" ? (
-                <span className="text-green-500">Thanh toán thành công!</span>
+                <span className="text-green-500">{t("PaymentResult.successMessage")}</span>
               ) : (
-                <span className="text-red-500">Thanh toán thất bại!</span>
+                <span className="text-red-500">{t("PaymentResult.failureMessage")}</span>
               )}
             </div>
             <div className="text-5xl">
@@ -78,46 +78,46 @@ const PaymentResult = () => {
             </div>
             <p className="mt-2 text-gray-600">
               {code === "00"
-                ? "Thanh toán đã thực hiện thành công. Tonatra sẽ gửi liên hệ qua mail hoặc số điện thoại để xác nhận đơn hàng."
-                : "Thanh toán thất bại. Vui lòng vào trang đơn hàng trong tài khoản để thực hiện lại thanh toán. Trong vòng 15 phút nếu đơn hàng không được thanh toán, đơn hàng sẽ bị hủy."}
+                ? t("PaymentResult.successDescription")
+                : t("PaymentResult.failureDescription")}
             </p>
           </div>
 
           <div className="mt-4 grid gap-2.5 lg:grid-cols-2">
             <div>
-              <p className="font-semibold text-gray-800">Mã đơn hàng</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.orderCode")}</p>
               <p className="text-gray-600">{order?._id}</p>
             </div>
 
             <div>
-              <p className="font-semibold text-gray-800">Trạng thái đơn hàng</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.orderStatus")}</p>
               <p className="text-gray-600">{order?.orderStatus}</p>
             </div>
 
             <div>
-              <p className="font-semibold text-gray-800">Họ tên khách hàng</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.customerName")}</p>
               <p className="text-gray-600">{order?.receiverName}</p>
             </div>
 
             <div>
-              <p className="font-semibold text-gray-800">Số điện thoại</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.phoneNumber")}</p>
               <p className="text-gray-600">{order?.receiverPhone}</p>
             </div>
 
             <div>
-              <p className="font-semibold text-gray-800">Địa chỉ nhận hàng</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.shippingAddress")}</p>
               <p className="text-gray-600">{`${order?.receiverAddress?.details ? `${order?.receiverAddress?.details},` : ""} ${order?.receiverAddress?.ward}, ${order?.receiverAddress?.district}, ${order?.receiverAddress?.province}`}</p>
             </div>
 
             <div>
               <p className="font-semibold text-gray-800">
-                Hình thức thanh toán
+                {t("PaymentResult.paymentMethod")}
               </p>
               <p className="text-gray-600">{order?.paymentMethod}</p>
             </div>
 
             <div>
-              <p className="font-semibold text-gray-800">Số tiền</p>
+              <p className="font-semibold text-gray-800">{t("PaymentResult.orderTotal")}</p>
               <p className="text-gray-600">
                 {formatCurrency(order?.orderTotal)}
               </p>
@@ -125,10 +125,10 @@ const PaymentResult = () => {
 
             <div>
               <p className="font-semibold text-gray-800">
-                Trạng thái thanh toán
+                {t("PaymentResult.paymentStatus")}
               </p>
               <p className="text-gray-600">
-                {order?.paymentStatus ? "Đã thanh toán" : "Chưa thanh toán"}
+                {order?.paymentStatus ? t("PaymentResult.paid") : t("PaymentResult.notPaid")}
               </p>
             </div>
           </div>
@@ -138,13 +138,13 @@ const PaymentResult = () => {
               className="mb-2 mr-2 rounded-md bg-red-500 px-3 py-2 text-white hover:bg-red-600"
               onClick={() => navigate("/dish")}
             >
-              Mua thêm
+              {t("PaymentResult.buyMore")}
             </button>
             <button
               className="rounded-md bg-green-500 px-3 py-2 text-white hover:bg-green-600"
               onClick={() => navigate("/account/purchase")}
             >
-              Trang đơn hàng
+              {t("PaymentResult.orderPage")}
             </button>
           </div>
         </div>

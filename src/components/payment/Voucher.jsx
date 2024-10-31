@@ -1,6 +1,9 @@
 import { LuCopy } from "react-icons/lu";
 import { formatCurrency } from "../../utils/format";
+import { useTranslation } from "react-i18next";
+
 const Voucher = ({ coupon }) => {
+  const { t } = useTranslation();
   const handleCopy = () => {
     if (coupon?.code) {
       navigator.clipboard.writeText(coupon.code);
@@ -19,9 +22,9 @@ const Voucher = ({ coupon }) => {
       </div>
       <div className="text-sm">
         {coupon?.type ? (
-          <span>Giảm: {coupon?.value}%</span>
+          <span>{t("Voucher.discount")}{coupon?.value}%</span>
         ) : (
-          <span>Giảm: {formatCurrency(coupon?.value)}</span>
+          <span>{t("Voucher.discount")}{formatCurrency(coupon?.value)}</span>
         )}
       </div>
       <div className="text-sm font-medium text-gray-50">{coupon?.code}</div>

@@ -38,8 +38,10 @@ import { toast } from "react-toastify";
 import ModalConfirmPayment from "./ModalConfirmPayment";
 import { useNavigate } from "react-router-dom";
 import { removeAll } from "../../redux/reducer/cartSlice";
+import { useTranslation } from "react-i18next";
 
 const InforPayment = ({ setIsLoading }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [openModalConfirmPayment, setOpenModalConfirmPayment] = useState(false);
   const provincesShipping = [
@@ -54,15 +56,15 @@ const InforPayment = ({ setIsLoading }) => {
   // Define the validation schema
   const inforDiliveryForm = yup
     .object({
-      receiverName: yup.string().required("Tên không được để trống"),
+      receiverName: yup.string().required(t("InforPayment.receiverNameRequire")),
       receiverPhone: yup
         .string()
-        .matches(/^[0-9]{10}$/, "Invalid Phone Number")
-        .required("Invalid Phone Number"),
-      receiverAddressOption: yup.string().max(255, "Invalid Address"),
-      receiverProvince: yup.string().required("Invalid Province"),
-      receiverDistrict: yup.string().required("Invalid District"),
-      receiverWard: yup.string().required("Invalid Ward"),
+        .matches(/^[0-9]{10}$/, t("InforPayment.receiverPhoneRequire"))
+        .required(t("InforPayment.receiverPhoneRequire")),
+      receiverAddressOption: yup.string().max(255, t("InforPayment.receiverAddressOptionRequire")),
+      receiverProvince: yup.string().required(t("InforPayment.receiverProvinceRequire")),
+      receiverDistrict: yup.string().required(t("InforPayment.receiverDistrictRequire")),
+      receiverWard: yup.string().required(t("InforPayment.receiverWardRequire")),
       Note: yup.string(),
     })
     .required();
@@ -264,7 +266,7 @@ const InforPayment = ({ setIsLoading }) => {
         const orderResult = res.DT;
         if (!paymentMethod.isTransfer) {
           dispatch(removeAll());
-          toast.success("Đặt hàng thành công");
+          toast.success(t("InforPayment.placeOrderSuccess"));
           setOrderCompleted(true);
         }
         if (paymentMethod.isTransfer) {
@@ -294,17 +296,17 @@ const InforPayment = ({ setIsLoading }) => {
   const handleOrder = async (data) => {
     if (data) {
       if (paymentMethod.value === null) {
-        toast.error("Vui lòng chọn phương thức thanh toán");
+        toast.error(t("InforPayment.choosePaymentMethod"));
         return;
       }
       if (totalQuantity === 0) {
-        toast.error("Vui lòng chọn món ăn");
+        toast.error(t("InforPayment.chooseDish"));
         return;
       }
       // call api
       handleCreateOrder();
     } else {
-      toast.error("Vui lòng nhập đầy đủ thông tin");
+      toast.error(t("InforPayment.enterInfor"));
     }
   };
   const filteredProvinces = provinces?.filter((province) =>
@@ -313,7 +315,7 @@ const InforPayment = ({ setIsLoading }) => {
   return (
     <div className="flex w-full flex-col gap-2 md:w-1/2">
       <div className="text-2xl font-semibold uppercase text-tertiary">
-        Thông tin nhận hàng
+        {t("InforPayment.deliveryInformation")}
       </div>
       <div className="form mt-2 h-full">
         <form
@@ -324,7 +326,7 @@ const InforPayment = ({ setIsLoading }) => {
           <Input
             type="text"
             onChange={(e) => handleReceiverName(e.target.value)}
-            placeholder={"Họ và tên*"}
+            placeholder={t("InforPayment.fullName")}
             label="receiverName"
             autoComplete="receiverName"
             className="w-full rounded-sm border px-3 py-2 text-sm outline-none"
@@ -335,7 +337,7 @@ const InforPayment = ({ setIsLoading }) => {
           />
           <Input
             type="text"
-            placeholder={"Số điện thoại*"}
+            placeholder={t("InforPayment.phoneNumber")}
             onChange={(e) => handleReceiverPhone(e.target.value)}
             label="receiverPhone"
             autoComplete="receiverPhone"
@@ -347,7 +349,7 @@ const InforPayment = ({ setIsLoading }) => {
           />
           <Input
             type="text"
-            placeholder={"Địa chỉ cụ thể (số nhà, tên đường)"}
+            placeholder={t("InforPayment.address")}
             onChange={(e) => handleReceiverAddress(e.target.value)}
             label="receiverAddressOption"
             autoComplete="receiverAddressOption"
@@ -364,7 +366,7 @@ const InforPayment = ({ setIsLoading }) => {
             errors={errors}
             value={selectedProvince}
             onChange={handleSelectProvince}
-            placeholder={`Tỉnh/Thành phố*`}
+            placeholder={t("InforPayment.receiverProvince")}
             options={filteredProvinces?.map((province) => ({
               value: province.ProvinceID,
               label: province.ProvinceName,
@@ -377,7 +379,7 @@ const InforPayment = ({ setIsLoading }) => {
             errors={errors}
             value={selectedDistrict}
             onChange={handleSelectDistrict}
-            placeholder={"Quận/Huyện*"}
+            placeholder={t("InforPayment.receiverDistrict")}
             options={districts?.map((district) => ({
               value: district.DistrictID,
               label: district.DistrictName,
@@ -390,7 +392,7 @@ const InforPayment = ({ setIsLoading }) => {
             errors={errors}
             value={selectedWard}
             onChange={handleSelectWard}
-            placeholder={"Phường/Xã*"}
+            placeholder={t("InforPayment.receiverWard")}
             options={wards?.map((ward) => ({
               value: ward.WardCode,
               label: ward.WardName,
@@ -398,7 +400,7 @@ const InforPayment = ({ setIsLoading }) => {
           />
           <Textarea
             type="text"
-            placeholder={"Ghi chú..."}
+            placeholder={t("InforPayment.note")}
             onChange={(e) => handleNote(e.target.value)}
             label="Note"
             autoComplete="Note"

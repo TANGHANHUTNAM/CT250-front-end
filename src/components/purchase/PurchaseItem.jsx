@@ -57,8 +57,8 @@ const PurchaseItem = ({ item = {}, handleCancelPurchase = (data) => {} }) => {
           </span>
           <span className="pl-2 font-semibold uppercase text-tertiary">
             {item?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID
-              ? "Chưa thanh toán"
-              : "Đã thanh toán"}
+              ? t("OrderDetailsPage.notPaid")
+              : t("OrderDetailsPage.paid")}
           </span>
         </div>
       </div>
