@@ -10,10 +10,7 @@ const NewsCard = ({ news }) => {
       <div className="overflow-hidden !bg-bgNew !text-white shadow-lg">
         {/* Image */}
         <div className="relative">
-          <p
-            className="block"
-            title="Mách bạn công thức làm canh cá nấu mẻ thơm ngon đậm vị"
-          >
+          <p className="block" title={news?.title}>
             <img
               className="h-48 w-full object-cover"
               src={news?.image}

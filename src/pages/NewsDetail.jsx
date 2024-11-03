@@ -17,7 +17,7 @@ const NewsDetailPage = () => {
   return (
     <BodyLayout>
       {!_.isEmpty(news) ? (
-        <div className="mx-auto p-6 pt-10 !text-white">
+        <div className="mx-auto py-6 pt-10 !text-white">
           <h1 className="mb-4 text-3xl font-bold">{news?.title}</h1>
 
           {/* Post Info */}
