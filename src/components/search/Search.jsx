@@ -5,7 +5,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useApi, useDebounce } from "../../hooks";
 import { MdKeyboardVoice } from "react-icons/md";
 import { BiSolidUserVoice } from "react-icons/bi";
-import { HeaderContext } from "../Header/Header";
+import { HeaderContext } from "../header/Header.jsx";
 import { search } from "../../services/dishService";
 import StatusCodes from "../../utils/StatusCodes";
 import { toast } from "react-toastify";
