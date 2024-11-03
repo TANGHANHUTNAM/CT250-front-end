@@ -1,7 +1,7 @@
 import "./ResetPassword.css";
 import { useRef, useState } from "react";
 import { Carousel, Steps } from "antd";
-import VerifyEmail from "./verifyEmail";
+import VerifyEmail from "./VerifyEmail";
 import VerificationCode from "./VerificationCode";
 import NewPassword from "./NewPassword";
 import { useTranslation } from "react-i18next";
