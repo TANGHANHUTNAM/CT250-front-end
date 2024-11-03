@@ -3,7 +3,7 @@ import { Fragment, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { formatCurrency } from "../../utils/format";
 import { Empty } from "antd";
-import { HeaderContext } from "../Header/Header";
+import { HeaderContext } from "../header/Header.jsx";
 
 const Suggestion = ({ suggestions }) => {
   const { t } = useTranslation();
