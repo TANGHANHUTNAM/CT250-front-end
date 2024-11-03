@@ -83,7 +83,7 @@ const EditProfileForm = ({ profile }) => {
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       dispatch(updateInformation({ ...res.DT, avatar: res.DT?.avatar?.url }));
-      toast.success(res.EM);
+      toast.success("Hồ sơ của bạn đã được cập nhật!");
       navigate("/account");
     }
 

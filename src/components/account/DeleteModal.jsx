@@ -26,7 +26,7 @@ const DeleteModal = ({ show = false, setShow = () => {}, data = null }) => {
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       const handleSuccess = async () => {
         handleCancel();
-        toast.success(res.EM);
+        toast.success("Xóa tài khoản thành công!");
         dispatch(logoutSuccess());
       };
       await handleSuccess();

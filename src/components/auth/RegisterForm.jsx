@@ -53,7 +53,7 @@ const RegisterForm = () => {
     const res = await registerService(data);
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-      toast.success(res.EM);
+      toast.success("Đăng ký thành công!");
       navigate("/login");
     }
 

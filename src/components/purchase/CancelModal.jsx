@@ -25,7 +25,7 @@ const CancelModal = ({
       const res = await handleCancelOrder(data?._id);
 
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success(res.EM);
+        toast.success("Hủy đơn thành công!");
         handleCancel();
         refetchOrder();
       }

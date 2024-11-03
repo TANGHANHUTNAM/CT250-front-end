@@ -24,7 +24,7 @@ const UserMenu = () => {
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       await signOut(auth);
-      toast.success(res.EM);
+      toast.success("Đăng xuất thành công!");
       dispatch(logoutSuccess());
       navigate("/login");
     }

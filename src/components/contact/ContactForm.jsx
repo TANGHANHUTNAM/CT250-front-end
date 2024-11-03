@@ -39,7 +39,7 @@ const ContactForm = () => {
       const res = await contactService(data);
 
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success(res.EM);
+        toast.success("Liên hệ đã được gửi thàng công!");
         reset();
       }
 

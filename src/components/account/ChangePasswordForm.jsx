@@ -59,7 +59,7 @@ const ChangePasswordForm = () => {
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       dispatch(logoutSuccess());
-      toast.success(res.EM);
+      toast.success("Mật khẩu đã được thay đổi thành công!");
       navigate("/login");
     }
 

@@ -27,7 +27,7 @@ const SocialAuth = () => {
       const apiRes = await socialAuth({ email, name: displayName });
 
       if (apiRes && apiRes.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success(apiRes.EM);
+        toast.success("Đăng nhập thành công!");
         dispatch(
           loginSuccess({ ...apiRes.DT, avatar: apiRes.DT?.avatar?.url }),
         );
