@@ -464,7 +464,8 @@
       "newestNews": "Newest news",
       "oldestNews": "Oldest news"
     },
-    "noData": "No data."
+    "noData": "No data.",
+    "notExist": "The article does not exist"
   },
   "PurchasesPage": {
     "all": "All",

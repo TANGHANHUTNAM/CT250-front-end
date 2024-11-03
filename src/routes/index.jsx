@@ -71,7 +71,6 @@ const routes = [
       },
       {
         path: "news",
-        // element: <NewsPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
         children: [
           {
@@ -83,19 +82,12 @@ const routes = [
             element: <NewsDetailPage />,
             loader: NewsDetailLoader,
             handle: {
-              crumb: (data) => crumb(undefined, data?.crumb),
+              crumb: (data) =>
+                crumb(undefined, data?.crumb || "Chi tiết tin tức"),
             },
           },
         ],
       },
-      // {
-      //   path: "news/:slug",
-      //   element: <NewsDetailPage />,
-      //   loader: NewsDetailLoader,
-      //   handle: {
-      //     crumb: (data) => crumb(undefined, data?.crumb),
-      //   },
-      // },
       {
         path: "introduce",
         element: <IntroducePage />,

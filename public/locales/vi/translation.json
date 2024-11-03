@@ -464,7 +464,8 @@
       "newestNews": "Tin tức mới nhất",
       "oldestNews": "Tin tức cũ nhất"
     },
-    "noData": "Không có dữ liệu."
+    "noData": "Không có dữ liệu.",
+    "notExist": "Bài viết không tồn tại"
   },
   "PurchasesPage": {
     "all": "Tất cả",

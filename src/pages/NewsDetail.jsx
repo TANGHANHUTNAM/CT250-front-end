@@ -39,8 +39,10 @@ const NewsDetailPage = () => {
           ></div>
         </div>
       ) : (
-        <div className="mx-auto p-6 !text-white">
-          <h1 className="mb-4 text-3xl font-bold">Bài viết không tồn tại</h1>
+        <div className="py-9">
+          <div className="rounded-md bg-[#fff3cd] px-4 py-3 text-sm font-medium text-yellow-600">
+            {t("NewsPage.notExist")}
+          </div>
         </div>
       )}
     </BodyLayout>
