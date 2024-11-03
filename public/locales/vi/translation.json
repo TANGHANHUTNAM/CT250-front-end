@@ -456,7 +456,16 @@
     "outOfDish": "Món ăn này hiện tại đã hết. Vui lòng quay lại sau."
   },
   "NewsPage": {
-    "title": "Tin tức"
+    "title": "Tin tức",
+    "sort": {
+      "default": "Mặc định",
+      "a-z": "Tiêu đề A - Z",
+      "z-a": "Tiêu đề Z - A",
+      "newestNews": "Tin tức mới nhất",
+      "oldestNews": "Tin tức cũ nhất"
+    },
+    "noData": "Không có dữ liệu.",
+    "notExist": "Bài viết không tồn tại"
   },
   "PurchasesPage": {
     "all": "Tất cả",
@@ -535,12 +544,12 @@
   },
   "BillDetail": {
     "getPriceDiscountByCoupon": {
-      "success":"Áp dụng mã giảm giá thành công",
-      "fail":"Mã giảm giá không hợp lệ hoặc đã hết hạn!"
+      "success": "Áp dụng mã giảm giá thành công",
+      "fail": "Mã giảm giá không hợp lệ hoặc đã hết hạn!"
     },
     "paymentDetail": "Chi tiết thanh toán",
     "inputDiscount": "Nhập mã giảm giá",
-    "apply":"Áp dụng",
+    "apply": "Áp dụng",
     "subtotal": "Tổng số lượng:",
     "tempPayment": "Tạm thanh toán:",
     "shippingfee": "Phí vận chuyển:",
@@ -551,7 +560,7 @@
     "placeOrder": "Đặt hàng"
   },
   "Coupon": {
-    "valid":"Voucher khả dụng !!!"
+    "valid": "Voucher khả dụng !!!"
   },
   "InforPayment": {
     "receiverNameRequire": "Tên không được để trống",

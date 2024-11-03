@@ -2,7 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import MainLayout from "../layouts/MainLayout";
 import PrivateRoute from "./PrivateRoute";
-import { DishCategoryLoader, DishDetailLoader } from "./loader";
+import {
+  DishCategoryLoader,
+  DishDetailLoader,
+  NewsDetailLoader,
+} from "./loader";
 import LayoutApp from "../layouts/LayoutApp";
 
 const HomePage = lazy(() => import("../pages/Home"));
@@ -67,13 +71,22 @@ const routes = [
       },
       {
         path: "news",
-        element: <NewsPage />,
         handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
-      },
-      {
-        path: "news/:id",
-        element: <NewsDetailPage />,
-        handle: { crumb: () => crumb("BreadcrumbsAndTitle.news") },
+        children: [
+          {
+            index: true,
+            element: <NewsPage />,
+          },
+          {
+            path: ":slug",
+            element: <NewsDetailPage />,
+            loader: NewsDetailLoader,
+            handle: {
+              crumb: (data) =>
+                crumb(undefined, data?.crumb || "Chi tiết tin tức"),
+            },
+          },
+        ],
       },
       {
         path: "introduce",

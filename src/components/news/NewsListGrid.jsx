@@ -1,14 +1,15 @@
 import NewsCard from "./NewsCard";
-import data from "../../../public/NewsData.json"
-const NewsListGrid = () => {
-    const List = data;
-    return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-            {List.map((news) => {
-                return <NewsCard key={news.id} news={news} />;
-            })}
-        </div>
-    );
+
+const NewsListGrid = ({ news = [] }) => {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+      {news &&
+        news.length > 0 &&
+        news.map((item, i) => {
+          return <NewsCard key={`news-${i}-${item?._id}`} news={item} />;
+        })}
+    </div>
+  );
 };
 
 export default NewsListGrid;
