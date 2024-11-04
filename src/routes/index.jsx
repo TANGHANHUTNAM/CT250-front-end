@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
-import MainLayout from "../layouts/MainLayout";
-import PrivateRoute from "./PrivateRoute";
 import {
   DishCategoryLoader,
   DishDetailLoader,
   NewsDetailLoader,
 } from "./loader";
-import LayoutApp from "../layouts/LayoutApp";
+
+const MainLayout = lazy(() => import("../layouts/MainLayout"));
+const PrivateRoute = lazy(() => import("./PrivateRoute"));
+const LayoutApp = lazy(() => import("../layouts/LayoutApp"));
+const AccountTypeRoute = lazy(() => import("./AccountTypeRoute"));
 
 const HomePage = lazy(() => import("../pages/Home"));
 const ContactPage = lazy(() => import("../pages/Contact"));
@@ -194,7 +196,11 @@ const routes = [
           },
           {
             path: "change-password",
-            element: <ChangePasswordPage />,
+            element: (
+              <AccountTypeRoute>
+                <ChangePasswordPage />
+              </AccountTypeRoute>
+            ),
             handle: {
               crumb: () =>
                 crumb("BreadcrumbsAndTitle.my_account.change_password"),
