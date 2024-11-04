@@ -13,6 +13,7 @@ const initialState = {
     phoneNumber: "",
     address: "",
     role: "",
+    type: "",
   },
 };
 
@@ -33,6 +34,7 @@ export const userSlice = createSlice({
         phoneNumber: action?.payload?.phoneNumber,
         address: action?.payload?.address,
         role: action?.payload?.role,
+        type: action?.payload?.type,
       },
     }),
     logoutSuccess: () => ({
@@ -48,11 +50,13 @@ export const userSlice = createSlice({
         phoneNumber: "",
         address: "",
         role: "",
+        type: "",
       },
     }),
     updateInformation: (state, action) => ({
       ...state,
       account: {
+        ...state.account,
         id: action?.payload?._id,
         avatar: action?.payload?.avatar,
         username: action?.payload?.username,

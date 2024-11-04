@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 const AccountLayout = ({}) => {
   const { t } = useTranslation();
 
-  const { avatar, username } = useSelector((state) => state.user.account);
+  const { avatar, username, type } = useSelector((state) => state.user.account);
 
   return (
     <BodyLayout>
@@ -79,17 +79,19 @@ const AccountLayout = ({}) => {
                   </span>
                 </NavLink>
               </li>
-              <li className="group py-2 font-medium">
-                <NavLink
-                  to="/account/change-password"
-                  className="flex flex-nowrap items-center gap-4"
-                >
-                  <MdPassword className="h-5 w-5 text-blue-500" />
-                  <span className="duration-300 group-hover:text-tertiary">
-                    {t("ManageAccount.changePassword")}
-                  </span>
-                </NavLink>
-              </li>
+              {type && type === true && (
+                <li className="group py-2 font-medium">
+                  <NavLink
+                    to="/account/change-password"
+                    className="flex flex-nowrap items-center gap-4"
+                  >
+                    <MdPassword className="h-5 w-5 text-blue-500" />
+                    <span className="duration-300 group-hover:text-tertiary">
+                      {t("ManageAccount.changePassword")}
+                    </span>
+                  </NavLink>
+                </li>
+              )}
               <li className="group py-2 font-medium">
                 <NavLink
                   to="/account/delete"

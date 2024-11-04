@@ -9,6 +9,7 @@ import { checkConditionsToDelete } from "../services/accountService";
 import StatusCodes from "../utils/StatusCodes";
 import { toast } from "react-toastify";
 import TextSkeleton from "../components/skeleton/TextSkeleton";
+import DeleteModal from "../components/account/DeleteModal";
 
 const DeleteAccountPage = () => {
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ const DeleteAccountPage = () => {
     qualified: false,
     deliveringOrders: 0,
     confirmedReservations: 0,
+    type: true,
   });
 
   const { loading, apiFunction: handleCheckConditionsToDelete } = useApi(
@@ -58,37 +60,56 @@ const DeleteAccountPage = () => {
         {loading === false &&
           (isQualified.qualified === true ? (
             <>
-              <motion.div
-                initial={{ height: "auto", opacity: 1, visibility: "visible" }}
-                animate={{
-                  height: isConfirmed ? "0px" : "auto",
-                  opacity: isConfirmed ? 0 : 1,
-                  visibility: isConfirmed ? "hidden" : "visible",
-                }}
-                transition={{
-                  height: { duration: 0.5, ease: "easeInOut" },
-                  opacity: { duration: 0.3 },
-                }}
-                className="will-change-auto"
-              >
-                <DeleteConfirmation setIsConfirmed={setIsConfirmed} />
-              </motion.div>
+              {isQualified.type === true ? (
+                <>
+                  <motion.div
+                    initial={{
+                      height: "auto",
+                      opacity: 1,
+                      visibility: "visible",
+                    }}
+                    animate={{
+                      height: isConfirmed ? "0px" : "auto",
+                      opacity: isConfirmed ? 0 : 1,
+                      visibility: isConfirmed ? "hidden" : "visible",
+                    }}
+                    transition={{
+                      height: { duration: 0.5, ease: "easeInOut" },
+                      opacity: { duration: 0.3 },
+                    }}
+                    className="will-change-auto"
+                  >
+                    <DeleteConfirmation setIsConfirmed={setIsConfirmed} />
+                  </motion.div>
 
-              <motion.div
-                initial={{ height: "0px", opacity: 0, visibility: "hidden" }}
-                animate={{
-                  height: isConfirmed ? "auto" : "0px",
-                  opacity: isConfirmed ? 1 : 0,
-                  visibility: isConfirmed ? "visible" : "hidden",
-                }}
-                transition={{
-                  height: { duration: 0.5, ease: "easeInOut" },
-                  opacity: { duration: 0.3 },
-                }}
-                className="mx-auto will-change-auto sr-530:w-3/4 sm:w-3/5 lg:w-2/5"
-              >
-                <DeleteForm />
-              </motion.div>
+                  <motion.div
+                    initial={{
+                      height: "0px",
+                      opacity: 0,
+                      visibility: "hidden",
+                    }}
+                    animate={{
+                      height: isConfirmed ? "auto" : "0px",
+                      opacity: isConfirmed ? 1 : 0,
+                      visibility: isConfirmed ? "visible" : "hidden",
+                    }}
+                    transition={{
+                      height: { duration: 0.5, ease: "easeInOut" },
+                      opacity: { duration: 0.3 },
+                    }}
+                    className="mx-auto will-change-auto sr-530:w-3/4 sm:w-3/5 lg:w-2/5"
+                  >
+                    <DeleteForm />
+                  </motion.div>
+                </>
+              ) : (
+                <div>
+                  <DeleteConfirmation setIsConfirmed={setIsConfirmed} />
+                  {isConfirmed && (
+                    <DeleteModal show={isConfirmed} setShow={setIsConfirmed} />
+                  )}
+                </div>
+              )}
             </>
           ) : (
             <div className="space-y-6 text-sm">

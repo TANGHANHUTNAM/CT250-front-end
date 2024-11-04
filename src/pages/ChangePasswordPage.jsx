@@ -16,7 +16,7 @@ const ChangePasswordPage = () => {
         </p>
       </div>
       <div className="py-6">
-        <div className="sr-530:w-4/5 mx-auto sm:w-full lg:w-4/5 xl:w-3/5">
+        <div className="mx-auto sr-530:w-4/5 sm:w-full lg:w-4/5 xl:w-3/5">
           <ChangePasswordForm />
         </div>
       </div>
