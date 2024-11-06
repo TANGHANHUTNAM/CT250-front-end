@@ -22,7 +22,7 @@ const useDeleteReservation = (refetch = () => {}) => {
 
     if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
       handleCancel();
-      toast.success("Hủy đơn đặt bàn thàn công!");
+      toast.success(t("ReservationOrderPage.cancelReservationSuccess"));
       refetch();
     }
 
