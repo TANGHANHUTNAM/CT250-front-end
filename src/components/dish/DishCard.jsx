@@ -22,19 +22,19 @@ const DishCard = ({ dish }) => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id: dish?._id, quantity: 1 }));
-    toast.success("Thêm món vào giỏ hàng thành công!");
+    toast.success(t("DishCard.addToCart"));
   };
 
   const favouriteDishes = useSelector((state) => state.favouriteDish);
 
   const handleAddToFavourite = () => {
     dispatch(addToFavourite({ id: dish?._id }));
-    toast.success("Thêm món vào danh sách yêu thích thành công!");
+    toast.success(t("DishCard.addToFavourite"));
   };
 
   const handleReomveFromFavourite = () => {
     dispatch(removeFromFavourite({ id: dish?._id }));
-    toast.success("Xóa món khỏi danh sách yêu thích thành công!");
+    toast.success(t("DishCard.deleteFromList"));
   };
 
   return (

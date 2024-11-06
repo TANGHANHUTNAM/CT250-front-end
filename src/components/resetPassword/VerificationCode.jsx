@@ -141,7 +141,7 @@ const VerificationCode = ({
               className="cursor-pointer text-center text-sm font-medium text-tertiary hover:text-yellow-600"
               onClick={() => handleResendCode()}
             >
-              Gửi lại mã
+              {t("ResetPassword.resendCode")}
             </div>
           )}
           <LoadingButton

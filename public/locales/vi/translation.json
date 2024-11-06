@@ -9,6 +9,7 @@
     "content_6": "Tư vấn viên sẽ hướng dẫn khách hàng các bước cần thiết để tiến hành trả thanh toán."
   },
   "Header": {
+    "logoutSuccessMessage":"Đăng xuất thành công!",
     "Navbar": {
       "close": "Đóng",
       "home": "Trang chủ",
@@ -126,7 +127,9 @@
       "address": "Địa chỉ: ",
       "phoneNumber": "Điện thoại: ",
       "email": "Email: "
-    }
+      },
+      "message": "Liên hệ đã được gửi thàng công!",
+      "addressDetail": "Khu 2, Đ. 3/2, P. Xuân Khánh, Q. Ninh Kiều, TP. CT"
   },
   "BuyingGuide": {
     "title": "Hướng dẫn mua hàng",
@@ -287,6 +290,7 @@
     }
   },
   "ResetPassword": {
+    "resetSuccess":"Đổi mật khẩu thành công!",
     "verify_email": "Xác minh email",
     "verification_code": "Mã xác minh",
     "new_password": "Mật khẩu mới",
@@ -298,7 +302,8 @@
     "password_min": "Mật khẩu phải có tối thiểu là 6 kí tự",
     "password_max": "Mật khẩu phải có tối đa là 25 kí tự",
     "required_password": "Mật khẩu thì bắt buộc",
-    "required_verification_code": "Mã xác minh thì bắt buộc"
+    "required_verification_code": "Mã xác minh thì bắt buộc",
+    "resendCode":"Gửi lại mã"
   },
   "DishMenuSidebar": {
     "filter": "Lọc",
@@ -322,7 +327,8 @@
       "descPrice": "Giá giảm dần",
       "newestDish": "Món ăn mới nhất",
       "oldestDish": "Món ăn cũ nhất"
-    }
+    },
+    "allDish":"Tất cả món ăn"
   },
   "DishPage": {
     "title": "Tất cả món ăn",
@@ -333,7 +339,10 @@
     "sold": "đã bán",
     "new": "Mới",
     "addFavorite": "Thêm yêu thích",
-    "removeFavorite": "Bỏ yêu thích"
+    "removeFavorite": "Bỏ yêu thích",
+    "addToCart":"Thêm món vào giỏ hàng thành công!",
+    "addToFavourite":"Thêm món vào danh sách yêu thích thành công!",
+    "deleteFromList":"Xóa món khỏi danh sách yêu thích thành công!"
   },
   "BestDishPage": {
     "title": "Món ăn nổi bật"
@@ -453,7 +462,8 @@
     "star": "sao",
     "similarDish": "Món ăn cùng loại",
     "notFound": "Không tìm thấy món ăn.",
-    "outOfDish": "Món ăn này hiện tại đã hết. Vui lòng quay lại sau."
+    "outOfDish": "Món ăn này hiện tại đã hết. Vui lòng quay lại sau.",
+    "addToCartSuccess": "Thêm món vào giỏ hàng thành công!"
   },
   "NewsPage": {
     "title": "Tin tức",
@@ -481,6 +491,7 @@
     "viewRating": "Xem đánh giá",
     "payment": "Thanh toán",
     "cancel": "Hủy đơn",
+    "cancelSuccess": "Hủy đơn thành công!",
     "orderTotal": "Thành tiền",
     "emptyData": "Chưa có đơn hàng",
     "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn hàng với mã là {{id}} này không?"
@@ -532,11 +543,14 @@
     "phone": "Điện thoại",
     "cancelReservation": "Hủy đặt bàn",
     "emptyData": "Chưa có đơn",
-    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn đặt bàn với mã là {{id}} này không?"
+    "deleteConfirm": "Bạn có chắc chắn muốn hủy đơn đặt bàn với mã là {{id}} này không?",
+    "cancelReservationSuccess":"Hủy đơn đặt bàn thàn công!"
   },
   "SearchPage": {
     "title": "Có {{total}} kết quả tìm kiếm phù hợp với từ khóa '{{keyword}}'",
-    "notFound": "Không tìm thấy bất kỳ kết quả nào phù hợp với từ khóa '{{keyword}}'"
+    "notFound": "Không tìm thấy bất kỳ kết quả nào phù hợp với từ khóa '{{keyword}}'",
+    "browser":"Trình duyệt của bạn không hỗ trợ nhận dạng giọng nói.",
+    "Speech":"Lỗi nhận dạng giọng nói."
   },
   "FavoriteDishPage": {
     "title": "Món ăn yêu thích",

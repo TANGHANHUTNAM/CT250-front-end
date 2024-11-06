@@ -9,6 +9,7 @@
     "content_6": "The consultant will guide the customer through the necessary steps to make the payment."
   },
   "Header": {
+    "logoutSuccessMessage":"Logout successful!",
     "Navbar": {
       "close": "Close",
       "home": "Home",
@@ -126,7 +127,9 @@
       "address": "Address: ",
       "phoneNumber": "Phone: ",
       "email": "Email: "
-    }
+    },
+    "message": "Contact sent successfully!",
+    "addressDetail": "Zone 2, Street 3/2, Xuan Khanh Ward, Ninh Kieu District, Can Tho City"
   },
   "BuyingGuide": {
     "title": "Buying Guide",
@@ -287,6 +290,7 @@
     }
   },
   "ResetPassword": {
+    "resetSuccess":"Password changed successfully!",
     "verify_email": "Verify email",
     "verification_code": "Verification code",
     "new_password": "New password",
@@ -298,7 +302,8 @@
     "password_min": "Password must be at least 6 characters",
     "password_max": "Password must be at most 25 characters",
     "required_password": "Password is required",
-    "required_verification_code": "Verification code is required"
+    "required_verification_code": "Verification code is required",
+    "resendCode":"Resend code"
   },
   "DishMenuSidebar": {
     "filter": "Filter",
@@ -333,7 +338,10 @@
     "sold": "sold",
     "new": "New",
     "addFavorite": "Add favorite",
-    "removeFavorite": "Delete favorite"
+    "removeFavorite": "Delete favorite",
+    "addToCart": "Item successfully added to cart!",
+    "addToFavourite": "Item successfully added to favorites!",
+    "deleteFromList": "Item successfully removed from favorites!"
   },
   "BestDishPage": {
     "title": "Best dishes"
@@ -453,7 +461,8 @@
     "star": "star",
     "similarDish": "Similar dish",
     "notFound": "No dish found.",
-    "outOfDish": "This dish is currently out of stock. Please come back later."
+    "outOfDish": "This dish is currently out of stock. Please come back later.",
+    "addToCartSuccess": "Item added to cart successfully!"
   },
   "NewsPage": {
     "title": "News",
@@ -481,6 +490,7 @@
     "viewRating": "View Rating",
     "payment": "Payment",
     "cancel": "Cancel",
+    "cancelSuccess": "Order cancelled successfully!",
     "orderTotal": "Order Total",
     "emptyData": "No purchases yet",
     "deleteConfirm": "Are you sure you want to cancel this order with id {{id}}?"
@@ -532,11 +542,14 @@
     "phone": "Phone Number",
     "cancelReservation": "Cancel Reservation",
     "emptyData": "No reservations yet",
-    "deleteConfirm": "Are you sure you want to cancel this reservation with id {{id}}?"
+    "deleteConfirm": "Are you sure you want to cancel this reservation with id {{id}}?",
+    "cancelReservationSuccess":"Reservation cancellation successful!"
   },
   "SearchPage": {
     "title": "There are {{total}} search results matching the keyword '{{keyword}}'",
-    "notFound": "Did not find any results matching the keyword '{{keyword}}'"
+    "notFound": "Did not find any results matching the keyword '{{keyword}}'",
+    "browser":"Your browser does not support voice recognition.",
+    "Speech":"Speech recognition error."  
   },
   "FavoriteDishPage": {
     "title": "Favorite Dish",

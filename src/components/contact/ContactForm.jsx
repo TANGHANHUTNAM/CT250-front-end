@@ -39,7 +39,7 @@ const ContactForm = () => {
       const res = await contactService(data);
 
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
-        toast.success("Liên hệ đã được gửi thàng công!");
+        toast.success(t("Contact.message"));
         reset();
       }
 
@@ -65,8 +65,7 @@ const ContactForm = () => {
               {t("Contact.introduce.branch")}
             </li>
             <li>
-              <b>{t("Contact.introduce.address")}</b> Khu 2, Đ. 3/2, P. Xuân
-              Khánh, Q. Ninh Kiều, TP. CT
+              <b>{t("Contact.introduce.address")}</b> {t("Contact.addressDetail")}
             </li>
             <li>
               <b>{t("Contact.introduce.phoneNumber")}</b>
