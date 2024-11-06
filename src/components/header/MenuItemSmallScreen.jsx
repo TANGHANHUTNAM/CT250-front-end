@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const MenuItemSmallScreen = ({ listCategory, setVisible }) => {
+  const { t } = useTranslation();
   return (
     <div className="mt-2 flex w-full flex-col items-center justify-center gap-2 bg-tertiary py-1 text-base font-semibold">
       <Link
@@ -8,7 +10,7 @@ const MenuItemSmallScreen = ({ listCategory, setVisible }) => {
         onClick={() => setVisible(false)}
         to="/dish"
       >
-        Tất cả món ăn
+          {t("DishMenuSidebar.allDish")}
       </Link>
       {listCategory?.map((item) => {
         return (
