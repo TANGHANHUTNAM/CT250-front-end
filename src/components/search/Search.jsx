@@ -77,7 +77,7 @@ const Search = () => {
   const [isListening, setIsListening] = useState(false);
   const handleVoiceClick = () => {
     if (!("webkitSpeechRecognition" in window)) {
-      alert("Your browser does not support voice recognition.");
+      alert(t("SearchPage.browser"));
       return;
     }
 
@@ -97,7 +97,7 @@ const Search = () => {
     };
 
     recognition.onerror = (event) => {
-      console.error("Speech recognition error", event);
+      console.error(t("SearchPage.Speech"), event);
       setIsListening(false);
     };
 

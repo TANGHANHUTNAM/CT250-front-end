@@ -38,7 +38,7 @@ const NewPassword = ({ user = {} }) => {
 
       if (res && res.EC === StatusCodes.SUCCESS_DAFAULT) {
         dispatch(logoutSuccess());
-        toast.success("Đổi mật khẩu thành công!");
+        toast.success(t("ResetPassword.resetSuccess"));
         navigate("/login");
       }
 

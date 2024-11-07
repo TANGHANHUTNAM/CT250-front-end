@@ -18,7 +18,7 @@ const DishInformation = ({ dish }) => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ id: dish._id, quantity }));
-    toast.success("Thêm món vào giỏ hàng thành công!");
+    toast.success(t("DishDetailPage.addToCartSuccess"));
   };
 
   return (

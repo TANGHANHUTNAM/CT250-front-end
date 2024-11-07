@@ -98,8 +98,8 @@ const OrderDetail = () => {
             </span>
             <span className="pl-3 font-medium uppercase text-tertiary">
               {order?.paymentStatus === PAYMENT_STATUS.NOT_YET_PAID
-                ? "Chưa thanh toán"
-                : "Đã thanh toán"}
+                ? t("OrderDetailsPage.notPaid")
+                : t("OrderDetailsPage.paid")}
             </span>
           </div>
         </div>
