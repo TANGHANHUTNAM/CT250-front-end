@@ -15,7 +15,7 @@ const LIMIT_PAGE = 12;
 const NewsPage = () => {
   const { t } = useTranslation();
 
-  useDynamicTitle(t("BreadcrumbsAndTitle.news")); // news title
+  useDynamicTitle(t("BreadcrumbsAndTitle.all_dishes")); // news title
   useTopPage();
 
   const [news, setNews] = useState({});
