@@ -102,7 +102,7 @@ const DishCard = ({ dish }) => {
               <span className="rating flex items-center justify-center border-x-2 border-solid border-yellow-500 bg-yellow-200 p-1 text-yellow-600 sm:px-2">
                 <FaStar />
                 <span className="ml-1 text-xs font-bold">
-                  {dish?.averageRating ?? 0}
+                  {dish.averageRating.toFixed(1) ?? 0}
                 </span>
               </span>
               <span className="sold text-[10px] font-bold text-black sm:text-xs">
