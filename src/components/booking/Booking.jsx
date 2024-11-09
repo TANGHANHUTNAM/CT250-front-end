@@ -163,7 +163,7 @@ const Booking = () => {
                   errorStyle={{ borderBottomColor: "red" }}
                   translation={true}
                   min={1}
-                  max={10}
+                  max={30}
                 />
               </div>
             </div>

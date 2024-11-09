@@ -71,7 +71,7 @@ const BillDetetail = ({ listCoupon, isLoading }) => {
   };
 
   return (
-    <div className="flex w-full flex-col justify-between gap-3 rounded-md border border-solid border-tertiary p-6 md:w-1/2">
+    <div className="flex w-full flex-col justify-between gap-3 border-solid border-tertiary sm:rounded-md sm:border sm:p-6 md:w-1/2">
       {/* Bill detail */}
       <div className="detail-bill flex flex-col justify-between gap-1">
         <div className="text-xl font-semibold uppercase text-tertiary">
